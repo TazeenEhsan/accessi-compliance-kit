@@ -68,3 +68,28 @@
 	gap: 8px;
 	margin-top: 12px;
 }
+
+.accessi-compliance-kit-settings {
+	max-width: 640px;
+}
+
+.accessi-compliance-kit-fix-card {
+	margin-bottom: 12px;
+}
+
+.accessi-compliance-kit-fix-contexts {
+	display: flex;
+	gap: 6px;
+	margin-top: 8px;
+}
+
+.accessi-compliance-kit-context-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 10px;
+	background: #f0f0f1;
+	color: #1e1e1e;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+}

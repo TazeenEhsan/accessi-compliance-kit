@@ -83,30 +83,32 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 2.1 Fix Framework
 
-- [ ] Write `src/Fixes/AbstractFix.php`: abstract base with `id()`, `label()`, `description()`, `is_enabled()` (reads `accessi_compliance_kit_active_fixes` via Options), `applies_to()` returning contexts ('product', 'checkout', 'cart', 'global'), abstract `register()` (proposal §5.6)
-- [ ] Write `src/Fixes/FixManager.php`: hard-coded registry of the 6 free fix classes, loops on `init`, instantiates each, calls `register()` only when `is_enabled()` (proposal §5.6)
-- [ ] Add `body_class` filter in `FixManager`: append `accessi-compliance-kit-fixes-active` (plus per-fix classes) when any fix is enabled (proposal §5.4)
-- [ ] PHPUnit test: `FixManager` registers only enabled fixes (proposal §10 prompt 4)
+- [x] Write `src/Fixes/AbstractFix.php`: abstract base with `id()`, `label()`, `description()`, `is_enabled()` (reads `accessi_compliance_kit_active_fixes` via Options), `applies_to()` returning contexts ('product', 'checkout', 'cart', 'global'), abstract `register()` (proposal §5.6)
+- [x] Write `src/Fixes/FixManager.php`: hard-coded registry of the 6 free fix classes, loops on `init`, instantiates each, calls `register()` only when `is_enabled()` (proposal §5.6)
+- [x] Add `body_class` filter in `FixManager`: append `accessi-compliance-kit-fixes-active` (plus per-fix classes) when any fix is enabled (proposal §5.4)
+- [x] PHPUnit test: `FixManager` registers only enabled fixes (proposal §10 prompt 4)
 
 ### 2.2 The Six Free Fixes (one task each — see docs/frontend.md for specs)
 
-- [ ] `ProductImageAltFix.php` — filter `wp_get_attachment_image_attributes`; when alt is empty on product images, fall back to the product title; only on product contexts (proposal §4.1, §10 prompt 1)
-- [ ] Unit-test `ProductImageAltFix` (empty alt gets title, existing alt untouched)
-- [ ] `CheckoutLabelsFix.php` — filter `woocommerce_form_field_args` to ensure checkout fields have proper `<label>` associations (proposal §4.1, §5.4)
-- [ ] `FocusStatesFix.php` — enqueue `assets/css/frontend-fixes.css` (via `wp_enqueue_scripts`) adding visible focus states to all buttons and links; write the CSS with `:focus-visible` and a high-contrast outline
-- [ ] `IconButtonAriaFix.php` — add `aria-label` to icon-only buttons (cart, search, wishlist icons); implement via targeted front-end JS/output buffering approach per docs/frontend.md decision
-- [ ] `PriceScreenReaderFix.php` — prepend `<span class="screen-reader-text">Price:</span>` to WooCommerce price output so screen readers announce prices correctly (proposal §4.1)
-- [ ] `EmptyLinkAnchorFix.php` — give accessible names to empty link anchors (e.g. product image links), e.g. inject screen-reader text with the product title
-- [ ] Unit-test the remaining five fixes (one focused test file each; can batch 1 test per task run)
+- [x] `ProductImageAltFix.php` — filter `wp_get_attachment_image_attributes`; when alt is empty on product images, fall back to the product title; only on product contexts (proposal §4.1, §10 prompt 1)
+- [x] Unit-test `ProductImageAltFix` (empty alt gets title, existing alt untouched)
+- [x] `CheckoutLabelsFix.php` — filter `woocommerce_form_field_args` to ensure checkout fields have proper `<label>` associations (proposal §4.1, §5.4)
+- [x] `FocusStatesFix.php` — enqueue `assets/css/frontend-fixes.css` (via `wp_enqueue_scripts`) adding visible focus states to all buttons and links; write the CSS with `:focus-visible` and a high-contrast outline
+- [x] `IconButtonAriaFix.php` — add `aria-label` to icon-only buttons (cart, search, wishlist icons); implemented via a small shared front-end bundle (`assets/js/src/fixes/index.js`, new `fixes` webpack entry — see note below) enqueued only when this fix is enabled
+- [x] `PriceScreenReaderFix.php` — prepend `<span class="screen-reader-text">Price:</span>` to WooCommerce price output so screen readers announce prices correctly (proposal §4.1)
+- [x] `EmptyLinkAnchorFix.php` — give accessible names to empty link anchors (e.g. product image links), e.g. inject screen-reader text with the product title
+- [x] Unit-test the remaining five fixes (one focused test file each in `tests/phpunit/Fixes/`)
 
 ### 2.3 Settings
 
-- [ ] Register settings via `admin_init` in `src/Admin/SettingsPage.php`: sanitization callback for `accessi_compliance_kit_settings` and `accessi_compliance_kit_active_fixes` (whitelist known fix IDs, booleans only)
-- [ ] Add `wp_ajax_accessi_compliance_kit_save_settings` handler (nonce + capability + sanitize) per proposal §5.4
-- [ ] Write `assets/js/src/admin/Settings.jsx`: one ToggleControl per fix (label + description + context badge), all default OFF, save via AJAX with success/error notice (proposal §9: individually toggleable, off by default)
-- [ ] Add email-reminder opt-in toggle to Settings UI (stores in `accessi_compliance_kit_settings`; used in Phase 4 notifications)
-- [ ] Manual test matrix: enable each fix one at a time on Storefront; confirm the fix applies and nothing visually breaks (proposal §6 Phase 2)
-- [ ] Repeat quick fix smoke-test on Astra and Kadence (proposal §6 Phase 2; full matrix again in Phase 4)
+- [x] Register settings via `admin_init` in `src/Admin/SettingsPage.php`: sanitization callback for `accessi_compliance_kit_settings` and `accessi_compliance_kit_active_fixes` (whitelist known fix IDs, booleans only)
+- [x] Add `wp_ajax_accessi_compliance_kit_save_settings` handler (nonce + capability + sanitize) per proposal §5.4
+- [x] Write `assets/js/src/admin/Settings.jsx`: one ToggleControl per fix (label + description + context badge), all default OFF, save via AJAX with success/error notice (proposal §9: individually toggleable, off by default)
+- [x] Add email-reminder opt-in toggle to Settings UI (stores in `accessi_compliance_kit_settings`; used in Phase 4 notifications)
+- [ ] Manual test matrix: enable each fix one at a time on Storefront; confirm the fix applies and nothing visually breaks (proposal §6 Phase 2) — **not yet verified**: `vendor/bin/phpunit` passes (48/48) and `npm run build` is clean, but no browser/WP-CLI session with WooCommerce + Storefront was available in this environment. Needs a manual pass in a logged-in browser with each fix toggled on individually.
+- [ ] Repeat quick fix smoke-test on Astra and Kadence (proposal §6 Phase 2; full matrix again in Phase 4) — **not yet verified**, same limitation as above.
+
+**Note on `docs/frontend.md` vs. proposal §5.2:** `docs/frontend.md` §4.4/§4.6 explicitly calls for "a tiny front-end JS file in addition to PHP filters" for `IconButtonAriaFix` and `EmptyLinkAnchorFix`, since icon markup and empty-anchor patterns vary by theme. Proposal §5.2's file tree doesn't enumerate this file (it only shows `admin/` and `scanner/` under `assets/js/src/`). This isn't a contradiction — the proposal tree is illustrative, not exhaustive (it already omits the real `build/` output naming used elsewhere) — so a third `assets/js/src/fixes/index.js` entry (bundled via a new `fixes` webpack entry to `build/fixes.js`) was added rather than stopping. Flagging here per AI_RULES §"if documentation conflicts... stop and report" in case that reading is wrong.
 
 ## Phase 3 — Accessibility Statement (proposal §6, Week 6)
 

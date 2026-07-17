@@ -1,0 +1,28 @@
+/**
+ * Front-end auto-fix CSS (proposal §5.4). Every rule is scoped under the
+ * per-fix `body_class` flag added by `FixManager` so a disabled fix never
+ * affects the page, and specificity stays low and defensive
+ * (docs/coding-guidelines.md §3).
+ */
+
+/* Focus States (accessi_compliance_kit_active_fixes["focus_states"]) */
+
+.accessi-compliance-kit-fix-focus_states a:focus,
+.accessi-compliance-kit-fix-focus_states button:focus,
+.accessi-compliance-kit-fix-focus_states input:focus,
+.accessi-compliance-kit-fix-focus_states select:focus,
+.accessi-compliance-kit-fix-focus_states textarea:focus,
+.accessi-compliance-kit-fix-focus_states [tabindex]:focus {
+	outline: 3px solid #005fcc;
+	outline-offset: 2px;
+}
+
+.accessi-compliance-kit-fix-focus_states a:focus-visible,
+.accessi-compliance-kit-fix-focus_states button:focus-visible,
+.accessi-compliance-kit-fix-focus_states input:focus-visible,
+.accessi-compliance-kit-fix-focus_states select:focus-visible,
+.accessi-compliance-kit-fix-focus_states textarea:focus-visible,
+.accessi-compliance-kit-fix-focus_states [tabindex]:focus-visible {
+	outline: 3px solid #005fcc;
+	outline-offset: 2px;
+}

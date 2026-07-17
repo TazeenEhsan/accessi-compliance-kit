@@ -8,6 +8,7 @@ import { __ } from '@wordpress/i18n';
 import ScanRunner from './ScanRunner';
 import ScanResults from './ScanResults';
 import ScanHistory from './ScanHistory';
+import Settings from './Settings';
 import { ajaxRequest } from './utils/ajax';
 
 const settings = window.accessiComplianceKitAdmin || {};
@@ -55,7 +56,7 @@ export default function App() {
 					}
 
 					if ( 'settings' === tab.name ) {
-						return <p>{ __( 'Fix settings are coming soon.', 'accessi-compliance-kit' ) }</p>;
+						return <Settings settings={ settings } />;
 					}
 
 					return (

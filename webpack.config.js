@@ -6,6 +6,7 @@ module.exports = {
 	entry: {
 		admin: path.resolve( process.cwd(), 'assets/js/src/admin', 'index.js' ),
 		scanner: path.resolve( process.cwd(), 'assets/js/src/scanner', 'index.js' ),
+		fixes: path.resolve( process.cwd(), 'assets/js/src/fixes', 'index.js' ),
 	},
 	output: {
 		...defaultConfig.output,

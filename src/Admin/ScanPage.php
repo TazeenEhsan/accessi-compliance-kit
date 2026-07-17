@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use AccessiComplianceKit\Fixes\FixManager;
 use AccessiComplianceKit\Scanner\ScannerAssets;
 use AccessiComplianceKit\Utils\Options;
 
@@ -82,9 +83,10 @@ class ScanPage {
 			'lastScanId'     => Options::get_last_scan_id(),
 			'scanQueryVar'   => ScannerAssets::QUERY_VAR,
 			'nonces'         => array(
-				'runScan'  => wp_create_nonce( 'accessi_compliance_kit_run_scan' ),
-				'getScan'  => wp_create_nonce( 'accessi_compliance_kit_get_scan' ),
-				'getScans' => wp_create_nonce( 'accessi_compliance_kit_get_scans' ),
+				'runScan'      => wp_create_nonce( 'accessi_compliance_kit_run_scan' ),
+				'getScan'      => wp_create_nonce( 'accessi_compliance_kit_get_scan' ),
+				'getScans'     => wp_create_nonce( 'accessi_compliance_kit_get_scans' ),
+				'saveSettings' => wp_create_nonce( 'accessi_compliance_kit_save_settings' ),
 			),
 			'severityLabels' => array(
 				'critical' => __( 'Critical', 'accessi-compliance-kit' ),
@@ -92,6 +94,29 @@ class ScanPage {
 				'moderate' => __( 'Moderate', 'accessi-compliance-kit' ),
 				'minor'    => __( 'Minor', 'accessi-compliance-kit' ),
 			),
+			'fixes'          => $this->fixes_data(),
+			'activeFixes'    => Options::get_active_fixes(),
+			'settings'       => Options::get_settings(),
+		);
+	}
+
+	/**
+	 * Build the fix metadata (id, label, description, contexts) the Settings
+	 * tab needs to render one `ToggleControl` per fix (docs/admin.md §6).
+	 *
+	 * @return array
+	 */
+	private function fixes_data() {
+		return array_map(
+			function ( $fix ) {
+				return array(
+					'id'          => $fix->id(),
+					'label'       => $fix->label(),
+					'description' => $fix->description(),
+					'contexts'    => $fix->applies_to(),
+				);
+			},
+			FixManager::all_fixes()
 		);
 	}
 

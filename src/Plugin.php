@@ -91,6 +91,7 @@ class Plugin {
 	private function register_admin() {
 		( new Admin\AdminMenu() )->register();
 		( new Admin\ScanPage() )->register();
+		( new Admin\SettingsPage() )->register();
 	}
 
 	/**
@@ -109,6 +110,7 @@ class Plugin {
 	 * @return void
 	 */
 	private function register_fixes() {
+		( new Fixes\FixManager() )->register();
 	}
 
 	/**
