@@ -47,11 +47,11 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 1.2 Scan Persistence (PHP)
 
-- [ ] Write `src/Scanner/ViolationParser.php`: normalize raw axe-core JSON into the stored shape (violations array + summary counts by severity: critical/serious/moderate/minor per proposal §4.1)
-- [ ] Unit-test `ViolationParser` with a fixture of real axe-core output (empty results, mixed severities)
-- [ ] Write `src/Scanner/ScanStorage.php` part 1: `create_scan( $url, $type, $user_id )` inserting a `running` row, `complete_scan( $id, $violations, $summary )`, `fail_scan( $id )` — all via `$wpdb->prepare` (docs/database.md)
-- [ ] Write `src/Scanner/ScanStorage.php` part 2: `get_scan( $id )`, `get_recent_scans( $limit, $offset )`, `get_last_scan()` (updates/reads `accessi_compliance_kit_last_scan_id`), JSON decode helpers
-- [ ] Unit-test `ScanStorage` round-trip (insert → complete → fetch)
+- [x] Write `src/Scanner/ViolationParser.php`: normalize raw axe-core JSON into the stored shape (violations array + summary counts by severity: critical/serious/moderate/minor per proposal §4.1)
+- [x] Unit-test `ViolationParser` with a fixture of real axe-core output (empty results, mixed severities)
+- [x] Write `src/Scanner/ScanStorage.php` part 1: `create_scan( $url, $type, $user_id )` inserting a `running` row, `complete_scan( $id, $violations, $summary )`, `fail_scan( $id )` — all via `$wpdb->prepare` (docs/database.md)
+- [x] Write `src/Scanner/ScanStorage.php` part 2: `get_scan( $id )`, `get_recent_scans( $limit, $offset )`, `get_last_scan()` (updates/reads `accessi_compliance_kit_last_scan_id`), JSON decode helpers
+- [x] Unit-test `ScanStorage` round-trip (insert → complete → fetch)
 
 ### 1.3 AJAX Endpoints
 
