@@ -28,16 +28,17 @@ Implements proposal §4.1 (Admin dashboard, Notifications), §5.2 (Admin/ + asse
 Per proposal §5.2: `App.jsx`, `ScanResults.jsx`, `Settings.jsx`, `Dashboard.jsx` (plus `ScanRunner.jsx` for iframe orchestration, and `ScanHistory.jsx` for the History tab, built in task 1.4).
 
 ```
-App.jsx                — TabPanel: Scan | History | Settings
+App.jsx                — TabPanel: Dashboard | Scan | History | Settings
+├── Dashboard.jsx      — accessibility statement status card (task 3, §7 below); last-scan summary is Phase 4 scope
 ├── ScanRunner.jsx     — URL input, "Scan this page" button, hidden iframe, progress state
 ├── ScanResults.jsx    — violations grouped by severity with expandable detail (used by both the Scan and History tabs)
 ├── ScanHistory.jsx    — paginated past-scans table, click-through loads a scan via ScanResults
 └── Settings.jsx       — fix toggles + email opt-in (task 2.3 — the Settings tab is a placeholder until then)
 
-utils/ajax.js           — shared `admin-ajax.php` POST helper used by ScanRunner/ScanHistory/App
+utils/ajax.js           — shared `admin-ajax.php` POST helper used by ScanRunner/ScanHistory/Dashboard/App
 ```
 
-`Dashboard.jsx` (last-scan summary + statement status card) is not part of task 1.4's scope and has not been built yet; it belongs with the Phase 3/4 statement and dashboard-widget work.
+`Dashboard.jsx` currently holds only the statement status card (task 3). The last-scan summary described in §8 below stays on the separate WP dashboard widget (`src/Admin/DashboardWidget.php`, plain PHP, Phase 4 scope) — it has not been duplicated into this React tab.
 
 Use `@wordpress/components` (`TabPanel`, `Card`, `Button`, `ToggleControl`, `Notice`, `Spinner`) — no custom design system.
 
@@ -65,11 +66,12 @@ Use `@wordpress/components` (`TabPanel`, `Card`, `Button`, `ToggleControl`, `Not
 
 ## 7. Statement Card (proposal §4.1, §6 Phase 3)
 
-On the Dashboard area of the admin page:
+On the **Dashboard tab** of the admin page (`Dashboard.jsx`):
 
-- If no statement page exists: "Create statement page" button → `accessi_compliance_kit_generate_statement` AJAX → creates the "Accessibility Statement" page from the EN template → show link to edit it.
-- If it exists (page ID stored in `accessi_compliance_kit_settings`): show status + edit link; re-creating requires explicit confirmation (no silent duplicates). The merchant edits the page normally afterward (proposal §4.1).
-- Decision (implementation detail, does not change requirements): create the page as **draft** so the merchant reviews before publishing; surface this in the success message.
+- If no statement page exists: "Create statement page" button → `accessi_compliance_kit_generate_statement` AJAX (`force_new: '0'`) → `StatementGenerator::generate()` creates the "Accessibility Statement" page from the EN template (`src/Statement/templates/en.php`) as a **draft** → card shows the edit link.
+- If it exists (page ID stored in `accessi_compliance_kit_settings['statement_page_id']`, initial state localized as `statement.pageId`/`statement.editLink` in `ScanPage.php`): the card shows the edit link plus a "Create new statement page" button. That button re-posts with `force_new: '1'`, which bypasses the exists-check and inserts a separate page — the plain "Create statement page" click never silently duplicates; the AJAX handler returns `status: 'exists'` instead when a page is on record and `force_new` wasn't sent, and the card surfaces that as a warning notice.
+- If the stored page was deleted, `StatementGenerator::generate()` treats it as absent (checks `get_post_type()`) and creates a fresh one on the next click.
+- The merchant edits the page normally afterward (proposal §4.1).
 
 ## 8. Dashboard Widget (proposal §4.1)
 

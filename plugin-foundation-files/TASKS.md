@@ -112,12 +112,12 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ## Phase 3 — Accessibility Statement (proposal §6, Week 6)
 
-- [ ] Write `src/Statement/templates/en.php`: EAA-compliant statement template with placeholders — compliance level claimed, known limitations section, contact for accessibility issues, date of last review (proposal §4.1)
-- [ ] Write `src/Statement/StatementGenerator.php`: `generate()` creates a WordPress page titled "Accessibility Statement" populated from the template with site name/contact/date substitutions (`wp_insert_post`, draft-or-publish per settings decision in docs/admin.md)
-- [ ] Handle re-generation: if a statement page already exists (store page ID in `accessi_compliance_kit_settings`), warn instead of duplicating; offer "create new" explicitly
-- [ ] Add `wp_ajax_accessi_compliance_kit_generate_statement` handler (nonce + capability) returning the created page's edit link
-- [ ] Add "Create statement page" button + status card (exists / not created, link to edit) to the admin React app (proposal §6 Phase 3)
-- [ ] Unit-test `StatementGenerator` (page created with expected title/content, no duplicate on second call)
+- [x] Write `src/Statement/templates/en.php`: EAA-compliant statement template with placeholders — compliance level claimed, known limitations section, contact for accessibility issues, date of last review (proposal §4.1)
+- [x] Write `src/Statement/StatementGenerator.php`: `generate()` creates a WordPress page titled "Accessibility Statement" populated from the template with site name/contact/date substitutions (`wp_insert_post`, draft-or-publish per settings decision in docs/admin.md)
+- [x] Handle re-generation: if a statement page already exists (store page ID in `accessi_compliance_kit_settings`), warn instead of duplicating; offer "create new" explicitly
+- [x] Add `wp_ajax_accessi_compliance_kit_generate_statement` handler (nonce + capability) returning the created page's edit link
+- [x] Add "Create statement page" button + status card (exists / not created, link to edit) to the admin React app (proposal §6 Phase 3)
+- [x] Unit-test `StatementGenerator` (page created with expected title/content, no duplicate on second call)
 
 ## Phase 4 — Polish & Free Launch (proposal §6, Weeks 7–8)
 

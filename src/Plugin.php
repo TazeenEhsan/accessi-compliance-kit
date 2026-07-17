@@ -119,5 +119,6 @@ class Plugin {
 	 * @return void
 	 */
 	private function register_statement() {
+		( new Statement\StatementGenerator() )->register();
 	}
 }

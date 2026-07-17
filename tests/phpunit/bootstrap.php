@@ -38,4 +38,39 @@ if ( ! class_exists( 'WC_Product' ) ) {
 	}
 }
 
+if ( ! class_exists( 'WP_Error' ) ) {
+	/**
+	 * Minimal stand-in for WordPress core's `WP_Error` so failure paths
+	 * (e.g. `wp_insert_post()` returning an error) can be exercised.
+	 */
+	class WP_Error { // phpcs:ignore Generic.Files.OneObjectStructurePerFile.MultipleFound, PSR1.Classes.ClassDeclaration.MultipleClasses
+
+		/**
+		 * Error message passed to the constructor.
+		 *
+		 * @var string
+		 */
+		private $message;
+
+		/**
+		 * Constructor.
+		 *
+		 * @param string $code    Unused; kept for signature compatibility.
+		 * @param string $message Error message.
+		 */
+		public function __construct( $code = '', $message = '' ) {
+			$this->message = $message;
+		}
+
+		/**
+		 * Get the error message.
+		 *
+		 * @return string
+		 */
+		public function get_error_message() {
+			return $this->message;
+		}
+	}
+}
+
 require dirname( __DIR__, 2 ) . '/vendor/autoload.php';

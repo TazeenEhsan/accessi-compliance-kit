@@ -83,10 +83,11 @@ class ScanPage {
 			'lastScanId'     => Options::get_last_scan_id(),
 			'scanQueryVar'   => ScannerAssets::QUERY_VAR,
 			'nonces'         => array(
-				'runScan'      => wp_create_nonce( 'accessi_compliance_kit_run_scan' ),
-				'getScan'      => wp_create_nonce( 'accessi_compliance_kit_get_scan' ),
-				'getScans'     => wp_create_nonce( 'accessi_compliance_kit_get_scans' ),
-				'saveSettings' => wp_create_nonce( 'accessi_compliance_kit_save_settings' ),
+				'runScan'           => wp_create_nonce( 'accessi_compliance_kit_run_scan' ),
+				'getScan'           => wp_create_nonce( 'accessi_compliance_kit_get_scan' ),
+				'getScans'          => wp_create_nonce( 'accessi_compliance_kit_get_scans' ),
+				'saveSettings'      => wp_create_nonce( 'accessi_compliance_kit_save_settings' ),
+				'generateStatement' => wp_create_nonce( 'accessi_compliance_kit_generate_statement' ),
 			),
 			'severityLabels' => array(
 				'critical' => __( 'Critical', 'accessi-compliance-kit' ),
@@ -97,6 +98,30 @@ class ScanPage {
 			'fixes'          => $this->fixes_data(),
 			'activeFixes'    => Options::get_active_fixes(),
 			'settings'       => Options::get_settings(),
+			'statement'      => $this->statement_data(),
+		);
+	}
+
+	/**
+	 * Build the current statement page state (docs/admin.md §7) so the
+	 * Dashboard tab can render its status card without an extra AJAX round-trip.
+	 *
+	 * @return array
+	 */
+	private function statement_data() {
+		$settings = Options::get_settings();
+		$page_id  = isset( $settings['statement_page_id'] ) ? absint( $settings['statement_page_id'] ) : 0;
+
+		if ( ! $page_id || 'page' !== get_post_type( $page_id ) ) {
+			return array(
+				'pageId'   => 0,
+				'editLink' => '',
+			);
+		}
+
+		return array(
+			'pageId'   => $page_id,
+			'editLink' => get_edit_post_link( $page_id, 'raw' ),
 		);
 	}
 

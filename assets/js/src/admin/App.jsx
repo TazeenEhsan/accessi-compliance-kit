@@ -9,11 +9,13 @@ import ScanRunner from './ScanRunner';
 import ScanResults from './ScanResults';
 import ScanHistory from './ScanHistory';
 import Settings from './Settings';
+import Dashboard from './Dashboard';
 import { ajaxRequest } from './utils/ajax';
 
 const settings = window.accessiComplianceKitAdmin || {};
 
 const TABS = [
+	{ name: 'dashboard', title: __( 'Dashboard', 'accessi-compliance-kit' ), className: 'accessi-compliance-kit-tab-dashboard' },
 	{ name: 'scan', title: __( 'Scan', 'accessi-compliance-kit' ), className: 'accessi-compliance-kit-tab-scan' },
 	{ name: 'history', title: __( 'History', 'accessi-compliance-kit' ), className: 'accessi-compliance-kit-tab-history' },
 	{ name: 'settings', title: __( 'Settings', 'accessi-compliance-kit' ), className: 'accessi-compliance-kit-tab-settings' },
@@ -51,6 +53,10 @@ export default function App() {
 			<h1>{ __( 'Accessibility', 'accessi-compliance-kit' ) }</h1>
 			<TabPanel tabs={ TABS }>
 				{ ( tab ) => {
+					if ( 'dashboard' === tab.name ) {
+						return <Dashboard settings={ settings } />;
+					}
+
 					if ( 'history' === tab.name ) {
 						return <ScanHistory settings={ settings } />;
 					}
