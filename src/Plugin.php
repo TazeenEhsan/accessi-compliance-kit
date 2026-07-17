@@ -97,6 +97,7 @@ class Plugin {
 	 * @return void
 	 */
 	private function register_scanner() {
+		( new Scanner\ScannerAssets() )->register();
 	}
 
 	/**

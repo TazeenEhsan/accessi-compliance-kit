@@ -40,10 +40,10 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 1.1 Front-End Scanner Runner
 
-- [ ] Write `assets/js/src/scanner/runScan.js`: import axe-core, run `axe.run(document)`, format results (rule id, impact, description, help text, nodes with CSS selectors + HTML snippets), `postMessage` payload to `window.parent` (proposal §5.5 step 4, §10 prompt 3)
-- [ ] Write the scanner entry `assets/js/src/scanner/index.js`: run on DOM ready, include a origin/handshake token read from a localized variable so the parent can verify messages (docs/security.md §5)
-- [ ] Add conditional enqueue in a new `src/Scanner/ScannerAssets.php` (registered from `Plugin.php`): load scanner bundle on front-end **only** when `?accessi_compliance_kit_scan=1` AND `Capabilities::can_scan()` (proposal §5.5 step 3)
-- [ ] Localize scanner script with the handshake token + admin origin; verify manually that the script loads only for admins with the flag
+- [x] Write `assets/js/src/scanner/runScan.js`: import axe-core, run `axe.run(document)`, format results (rule id, impact, description, help text, nodes with CSS selectors + HTML snippets), `postMessage` payload to `window.parent` (proposal §5.5 step 4, §10 prompt 3)
+- [x] Write the scanner entry `assets/js/src/scanner/index.js`: run on DOM ready, include a origin/handshake token read from a localized variable so the parent can verify messages (docs/security.md §5)
+- [x] Add conditional enqueue in a new `src/Scanner/ScannerAssets.php` (registered from `Plugin.php`): load scanner bundle on front-end **only** when `?accessi_compliance_kit_scan=1` AND `Capabilities::can_scan()` (proposal §5.5 step 3)
+- [x] Localize scanner script with the handshake token + admin origin; verify manually that the script loads only for admins with the flag
 
 ### 1.2 Scan Persistence (PHP)
 
