@@ -48,7 +48,7 @@ Conventions for all PHP/JS/CSS in this project. Binding rules live in `AI_RULES.
 
 ## 4. Testing (proposal §5.1: PHPUnit + Jest)
 
-- PHPUnit in `tests/phpunit/`: unit tests for `ViolationParser`, `ScanStorage`, `StatementGenerator`, every Fix class, and the `FixManager` "only enabled fixes register" behavior (proposal §10 prompt 4). Use Brain Monkey (or WP test suite) to stub WP functions — decide once in task 0.2 and stay consistent.
+- PHPUnit in `tests/phpunit/`: unit tests for `ViolationParser`, `ScanStorage`, `StatementGenerator`, every Fix class, and the `FixManager` "only enabled fixes register" behavior (proposal §10 prompt 4). **Decision (task 0.2): Brain Monkey** stubs WP functions — no WP core test-suite checkout required, keeps the suite fast and dependency-light. `tests/phpunit/bootstrap.php` calls `Brain\Monkey\setUp()`/`tearDown()` per test case; stay consistent, don't mix in the WP core test suite later.
 - Jest in `tests/js/`: `@wordpress/scripts test-unit-js`; cover result formatting in `runScan.js` and non-trivial component logic (severity grouping, settings save states).
 - Test naming: `test_<method>_<scenario>_<expectation>` (PHP), `describe/it` prose (JS).
 - Manual test matrix (Storefront/Astra/Kadence) is part of Definition of Done for every fix (proposal §6 Phase 2, §11).

@@ -1,0 +1,19 @@
+{
+	"name": "accessiwoo",
+	"version": "0.1.0",
+	"description": "Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements.",
+	"private": true,
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start",
+		"test-unit-js": "wp-scripts test-unit-js",
+		"lint-js": "wp-scripts lint-js"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^30.0.0"
+	},
+	"dependencies": {
+		"axe-core": "^4.9.1"
+	}
+}

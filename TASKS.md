@@ -13,28 +13,28 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 - [x] Create the plugin folder skeleton: empty `src/`, `assets/js/src/`, `assets/css/`, `assets/images/`, `languages/`, `tests/phpunit/`, `tests/js/` directories per proposal §5.2
 - [x] Write `.gitignore` covering `node_modules/`, `build/`, `vendor/`, OS/editor files
-- [ ] Write `LICENSE.txt` (GPLv2 full text)
-- [ ] Write `composer.json`: project metadata, PHP 7.4 platform requirement, PSR-4 autoload `AccessiWoo\` → `src/`, require `dompdf/dompdf`, require-dev PHPUnit
-- [ ] Run `composer install`; verify `vendor/autoload.php` exists and autoloads a dummy class from `src/`
-- [ ] Write `package.json` with `@wordpress/scripts` dev dependency and `build`/`start` scripts for two entry points (admin app, scanner)
-- [ ] Write `webpack.config.js` extending `@wordpress/scripts` default config with entries `assets/js/src/admin/index.js` and `assets/js/src/scanner/index.js` outputting to `build/`
-- [ ] Run `npm install` and a first `npm run build` with placeholder entry files; verify `build/` output
-- [ ] Add `axe-core` as an npm dependency (bundled, no CDN — AI_RULES §2.1); verify it appears in the scanner bundle
+- [x] Write `LICENSE.txt` (GPLv2 full text)
+- [x] Write `composer.json`: project metadata, PHP 7.4 platform requirement, PSR-4 autoload `AccessiWoo\` → `src/`, require `dompdf/dompdf`, require-dev PHPUnit
+- [x] Run `composer install`; verify `vendor/autoload.php` exists and autoloads a dummy class from `src/`
+- [x] Write `package.json` with `@wordpress/scripts` dev dependency and `build`/`start` scripts for two entry points (admin app, scanner)
+- [x] Write `webpack.config.js` extending `@wordpress/scripts` default config with entries `assets/js/src/admin/index.js` and `assets/js/src/scanner/index.js` outputting to `build/`
+- [x] Run `npm install` and a first `npm run build` with placeholder entry files; verify `build/` output
+- [x] Add `axe-core` as an npm dependency (bundled, no CDN — AI_RULES §2.1); verify it appears in the scanner bundle
 
 ### 0.2 Plugin Bootstrap
 
-- [ ] Write `accessiwoo.php` main file: plugin headers (name, description, version, requires WP 6.5, requires PHP 7.4, license GPLv2, text domain `accessiwoo`), `ABSPATH` guard, define constants (`ACCESSIWOO_VERSION`, `ACCESSIWOO_FILE`, `ACCESSIWOO_PATH`, `ACCESSIWOO_URL`), require Composer autoloader
-- [ ] Write `src/Plugin.php` singleton: `instance()`, `boot()` hooked on `plugins_loaded`, empty service-registration method stubs (admin, scanner, fixes, statement)
-- [ ] Add a WooCommerce-active check in `Plugin.php` with an admin notice when WooCommerce is missing (plugin targets WC 8.0+, proposal §11)
-- [ ] Write `src/Activator.php` stub + `src/Deactivator.php` stub; register `register_activation_hook` / `register_deactivation_hook` in `accessiwoo.php`
-- [ ] Implement table creation in `Activator.php`: `wp_accessiwoo_scans` via `dbDelta()` exactly per proposal §5.3 schema (see docs/database.md), store `accessiwoo_db_version` option
-- [ ] Implement default options seeding in `Activator.php`: `accessiwoo_settings` and `accessiwoo_active_fixes` (all fixes OFF per AI_RULES §2.3)
-- [ ] Write `uninstall.php`: drop the scans table and delete all `accessiwoo_*` options (guarded by `WP_UNINSTALL_PLUGIN`)
-- [ ] Write `src/Utils/Options.php`: typed getters/setters wrapping `get_option`/`update_option` for the four option keys in proposal §5.3
-- [ ] Write `src/Utils/Capabilities.php`: capability constants and `can_scan()` / `can_manage_settings()` helpers (default `manage_options`)
-- [ ] Write `src/Utils/Logger.php`: thin wrapper around `error_log` gated by `WP_DEBUG`, with a `accessiwoo_` prefix
-- [ ] Activate the plugin on the local dev site; verify: no errors, table created with correct columns, default options present
-- [ ] Set up `tests/phpunit/` bootstrap (WP test suite or Brain Monkey — pick per docs/coding-guidelines.md) and one smoke test asserting `Plugin::instance()` returns a singleton
+- [x] Write `accessiwoo.php` main file: plugin headers (name, description, version, requires WP 6.5, requires PHP 7.4, license GPLv2, text domain `accessiwoo`), `ABSPATH` guard, define constants (`ACCESSIWOO_VERSION`, `ACCESSIWOO_FILE`, `ACCESSIWOO_PATH`, `ACCESSIWOO_URL`), require Composer autoloader
+- [x] Write `src/Plugin.php` singleton: `instance()`, `boot()` hooked on `plugins_loaded`, empty service-registration method stubs (admin, scanner, fixes, statement)
+- [x] Add a WooCommerce-active check in `Plugin.php` with an admin notice when WooCommerce is missing (plugin targets WC 8.0+, proposal §11)
+- [x] Write `src/Activator.php` stub + `src/Deactivator.php` stub; register `register_activation_hook` / `register_deactivation_hook` in `accessiwoo.php`
+- [x] Implement table creation in `Activator.php`: `wp_accessiwoo_scans` via `dbDelta()` exactly per proposal §5.3 schema (see docs/database.md), store `accessiwoo_db_version` option
+- [x] Implement default options seeding in `Activator.php`: `accessiwoo_settings` and `accessiwoo_active_fixes` (all fixes OFF per AI_RULES §2.3)
+- [x] Write `uninstall.php`: drop the scans table and delete all `accessiwoo_*` options (guarded by `WP_UNINSTALL_PLUGIN`)
+- [x] Write `src/Utils/Options.php`: typed getters/setters wrapping `get_option`/`update_option` for the four option keys in proposal §5.3
+- [x] Write `src/Utils/Capabilities.php`: capability constants and `can_scan()` / `can_manage_settings()` helpers (default `manage_options`)
+- [x] Write `src/Utils/Logger.php`: thin wrapper around `error_log` gated by `WP_DEBUG`, with a `accessiwoo_` prefix
+- [x] Activate the plugin on the local dev site; verify: no errors, table created with correct columns, default options present
+- [x] Set up `tests/phpunit/` bootstrap (WP test suite or Brain Monkey — pick per docs/coding-guidelines.md) and one smoke test asserting `Plugin::instance()` returns a singleton
 
 ## Phase 1 — Single-Page Scanner (proposal §6, Weeks 2–3)
 
