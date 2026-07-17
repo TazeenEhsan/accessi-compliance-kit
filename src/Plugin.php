@@ -89,6 +89,8 @@ class Plugin {
 	 * @return void
 	 */
 	private function register_admin() {
+		( new Admin\AdminMenu() )->register();
+		( new Admin\ScanPage() )->register();
 	}
 
 	/**
@@ -98,6 +100,7 @@ class Plugin {
 	 */
 	private function register_scanner() {
 		( new Scanner\ScannerAssets() )->register();
+		( new Scanner\ScanController( new Scanner\ScanStorage() ) )->register();
 	}
 
 	/**

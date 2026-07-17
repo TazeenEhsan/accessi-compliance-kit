@@ -55,29 +55,29 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 1.3 AJAX Endpoints
 
-- [ ] Write `src/Scanner/ScanController.php`: register `wp_ajax_accessi_compliance_kit_run_scan`; handler validates nonce + capability, sanitizes URL and payload, runs `ViolationParser`, saves via `ScanStorage`, returns JSON summary (proposal §5.4, §5.5 steps 5–6)
-- [ ] Add a second handler `wp_ajax_accessi_compliance_kit_get_scan` (fetch one scan's stored results for the results UI) with nonce + capability checks
-- [ ] Add URL validation for scan targets: same-site origin only (`esc_url_raw` + host check against `home_url()`) — prevents scanning arbitrary external URLs (docs/security.md §6)
-- [ ] Test the endpoints with a REST client / curl: valid nonce succeeds, missing nonce and non-admin fail with proper error codes
+- [x] Write `src/Scanner/ScanController.php`: register `wp_ajax_accessi_compliance_kit_run_scan`; handler validates nonce + capability, sanitizes URL and payload, runs `ViolationParser`, saves via `ScanStorage`, returns JSON summary (proposal §5.4, §5.5 steps 5–6)
+- [x] Add a second handler `wp_ajax_accessi_compliance_kit_get_scan` (fetch one scan's stored results for the results UI) with nonce + capability checks
+- [x] Add URL validation for scan targets: same-site origin only (`esc_url_raw` + host check against `home_url()`) — prevents scanning arbitrary external URLs (docs/security.md §6)
+- [x] Test the endpoints with a REST client / curl: valid nonce succeeds, missing nonce and non-admin fail with proper error codes
 
 ### 1.4 Admin Scan UI (React)
 
-- [ ] Write `src/Admin/AdminMenu.php`: register submenu page under WooCommerce → "Accessibility" (proposal §4.1), page callback renders a root `<div id="accessi-compliance-kit-admin">`
-- [ ] Write `src/Admin/ScanPage.php`: enqueue admin bundle + `admin.css` on the plugin page only (`admin_enqueue_scripts`), `wp_localize_script` with ajaxurl, nonces, current-site URL, severity labels
-- [ ] Write React shell `assets/js/src/admin/App.jsx` + entry `index.js`: tab layout (Scan | History | Settings) using `@wordpress/components`
-- [ ] Write `assets/js/src/admin/ScanRunner.jsx` (iframe orchestration): URL input (default: home page), "Scan this page" button, create hidden iframe with `?accessi_compliance_kit_scan=1`, listen for `postMessage`, verify handshake token, show progress state (proposal §5.5 steps 1–4)
-- [ ] Wire ScanRunner results to the `accessi_compliance_kit_run_scan` AJAX action; handle success/error/timeout (e.g. 60s no-message timeout → failed state)
-- [ ] Write `assets/js/src/admin/ScanResults.jsx`: violations grouped by severity (Critical, Serious, Moderate, Minor), each row shows rule name, affected element selector, why it fails, how to fix (proposal §4.1) — worded as "detected issues" (AI_RULES §2.4)
-- [ ] Add expandable violation detail (HTML snippet, help URL from axe-core data) to `ScanResults.jsx`
-- [ ] Write scan History tab: table of past scans from a new `wp_ajax_accessi_compliance_kit_get_scans` list endpoint (date, URL, status, severity counts), click-through to results view
-- [ ] Implement the `accessi_compliance_kit_get_scans` list AJAX handler in `ScanController.php` (nonce + capability + pagination)
-- [ ] Write `assets/css/admin.css`: base layout/severity color coding consistent with WP admin styles
-- [ ] End-to-end test on the dev site: scan the shop page, see grouped violations, row saved in DB, history lists it
+- [x] Write `src/Admin/AdminMenu.php`: register submenu page under WooCommerce → "Accessibility" (proposal §4.1), page callback renders a root `<div id="accessi-compliance-kit-admin">`
+- [x] Write `src/Admin/ScanPage.php`: enqueue admin bundle + `admin.css` on the plugin page only (`admin_enqueue_scripts`), `wp_localize_script` with ajaxurl, nonces, current-site URL, severity labels
+- [x] Write React shell `assets/js/src/admin/App.jsx` + entry `index.js`: tab layout (Scan | History | Settings) using `@wordpress/components`
+- [x] Write `assets/js/src/admin/ScanRunner.jsx` (iframe orchestration): URL input (default: home page), "Scan this page" button, create hidden iframe with `?accessi_compliance_kit_scan=1`, listen for `postMessage`, verify handshake token, show progress state (proposal §5.5 steps 1–4)
+- [x] Wire ScanRunner results to the `accessi_compliance_kit_run_scan` AJAX action; handle success/error/timeout (e.g. 60s no-message timeout → failed state)
+- [x] Write `assets/js/src/admin/ScanResults.jsx`: violations grouped by severity (Critical, Serious, Moderate, Minor), each row shows rule name, affected element selector, why it fails, how to fix (proposal §4.1) — worded as "detected issues" (AI_RULES §2.4)
+- [x] Add expandable violation detail (HTML snippet, help URL from axe-core data) to `ScanResults.jsx`
+- [x] Write scan History tab: table of past scans from a new `wp_ajax_accessi_compliance_kit_get_scans` list endpoint (date, URL, status, severity counts), click-through to results view
+- [x] Implement the `accessi_compliance_kit_get_scans` list AJAX handler in `ScanController.php` (nonce + capability + pagination)
+- [x] Write `assets/css/admin.css`: base layout/severity color coding consistent with WP admin styles
+- [ ] End-to-end test on the dev site: scan the shop page, see grouped violations, row saved in DB, history lists it — **not yet verified**: build is clean (`npm run build`), `vendor/bin/phpunit` passes (17/17), and `/wp-admin/admin.php?page=accessi-compliance-kit` + the front page both respond without fatal errors, but no browser/WP-CLI session was available in this environment to click through the actual scan flow. Needs a manual pass in a logged-in browser.
 
 ### 1.5 Scan Entry Points
 
-- [ ] Add "Scan this page" admin-bar node on front-end pages for users with scan capability, linking to the admin page with the current URL pre-filled (proposal §5.5 step 1)
-- [ ] Verify the URL-input scan path: paste any same-site URL into the Scan tab and run it (proposal §4.1 "scan by URL input")
+- [x] Add "Scan this page" admin-bar node on front-end pages for users with scan capability, linking to the admin page with the current URL pre-filled (proposal §5.5 step 1)
+- [ ] Verify the URL-input scan path: paste any same-site URL into the Scan tab and run it (proposal §4.1 "scan by URL input") — **not yet verified**, same limitation as above; needs a manual browser pass.
 
 ## Phase 2 — Auto-Fixes (proposal §6, Weeks 3–5)
 

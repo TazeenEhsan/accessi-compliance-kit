@@ -25,15 +25,19 @@ Implements proposal §4.1 (Admin dashboard, Notifications), §5.2 (Admin/ + asse
 
 ## 3. React App Structure (`assets/js/src/admin/`)
 
-Per proposal §5.2: `App.jsx`, `ScanResults.jsx`, `Settings.jsx`, `Dashboard.jsx` (plus `ScanRunner.jsx` for iframe orchestration).
+Per proposal §5.2: `App.jsx`, `ScanResults.jsx`, `Settings.jsx`, `Dashboard.jsx` (plus `ScanRunner.jsx` for iframe orchestration, and `ScanHistory.jsx` for the History tab, built in task 1.4).
 
 ```
 App.jsx                — TabPanel: Scan | History | Settings
-├── Dashboard.jsx      — summary header: last scan, severity counts, statement status card
 ├── ScanRunner.jsx     — URL input, "Scan this page" button, hidden iframe, progress state
-├── ScanResults.jsx    — violations grouped by severity with expandable detail
-└── Settings.jsx       — fix toggles + email opt-in
+├── ScanResults.jsx    — violations grouped by severity with expandable detail (used by both the Scan and History tabs)
+├── ScanHistory.jsx    — paginated past-scans table, click-through loads a scan via ScanResults
+└── Settings.jsx       — fix toggles + email opt-in (task 2.3 — the Settings tab is a placeholder until then)
+
+utils/ajax.js           — shared `admin-ajax.php` POST helper used by ScanRunner/ScanHistory/App
 ```
+
+`Dashboard.jsx` (last-scan summary + statement status card) is not part of task 1.4's scope and has not been built yet; it belongs with the Phase 3/4 statement and dashboard-widget work.
 
 Use `@wordpress/components` (`TabPanel`, `Card`, `Button`, `ToggleControl`, `Notice`, `Spinner`) — no custom design system.
 

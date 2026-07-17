@@ -7,6 +7,7 @@
 
 namespace AccessiComplianceKit\Scanner;
 
+use AccessiComplianceKit\Admin\AdminMenu;
 use AccessiComplianceKit\Utils\Capabilities;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,6 +30,7 @@ class ScannerAssets {
 	 */
 	public function register() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'maybe_enqueue' ) );
+		add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_node' ), 100 );
 	}
 
 	/**
@@ -79,5 +81,55 @@ class ScannerAssets {
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only feature flag, not a state change.
 		return '1' === sanitize_text_field( wp_unslash( $_GET[ self::QUERY_VAR ] ) );
+	}
+
+	/**
+	 * Add the front-end "Scan this page" admin-bar node for capable users,
+	 * linking to the admin page with the current URL pre-filled (proposal §5.5 step 1).
+	 *
+	 * @param \WP_Admin_Bar $wp_admin_bar Core admin bar instance.
+	 * @return void
+	 */
+	public function add_admin_bar_node( $wp_admin_bar ) {
+		if ( is_admin() || ! Capabilities::can_scan() ) {
+			return;
+		}
+
+		$admin_url = add_query_arg(
+			array(
+				'page'     => AdminMenu::MENU_SLUG,
+				'scan_url' => rawurlencode( $this->current_url() ),
+			),
+			admin_url( 'admin.php' )
+		);
+
+		$wp_admin_bar->add_node(
+			array(
+				'id'    => 'accessi-compliance-kit-scan',
+				'title' => esc_html__( 'Scan this page', 'accessi-compliance-kit' ),
+				'href'  => esc_url( $admin_url ),
+				'meta'  => array(
+					'title' => esc_attr__( 'Scan this page for accessibility issues', 'accessi-compliance-kit' ),
+				),
+			)
+		);
+	}
+
+	/**
+	 * Build the current front-end request's full URL.
+	 *
+	 * @return string
+	 */
+	private function current_url() {
+		$host = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
+		$uri  = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+
+		if ( '' === $host ) {
+			return home_url( '/' );
+		}
+
+		$scheme = is_ssl() ? 'https://' : 'http://';
+
+		return esc_url_raw( $scheme . $host . $uri );
 	}
 }

@@ -1,2 +1,16 @@
-// Placeholder entry point; the React app (App.jsx) is wired up in Phase 1.4.
-console.log( 'Accessi Compliance Kit admin bundle loaded.' );
+/**
+ * Admin app entry point. Mounts `App.jsx` into the root rendered by
+ * `AdminMenu::render_page()`.
+ */
+import { createElement, createRoot } from '@wordpress/element';
+import App from './App';
+
+document.addEventListener( 'DOMContentLoaded', () => {
+	const container = document.getElementById( 'accessi-compliance-kit-admin' );
+
+	if ( ! container ) {
+		return;
+	}
+
+	createRoot( container ).render( createElement( App ) );
+} );
