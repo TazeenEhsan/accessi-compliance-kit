@@ -1,2 +1,24 @@
-build
-node_modules
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*

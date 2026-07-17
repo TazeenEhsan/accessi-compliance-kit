@@ -12,7 +12,7 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 ### 0.1 Repository & Tooling
 
 - [x] Create the plugin folder skeleton: empty `src/`, `assets/js/src/`, `assets/css/`, `assets/images/`, `languages/`, `tests/phpunit/`, `tests/js/` directories per proposal §5.2
-- [ ] Write `.gitignore` covering `node_modules/`, `build/`, `vendor/`, OS/editor files
+- [x] Write `.gitignore` covering `node_modules/`, `build/`, `vendor/`, OS/editor files
 - [ ] Write `LICENSE.txt` (GPLv2 full text)
 - [ ] Write `composer.json`: project metadata, PHP 7.4 platform requirement, PSR-4 autoload `AccessiWoo\` → `src/`, require `dompdf/dompdf`, require-dev PHPUnit
 - [ ] Run `composer install`; verify `vendor/autoload.php` exists and autoloads a dummy class from `src/`
