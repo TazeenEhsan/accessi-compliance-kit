@@ -2,10 +2,10 @@
 /**
  * Debug logging wrapper.
  *
- * @package AccessiWoo
+ * @package AccessiComplianceKit
  */
 
-namespace AccessiWoo\Utils;
+namespace AccessiComplianceKit\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -31,6 +31,6 @@ class Logger {
 			$message = print_r( $message, true ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 		}
 
-		error_log( '[accessiwoo] ' . $message ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		error_log( '[accessi-compliance-kit] ' . $message ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 	}
 }

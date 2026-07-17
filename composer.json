@@ -1,5 +1,5 @@
 {
-    "name": "accessiwoo/accessiwoo",
+    "name": "accessiwoo/accessi-compliance-kit",
     "description": "Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements.",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
@@ -13,12 +13,12 @@
     },
     "autoload": {
         "psr-4": {
-            "AccessiWoo\\": "src/"
+            "AccessiComplianceKit\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AccessiWoo\\Tests\\": "tests/phpunit/"
+            "AccessiComplianceKit\\Tests\\": "tests/phpunit/"
         }
     },
     "config": {

@@ -2,17 +2,17 @@
 /**
  * Smoke test for the plugin bootstrap.
  *
- * @package AccessiWoo
+ * @package AccessiComplianceKit
  */
 
-namespace AccessiWoo\Tests;
+namespace AccessiComplianceKit\Tests;
 
-use AccessiWoo\Plugin;
+use AccessiComplianceKit\Plugin;
 use Brain\Monkey;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiWoo\Plugin
+ * @covers \AccessiComplianceKit\Plugin
  */
 class PluginTest extends TestCase {
 

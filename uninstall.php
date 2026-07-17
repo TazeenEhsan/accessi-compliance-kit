@@ -1,8 +1,8 @@
 <?php
 /**
- * Fired when the plugin is deleted. Drops the scans table and all `accessiwoo_*` options.
+ * Fired when the plugin is deleted. Drops the scans table and all `accessi_compliance_kit_*` options.
  *
- * @package AccessiWoo
+ * @package AccessiComplianceKit
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
@@ -11,10 +11,10 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 global $wpdb;
 
-$wpdb->query( $wpdb->prepare( 'DROP TABLE IF EXISTS %i', $wpdb->prefix . 'accessiwoo_scans' ) );
+$wpdb->query( $wpdb->prepare( 'DROP TABLE IF EXISTS %i', $wpdb->prefix . 'accessi_compliance_kit_scans' ) );
 
-delete_option( 'accessiwoo_settings' );
-delete_option( 'accessiwoo_active_fixes' );
-delete_option( 'accessiwoo_license' );
-delete_option( 'accessiwoo_last_scan_id' );
-delete_option( 'accessiwoo_db_version' );
+delete_option( 'accessi_compliance_kit_settings' );
+delete_option( 'accessi_compliance_kit_active_fixes' );
+delete_option( 'accessi_compliance_kit_license' );
+delete_option( 'accessi_compliance_kit_last_scan_id' );
+delete_option( 'accessi_compliance_kit_db_version' );

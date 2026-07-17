@@ -2,10 +2,10 @@
 /**
  * Main plugin bootstrap.
  *
- * @package AccessiWoo
+ * @package AccessiComplianceKit
  */
 
-namespace AccessiWoo;
+namespace AccessiComplianceKit;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -54,7 +54,7 @@ class Plugin {
 			return;
 		}
 
-		load_plugin_textdomain( 'accessiwoo', false, dirname( plugin_basename( ACCESSIWOO_FILE ) ) . '/languages' );
+		load_plugin_textdomain( 'accessi-compliance-kit', false, dirname( plugin_basename( ACCESSI_COMPLIANCE_KIT_FILE ) ) . '/languages' );
 
 		$this->register_admin();
 		$this->register_scanner();
@@ -79,7 +79,7 @@ class Plugin {
 	public function render_woocommerce_missing_notice() {
 		printf(
 			'<div class="notice notice-error"><p>%s</p></div>',
-			esc_html__( 'AccessiWoo requires WooCommerce 8.0+ to be installed and active.', 'accessiwoo' )
+			esc_html__( 'Accessi Compliance Kit requires WooCommerce 8.0+ to be installed and active.', 'accessi-compliance-kit' )
 		);
 	}
 

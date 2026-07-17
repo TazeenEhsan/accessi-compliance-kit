@@ -1,4 +1,4 @@
-# Plugin Proposal: AccessiWoo — WooCommerce Accessibility Compliance
+# Plugin Proposal: Accessi Compliance Kit — WooCommerce Accessibility Compliance
 
 > A self-contained WordPress plugin that helps WooCommerce stores comply with the EU Accessibility Act (EAA) and WCAG 2.1 AA. Zero external dependencies, zero server costs to the developer, freemium model on WordPress.org.
 
@@ -6,7 +6,7 @@
 
 ## 1. Executive Summary
 
-**Plugin name (working):** AccessiWoo
+**Plugin name (working):** Accessi Compliance Kit
 **Alternative names to consider:** WooA11y, WCAG Compass, AccessGuard for WooCommerce, ShopAccess
 **Category:** WooCommerce → Compliance / Accessibility
 **License:** GPLv2 or later (required for WordPress.org)
@@ -79,7 +79,7 @@ The European Accessibility Act (EAA) became enforceable across all 27 EU member 
 
 ### 4.2 Pro / Extended Version (Paid)
 
-The Pro version turns AccessiWoo from a scanner into a full compliance and remediation system. Every feature listed here still runs 100% inside the merchant's own WordPress install — no external server, no paid API, no ongoing cost to you. Slack/webhook notifications use outgoing HTTP only, WPML/Polylang integrations run locally, and axe-core already ships with WCAG 2.2, Section 508, and EN 301 549 rule sets included.
+The Pro version turns Accessi Compliance Kit from a scanner into a full compliance and remediation system. Every feature listed here still runs 100% inside the merchant's own WordPress install — no external server, no paid API, no ongoing cost to you. Slack/webhook notifications use outgoing HTTP only, WPML/Polylang integrations run locally, and axe-core already ships with WCAG 2.2, Section 508, and EN 301 549 rule sets included.
 
 Features are split across three sub-tiers so a single-store owner isn't paying for agency features they'll never use.
 
@@ -171,7 +171,7 @@ All 6 free fixes, plus:
 - **WooCommerce Subscriptions** — accessibility fixes for the subscription management UI
 - **WooCommerce Bookings** — accessibility fixes for booking forms and calendar widgets
 - **WooCommerce Memberships** — accessibility fixes for member-only content gates
-- **WP-CLI commands** — `wp accessiwoo scan`, `wp accessiwoo report` — enables CI/CD integration (staging site scans on every deploy)
+- **WP-CLI commands** — `wp accessi-compliance-kit scan`, `wp accessi-compliance-kit report` — enables CI/CD integration (staging site scans on every deploy)
 - **REST API endpoints** — read scans, trigger scans, fetch reports for external tooling
 - **Multisite network support** *(Business+)* — network admin dashboard showing all sub-sites' compliance scores
 
@@ -208,10 +208,10 @@ Updated within 30 days when any of these ship a major release.
 
 #### J. Agency Features *(Agency tier only)*
 
-- **Full white-label** — replace "AccessiWoo" branding with agency name/logo throughout admin UI
+- **Full white-label** — replace "Accessi Compliance Kit" branding with agency name/logo throughout admin UI
 - **Central agency dashboard** (separate hosted-anywhere plugin add-on for the agency's own WordPress install) showing compliance scores across every client site
 - **Bulk actions** across managed sites (trigger scans, apply setting changes, push fix updates)
-- **Client-facing reports** with agency branding, no mention of AccessiWoo
+- **Client-facing reports** with agency branding, no mention of Accessi Compliance Kit
 - **Auditor role for clients** — give clients read-only view of scans/reports without exposing the plugin's admin
 - **Reseller license option** — resell white-labeled licenses to your own clients
 
@@ -256,8 +256,8 @@ Updated within 30 days when any of these ship a major release.
 ### 5.2 File & Folder Structure
 
 ```
-accessiwoo/
-├── accessiwoo.php                 # Main plugin file (headers, bootstrap)
+accessi-compliance-kit/
+├── accessi-compliance-kit.php                 # Main plugin file (headers, bootstrap)
 ├── uninstall.php                  # Cleanup on plugin deletion
 ├── composer.json                  # DomPDF and dev dependencies
 ├── package.json                   # JS build config
@@ -343,7 +343,7 @@ accessiwoo/
 
 ### 5.3 Database Schema
 
-**Custom table: `wp_accessiwoo_scans`**
+**Custom table: `wp_accessi_compliance_kit_scans`**
 
 | Column | Type | Notes |
 |---|---|---|
@@ -359,10 +359,10 @@ accessiwoo/
 
 **Options stored via `wp_options`:**
 
-- `accessiwoo_settings` — plugin configuration array
-- `accessiwoo_active_fixes` — which fixes are enabled
-- `accessiwoo_license` — Pro license data (via Freemius or custom)
-- `accessiwoo_last_scan_id` — pointer for dashboard widget
+- `accessi_compliance_kit_settings` — plugin configuration array
+- `accessi_compliance_kit_active_fixes` — which fixes are enabled
+- `accessi_compliance_kit_license` — Pro license data (via Freemius or custom)
+- `accessi_compliance_kit_last_scan_id` — pointer for dashboard widget
 
 ### 5.4 WordPress & WooCommerce Hooks You'll Use
 
@@ -373,8 +373,8 @@ accessiwoo/
 - `admin_menu` — add plugin admin pages
 - `admin_enqueue_scripts` — load admin JS/CSS
 - `wp_enqueue_scripts` — load frontend fix CSS
-- `wp_ajax_accessiwoo_run_scan` — AJAX endpoint for scans
-- `wp_ajax_accessiwoo_save_settings` — settings save
+- `wp_ajax_accessi_compliance_kit_run_scan` — AJAX endpoint for scans
+- `wp_ajax_accessi_compliance_kit_save_settings` — settings save
 - `woocommerce_before_checkout_form` — hook point for checkout fixes
 - `woocommerce_after_add_to_cart_button` — hook point for product fixes
 
@@ -386,16 +386,16 @@ accessiwoo/
 - `body_class` — add class when fixes are active
 
 **REST API (optional, for future SPA admin):**
-- `register_rest_route( 'accessiwoo/v1', '/scans', ... )`
+- `register_rest_route( 'accessi-compliance-kit/v1', '/scans', ... )`
 
 ### 5.5 How Scanning Works (Data Flow)
 
 1. Admin clicks "Scan this page" in the admin bar or plugin page
-2. Plugin opens a hidden iframe pointing at the target URL with a query string flag `?accessiwoo_scan=1`
+2. Plugin opens a hidden iframe pointing at the target URL with a query string flag `?accessi_compliance_kit_scan=1`
 3. Frontend scanner script (loaded only when that flag is present AND user is admin) runs axe-core on the loaded page
 4. Scanner posts results back to the parent window via `postMessage`
-5. Parent window sends results to `admin-ajax.php` action `accessiwoo_run_scan`
-6. PHP saves to the `wp_accessiwoo_scans` table
+5. Parent window sends results to `admin-ajax.php` action `accessi_compliance_kit_run_scan`
+6. PHP saves to the `wp_accessi_compliance_kit_scans` table
 7. Admin UI polls or receives result and renders it
 
 **No data ever leaves the merchant's server.**
@@ -565,7 +565,7 @@ Before you launch, the plugin should:
 - **Month 6–9:** Add advanced WooCommerce fixes (variations, mini-cart, checkout steps). These are your Pro differentiators.
 - **Month 9–12:** Multi-language, agency white-label, WPML/Polylang integration. By this point you have data on which Pro features drive the most upgrades.
 
-**Second plugin timing:** Don't start plugin #2 until AccessiWoo is generating steady revenue and the support load is under control. When you do, the natural adjacent plugin from your audience is a **WooCommerce Returns/RMA portal** — same buyer, same "compliance/professionalism" pitch, and you can cross-sell to your existing user base.
+**Second plugin timing:** Don't start plugin #2 until Accessi Compliance Kit is generating steady revenue and the support load is under control. When you do, the natural adjacent plugin from your audience is a **WooCommerce Returns/RMA portal** — same buyer, same "compliance/professionalism" pitch, and you can cross-sell to your existing user base.
 
 ---
 

@@ -1,5 +1,5 @@
 {
-	"name": "accessiwoo",
+	"name": "accessi-compliance-kit",
 	"version": "0.1.0",
 	"description": "Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements.",
 	"private": true,

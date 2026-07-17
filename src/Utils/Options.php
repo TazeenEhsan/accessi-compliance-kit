@@ -2,10 +2,10 @@
 /**
  * Typed access to the plugin's `wp_options` keys.
  *
- * @package AccessiWoo
+ * @package AccessiComplianceKit
  */
 
-namespace AccessiWoo\Utils;
+namespace AccessiComplianceKit\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -17,10 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Options {
 
-	const SETTINGS     = 'accessiwoo_settings';
-	const ACTIVE_FIXES = 'accessiwoo_active_fixes';
-	const LICENSE      = 'accessiwoo_license';
-	const LAST_SCAN_ID = 'accessiwoo_last_scan_id';
+	const SETTINGS     = 'accessi_compliance_kit_settings';
+	const ACTIVE_FIXES = 'accessi_compliance_kit_active_fixes';
+	const LICENSE      = 'accessi_compliance_kit_license';
+	const LAST_SCAN_ID = 'accessi_compliance_kit_last_scan_id';
 
 	/**
 	 * Get the plugin settings array.

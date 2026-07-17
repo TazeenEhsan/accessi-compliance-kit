@@ -1,4 +1,4 @@
-# AI_RULES.md — Rules for AI-Assisted Development of AccessiWoo
+# AI_RULES.md — Rules for AI-Assisted Development of Accessi Compliance Kit
 
 These rules govern every code-generation session.
 
@@ -69,11 +69,11 @@ After implementation:
 
 ## 1. Project Identity
 
-- **Plugin name:** AccessiWoo (working title per proposal §1)
+- **Plugin name:** Accessi Compliance Kit (working title per proposal §1)
 - **Purpose:** Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, generate EAA compliance statements
 - **License:** GPLv2 or later — every bundled dependency must be GPL-compatible (axe-core MIT ✓, DomPDF LGPL 2.1 ✓)
 - **Distribution:** WordPress.org (free) + Freemius (Pro). Free version must pass WordPress.org plugin review on the first submission.
-- **Repo note:** the development folder is `accessi-compliance-kit/`; the plugin's internal structure follows proposal §5.2 (`accessiwoo.php`, `src/`, `assets/`, etc.).
+- **Repo note:** the development folder is `accessi-compliance-kit/`; the plugin's internal structure follows proposal §5.2 (`accessi-compliance-kit.php`, `src/`, `assets/`, etc.).
 
 ## 2. Absolute Constraints (never violate)
 
@@ -95,11 +95,11 @@ After implementation:
 
 ## 4. Naming & Code Conventions
 
-- **Prefix everything** with `accessiwoo` / `accessiwoo_` / `ACCESSIWOO_`: options, transients, AJAX actions, script/style handles, DB tables (`{$wpdb->prefix}accessiwoo_*`), REST namespace (`accessiwoo/v1`), CSS classes (`.accessiwoo-*`), JS globals.
-- **Text domain:** `accessiwoo` — every user-facing string wrapped in `__()` / `_e()` / `esc_html__()` etc. with this domain. No variable text domains.
-- **PHP namespace:** `AccessiWoo\` mapping to `src/` via PSR-4 (`AccessiWoo\Admin\AdminMenu` → `src/Admin/AdminMenu.php`). One class per file, filename equals class name.
+- **Prefix everything** with `accessi_compliance_kit_` / `ACCESSI_COMPLIANCE_KIT_`: options, transients, AJAX actions, script/style handles, DB tables (`{$wpdb->prefix}accessi_compliance_kit_*`), REST namespace (`accessi-compliance-kit/v1`), CSS classes (`.accessi-compliance-kit-*`), JS globals.
+- **Text domain:** `accessi-compliance-kit` — every user-facing string wrapped in `__()` / `_e()` / `esc_html__()` etc. with this domain. No variable text domains.
+- **PHP namespace:** `AccessiComplianceKit\` mapping to `src/` via PSR-4 (`AccessiComplianceKit\Admin\AdminMenu` → `src/Admin/AdminMenu.php`). One class per file, filename equals class name.
 - **Coding standard:** WordPress Coding Standards (WPCS) for PHP; `@wordpress/eslint-plugin` defaults for JS. See `docs/coding-guidelines.md`.
-- **Hooks fired by the plugin** are prefixed `accessiwoo_` (e.g. `accessiwoo_after_scan_saved`).
+- **Hooks fired by the plugin** are prefixed `accessi_compliance_kit_` (e.g. `accessi_compliance_kit_after_scan_saved`).
 
 ## 5. Security Rules (non-negotiable, see docs/security.md for detail)
 
@@ -109,7 +109,7 @@ After implementation:
 - All `$wpdb` queries use `$wpdb->prepare()` with placeholders. No string-interpolated SQL.
 - No `eval()`, no `extract()`, no obfuscated code, no `base64_decode()` of executable payloads (all WordPress.org rejection triggers).
 - Direct file access guard (`if ( ! defined( 'ABSPATH' ) ) exit;`) at the top of every PHP file.
-- The front-end scanner script loads **only** when `?accessiwoo_scan=1` is present **and** the current user has the scan capability (proposal §5.5, step 3).
+- The front-end scanner script loads **only** when `?accessi_compliance_kit_scan=1` is present **and** the current user has the scan capability (proposal §5.5, step 3).
 
 ## 6. Architecture Rules
 
@@ -118,7 +118,7 @@ After implementation:
 - Every auto-fix is a class extending `AbstractFix` implementing `is_enabled()`, `applies_to()`, `register()` (proposal §5.6). `FixManager` is the only place fixes are instantiated.
 - Activation logic lives in `Activator.php` (table creation via `dbDelta()`), deactivation in `Deactivator.php` (no data deletion), uninstall cleanup in `uninstall.php` only.
 - Options access goes through `Utils/Options.php`; capability checks through `Utils/Capabilities.php`. Don't call `get_option()`/`current_user_can()` ad hoc in feature code.
-- Scan storage goes through `Scanner/ScanStorage.php`; nothing else touches `wp_accessiwoo_scans`.
+- Scan storage goes through `Scanner/ScanStorage.php`; nothing else touches `wp_accessi_compliance_kit_scans`.
 - Use the hooks enumerated in proposal §5.4. `woocommerce_locate_template` overrides only as a last resort ("use sparingly").
 
 ## 7. Workflow Rules for AI Sessions

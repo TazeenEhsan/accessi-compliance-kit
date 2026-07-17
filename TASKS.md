@@ -1,4 +1,4 @@
-# TASKS.md — AccessiWoo Implementation Tasks
+# TASKS.md — Accessi Compliance Kit Implementation Tasks
 
 Source of truth: `PLUGIN_PROPOSAL.md`. Rules: `AI_RULES.md`. Design detail: `docs/`.
 Each task is sized for roughly 10–20 minutes. Work top to bottom within a phase; phases follow proposal §6. Check a box only when the task is done **and verified** (file exists, code runs, test passes — whichever applies).
@@ -14,7 +14,7 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 - [x] Create the plugin folder skeleton: empty `src/`, `assets/js/src/`, `assets/css/`, `assets/images/`, `languages/`, `tests/phpunit/`, `tests/js/` directories per proposal §5.2
 - [x] Write `.gitignore` covering `node_modules/`, `build/`, `vendor/`, OS/editor files
 - [x] Write `LICENSE.txt` (GPLv2 full text)
-- [x] Write `composer.json`: project metadata, PHP 7.4 platform requirement, PSR-4 autoload `AccessiWoo\` → `src/`, require `dompdf/dompdf`, require-dev PHPUnit
+- [x] Write `composer.json`: project metadata, PHP 7.4 platform requirement, PSR-4 autoload `AccessiComplianceKit\` → `src/`, require `dompdf/dompdf`, require-dev PHPUnit
 - [x] Run `composer install`; verify `vendor/autoload.php` exists and autoloads a dummy class from `src/`
 - [x] Write `package.json` with `@wordpress/scripts` dev dependency and `build`/`start` scripts for two entry points (admin app, scanner)
 - [x] Write `webpack.config.js` extending `@wordpress/scripts` default config with entries `assets/js/src/admin/index.js` and `assets/js/src/scanner/index.js` outputting to `build/`
@@ -23,16 +23,16 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 0.2 Plugin Bootstrap
 
-- [x] Write `accessiwoo.php` main file: plugin headers (name, description, version, requires WP 6.5, requires PHP 7.4, license GPLv2, text domain `accessiwoo`), `ABSPATH` guard, define constants (`ACCESSIWOO_VERSION`, `ACCESSIWOO_FILE`, `ACCESSIWOO_PATH`, `ACCESSIWOO_URL`), require Composer autoloader
+- [x] Write `accessi-compliance-kit.php` main file: plugin headers (name, description, version, requires WP 6.5, requires PHP 7.4, license GPLv2, text domain `accessi-compliance-kit`), `ABSPATH` guard, define constants (`ACCESSI_COMPLIANCE_KIT_VERSION`, `ACCESSI_COMPLIANCE_KIT_FILE`, `ACCESSI_COMPLIANCE_KIT_PATH`, `ACCESSI_COMPLIANCE_KIT_URL`), require Composer autoloader
 - [x] Write `src/Plugin.php` singleton: `instance()`, `boot()` hooked on `plugins_loaded`, empty service-registration method stubs (admin, scanner, fixes, statement)
 - [x] Add a WooCommerce-active check in `Plugin.php` with an admin notice when WooCommerce is missing (plugin targets WC 8.0+, proposal §11)
-- [x] Write `src/Activator.php` stub + `src/Deactivator.php` stub; register `register_activation_hook` / `register_deactivation_hook` in `accessiwoo.php`
-- [x] Implement table creation in `Activator.php`: `wp_accessiwoo_scans` via `dbDelta()` exactly per proposal §5.3 schema (see docs/database.md), store `accessiwoo_db_version` option
-- [x] Implement default options seeding in `Activator.php`: `accessiwoo_settings` and `accessiwoo_active_fixes` (all fixes OFF per AI_RULES §2.3)
-- [x] Write `uninstall.php`: drop the scans table and delete all `accessiwoo_*` options (guarded by `WP_UNINSTALL_PLUGIN`)
+- [x] Write `src/Activator.php` stub + `src/Deactivator.php` stub; register `register_activation_hook` / `register_deactivation_hook` in `accessi-compliance-kit.php`
+- [x] Implement table creation in `Activator.php`: `wp_accessi_compliance_kit_scans` via `dbDelta()` exactly per proposal §5.3 schema (see docs/database.md), store `accessi_compliance_kit_db_version` option
+- [x] Implement default options seeding in `Activator.php`: `accessi_compliance_kit_settings` and `accessi_compliance_kit_active_fixes` (all fixes OFF per AI_RULES §2.3)
+- [x] Write `uninstall.php`: drop the scans table and delete all `accessi_compliance_kit_*` options (guarded by `WP_UNINSTALL_PLUGIN`)
 - [x] Write `src/Utils/Options.php`: typed getters/setters wrapping `get_option`/`update_option` for the four option keys in proposal §5.3
 - [x] Write `src/Utils/Capabilities.php`: capability constants and `can_scan()` / `can_manage_settings()` helpers (default `manage_options`)
-- [x] Write `src/Utils/Logger.php`: thin wrapper around `error_log` gated by `WP_DEBUG`, with a `accessiwoo_` prefix
+- [x] Write `src/Utils/Logger.php`: thin wrapper around `error_log` gated by `WP_DEBUG`, with a `accessi_compliance_kit_` prefix
 - [x] Activate the plugin on the local dev site; verify: no errors, table created with correct columns, default options present
 - [x] Set up `tests/phpunit/` bootstrap (WP test suite or Brain Monkey — pick per docs/coding-guidelines.md) and one smoke test asserting `Plugin::instance()` returns a singleton
 
@@ -42,7 +42,7 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 - [ ] Write `assets/js/src/scanner/runScan.js`: import axe-core, run `axe.run(document)`, format results (rule id, impact, description, help text, nodes with CSS selectors + HTML snippets), `postMessage` payload to `window.parent` (proposal §5.5 step 4, §10 prompt 3)
 - [ ] Write the scanner entry `assets/js/src/scanner/index.js`: run on DOM ready, include a origin/handshake token read from a localized variable so the parent can verify messages (docs/security.md §5)
-- [ ] Add conditional enqueue in a new `src/Scanner/ScannerAssets.php` (registered from `Plugin.php`): load scanner bundle on front-end **only** when `?accessiwoo_scan=1` AND `Capabilities::can_scan()` (proposal §5.5 step 3)
+- [ ] Add conditional enqueue in a new `src/Scanner/ScannerAssets.php` (registered from `Plugin.php`): load scanner bundle on front-end **only** when `?accessi_compliance_kit_scan=1` AND `Capabilities::can_scan()` (proposal §5.5 step 3)
 - [ ] Localize scanner script with the handshake token + admin origin; verify manually that the script loads only for admins with the flag
 
 ### 1.2 Scan Persistence (PHP)
@@ -50,27 +50,27 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 - [ ] Write `src/Scanner/ViolationParser.php`: normalize raw axe-core JSON into the stored shape (violations array + summary counts by severity: critical/serious/moderate/minor per proposal §4.1)
 - [ ] Unit-test `ViolationParser` with a fixture of real axe-core output (empty results, mixed severities)
 - [ ] Write `src/Scanner/ScanStorage.php` part 1: `create_scan( $url, $type, $user_id )` inserting a `running` row, `complete_scan( $id, $violations, $summary )`, `fail_scan( $id )` — all via `$wpdb->prepare` (docs/database.md)
-- [ ] Write `src/Scanner/ScanStorage.php` part 2: `get_scan( $id )`, `get_recent_scans( $limit, $offset )`, `get_last_scan()` (updates/reads `accessiwoo_last_scan_id`), JSON decode helpers
+- [ ] Write `src/Scanner/ScanStorage.php` part 2: `get_scan( $id )`, `get_recent_scans( $limit, $offset )`, `get_last_scan()` (updates/reads `accessi_compliance_kit_last_scan_id`), JSON decode helpers
 - [ ] Unit-test `ScanStorage` round-trip (insert → complete → fetch)
 
 ### 1.3 AJAX Endpoints
 
-- [ ] Write `src/Scanner/ScanController.php`: register `wp_ajax_accessiwoo_run_scan`; handler validates nonce + capability, sanitizes URL and payload, runs `ViolationParser`, saves via `ScanStorage`, returns JSON summary (proposal §5.4, §5.5 steps 5–6)
-- [ ] Add a second handler `wp_ajax_accessiwoo_get_scan` (fetch one scan's stored results for the results UI) with nonce + capability checks
+- [ ] Write `src/Scanner/ScanController.php`: register `wp_ajax_accessi_compliance_kit_run_scan`; handler validates nonce + capability, sanitizes URL and payload, runs `ViolationParser`, saves via `ScanStorage`, returns JSON summary (proposal §5.4, §5.5 steps 5–6)
+- [ ] Add a second handler `wp_ajax_accessi_compliance_kit_get_scan` (fetch one scan's stored results for the results UI) with nonce + capability checks
 - [ ] Add URL validation for scan targets: same-site origin only (`esc_url_raw` + host check against `home_url()`) — prevents scanning arbitrary external URLs (docs/security.md §6)
 - [ ] Test the endpoints with a REST client / curl: valid nonce succeeds, missing nonce and non-admin fail with proper error codes
 
 ### 1.4 Admin Scan UI (React)
 
-- [ ] Write `src/Admin/AdminMenu.php`: register submenu page under WooCommerce → "Accessibility" (proposal §4.1), page callback renders a root `<div id="accessiwoo-admin">`
+- [ ] Write `src/Admin/AdminMenu.php`: register submenu page under WooCommerce → "Accessibility" (proposal §4.1), page callback renders a root `<div id="accessi-compliance-kit-admin">`
 - [ ] Write `src/Admin/ScanPage.php`: enqueue admin bundle + `admin.css` on the plugin page only (`admin_enqueue_scripts`), `wp_localize_script` with ajaxurl, nonces, current-site URL, severity labels
 - [ ] Write React shell `assets/js/src/admin/App.jsx` + entry `index.js`: tab layout (Scan | History | Settings) using `@wordpress/components`
-- [ ] Write `assets/js/src/admin/ScanRunner.jsx` (iframe orchestration): URL input (default: home page), "Scan this page" button, create hidden iframe with `?accessiwoo_scan=1`, listen for `postMessage`, verify handshake token, show progress state (proposal §5.5 steps 1–4)
-- [ ] Wire ScanRunner results to the `accessiwoo_run_scan` AJAX action; handle success/error/timeout (e.g. 60s no-message timeout → failed state)
+- [ ] Write `assets/js/src/admin/ScanRunner.jsx` (iframe orchestration): URL input (default: home page), "Scan this page" button, create hidden iframe with `?accessi_compliance_kit_scan=1`, listen for `postMessage`, verify handshake token, show progress state (proposal §5.5 steps 1–4)
+- [ ] Wire ScanRunner results to the `accessi_compliance_kit_run_scan` AJAX action; handle success/error/timeout (e.g. 60s no-message timeout → failed state)
 - [ ] Write `assets/js/src/admin/ScanResults.jsx`: violations grouped by severity (Critical, Serious, Moderate, Minor), each row shows rule name, affected element selector, why it fails, how to fix (proposal §4.1) — worded as "detected issues" (AI_RULES §2.4)
 - [ ] Add expandable violation detail (HTML snippet, help URL from axe-core data) to `ScanResults.jsx`
-- [ ] Write scan History tab: table of past scans from a new `wp_ajax_accessiwoo_get_scans` list endpoint (date, URL, status, severity counts), click-through to results view
-- [ ] Implement the `accessiwoo_get_scans` list AJAX handler in `ScanController.php` (nonce + capability + pagination)
+- [ ] Write scan History tab: table of past scans from a new `wp_ajax_accessi_compliance_kit_get_scans` list endpoint (date, URL, status, severity counts), click-through to results view
+- [ ] Implement the `accessi_compliance_kit_get_scans` list AJAX handler in `ScanController.php` (nonce + capability + pagination)
 - [ ] Write `assets/css/admin.css`: base layout/severity color coding consistent with WP admin styles
 - [ ] End-to-end test on the dev site: scan the shop page, see grouped violations, row saved in DB, history lists it
 
@@ -83,9 +83,9 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 2.1 Fix Framework
 
-- [ ] Write `src/Fixes/AbstractFix.php`: abstract base with `id()`, `label()`, `description()`, `is_enabled()` (reads `accessiwoo_active_fixes` via Options), `applies_to()` returning contexts ('product', 'checkout', 'cart', 'global'), abstract `register()` (proposal §5.6)
+- [ ] Write `src/Fixes/AbstractFix.php`: abstract base with `id()`, `label()`, `description()`, `is_enabled()` (reads `accessi_compliance_kit_active_fixes` via Options), `applies_to()` returning contexts ('product', 'checkout', 'cart', 'global'), abstract `register()` (proposal §5.6)
 - [ ] Write `src/Fixes/FixManager.php`: hard-coded registry of the 6 free fix classes, loops on `init`, instantiates each, calls `register()` only when `is_enabled()` (proposal §5.6)
-- [ ] Add `body_class` filter in `FixManager`: append `accessiwoo-fixes-active` (plus per-fix classes) when any fix is enabled (proposal §5.4)
+- [ ] Add `body_class` filter in `FixManager`: append `accessi-compliance-kit-fixes-active` (plus per-fix classes) when any fix is enabled (proposal §5.4)
 - [ ] PHPUnit test: `FixManager` registers only enabled fixes (proposal §10 prompt 4)
 
 ### 2.2 The Six Free Fixes (one task each — see docs/frontend.md for specs)
@@ -101,10 +101,10 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 2.3 Settings
 
-- [ ] Register settings via `admin_init` in `src/Admin/SettingsPage.php`: sanitization callback for `accessiwoo_settings` and `accessiwoo_active_fixes` (whitelist known fix IDs, booleans only)
-- [ ] Add `wp_ajax_accessiwoo_save_settings` handler (nonce + capability + sanitize) per proposal §5.4
+- [ ] Register settings via `admin_init` in `src/Admin/SettingsPage.php`: sanitization callback for `accessi_compliance_kit_settings` and `accessi_compliance_kit_active_fixes` (whitelist known fix IDs, booleans only)
+- [ ] Add `wp_ajax_accessi_compliance_kit_save_settings` handler (nonce + capability + sanitize) per proposal §5.4
 - [ ] Write `assets/js/src/admin/Settings.jsx`: one ToggleControl per fix (label + description + context badge), all default OFF, save via AJAX with success/error notice (proposal §9: individually toggleable, off by default)
-- [ ] Add email-reminder opt-in toggle to Settings UI (stores in `accessiwoo_settings`; used in Phase 4 notifications)
+- [ ] Add email-reminder opt-in toggle to Settings UI (stores in `accessi_compliance_kit_settings`; used in Phase 4 notifications)
 - [ ] Manual test matrix: enable each fix one at a time on Storefront; confirm the fix applies and nothing visually breaks (proposal §6 Phase 2)
 - [ ] Repeat quick fix smoke-test on Astra and Kadence (proposal §6 Phase 2; full matrix again in Phase 4)
 
@@ -112,8 +112,8 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 - [ ] Write `src/Statement/templates/en.php`: EAA-compliant statement template with placeholders — compliance level claimed, known limitations section, contact for accessibility issues, date of last review (proposal §4.1)
 - [ ] Write `src/Statement/StatementGenerator.php`: `generate()` creates a WordPress page titled "Accessibility Statement" populated from the template with site name/contact/date substitutions (`wp_insert_post`, draft-or-publish per settings decision in docs/admin.md)
-- [ ] Handle re-generation: if a statement page already exists (store page ID in `accessiwoo_settings`), warn instead of duplicating; offer "create new" explicitly
-- [ ] Add `wp_ajax_accessiwoo_generate_statement` handler (nonce + capability) returning the created page's edit link
+- [ ] Handle re-generation: if a statement page already exists (store page ID in `accessi_compliance_kit_settings`), warn instead of duplicating; offer "create new" explicitly
+- [ ] Add `wp_ajax_accessi_compliance_kit_generate_statement` handler (nonce + capability) returning the created page's edit link
 - [ ] Add "Create statement page" button + status card (exists / not created, link to edit) to the admin React app (proposal §6 Phase 3)
 - [ ] Unit-test `StatementGenerator` (page created with expected title/content, no duplicate on second call)
 
@@ -128,7 +128,7 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 4.2 i18n & Hardening
 
-- [ ] Sweep all PHP/JS for untranslated strings; load text domain; generate `languages/accessiwoo.pot` (`wp i18n make-pot`)
+- [ ] Sweep all PHP/JS for untranslated strings; load text domain; generate `languages/accessi-compliance-kit.pot` (`wp i18n make-pot`)
 - [ ] Security pass 1: verify every AJAX handler has nonce + capability + sanitization + escaped output (checklist in docs/security.md §9)
 - [ ] Security pass 2: verify all `$wpdb` calls use `prepare()`, all templates escape output, every PHP file has the ABSPATH guard
 - [ ] Run WPCS (`phpcs` with WordPress ruleset) across `src/`; fix violations

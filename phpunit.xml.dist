@@ -7,7 +7,7 @@
 	convertNoticesToExceptions="true"
 >
 	<testsuites>
-		<testsuite name="AccessiWoo">
+		<testsuite name="AccessiComplianceKit">
 			<directory suffix="Test.php">tests/phpunit</directory>
 		</testsuite>
 	</testsuites>

@@ -7,14 +7,14 @@ Implements proposal §4.1 (Scanning, Basic auto-fixes), §5.5 (scan data flow), 
 ## 1. Scanner Bundle (`assets/js/src/scanner/`)
 
 - `runScan.js`: imports bundled axe-core (npm dependency — never CDN), runs `axe.run(document)`, formats results, `postMessage`s to the parent window (proposal §5.5, §10 prompt 3).
-- Loading rule (proposal §5.5 step 3): the bundle is enqueued on the front end **only when** the request has `?accessiwoo_scan=1` **and** the current user passes `Capabilities::can_scan()`. Anonymous visitors never load it; there is zero front-end weight for normal traffic.
+- Loading rule (proposal §5.5 step 3): the bundle is enqueued on the front end **only when** the request has `?accessi_compliance_kit_scan=1` **and** the current user passes `Capabilities::can_scan()`. Anonymous visitors never load it; there is zero front-end weight for normal traffic.
 - Result formatting per violation: axe rule id, `impact` (maps to Critical/Serious/Moderate/Minor), description (why it fails), help text (how to fix), help URL, and per-node CSS selector + HTML snippet (proposal §4.1). Shape defined in docs/database.md §4.
 - Message payload includes the handshake token localized into the script (docs/security.md §5) so the admin parent can reject spoofed messages.
 - Free tier runs the default axe-core WCAG 2.1 A/AA rules. Extended rule sets (WCAG 2.2, Section 508, EN 301 549) are Pro (§4.2.A) — do not expose them in free.
 
 ## 2. Frontend Fix CSS (`assets/css/frontend-fixes.css`)
 
-Enqueued via `wp_enqueue_scripts` only when at least one CSS-based fix is enabled. Keep it small and scoped; when fixes are active, `body_class` gets `accessiwoo-fixes-active` plus per-fix classes so CSS can target precisely (proposal §5.4).
+Enqueued via `wp_enqueue_scripts` only when at least one CSS-based fix is enabled. Keep it small and scoped; when fixes are active, `body_class` gets `accessi-compliance-kit-fixes-active` plus per-fix classes so CSS can target precisely (proposal §5.4).
 
 ## 3. Fix Framework (proposal §5.6)
 
@@ -24,7 +24,7 @@ Every fix extends `src/Fixes/AbstractFix.php`:
 |---|---|
 | `id()` | stable slug, used as the settings key (e.g. `product_image_alt`) |
 | `label()` / `description()` | translated strings for the Settings UI |
-| `is_enabled()` | reads `accessiwoo_active_fixes` via `Utils/Options` |
+| `is_enabled()` | reads `accessi_compliance_kit_active_fixes` via `Utils/Options` |
 | `applies_to()` | contexts: `'product'`, `'checkout'`, `'cart'`, `'global'` |
 | `register()` | hooks the fix's filters/actions — called only when enabled |
 

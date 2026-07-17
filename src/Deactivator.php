@@ -2,10 +2,10 @@
 /**
  * Runs on plugin deactivation.
  *
- * @package AccessiWoo
+ * @package AccessiComplianceKit
  */
 
-namespace AccessiWoo;
+namespace AccessiComplianceKit;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

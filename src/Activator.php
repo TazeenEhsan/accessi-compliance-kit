@@ -2,16 +2,16 @@
 /**
  * Runs on plugin activation.
  *
- * @package AccessiWoo
+ * @package AccessiComplianceKit
  */
 
-namespace AccessiWoo;
+namespace AccessiComplianceKit;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiWoo\Utils\Options;
+use AccessiComplianceKit\Utils\Options;
 
 /**
  * Creates the scans table and seeds default options.
@@ -36,7 +36,7 @@ class Activator {
 	}
 
 	/**
-	 * Create the `{$wpdb->prefix}accessiwoo_scans` table via dbDelta().
+	 * Create the `{$wpdb->prefix}accessi_compliance_kit_scans` table via dbDelta().
 	 *
 	 * @return void
 	 */
@@ -45,7 +45,7 @@ class Activator {
 
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-		$table_name      = $wpdb->prefix . 'accessiwoo_scans';
+		$table_name      = $wpdb->prefix . 'accessi_compliance_kit_scans';
 		$charset_collate = $wpdb->get_charset_collate();
 
 		$sql = "CREATE TABLE {$table_name} (
@@ -65,7 +65,7 @@ class Activator {
 
 		dbDelta( $sql );
 
-		update_option( 'accessiwoo_db_version', self::DB_VERSION );
+		update_option( 'accessi_compliance_kit_db_version', self::DB_VERSION );
 	}
 
 	/**

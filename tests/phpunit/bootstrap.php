@@ -3,7 +3,7 @@
  * PHPUnit bootstrap. Uses Brain Monkey to stub WordPress functions rather than
  * booting a full WP install (docs/coding-guidelines.md §4).
  *
- * @package AccessiWoo
+ * @package AccessiComplianceKit
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

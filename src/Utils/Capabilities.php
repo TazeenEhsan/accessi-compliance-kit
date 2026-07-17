@@ -2,10 +2,10 @@
 /**
  * Centralized capability checks.
  *
- * @package AccessiWoo
+ * @package AccessiComplianceKit
  */
 
-namespace AccessiWoo\Utils;
+namespace AccessiComplianceKit\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
