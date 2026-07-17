@@ -14,6 +14,10 @@ if ( ! defined( 'ARRAY_A' ) ) {
 	define( 'ARRAY_A', 'ARRAY_A' );
 }
 
+if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
+	define( 'WEEK_IN_SECONDS', 7 * 24 * 60 * 60 );
+}
+
 if ( ! defined( 'ACCESSI_COMPLIANCE_KIT_PATH' ) ) {
 	// Deliberately not the real plugin root: this directory has no `build/`
 	// subfolder, so `file_exists()` checks against compiled assets are

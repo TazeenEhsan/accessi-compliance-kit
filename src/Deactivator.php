@@ -11,9 +11,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use AccessiComplianceKit\Admin\EmailReminder;
+
 /**
  * Unschedules cron events. Never deletes data — see `uninstall.php` for cleanup.
- * Cron unscheduling is implemented alongside the weekly reminder in Phase 4.
  */
 class Deactivator {
 
@@ -23,5 +24,6 @@ class Deactivator {
 	 * @return void
 	 */
 	public static function deactivate() {
+		EmailReminder::unschedule();
 	}
 }

@@ -16,12 +16,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Loads the scanner bundle on the front end only when the scan flag is present
- * and the current user is allowed to scan (proposal §5.5 step 3).
+ * and the current user is allowed to scan (proposal §5.5 step 3). Also owns the
+ * front-end admin-bar surface: the "Scan this page" node and the critical-issues
+ * notice (docs/admin.md §1, §9).
  */
 class ScannerAssets {
 
 	const HANDLE    = 'accessi-compliance-kit-scanner';
 	const QUERY_VAR = 'accessi_compliance_kit_scan';
+
+	/**
+	 * Scan storage service, used to read the last scan's severity summary.
+	 *
+	 * @var ScanStorage
+	 */
+	private $scan_storage;
+
+	/**
+	 * Constructor.
+	 *
+	 * @param ScanStorage $scan_storage Scan storage service.
+	 */
+	public function __construct( ScanStorage $scan_storage ) {
+		$this->scan_storage = $scan_storage;
+	}
 
 	/**
 	 * Hook the conditional enqueue.
@@ -31,6 +49,7 @@ class ScannerAssets {
 	public function register() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'maybe_enqueue' ) );
 		add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_node' ), 100 );
+		add_action( 'admin_bar_menu', array( $this, 'add_critical_notice_node' ), 100 );
 	}
 
 	/**
@@ -110,6 +129,44 @@ class ScannerAssets {
 				'href'  => esc_url( $admin_url ),
 				'meta'  => array(
 					'title' => esc_attr__( 'Scan this page for accessibility issues', 'accessi-compliance-kit' ),
+				),
+			)
+		);
+	}
+
+	/**
+	 * Add a highlighted admin-bar notice when the last scan found critical
+	 * issues, linking to the plugin's results (proposal §4.1 "Notifications";
+	 * docs/admin.md §9).
+	 *
+	 * @param \WP_Admin_Bar $wp_admin_bar Core admin bar instance.
+	 * @return void
+	 */
+	public function add_critical_notice_node( $wp_admin_bar ) {
+		if ( ! Capabilities::can_scan() ) {
+			return;
+		}
+
+		$scan = $this->scan_storage->get_last_scan();
+
+		if ( ! $scan || empty( $scan['summary']['critical'] ) ) {
+			return;
+		}
+
+		$title = sprintf(
+			/* translators: %d: number of critical issues detected in the last scan. */
+			__( '%d critical accessibility issues detected', 'accessi-compliance-kit' ),
+			(int) $scan['summary']['critical']
+		);
+
+		$wp_admin_bar->add_node(
+			array(
+				'id'    => 'accessi-compliance-kit-critical-notice',
+				'title' => esc_html( $title ),
+				'href'  => esc_url( add_query_arg( 'page', AdminMenu::MENU_SLUG, admin_url( 'admin.php' ) ) ),
+				'meta'  => array(
+					'class' => 'accessi-compliance-kit-admin-bar-critical',
+					'title' => esc_attr__( 'View the detected accessibility issues', 'accessi-compliance-kit' ),
 				),
 			)
 		);

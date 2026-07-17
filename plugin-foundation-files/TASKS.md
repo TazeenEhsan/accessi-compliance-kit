@@ -123,10 +123,12 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 4.1 Dashboard Widget & Notifications
 
-- [ ] Write `src/Admin/DashboardWidget.php`: WP dashboard summary widget — last scan date, violation count by severity, link to full page (proposal §4.1, §11)
-- [ ] Add admin-bar notice when the last scan found critical issues (proposal §4.1 "Notifications")
-- [ ] Implement weekly email reminder: WP-Cron event scheduled only when the opt-in setting is on, unscheduled on deactivation/opt-out; email links to the scan page (proposal §4.1)
-- [ ] Test cron scheduling/unscheduling (toggle opt-in, deactivate plugin, check `wp cron event list`)
+- [x] Write `src/Admin/DashboardWidget.php`: WP dashboard summary widget — last scan date, violation count by severity, link to full page (proposal §4.1, §11)
+- [x] Add admin-bar notice when the last scan found critical issues (proposal §4.1 "Notifications") — implemented in `src/Scanner/ScannerAssets.php::add_critical_notice_node()`, alongside the existing "Scan this page" node (docs/admin.md §1: "Admin bar ... registered from Scanner service")
+- [x] Implement weekly email reminder: WP-Cron event scheduled only when the opt-in setting is on, unscheduled on deactivation/opt-out; email links to the scan page (proposal §4.1) — `src/Admin/EmailReminder.php`, wired to `Options::SETTINGS` add/update hooks; `Deactivator::deactivate()` calls `EmailReminder::unschedule()`
+- [ ] Test cron scheduling/unscheduling (toggle opt-in, deactivate plugin, check `wp cron event list`) — **not yet verified**: `tests/phpunit/Admin/EmailReminderTest.php` unit-tests the scheduling/unscheduling logic against stubbed `wp_next_scheduled`/`wp_schedule_event`/`wp_unschedule_event` (`vendor/bin/phpunit` passes, 75/75), but no WP-CLI or browser session was available in this environment to toggle the real opt-in setting and check `wp cron event list` end-to-end. Needs a manual pass, same limitation as tasks 1.4/1.5/2.3.
+
+**Note on `src/Admin/EmailReminder.php` vs. proposal §5.2:** the weekly-reminder scheduling/sending logic needed a home, and proposal §5.2's file tree doesn't list a file for it (it only names `AdminMenu.php`, `DashboardWidget.php`, `SettingsPage.php`, `ScanPage.php` under `Admin/`). `docs/admin.md` §1/§9 already specifies the behavior (cron hook `accessi_compliance_kit_weekly_reminder`, scheduled on opt-in, cleared on opt-out/deactivation) without naming a file, so a new `src/Admin/EmailReminder.php` was added — same "tree is illustrative, not exhaustive" reasoning as the Phase 2 note below. `docs/architecture.md`'s `src/Admin/` responsibility row was updated to list it. Flagging here per AI_RULES in case that reading is wrong.
 
 ### 4.2 i18n & Hardening
 

@@ -41,7 +41,7 @@ Authoritative layout is proposal §5.2 — reproduce it exactly. Summary of resp
 | `uninstall.php` | Full cleanup on deletion (table + options) |
 | `src/Plugin.php` | Singleton bootstrap; wires services on `plugins_loaded`; guarded Pro loader. No feature logic. |
 | `src/Activator.php` / `src/Deactivator.php` | Create table + seed defaults / unschedule cron. Deactivation never deletes data. |
-| `src/Admin/` | `AdminMenu`, `DashboardWidget`, `SettingsPage`, `ScanPage` — admin page registration, asset enqueueing, settings registration (docs/admin.md) |
+| `src/Admin/` | `AdminMenu`, `DashboardWidget`, `SettingsPage`, `ScanPage`, `EmailReminder` — admin page registration, asset enqueueing, settings registration, weekly reminder cron (docs/admin.md) |
 | `src/Scanner/` | `ScanController` (AJAX), `ScanStorage` (DB access — sole owner of the scans table), `ViolationParser` (normalize axe output), `ScanCrawler` (Pro) |
 | `src/Fixes/` | `FixManager`, `AbstractFix`, six free fix classes (docs/frontend.md) |
 | `src/Statement/` | `StatementGenerator` + `templates/{en,de,...}.php` |

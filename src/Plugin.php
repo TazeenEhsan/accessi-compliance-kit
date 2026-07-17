@@ -92,6 +92,8 @@ class Plugin {
 		( new Admin\AdminMenu() )->register();
 		( new Admin\ScanPage() )->register();
 		( new Admin\SettingsPage() )->register();
+		( new Admin\DashboardWidget( new Scanner\ScanStorage() ) )->register();
+		( new Admin\EmailReminder() )->register();
 	}
 
 	/**
@@ -100,7 +102,7 @@ class Plugin {
 	 * @return void
 	 */
 	private function register_scanner() {
-		( new Scanner\ScannerAssets() )->register();
+		( new Scanner\ScannerAssets( new Scanner\ScanStorage() ) )->register();
 		( new Scanner\ScanController( new Scanner\ScanStorage() ) )->register();
 	}
 
