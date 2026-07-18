@@ -44,7 +44,9 @@ class Plugin {
 	}
 
 	/**
-	 * Boot the plugin: verify dependencies, load i18n, register services.
+	 * Boot the plugin: verify dependencies, register services. Translations load
+	 * automatically for WordPress.org-hosted plugins since WP 4.6; no manual
+	 * `load_plugin_textdomain()` call is needed (Plugin Check flags it as discouraged).
 	 *
 	 * @return void
 	 */
@@ -53,8 +55,6 @@ class Plugin {
 			add_action( 'admin_notices', array( $this, 'render_woocommerce_missing_notice' ) );
 			return;
 		}
-
-		load_plugin_textdomain( 'accessi-compliance-kit', false, dirname( plugin_basename( ACCESSI_COMPLIANCE_KIT_FILE ) ) . '/languages' );
 
 		$this->register_admin();
 		$this->register_scanner();
@@ -79,6 +79,7 @@ class Plugin {
 	public function render_woocommerce_missing_notice() {
 		printf(
 			'<div class="notice notice-error"><p>%s</p></div>',
+			// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
 			esc_html__( 'Accessi Compliance Kit requires WooCommerce 8.0+ to be installed and active.', 'accessi-compliance-kit' )
 		);
 	}

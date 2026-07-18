@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Admin;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use AccessiComplianceKit\Admin\EmailReminder;
 use Brain\Monkey;
 use Brain\Monkey\Functions;

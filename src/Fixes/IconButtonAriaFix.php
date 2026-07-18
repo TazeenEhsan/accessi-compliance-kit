@@ -41,6 +41,7 @@ class IconButtonAriaFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function description() {
+		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
 		return __( 'Adds accessible names to icon-only cart, search, and wishlist controls.', 'accessi-compliance-kit' );
 	}
 

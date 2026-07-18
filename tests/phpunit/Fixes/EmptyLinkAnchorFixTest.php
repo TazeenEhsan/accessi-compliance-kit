@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Fixes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use AccessiComplianceKit\Fixes\EmptyLinkAnchorFix;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
@@ -35,7 +39,7 @@ class EmptyLinkAnchorFixTest extends TestCase {
 
 	protected function tearDown(): void {
 		global $product;
-		$product = null;
+		$product = null; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- simulates WooCommerce's own global $product, not a plugin-owned global.
 
 		Monkey\tearDown();
 		parent::tearDown();
@@ -43,7 +47,7 @@ class EmptyLinkAnchorFixTest extends TestCase {
 
 	public function test_inject_accessible_name_prints_the_product_title() {
 		global $product;
-		$product = new FakeWcProductForEmptyLink( 'Red Mug' );
+		$product = new FakeWcProductForEmptyLink( 'Red Mug' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- simulates WooCommerce's own global $product, not a plugin-owned global.
 
 		$fix = new EmptyLinkAnchorFix();
 
@@ -57,7 +61,7 @@ class EmptyLinkAnchorFixTest extends TestCase {
 
 	public function test_inject_accessible_name_bails_without_a_product() {
 		global $product;
-		$product = null;
+		$product = null; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- simulates WooCommerce's own global $product, not a plugin-owned global.
 
 		$fix = new EmptyLinkAnchorFix();
 

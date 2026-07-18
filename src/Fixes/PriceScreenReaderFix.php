@@ -39,6 +39,7 @@ class PriceScreenReaderFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function description() {
+		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
 		return __( 'Announces "Price:" before prices so screen readers read them correctly.', 'accessi-compliance-kit' );
 	}
 

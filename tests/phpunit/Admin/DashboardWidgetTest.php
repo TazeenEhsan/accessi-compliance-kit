@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Admin;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use AccessiComplianceKit\Admin\DashboardWidget;
 use AccessiComplianceKit\Scanner\ScanStorage;
 use Brain\Monkey;

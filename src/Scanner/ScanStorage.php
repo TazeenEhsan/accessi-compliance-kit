@@ -34,6 +34,7 @@ class ScanStorage {
 	public function create_scan( $url, $type, $user_id ) {
 		global $wpdb;
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- this is the sole gateway to the plugin's custom table (AI_RULES §6); no core API exists for a bespoke table.
 		$result = $wpdb->query(
 			$wpdb->prepare(
 				'INSERT INTO %i ( scan_type, url, started_at, status, triggered_by ) VALUES ( %s, %s, %s, %s, %d )',
@@ -64,6 +65,7 @@ class ScanStorage {
 	public function complete_scan( $id, array $violations, array $summary ) {
 		global $wpdb;
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- this is the sole gateway to the plugin's custom table (AI_RULES §6); no core API exists for a bespoke table.
 		$result = $wpdb->query(
 			$wpdb->prepare(
 				'UPDATE %i SET status = %s, completed_at = %s, violations_json = %s, summary_json = %s WHERE id = %d',
@@ -101,6 +103,7 @@ class ScanStorage {
 			$summary['reason'] = $reason;
 		}
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- this is the sole gateway to the plugin's custom table (AI_RULES §6); no core API exists for a bespoke table.
 		$result = $wpdb->query(
 			$wpdb->prepare(
 				'UPDATE %i SET status = %s, completed_at = %s, summary_json = %s WHERE id = %d',
@@ -124,6 +127,7 @@ class ScanStorage {
 	public function get_scan( $id ) {
 		global $wpdb;
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- this is the sole gateway to the plugin's custom table (AI_RULES §6); no core API exists for a bespoke table.
 		$row = $wpdb->get_row(
 			$wpdb->prepare( 'SELECT * FROM %i WHERE id = %d', $this->table(), $id ),
 			ARRAY_A
@@ -146,6 +150,7 @@ class ScanStorage {
 	public function get_recent_scans( $limit, $offset = 0 ) {
 		global $wpdb;
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- this is the sole gateway to the plugin's custom table (AI_RULES §6); no core API exists for a bespoke table.
 		$rows = $wpdb->get_results(
 			$wpdb->prepare(
 				'SELECT * FROM %i ORDER BY started_at DESC LIMIT %d OFFSET %d',
@@ -198,8 +203,14 @@ class ScanStorage {
 	private function hydrate_row( array $row ) {
 		$row['id']           = (int) $row['id'];
 		$row['triggered_by'] = (int) $row['triggered_by'];
-		$row['violations']   = $this->decode_json( isset( $row['violations_json'] ) ? $row['violations_json'] : '', array() );
-		$row['summary']      = $this->decode_json( isset( $row['summary_json'] ) ? $row['summary_json'] : '', array() );
+		$row['violations']   = $this->decode_json(
+			isset( $row['violations_json'] ) ? $row['violations_json'] : '',
+			array()
+		);
+		$row['summary']      = $this->decode_json(
+			isset( $row['summary_json'] ) ? $row['summary_json'] : '',
+			array()
+		);
 
 		unset( $row['violations_json'], $row['summary_json'] );
 
@@ -209,13 +220,13 @@ class ScanStorage {
 	/**
 	 * Decode a stored JSON column, treating invalid JSON as absent (docs/database.md §2).
 	 *
-	 * @param string $json    Raw JSON string.
-	 * @param array  $default Value to return when the column is empty or invalid.
+	 * @param string $json          Raw JSON string.
+	 * @param array  $default_value Value to return when the column is empty or invalid.
 	 * @return array
 	 */
-	private function decode_json( $json, array $default ) {
+	private function decode_json( $json, array $default_value ) {
 		if ( empty( $json ) ) {
-			return $default;
+			return $default_value;
 		}
 
 		$decoded = json_decode( $json, true );
@@ -223,7 +234,7 @@ class ScanStorage {
 		if ( JSON_ERROR_NONE !== json_last_error() || ! is_array( $decoded ) ) {
 			Logger::log( 'Failed to decode stored scan JSON: ' . json_last_error_msg() );
 
-			return $default;
+			return $default_value;
 		}
 
 		return $decoded;

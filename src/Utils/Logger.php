@@ -31,6 +31,7 @@ class Logger {
 			$message = print_r( $message, true ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 		}
 
-		error_log( '[accessi-compliance-kit] ' . $message ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- WP_DEBUG-gated wrapper is this class's stated purpose.
+		error_log( '[accessi-compliance-kit] ' . $message );
 	}
 }

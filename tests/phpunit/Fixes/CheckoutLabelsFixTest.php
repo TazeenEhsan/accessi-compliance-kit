@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Fixes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use AccessiComplianceKit\Fixes\CheckoutLabelsFix;
 use Brain\Monkey;
 use PHPUnit\Framework\TestCase;

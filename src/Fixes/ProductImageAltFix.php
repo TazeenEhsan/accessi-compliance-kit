@@ -94,7 +94,9 @@ class ProductImageAltFix extends AbstractFix {
 		if ( $post instanceof \WP_Post && 'product' === get_post_type( $post ) ) {
 			$post_product = function_exists( 'wc_get_product' ) ? wc_get_product( $post->ID ) : false;
 
-			if ( $post_product instanceof \WC_Product && $this->attachment_belongs_to( $attachment_id, $post_product ) ) {
+			if ( $post_product instanceof \WC_Product
+				&& $this->attachment_belongs_to( $attachment_id, $post_product )
+			) {
 				return $post_product;
 			}
 		}

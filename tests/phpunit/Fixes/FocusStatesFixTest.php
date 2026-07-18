@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Fixes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use AccessiComplianceKit\Fixes\FocusStatesFix;
 use Brain\Monkey;
 use Brain\Monkey\Functions;

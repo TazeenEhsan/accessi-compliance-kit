@@ -21,6 +21,7 @@ class Options {
 	const ACTIVE_FIXES = 'accessi_compliance_kit_active_fixes';
 	const LICENSE      = 'accessi_compliance_kit_license';
 	const LAST_SCAN_ID = 'accessi_compliance_kit_last_scan_id';
+	const DB_VERSION   = 'accessi_compliance_kit_db_version';
 
 	/**
 	 * Get the plugin settings array.
@@ -96,5 +97,38 @@ class Options {
 	 */
 	public static function update_last_scan_id( $scan_id ) {
 		return update_option( self::LAST_SCAN_ID, absint( $scan_id ) );
+	}
+
+	/**
+	 * Get the stored database schema version.
+	 *
+	 * @return string
+	 */
+	public static function get_db_version() {
+		return (string) get_option( self::DB_VERSION, '' );
+	}
+
+	/**
+	 * Update the stored database schema version.
+	 *
+	 * @param string $version Schema version.
+	 * @return bool
+	 */
+	public static function update_db_version( $version ) {
+		return update_option( self::DB_VERSION, $version );
+	}
+
+	/**
+	 * Check whether an option key has ever been stored, distinguishing "never set"
+	 * from "set to an empty value" (used by Activator to seed defaults without
+	 * clobbering existing data on reactivation).
+	 *
+	 * @param string $key Option key.
+	 * @return bool
+	 */
+	public static function option_exists( $key ) {
+		$sentinel = "\0accessi_compliance_kit_absent\0";
+
+		return get_option( $key, $sentinel ) !== $sentinel;
 	}
 }

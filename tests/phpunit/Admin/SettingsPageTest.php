@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Admin;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use AccessiComplianceKit\Admin\SettingsPage;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
@@ -79,11 +83,13 @@ class SettingsPageTest extends TestCase {
 
 		Functions\when( 'wp_send_json_success' )->alias(
 			function ( $data = null ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- test double, never rendered; carries the AJAX payload for assertions only.
 				throw new SettingsAjaxResponseException( true, $data );
 			}
 		);
 		Functions\when( 'wp_send_json_error' )->alias(
 			function ( $data = null ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- test double, never rendered; carries the AJAX payload for assertions only.
 				throw new SettingsAjaxResponseException( false, $data );
 			}
 		);

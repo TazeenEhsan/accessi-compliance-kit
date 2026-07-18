@@ -83,8 +83,8 @@ class FixManager {
 	 */
 	public static function all_fixes() {
 		return array_map(
-			function ( $class ) {
-				return new $class();
+			function ( $fix_class ) {
+				return new $fix_class();
 			},
 			self::FIX_CLASSES
 		);

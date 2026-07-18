@@ -2,6 +2,8 @@
  * Small `admin-ajax.php` POST helper shared by the admin app's components.
  */
 
+import { __ } from '@wordpress/i18n';
+
 /**
  * Post an `admin-ajax.php` action and resolve with its `data` payload.
  *
@@ -24,7 +26,7 @@ export async function ajaxRequest( ajaxUrl, action, nonce, data = {} ) {
 	const json = await response.json();
 
 	if ( ! json.success ) {
-		const message = json.data && json.data.message ? json.data.message : 'Request failed.';
+		const message = json.data && json.data.message ? json.data.message : __( 'Request failed.', 'accessi-compliance-kit' );
 		throw new Error( message );
 	}
 

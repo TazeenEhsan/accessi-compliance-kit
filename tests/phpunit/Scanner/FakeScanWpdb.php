@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Scanner;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Stands in for `$wpdb`. `prepare()` bundles the query template with its args
  * (as JSON) instead of interpolating SQL, so `query()`/`get_row()`/`get_results()`

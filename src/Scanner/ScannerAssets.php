@@ -94,6 +94,7 @@ class ScannerAssets {
 	 * @return bool
 	 */
 	private function is_scan_request() {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only feature flag, not a state change.
 		if ( ! isset( $_GET[ self::QUERY_VAR ] ) ) {
 			return false;
 		}

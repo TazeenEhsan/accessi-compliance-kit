@@ -58,19 +58,32 @@ class ScanController {
 		check_ajax_referer( 'accessi_compliance_kit_run_scan', 'nonce' );
 
 		if ( ! Capabilities::can_scan() ) {
-			wp_send_json_error( array( 'message' => __( 'You are not allowed to run scans.', 'accessi-compliance-kit' ) ), 403 );
+			wp_send_json_error(
+				array( 'message' => __( 'You are not allowed to run scans.', 'accessi-compliance-kit' ) ),
+				403
+			);
 		}
 
-		$url = $this->sanitize_scan_url( isset( $_POST['url'] ) ? wp_unslash( $_POST['url'] ) : '' ); // phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- nonce verified above via check_ajax_referer(); value is same-site validated below in sanitize_scan_url().
+		$raw_url = isset( $_POST['url'] ) ? wp_unslash( $_POST['url'] ) : '';
+		$url     = $this->sanitize_scan_url( $raw_url );
 
 		if ( null === $url ) {
-			wp_send_json_error( array( 'message' => __( 'The scan URL must be on this site.', 'accessi-compliance-kit' ) ), 400 );
+			wp_send_json_error(
+				array( 'message' => __( 'The scan URL must be on this site.', 'accessi-compliance-kit' ) ),
+				400
+			);
 		}
 
-		$raw_violations = $this->decode_violations( isset( $_POST['violations'] ) ? wp_unslash( $_POST['violations'] ) : '' ); // phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- nonce verified above via check_ajax_referer(); value is JSON-decoded and field-sanitized below in ViolationParser::parse().
+		$raw_violations_json = isset( $_POST['violations'] ) ? wp_unslash( $_POST['violations'] ) : '';
+		$raw_violations      = $this->decode_violations( $raw_violations_json );
 
 		if ( null === $raw_violations ) {
-			wp_send_json_error( array( 'message' => __( 'The scan results were malformed.', 'accessi-compliance-kit' ) ), 400 );
+			wp_send_json_error(
+				array( 'message' => __( 'The scan results were malformed.', 'accessi-compliance-kit' ) ),
+				400
+			);
 		}
 
 		$scan_id = $this->scan_storage->create_scan( $url, 'single', get_current_user_id() );
@@ -101,10 +114,14 @@ class ScanController {
 		check_ajax_referer( 'accessi_compliance_kit_get_scan', 'nonce' );
 
 		if ( ! Capabilities::can_scan() ) {
-			wp_send_json_error( array( 'message' => __( 'You are not allowed to view scans.', 'accessi-compliance-kit' ) ), 403 );
+			wp_send_json_error(
+				array( 'message' => __( 'You are not allowed to view scans.', 'accessi-compliance-kit' ) ),
+				403
+			);
 		}
 
-		$scan_id = isset( $_POST['id'] ) ? absint( wp_unslash( $_POST['id'] ) ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
+		$scan_id = isset( $_POST['id'] ) ? absint( wp_unslash( $_POST['id'] ) ) : 0;
 
 		if ( ! $scan_id ) {
 			wp_send_json_error( array( 'message' => __( 'A scan ID is required.', 'accessi-compliance-kit' ) ), 400 );
@@ -128,12 +145,17 @@ class ScanController {
 		check_ajax_referer( 'accessi_compliance_kit_get_scans', 'nonce' );
 
 		if ( ! Capabilities::can_scan() ) {
-			wp_send_json_error( array( 'message' => __( 'You are not allowed to view scans.', 'accessi-compliance-kit' ) ), 403 );
+			wp_send_json_error(
+				array( 'message' => __( 'You are not allowed to view scans.', 'accessi-compliance-kit' ) ),
+				403
+			);
 		}
 
-		$page     = isset( $_POST['page'] ) ? absint( wp_unslash( $_POST['page'] ) ) : 1; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
-		$page     = max( 1, $page );
-		$per_page = isset( $_POST['per_page'] ) ? absint( wp_unslash( $_POST['per_page'] ) ) : self::DEFAULT_PER_PAGE; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
+		$page = isset( $_POST['page'] ) ? absint( wp_unslash( $_POST['page'] ) ) : 1;
+		$page = max( 1, $page );
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
+		$per_page = isset( $_POST['per_page'] ) ? absint( wp_unslash( $_POST['per_page'] ) ) : self::DEFAULT_PER_PAGE;
 		$per_page = min( self::MAX_PER_PAGE, max( 1, $per_page ) );
 		$offset   = ( $page - 1 ) * $per_page;
 

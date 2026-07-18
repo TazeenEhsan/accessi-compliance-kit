@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use AccessiComplianceKit\Plugin;
 use Brain\Monkey;
 use PHPUnit\Framework\TestCase;

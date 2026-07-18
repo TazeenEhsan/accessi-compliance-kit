@@ -29,7 +29,8 @@ class EmailReminder {
 	 * @return void
 	 */
 	public function register() {
-		add_filter( 'cron_schedules', array( $this, 'add_weekly_schedule' ) ); // phpcs:ignore WordPress.WP.CronInterval.CronSchedulesInterval
+		// phpcs:ignore WordPress.WP.CronInterval.CronSchedulesInterval -- fixed weekly interval is the documented behavior (proposal §4.1).
+		add_filter( 'cron_schedules', array( $this, 'add_weekly_schedule' ) );
 		add_action( self::CRON_HOOK, array( $this, 'send_reminder' ) );
 		add_action( 'add_option_' . Options::SETTINGS, array( $this, 'handle_option_added' ), 10, 2 );
 		add_action( 'update_option_' . Options::SETTINGS, array( $this, 'handle_option_updated' ), 10, 2 );
@@ -115,7 +116,7 @@ class EmailReminder {
 			__( 'Accessi Compliance Kit — weekly scan reminder', 'accessi-compliance-kit' ),
 			sprintf(
 				/* translators: %s: URL to the plugin's scan page. */
-				__( "It's been a week since your last accessibility scan. Run a new scan to check for issues:\n\n%s", 'accessi-compliance-kit' ),
+				__( "It's been a week since your last accessibility scan. Run a new scan to check for issues:\n\n%s", 'accessi-compliance-kit' ), // phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
 				esc_url_raw( $scan_page_url )
 			)
 		);

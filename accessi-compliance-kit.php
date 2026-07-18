@@ -27,6 +27,9 @@ define( 'ACCESSI_COMPLIANCE_KIT_URL', plugin_dir_url( __FILE__ ) );
 require ACCESSI_COMPLIANCE_KIT_PATH . 'vendor/autoload.php';
 
 register_activation_hook( ACCESSI_COMPLIANCE_KIT_FILE, array( \AccessiComplianceKit\Activator::class, 'activate' ) );
-register_deactivation_hook( ACCESSI_COMPLIANCE_KIT_FILE, array( \AccessiComplianceKit\Deactivator::class, 'deactivate' ) );
+register_deactivation_hook(
+	ACCESSI_COMPLIANCE_KIT_FILE,
+	array( \AccessiComplianceKit\Deactivator::class, 'deactivate' )
+);
 
 \AccessiComplianceKit\Plugin::instance();

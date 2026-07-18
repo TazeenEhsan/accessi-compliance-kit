@@ -37,6 +37,7 @@ class CheckoutLabelsFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function description() {
+		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
 		return __( 'Adds a screen-reader label to checkout fields that only show a placeholder.', 'accessi-compliance-kit' );
 	}
 
@@ -67,7 +68,9 @@ class CheckoutLabelsFix extends AbstractFix {
 		}
 
 		$args['label']       = $args['placeholder'];
-		$existing_classes    = isset( $args['label_class'] ) && is_array( $args['label_class'] ) ? $args['label_class'] : array();
+		$existing_classes    = isset( $args['label_class'] ) && is_array( $args['label_class'] )
+			? $args['label_class']
+			: array();
 		$args['label_class'] = array_unique( array_merge( $existing_classes, array( 'screen-reader-text' ) ) );
 
 		return $args;

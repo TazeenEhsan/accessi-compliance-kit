@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Scanner;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Stands in for `WP_Admin_Bar` so tests can assert on nodes added via `add_node()`.
  */

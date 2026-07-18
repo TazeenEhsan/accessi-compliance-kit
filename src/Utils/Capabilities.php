@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Capabilities {
 
-	const SCAN             = 'manage_options';
-	const MANAGE_SETTINGS  = 'manage_options';
+	const SCAN            = 'manage_options';
+	const MANAGE_SETTINGS = 'manage_options';
 
 	/**
 	 * Whether the current user may run a scan.

@@ -152,11 +152,13 @@ class ScanPage {
 	 * @return string
 	 */
 	private function prefill_url() {
-		if ( ! isset( $_GET['scan_url'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only prefill value, not a state change.
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only prefill value, not a state change.
+		if ( ! isset( $_GET['scan_url'] ) ) {
 			return '';
 		}
 
-		$url = esc_url_raw( wp_unslash( $_GET['scan_url'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only prefill value, not a state change.
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only prefill value, not a state change.
+		$url = esc_url_raw( wp_unslash( $_GET['scan_url'] ) );
 
 		$site_host = wp_parse_url( home_url(), PHP_URL_HOST );
 		$url_host  = wp_parse_url( $url, PHP_URL_HOST );

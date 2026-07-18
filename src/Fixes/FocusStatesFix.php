@@ -38,6 +38,7 @@ class FocusStatesFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function description() {
+		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
 		return __( 'Adds a high-contrast focus outline to links, buttons, and form controls.', 'accessi-compliance-kit' );
 	}
 

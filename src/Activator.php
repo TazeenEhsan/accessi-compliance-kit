@@ -65,7 +65,7 @@ class Activator {
 
 		dbDelta( $sql );
 
-		update_option( 'accessi_compliance_kit_db_version', self::DB_VERSION );
+		Options::update_db_version( self::DB_VERSION );
 	}
 
 	/**
@@ -74,7 +74,7 @@ class Activator {
 	 * @return void
 	 */
 	private static function seed_default_options() {
-		if ( false === get_option( Options::SETTINGS, false ) ) {
+		if ( ! Options::option_exists( Options::SETTINGS ) ) {
 			Options::update_settings(
 				array(
 					'email_reminder_opt_in' => false,
@@ -83,7 +83,7 @@ class Activator {
 			);
 		}
 
-		if ( false === get_option( Options::ACTIVE_FIXES, false ) ) {
+		if ( ! Options::option_exists( Options::ACTIVE_FIXES ) ) {
 			Options::update_active_fixes(
 				array(
 					'product_image_alt'   => false,

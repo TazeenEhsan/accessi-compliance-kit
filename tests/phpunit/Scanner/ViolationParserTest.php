@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Scanner;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use AccessiComplianceKit\Scanner\ViolationParser;
 use Brain\Monkey;
 use Brain\Monkey\Functions;

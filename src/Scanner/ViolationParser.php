@@ -42,7 +42,7 @@ class ViolationParser {
 	 * }
 	 */
 	public static function parse( array $raw_violations ) {
-		$summary = array_fill_keys( self::SEVERITIES, 0 );
+		$summary          = array_fill_keys( self::SEVERITIES, 0 );
 		$summary['total'] = 0;
 
 		$violations = array();
@@ -82,13 +82,18 @@ class ViolationParser {
 			$impact = 'minor';
 		}
 
+		$description = isset( $raw_violation['description'] ) ? $raw_violation['description'] : '';
+		$help        = isset( $raw_violation['help'] ) ? $raw_violation['help'] : '';
+		$help_url    = isset( $raw_violation['help_url'] ) ? $raw_violation['help_url'] : '';
+		$nodes       = isset( $raw_violation['nodes'] ) ? $raw_violation['nodes'] : array();
+
 		return array(
 			'rule'        => sanitize_text_field( $raw_violation['rule'] ),
 			'impact'      => $impact,
-			'description' => sanitize_text_field( isset( $raw_violation['description'] ) ? $raw_violation['description'] : '' ),
-			'help'        => sanitize_text_field( isset( $raw_violation['help'] ) ? $raw_violation['help'] : '' ),
-			'help_url'    => esc_url_raw( isset( $raw_violation['help_url'] ) ? $raw_violation['help_url'] : '' ),
-			'nodes'       => self::normalize_nodes( isset( $raw_violation['nodes'] ) ? $raw_violation['nodes'] : array() ),
+			'description' => sanitize_text_field( $description ),
+			'help'        => sanitize_text_field( $help ),
+			'help_url'    => esc_url_raw( $help_url ),
+			'nodes'       => self::normalize_nodes( $nodes ),
 		);
 	}
 
@@ -110,10 +115,14 @@ class ViolationParser {
 				continue;
 			}
 
+			$selector        = isset( $raw_node['selector'] ) ? $raw_node['selector'] : '';
+			$html            = isset( $raw_node['html'] ) ? $raw_node['html'] : '';
+			$failure_summary = isset( $raw_node['failure_summary'] ) ? $raw_node['failure_summary'] : '';
+
 			$nodes[] = array(
-				'selector'        => sanitize_text_field( isset( $raw_node['selector'] ) ? $raw_node['selector'] : '' ),
-				'html'            => self::truncate_html( isset( $raw_node['html'] ) ? $raw_node['html'] : '' ),
-				'failure_summary' => sanitize_text_field( isset( $raw_node['failure_summary'] ) ? $raw_node['failure_summary'] : '' ),
+				'selector'        => sanitize_text_field( $selector ),
+				'html'            => self::truncate_html( $html ),
+				'failure_summary' => sanitize_text_field( $failure_summary ),
 			);
 		}
 

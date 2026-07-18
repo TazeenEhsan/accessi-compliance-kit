@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Fixes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use AccessiComplianceKit\Fixes\ProductImageAltFix;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
@@ -35,7 +39,7 @@ class ProductImageAltFixTest extends TestCase {
 
 	protected function tearDown(): void {
 		global $product, $post;
-		$product = null;
+		$product = null; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- simulates WooCommerce's own global $product, not a plugin-owned global.
 		$post    = null;
 
 		Monkey\tearDown();
@@ -44,7 +48,7 @@ class ProductImageAltFixTest extends TestCase {
 
 	public function test_maybe_add_alt_leaves_existing_alt_untouched() {
 		global $product;
-		$product = new FakeWcProduct( 5, array(), 'Blue Mug' );
+		$product = new FakeWcProduct( 5, array(), 'Blue Mug' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- simulates WooCommerce's own global $product, not a plugin-owned global.
 
 		$fix   = new ProductImageAltFix();
 		$attr  = array( 'alt' => 'Custom alt' );
@@ -57,7 +61,7 @@ class ProductImageAltFixTest extends TestCase {
 
 	public function test_maybe_add_alt_fills_empty_alt_from_featured_image() {
 		global $product;
-		$product = new FakeWcProduct( 5, array(), 'Blue Mug' );
+		$product = new FakeWcProduct( 5, array(), 'Blue Mug' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- simulates WooCommerce's own global $product, not a plugin-owned global.
 
 		$fix   = new ProductImageAltFix();
 		$attr  = array( 'alt' => '' );
@@ -70,7 +74,7 @@ class ProductImageAltFixTest extends TestCase {
 
 	public function test_maybe_add_alt_fills_empty_alt_from_gallery_image() {
 		global $product;
-		$product = new FakeWcProduct( 5, array( 6, 7 ), 'Blue Mug' );
+		$product = new FakeWcProduct( 5, array( 6, 7 ), 'Blue Mug' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- simulates WooCommerce's own global $product, not a plugin-owned global.
 
 		$fix   = new ProductImageAltFix();
 		$attr  = array();
@@ -83,7 +87,7 @@ class ProductImageAltFixTest extends TestCase {
 
 	public function test_maybe_add_alt_leaves_unrelated_image_untouched() {
 		global $product;
-		$product = new FakeWcProduct( 5, array( 6 ), 'Blue Mug' );
+		$product = new FakeWcProduct( 5, array( 6 ), 'Blue Mug' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- simulates WooCommerce's own global $product, not a plugin-owned global.
 
 		$fix   = new ProductImageAltFix();
 		$attr  = array();

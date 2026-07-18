@@ -62,19 +62,22 @@ class SettingsPage {
 		check_ajax_referer( 'accessi_compliance_kit_save_settings', 'nonce' );
 
 		if ( ! Capabilities::can_manage_settings() ) {
-			wp_send_json_error( array( 'message' => __( 'You are not allowed to change these settings.', 'accessi-compliance-kit' ) ), 403 );
+			wp_send_json_error(
+				array( 'message' => __( 'You are not allowed to change these settings.', 'accessi-compliance-kit' ) ),
+				403
+			);
 		}
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- nonce verified above via check_ajax_referer(); value is whitelist-sanitized below in sanitize_active_fixes().
 		$raw_fixes_json = isset( $_POST['active_fixes'] ) ? wp_unslash( $_POST['active_fixes'] ) : '';
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- nonce verified above via check_ajax_referer(); value is boolean-cast below in sanitize_settings().
 		$email_opt_in = isset( $_POST['email_reminder_opt_in'] ) ? wp_unslash( $_POST['email_reminder_opt_in'] ) : '';
 
 		$decoded   = json_decode( $raw_fixes_json, true );
 		$raw_fixes = ( JSON_ERROR_NONE === json_last_error() && is_array( $decoded ) ) ? $decoded : array();
 
 		$active_fixes = $this->sanitize_active_fixes( $raw_fixes );
-		$settings      = $this->sanitize_settings(
+		$settings     = $this->sanitize_settings(
 			array_merge(
 				Options::get_settings(),
 				array( 'email_reminder_opt_in' => $email_opt_in )
@@ -120,7 +123,8 @@ class SettingsPage {
 		$value = is_array( $value ) ? $value : array();
 
 		return array(
-			'email_reminder_opt_in' => isset( $value['email_reminder_opt_in'] ) && $this->to_bool( $value['email_reminder_opt_in'] ),
+			'email_reminder_opt_in' => isset( $value['email_reminder_opt_in'] )
+				&& $this->to_bool( $value['email_reminder_opt_in'] ),
 			'statement_page_id'     => isset( $value['statement_page_id'] ) ? absint( $value['statement_page_id'] ) : 0,
 		);
 	}

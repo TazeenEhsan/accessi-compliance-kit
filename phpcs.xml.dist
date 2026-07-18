@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<ruleset name="Accessi Compliance Kit">
+	<description>WPCS ruleset for Accessi Compliance Kit (docs/coding-guidelines.md §1).</description>
+
+	<file>.</file>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/build/*</exclude-pattern>
+	<exclude-pattern>*/tests/*</exclude-pattern>
+	<exclude-pattern>*/plugin-foundation-files/*</exclude-pattern>
+	<exclude-pattern>*/languages/*</exclude-pattern>
+
+	<arg value="sp"/>
+	<arg name="basepath" value="."/>
+	<arg name="colors"/>
+	<arg name="extensions" value="php"/>
+
+	<rule ref="WordPress">
+		<!-- AI_RULES §4 / docs/coding-guidelines.md §1: PSR-4, filename = class name. -->
+		<exclude name="WordPress.Files.FileName"/>
+	</rule>
+	<rule ref="WordPress-Docs"/>
+
+	<!-- ScanStorage.php is the sole gateway to the plugin's custom table (AI_RULES §6);
+	     there is no core API for a bespoke table, so direct/uncached queries are intentional. -->
+	<rule ref="WordPress.DB.DirectDatabaseQuery.DirectQuery">
+		<exclude-pattern>*/src/Scanner/ScanStorage.php</exclude-pattern>
+		<exclude-pattern>*/uninstall.php</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.DB.DirectDatabaseQuery.NoCaching">
+		<exclude-pattern>*/src/Scanner/ScanStorage.php</exclude-pattern>
+		<exclude-pattern>*/uninstall.php</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.DB.DirectDatabaseQuery.SchemaChange">
+		<exclude-pattern>*/uninstall.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="accessi_compliance_kit"/>
+				<element value="ACCESSI_COMPLIANCE_KIT"/>
+				<element value="AccessiComplianceKit"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="accessi-compliance-kit"/>
+			</property>
+		</properties>
+	</rule>
+
+	<config name="minimum_supported_wp_version" value="6.5"/>
+
+	<rule ref="PHPCompatibilityWP"/>
+	<config name="testVersion" value="7.4-"/>
+
+	<rule ref="Generic.Files.LineLength">
+		<exclude-pattern>*/src/Statement/templates/en.php</exclude-pattern>
+		<properties>
+			<property name="lineLimit" value="120"/>
+			<property name="absoluteLineLimit" value="0"/>
+		</properties>
+	</rule>
+
+	<!-- The plugin header Description field is a required single-line WP header
+	     value (parsed verbatim for the plugin list screen); it cannot be wrapped. -->
+	<rule ref="Generic.Files.LineLength.TooLong">
+		<exclude-pattern>*/accessi-compliance-kit.php</exclude-pattern>
+	</rule>
+</ruleset>

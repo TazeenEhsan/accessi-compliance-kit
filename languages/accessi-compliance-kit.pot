@@ -1,0 +1,440 @@
+# Copyright (C) 2026 AccessiWoo
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Accessi Compliance Kit 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/accessi-compliance-kit\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-18T15:51:15+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: accessi-compliance-kit\n"
+
+#. Plugin Name of the plugin
+#: accessi-compliance-kit.php
+msgid "Accessi Compliance Kit"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: accessi-compliance-kit.php
+msgid "https://accessiwoo.com"
+msgstr ""
+
+#. Description of the plugin
+#: accessi-compliance-kit.php
+msgid "Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements."
+msgstr ""
+
+#. Author of the plugin
+#: accessi-compliance-kit.php
+msgid "AccessiWoo"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:41
+#: src/Admin/AdminMenu.php:42
+#: assets/js/src/admin/App.jsx:53
+msgid "Accessibility"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:63
+msgid "Accessibility Compliance"
+msgstr ""
+
+#. translators: %s: link to run the first scan.
+#: src/Admin/DashboardWidget.php:82
+#, php-format
+msgid "No scans yet. %s"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:86
+msgid "Run your first scan"
+msgstr ""
+
+#. translators: %s: last scan date/time in the site's timezone.
+#: src/Admin/DashboardWidget.php:100
+#, php-format
+msgid "Last scan: %s"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:123
+msgid "View full results"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:134
+#: src/Admin/ScanPage.php:93
+#: assets/js/src/admin/ScanHistory.jsx:90
+msgid "Critical"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:135
+#: src/Admin/ScanPage.php:94
+#: assets/js/src/admin/ScanHistory.jsx:91
+msgid "Serious"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:136
+#: src/Admin/ScanPage.php:95
+#: assets/js/src/admin/ScanHistory.jsx:92
+msgid "Moderate"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:137
+#: src/Admin/ScanPage.php:96
+#: assets/js/src/admin/ScanHistory.jsx:93
+msgid "Minor"
+msgstr ""
+
+#: src/Admin/EmailReminder.php:49
+msgid "Once Weekly (Accessi Compliance Kit)"
+msgstr ""
+
+#: src/Admin/EmailReminder.php:115
+msgid "Accessi Compliance Kit — weekly scan reminder"
+msgstr ""
+
+#. translators: %s: URL to the plugin's scan page.
+#: src/Admin/EmailReminder.php:118
+#, php-format
+msgid ""
+"It's been a week since your last accessibility scan. Run a new scan to check for issues:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:65
+msgid "You are not allowed to change these settings."
+msgstr ""
+
+#: src/Fixes/CheckoutLabelsFix.php:33
+msgid "Checkout field labels"
+msgstr ""
+
+#: src/Fixes/CheckoutLabelsFix.php:40
+msgid "Adds a screen-reader label to checkout fields that only show a placeholder."
+msgstr ""
+
+#: src/Fixes/EmptyLinkAnchorFix.php:36
+msgid "Empty link names"
+msgstr ""
+
+#: src/Fixes/EmptyLinkAnchorFix.php:43
+msgid "Gives accessible names to empty links, such as product image links."
+msgstr ""
+
+#: src/Fixes/EmptyLinkAnchorFix.php:108
+msgid "Link"
+msgstr ""
+
+#: src/Fixes/FocusStatesFix.php:34
+msgid "Visible focus states"
+msgstr ""
+
+#: src/Fixes/FocusStatesFix.php:41
+msgid "Adds a high-contrast focus outline to links, buttons, and form controls."
+msgstr ""
+
+#: src/Fixes/IconButtonAriaFix.php:37
+msgid "Icon button labels"
+msgstr ""
+
+#: src/Fixes/IconButtonAriaFix.php:44
+msgid "Adds accessible names to icon-only cart, search, and wishlist controls."
+msgstr ""
+
+#: src/Fixes/IconButtonAriaFix.php:89
+#: assets/js/src/admin/Settings.jsx:13
+msgid "Cart"
+msgstr ""
+
+#: src/Fixes/IconButtonAriaFix.php:90
+msgid "Search"
+msgstr ""
+
+#: src/Fixes/IconButtonAriaFix.php:91
+msgid "Wishlist"
+msgstr ""
+
+#: src/Fixes/PriceScreenReaderFix.php:35
+msgid "Screen reader price label"
+msgstr ""
+
+#: src/Fixes/PriceScreenReaderFix.php:42
+msgid "Announces \"Price:\" before prices so screen readers read them correctly."
+msgstr ""
+
+#: src/Fixes/PriceScreenReaderFix.php:73
+msgid "Price:"
+msgstr ""
+
+#: src/Fixes/ProductImageAltFix.php:31
+msgid "Product image alt text"
+msgstr ""
+
+#: src/Fixes/ProductImageAltFix.php:38
+msgid "Fills in missing alt text on product images using the product title."
+msgstr ""
+
+#: src/Plugin.php:82
+msgid "Accessi Compliance Kit requires WooCommerce 8.0+ to be installed and active."
+msgstr ""
+
+#: src/Scanner/ScanController.php:61
+msgid "You are not allowed to run scans."
+msgstr ""
+
+#: src/Scanner/ScanController.php:67
+#: assets/js/src/admin/ScanRunner.jsx:86
+msgid "The scan URL must be on this site."
+msgstr ""
+
+#: src/Scanner/ScanController.php:73
+msgid "The scan results were malformed."
+msgstr ""
+
+#: src/Scanner/ScanController.php:79
+msgid "Could not save the scan."
+msgstr ""
+
+#: src/Scanner/ScanController.php:104
+#: src/Scanner/ScanController.php:131
+msgid "You are not allowed to view scans."
+msgstr ""
+
+#: src/Scanner/ScanController.php:110
+msgid "A scan ID is required."
+msgstr ""
+
+#: src/Scanner/ScanController.php:116
+msgid "Scan not found."
+msgstr ""
+
+#: src/Scanner/ScannerAssets.php:128
+#: assets/js/src/admin/ScanRunner.jsx:168
+msgid "Scan this page"
+msgstr ""
+
+#: src/Scanner/ScannerAssets.php:131
+msgid "Scan this page for accessibility issues"
+msgstr ""
+
+#. translators: %d: number of critical issues detected in the last scan.
+#: src/Scanner/ScannerAssets.php:158
+#, php-format
+msgid "%d critical accessibility issues detected"
+msgstr ""
+
+#: src/Scanner/ScannerAssets.php:169
+msgid "View the detected accessibility issues"
+msgstr ""
+
+#: src/Statement/StatementGenerator.php:41
+msgid "You are not allowed to generate the accessibility statement."
+msgstr ""
+
+#: src/Statement/StatementGenerator.php:124
+msgid "Accessibility Statement"
+msgstr ""
+
+#: src/Statement/StatementGenerator.php:145
+msgid "WCAG 2.1 Level AA"
+msgstr ""
+
+#. translators: %s: site name.
+#: src/Statement/templates/en.php:35
+#, php-format
+msgid "%s is committed to ensuring digital accessibility for people of all abilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards."
+msgstr ""
+
+#: src/Statement/templates/en.php:40
+msgid "Conformance status"
+msgstr ""
+
+#. translators: %s: claimed WCAG conformance level, e.g. "WCAG 2.1 Level AA".
+#: src/Statement/templates/en.php:43
+#, php-format
+msgid "This website aims to conform to %s. We have not yet completed a full audit, so this statement reflects our ongoing effort rather than a certified result."
+msgstr ""
+
+#: src/Statement/templates/en.php:48
+msgid "Known limitations"
+msgstr ""
+
+#: src/Statement/templates/en.php:49
+msgid "Despite our best efforts, some content or functionality on this site may not yet be fully accessible. We are actively working to identify and address these issues. If you encounter a barrier, please let us know using the contact details below."
+msgstr ""
+
+#: src/Statement/templates/en.php:52
+msgid "Feedback and contact information"
+msgstr ""
+
+#. translators: %s: contact email address for accessibility issues.
+#: src/Statement/templates/en.php:55
+#, php-format
+msgid "We welcome your feedback on the accessibility of this website. Please contact us at %s if you encounter an accessibility barrier."
+msgstr ""
+
+#: src/Statement/templates/en.php:60
+msgid "Date of last review"
+msgstr ""
+
+#: assets/js/src/admin/App.jsx:18
+msgid "Dashboard"
+msgstr ""
+
+#: assets/js/src/admin/App.jsx:19
+msgid "Scan"
+msgstr ""
+
+#: assets/js/src/admin/App.jsx:20
+msgid "History"
+msgstr ""
+
+#: assets/js/src/admin/App.jsx:21
+msgid "Settings"
+msgstr ""
+
+#: assets/js/src/admin/Dashboard.jsx:47
+msgid "Accessibility statement"
+msgstr ""
+
+#: assets/js/src/admin/Dashboard.jsx:53
+msgid "An accessibility statement page has been created."
+msgstr ""
+
+#: assets/js/src/admin/Dashboard.jsx:56
+msgid "Edit statement page"
+msgstr ""
+
+#: assets/js/src/admin/Dashboard.jsx:65
+msgid "Create new statement page"
+msgstr ""
+
+#: assets/js/src/admin/Dashboard.jsx:71
+msgid "Generate a WordPress page pre-populated with an EAA-compliant accessibility statement template."
+msgstr ""
+
+#: assets/js/src/admin/Dashboard.jsx:82
+msgid "Create statement page"
+msgstr ""
+
+#: assets/js/src/admin/Dashboard.jsx:89
+msgid "A statement page already exists, so a new one was not created. Use \"Create new statement page\" to make a separate one anyway."
+msgstr ""
+
+#: assets/js/src/admin/Dashboard.jsx:97
+msgid "Statement page created as a draft. Review it before publishing."
+msgstr ""
+
+#: assets/js/src/admin/ScanHistory.jsx:87
+msgid "Date"
+msgstr ""
+
+#: assets/js/src/admin/ScanHistory.jsx:88
+msgid "URL"
+msgstr ""
+
+#: assets/js/src/admin/ScanHistory.jsx:89
+msgid "Status"
+msgstr ""
+
+#: assets/js/src/admin/ScanHistory.jsx:100
+msgid "No scans yet."
+msgstr ""
+
+#: assets/js/src/admin/ScanHistory.jsx:114
+msgid "View results"
+msgstr ""
+
+#: assets/js/src/admin/ScanHistory.jsx:124
+msgid "Previous"
+msgstr ""
+
+#: assets/js/src/admin/ScanHistory.jsx:127
+msgid "Next"
+msgstr ""
+
+#: assets/js/src/admin/ScanResults.jsx:23
+msgid "How to fix:"
+msgstr ""
+
+#: assets/js/src/admin/ScanResults.jsx:28
+msgid "Learn more"
+msgstr ""
+
+#: assets/js/src/admin/ScanResults.jsx:98
+msgid "No detected issues on this page."
+msgstr ""
+
+#. translators: 1: number of detected issues, 2: scanned URL
+#: assets/js/src/admin/ScanResults.jsx:103
+#, js-format
+msgid "%1$d detected issues found on %2$s"
+msgstr ""
+
+#: assets/js/src/admin/ScanResults.jsx:123
+msgid "Other"
+msgstr ""
+
+#: assets/js/src/admin/ScanRunner.jsx:108
+msgid "The scan could not be completed."
+msgstr ""
+
+#: assets/js/src/admin/ScanRunner.jsx:140
+msgid "The page could not be loaded for scanning."
+msgstr ""
+
+#: assets/js/src/admin/ScanRunner.jsx:150
+msgid "The scan timed out. Please try again."
+msgstr ""
+
+#: assets/js/src/admin/ScanRunner.jsx:159
+msgid "Page URL to scan"
+msgstr ""
+
+#: assets/js/src/admin/ScanRunner.jsx:160
+msgid "Must be a URL on this site."
+msgstr ""
+
+#: assets/js/src/admin/ScanRunner.jsx:167
+msgid "Scanning…"
+msgstr ""
+
+#: assets/js/src/admin/ScanRunner.jsx:178
+msgid "Scan complete. Detected issues are shown below."
+msgstr ""
+
+#: assets/js/src/admin/Settings.jsx:11
+msgid "Product"
+msgstr ""
+
+#: assets/js/src/admin/Settings.jsx:12
+msgid "Checkout"
+msgstr ""
+
+#: assets/js/src/admin/Settings.jsx:14
+msgid "Site-wide"
+msgstr ""
+
+#: assets/js/src/admin/Settings.jsx:78
+msgid "Weekly scan reminder email"
+msgstr ""
+
+#: assets/js/src/admin/Settings.jsx:79
+msgid "Send a weekly email reminding you to run a scan."
+msgstr ""
+
+#: assets/js/src/admin/Settings.jsx:87
+msgid "Save settings"
+msgstr ""
+
+#: assets/js/src/admin/Settings.jsx:92
+msgid "Settings saved."
+msgstr ""
+
+#: assets/js/src/admin/utils/ajax.js:29
+msgid "Request failed."
+msgstr ""

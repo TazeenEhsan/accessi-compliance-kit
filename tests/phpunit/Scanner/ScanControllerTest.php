@@ -7,6 +7,10 @@
 
 namespace AccessiComplianceKit\Tests\Scanner;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use AccessiComplianceKit\Scanner\ScanController;
 use AccessiComplianceKit\Scanner\ScanStorage;
 use Brain\Monkey;
@@ -106,11 +110,13 @@ class ScanControllerTest extends TestCase {
 
 		Functions\when( 'wp_send_json_success' )->alias(
 			function ( $data = null ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- test double, never rendered; carries the AJAX payload for assertions only.
 				throw new AjaxResponseException( true, $data );
 			}
 		);
 		Functions\when( 'wp_send_json_error' )->alias(
 			function ( $data = null ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- test double, never rendered; carries the AJAX payload for assertions only.
 				throw new AjaxResponseException( false, $data );
 			}
 		);

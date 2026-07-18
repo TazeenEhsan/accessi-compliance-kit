@@ -5,6 +5,7 @@
 	convertErrorsToExceptions="true"
 	convertWarningsToExceptions="true"
 	convertNoticesToExceptions="true"
+	cacheResult="false"
 >
 	<testsuites>
 		<testsuite name="AccessiComplianceKit">

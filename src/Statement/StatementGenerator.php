@@ -38,11 +38,18 @@ class StatementGenerator {
 		check_ajax_referer( 'accessi_compliance_kit_generate_statement', 'nonce' );
 
 		if ( ! Capabilities::can_manage_settings() ) {
-			wp_send_json_error( array( 'message' => __( 'You are not allowed to generate the accessibility statement.', 'accessi-compliance-kit' ) ), 403 );
+			wp_send_json_error(
+				array(
+					// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
+					'message' => __( 'You are not allowed to generate the accessibility statement.', 'accessi-compliance-kit' ),
+				),
+				403
+			);
 		}
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified above via check_ajax_referer.
-		$force_new = isset( $_POST['force_new'] ) && '1' === wp_unslash( $_POST['force_new'] );
+		$raw_force_new = isset( $_POST['force_new'] ) ? sanitize_text_field( wp_unslash( $_POST['force_new'] ) ) : '';
+		$force_new     = '1' === $raw_force_new;
 
 		$result = $this->generate( $force_new );
 
