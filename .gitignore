@@ -5,6 +5,7 @@ composer.phar
 
 # Build output
 build/
+plugin-foundation-files/dist/
 
 # OS files
 .DS_Store

@@ -13,7 +13,7 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 - [x] Create the plugin folder skeleton: empty `src/`, `assets/js/src/`, `assets/css/`, `assets/images/`, `languages/`, `tests/phpunit/`, `tests/js/` directories per proposal §5.2
 - [x] Write `.gitignore` covering `node_modules/`, `build/`, `vendor/`, OS/editor files
-- [x] Write `LICENSE.txt` (GPLv2 full text)
+- [x] Write `LICENSE.txt` (GPLv2 full text) — *note (2026-07-18, task 4.3):* the file was found missing from the working tree (and had never been committed) during release packaging; restored with the pure GPLv2 text and included in the release zip.
 - [x] Write `composer.json`: project metadata, PHP 7.4 platform requirement, PSR-4 autoload `AccessiComplianceKit\` → `src/`, require `dompdf/dompdf`, require-dev PHPUnit
 - [x] Run `composer install`; verify `vendor/autoload.php` exists and autoloads a dummy class from `src/`
 - [x] Write `package.json` with `@wordpress/scripts` dev dependency and `build`/`start` scripts for two entry points (admin app, scanner)
@@ -140,15 +140,15 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 4.3 Release Assets & Submission
 
-- [ ] Write `readme.txt` in WordPress.org format: short/long description, installation, FAQ, screenshots section, changelog; validate in the WP.org readme preview tool (proposal §11)
-- [ ] Fresh-install test: new WP 6.5+ / WC 8.0+ site, install + activate without errors, run through every MVP success criterion in proposal §11 and record results
-- [ ] Full theme regression: all 6 fixes enabled simultaneously on Storefront, Astra, Kadence — front-end must not break (proposal §11)
-- [ ] Take WP.org screenshots (scan results, settings, statement button, dashboard widget) and store in the assets-for-wp.org folder
-- [ ] Record the demo video (script: scan → review violations → enable a fix → generate statement) (proposal §6 Phase 4)
-- [ ] Prepare docs page + FAQ content for support-forum readiness (proposal §6 Phase 4)
-- [ ] Build the distributable zip (build JS, `composer install --no-dev`, exclude dev files); test-install the zip on a clean site
-- [ ] Submit to WordPress.org; log submission date (review takes 1–14 days, proposal §6 Phase 4)
-- [ ] Draft launch announcements for r/woocommerce, r/wordpress, WP Tavern, Twitter/X, LinkedIn (proposal §6 Phase 4, §8)
+- [x] Write `readme.txt` in WordPress.org format: short/long description, installation, FAQ, screenshots section, changelog; validate in the WP.org readme preview tool (proposal §11) — written at plugin root, content matches shipped behavior (fix labels taken verbatim from the `src/Fixes/` classes; "detected issues" wording per AI_RULES §2.4; no compliance-guarantee claims). Validated by POSTing the file to the real WP.org readme validator: **0 errors**; one expected warning — `Contributors: accessiwoo` is not a registered WP.org username yet and **must be replaced with the real WP.org account username before submission** — plus an optional "no donate link" note.
+- [ ] Fresh-install test: new WP 6.5+ / WC 8.0+ site, install + activate without errors, run through every MVP success criterion in proposal §11 and record results — **not yet done**: requires a fresh WP site + browser session, neither available in this environment. The built zip (see below) extracts cleanly and its production autoloader resolves plugin + DomPDF classes, but the actual clean-site run-through is pending.
+- [ ] Full theme regression: all 6 fixes enabled simultaneously on Storefront, Astra, Kadence — front-end must not break (proposal §11) — **not yet done**: needs a browser session, and only Kadence is installed on the local dev site (Storefront and Astra are not present in `wp-content/themes/`). Install both, enable all 6 fixes, and click through shop/product/cart/checkout on each theme.
+- [ ] Take WP.org screenshots (scan results, settings, statement button, dashboard widget) and store in the assets-for-wp.org folder — **prepared, not shot**: `plugin-foundation-files/assets-for-wp.org/` created with a README covering the 4-shot list (numbering matches readme.txt's Screenshots section — don't reorder one without the other), banner/icon specs, and capture prep notes. The captures themselves need a browser.
+- [ ] Record the demo video (script: scan → review violations → enable a fix → generate statement) (proposal §6 Phase 4) — **script written** (~90s, 6 scenes, in `plugin-foundation-files/assets-for-wp.org/README.md`); recording needs a human at a browser.
+- [x] Prepare docs page + FAQ content for support-forum readiness (proposal §6 Phase 4) — written in `plugin-foundation-files/launch/`: `docs-page.md` (requirements, install, scanning, the six fixes, statement, notifications, privacy, troubleshooting, developer notes), `faq.md` (extended public FAQ; readme.txt carries the short version — keep in sync), and `support-templates.md` (8 canned forum responses per proposal §9). Publish `docs-page.md`/`faq.md` on the plugin site before launch.
+- [ ] Build the distributable zip (build JS, `composer install --no-dev`, exclude dev files); test-install the zip on a clean site — **built and structurally verified, clean-site install pending**: `plugin-foundation-files/dist/accessi-compliance-kit-0.1.0.zip` (4.2 MB, gitignored). Fresh `npm run build`, staged copy with `composer install --no-dev --optimize-autoloader` (vendor = dompdf + masterminds/phenx/sabberworm only), includes readme.txt/LICENSE.txt/src/build/assets(css+js src)/languages/composer.json, excludes all dev files (verified: 0 matches for node_modules/tests/phpunit/phpcs/webpack/package.json/.gitignore/composer.lock in the archive). Built with bsdtar — proper zip (PK magic, forward-slash entries, single `accessi-compliance-kit/` root; note: PowerShell 5.1 `Compress-Archive` and Git Bash's GNU tar both produce broken archives, don't use them). Every staged PHP file passes `php -l`; extracted-zip autoloader resolves `AccessiComplianceKit\Plugin`, `FixManager`, and `Dompdf\Dompdf`. Remaining: install the zip on a clean WP site via Plugins → Upload.
+- [ ] Submit to WordPress.org; log submission date (review takes 1–14 days, proposal §6 Phase 4) — **human-only**: needs the WP.org account (fix the `Contributors:` username in readme.txt first), the verified zip, and the screenshots. Blocked behind the three unchecked verification tasks above.
+- [x] Draft launch announcements for r/woocommerce, r/wordpress, WP Tavern, Twitter/X, LinkedIn (proposal §6 Phase 4, §8) — drafted per-channel (not copy-paste duplicates) in `plugin-foundation-files/launch/announcements.md`, with a posting checklist and `[WPORG-LINK]` placeholders to fill after approval.
 
 ---
 
