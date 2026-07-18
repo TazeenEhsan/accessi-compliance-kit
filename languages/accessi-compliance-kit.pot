@@ -9,28 +9,24 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-18T15:51:15+00:00\n"
+"POT-Creation-Date: 2026-07-18T17:10:51+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: accessi-compliance-kit\n"
 
 #. Plugin Name of the plugin
-#: accessi-compliance-kit.php
 msgid "Accessi Compliance Kit"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: accessi-compliance-kit.php
 msgid "https://accessiwoo.com"
 msgstr ""
 
 #. Description of the plugin
-#: accessi-compliance-kit.php
 msgid "Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements."
 msgstr ""
 
 #. Author of the plugin
-#: accessi-compliance-kit.php
 msgid "AccessiWoo"
 msgstr ""
 
@@ -46,7 +42,6 @@ msgstr ""
 
 #. translators: %s: link to run the first scan.
 #: src/Admin/DashboardWidget.php:82
-#, php-format
 msgid "No scans yet. %s"
 msgstr ""
 
@@ -56,7 +51,6 @@ msgstr ""
 
 #. translators: %s: last scan date/time in the site's timezone.
 #: src/Admin/DashboardWidget.php:100
-#, php-format
 msgid "Last scan: %s"
 msgstr ""
 
@@ -88,24 +82,23 @@ msgstr ""
 msgid "Minor"
 msgstr ""
 
-#: src/Admin/EmailReminder.php:49
+#: src/Admin/EmailReminder.php:50
 msgid "Once Weekly (Accessi Compliance Kit)"
 msgstr ""
 
-#: src/Admin/EmailReminder.php:115
+#: src/Admin/EmailReminder.php:116
 msgid "Accessi Compliance Kit — weekly scan reminder"
 msgstr ""
 
 #. translators: %s: URL to the plugin's scan page.
-#: src/Admin/EmailReminder.php:118
-#, php-format
+#: src/Admin/EmailReminder.php:119
 msgid ""
 "It's been a week since your last accessibility scan. Run a new scan to check for issues:\n"
 "\n"
 "%s"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:65
+#: src/Admin/SettingsPage.php:66
 msgid "You are not allowed to change these settings."
 msgstr ""
 
@@ -113,7 +106,7 @@ msgstr ""
 msgid "Checkout field labels"
 msgstr ""
 
-#: src/Fixes/CheckoutLabelsFix.php:40
+#: src/Fixes/CheckoutLabelsFix.php:41
 msgid "Adds a screen-reader label to checkout fields that only show a placeholder."
 msgstr ""
 
@@ -133,7 +126,7 @@ msgstr ""
 msgid "Visible focus states"
 msgstr ""
 
-#: src/Fixes/FocusStatesFix.php:41
+#: src/Fixes/FocusStatesFix.php:42
 msgid "Adds a high-contrast focus outline to links, buttons, and form controls."
 msgstr ""
 
@@ -141,20 +134,20 @@ msgstr ""
 msgid "Icon button labels"
 msgstr ""
 
-#: src/Fixes/IconButtonAriaFix.php:44
+#: src/Fixes/IconButtonAriaFix.php:45
 msgid "Adds accessible names to icon-only cart, search, and wishlist controls."
 msgstr ""
 
-#: src/Fixes/IconButtonAriaFix.php:89
+#: src/Fixes/IconButtonAriaFix.php:90
 #: assets/js/src/admin/Settings.jsx:13
 msgid "Cart"
 msgstr ""
 
-#: src/Fixes/IconButtonAriaFix.php:90
+#: src/Fixes/IconButtonAriaFix.php:91
 msgid "Search"
 msgstr ""
 
-#: src/Fixes/IconButtonAriaFix.php:91
+#: src/Fixes/IconButtonAriaFix.php:92
 msgid "Wishlist"
 msgstr ""
 
@@ -162,11 +155,11 @@ msgstr ""
 msgid "Screen reader price label"
 msgstr ""
 
-#: src/Fixes/PriceScreenReaderFix.php:42
+#: src/Fixes/PriceScreenReaderFix.php:43
 msgid "Announces \"Price:\" before prices so screen readers read them correctly."
 msgstr ""
 
-#: src/Fixes/PriceScreenReaderFix.php:73
+#: src/Fixes/PriceScreenReaderFix.php:74
 msgid "Price:"
 msgstr ""
 
@@ -178,74 +171,72 @@ msgstr ""
 msgid "Fills in missing alt text on product images using the product title."
 msgstr ""
 
-#: src/Plugin.php:82
+#: src/Plugin.php:83
 msgid "Accessi Compliance Kit requires WooCommerce 8.0+ to be installed and active."
 msgstr ""
 
-#: src/Scanner/ScanController.php:61
+#: src/Scanner/ScanController.php:62
 msgid "You are not allowed to run scans."
 msgstr ""
 
-#: src/Scanner/ScanController.php:67
+#: src/Scanner/ScanController.php:73
 #: assets/js/src/admin/ScanRunner.jsx:86
 msgid "The scan URL must be on this site."
 msgstr ""
 
-#: src/Scanner/ScanController.php:73
+#: src/Scanner/ScanController.php:84
 msgid "The scan results were malformed."
 msgstr ""
 
-#: src/Scanner/ScanController.php:79
+#: src/Scanner/ScanController.php:92
 msgid "Could not save the scan."
 msgstr ""
 
-#: src/Scanner/ScanController.php:104
-#: src/Scanner/ScanController.php:131
+#: src/Scanner/ScanController.php:118
+#: src/Scanner/ScanController.php:149
 msgid "You are not allowed to view scans."
 msgstr ""
 
-#: src/Scanner/ScanController.php:110
+#: src/Scanner/ScanController.php:127
 msgid "A scan ID is required."
 msgstr ""
 
-#: src/Scanner/ScanController.php:116
+#: src/Scanner/ScanController.php:133
 msgid "Scan not found."
 msgstr ""
 
-#: src/Scanner/ScannerAssets.php:128
+#: src/Scanner/ScannerAssets.php:129
 #: assets/js/src/admin/ScanRunner.jsx:168
 msgid "Scan this page"
 msgstr ""
 
-#: src/Scanner/ScannerAssets.php:131
+#: src/Scanner/ScannerAssets.php:132
 msgid "Scan this page for accessibility issues"
 msgstr ""
 
 #. translators: %d: number of critical issues detected in the last scan.
-#: src/Scanner/ScannerAssets.php:158
-#, php-format
+#: src/Scanner/ScannerAssets.php:159
 msgid "%d critical accessibility issues detected"
 msgstr ""
 
-#: src/Scanner/ScannerAssets.php:169
+#: src/Scanner/ScannerAssets.php:170
 msgid "View the detected accessibility issues"
 msgstr ""
 
-#: src/Statement/StatementGenerator.php:41
+#: src/Statement/StatementGenerator.php:44
 msgid "You are not allowed to generate the accessibility statement."
 msgstr ""
 
-#: src/Statement/StatementGenerator.php:124
+#: src/Statement/StatementGenerator.php:131
 msgid "Accessibility Statement"
 msgstr ""
 
-#: src/Statement/StatementGenerator.php:145
+#: src/Statement/StatementGenerator.php:152
 msgid "WCAG 2.1 Level AA"
 msgstr ""
 
 #. translators: %s: site name.
 #: src/Statement/templates/en.php:35
-#, php-format
 msgid "%s is committed to ensuring digital accessibility for people of all abilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards."
 msgstr ""
 
@@ -255,7 +246,6 @@ msgstr ""
 
 #. translators: %s: claimed WCAG conformance level, e.g. "WCAG 2.1 Level AA".
 #: src/Statement/templates/en.php:43
-#, php-format
 msgid "This website aims to conform to %s. We have not yet completed a full audit, so this statement reflects our ongoing effort rather than a certified result."
 msgstr ""
 
@@ -273,7 +263,6 @@ msgstr ""
 
 #. translators: %s: contact email address for accessibility issues.
 #: src/Statement/templates/en.php:55
-#, php-format
 msgid "We welcome your feedback on the accessibility of this website. Please contact us at %s if you encounter an accessibility barrier."
 msgstr ""
 
@@ -371,7 +360,6 @@ msgstr ""
 
 #. translators: 1: number of detected issues, 2: scanned URL
 #: assets/js/src/admin/ScanResults.jsx:103
-#, js-format
 msgid "%1$d detected issues found on %2$s"
 msgstr ""
 

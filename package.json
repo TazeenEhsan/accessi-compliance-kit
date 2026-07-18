@@ -5,7 +5,10 @@
 	"private": true,
 	"license": "GPL-2.0-or-later",
 	"scripts": {
-		"build": "wp-scripts build",
+		"build": "wp-scripts build && npm run make-pot && npm run zip",
+		"make-pot": "php -d memory_limit=-1 wp-cli.phar i18n make-pot . languages/accessi-compliance-kit.pot --exclude=node_modules,vendor,dist,build,tests,tools,plugin-foundation-files --domain=accessi-compliance-kit",
+		"zip": "node tools/build-zip.js",
+		"dev": "wp-scripts start",
 		"start": "wp-scripts start",
 		"test-unit-js": "wp-scripts test-unit-js",
 		"lint-js": "wp-scripts lint-js"

@@ -2,10 +2,11 @@
 node_modules/
 vendor/
 composer.phar
+wp-cli.phar
 
 # Build output
 build/
-plugin-foundation-files/dist/
+dist/
 
 # OS files
 .DS_Store
