@@ -25,6 +25,10 @@ if ( ! defined( 'ACCESSI_COMPLIANCE_KIT_PATH' ) ) {
 	define( 'ACCESSI_COMPLIANCE_KIT_PATH', __DIR__ . '/' );
 }
 
+if ( ! defined( 'ACCESSI_COMPLIANCE_KIT_FILE' ) ) {
+	define( 'ACCESSI_COMPLIANCE_KIT_FILE', __DIR__ . '/accessi-compliance-kit.php' );
+}
+
 if ( ! defined( 'ACCESSI_COMPLIANCE_KIT_URL' ) ) {
 	define( 'ACCESSI_COMPLIANCE_KIT_URL', 'https://example.test/wp-content/plugins/accessi-compliance-kit/' );
 }

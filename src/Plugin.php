@@ -91,6 +91,8 @@ class Plugin {
 	 */
 	private function register_admin() {
 		( new Admin\AdminMenu() )->register();
+		( new Admin\GuidePage() )->register();
+		( new Admin\PluginLinks() )->register();
 		( new Admin\ScanPage() )->register();
 		( new Admin\SettingsPage() )->register();
 		( new Admin\DashboardWidget( new Scanner\ScanStorage() ) )->register();

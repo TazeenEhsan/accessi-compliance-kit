@@ -1,6 +1,6 @@
 # Accessi Compliance Kit — Public FAQ
 
-> Extended FAQ for the docs site / support-forum sticky. The short version ships in `readme.txt`; keep both in sync when answers change.
+> Extended FAQ for the docs site / support-forum sticky. The short version ships in `readme.txt`, and a condensed version ships in-plugin on the Accessibility → User Guide page (`src/Admin/GuidePage.php`); keep all three in sync when answers change.
 
 ### Does this plugin make my store legally compliant with the EAA or ADA?
 

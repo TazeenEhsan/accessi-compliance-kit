@@ -3,7 +3,7 @@
  * `@wordpress/components` (docs/admin.md §3).
  */
 import { useCallback, useState } from '@wordpress/element';
-import { Notice, Spinner, TabPanel } from '@wordpress/components';
+import { Button, Notice, Spinner, TabPanel } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import ScanRunner from './ScanRunner';
 import ScanResults from './ScanResults';
@@ -50,7 +50,19 @@ export default function App() {
 
 	return (
 		<div className="accessi-compliance-kit-admin-app">
-			<h1>{ __( 'Accessibility', 'accessi-compliance-kit' ) }</h1>
+			<div className="accessi-compliance-kit-admin-header">
+				<h1>{ __( 'Accessibility', 'accessi-compliance-kit' ) }</h1>
+				{ settings.guideUrl && (
+					<Button
+						variant="secondary"
+						href={ settings.guideUrl }
+						icon="book-alt"
+						className="accessi-compliance-kit-guide-button"
+					>
+						{ __( 'User Guide', 'accessi-compliance-kit' ) }
+					</Button>
+				) }
+			</div>
 			<TabPanel tabs={ TABS }>
 				{ ( tab ) => {
 					if ( 'dashboard' === tab.name ) {

@@ -60,6 +60,8 @@
 
 	<rule ref="Generic.Files.LineLength">
 		<exclude-pattern>*/src/Statement/templates/en.php</exclude-pattern>
+		<!-- GuidePage is mostly long single-line translatable strings (same as the statement template). -->
+		<exclude-pattern>*/src/Admin/GuidePage.php</exclude-pattern>
 		<properties>
 			<property name="lineLimit" value="120"/>
 			<property name="absoluteLineLimit" value="0"/>

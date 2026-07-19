@@ -7,6 +7,24 @@
 	margin-bottom: 16px;
 }
 
+.accessi-compliance-kit-admin-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.accessi-compliance-kit-admin-header h1 {
+	margin: 0;
+	padding: 0;
+}
+
+.accessi-compliance-kit-guide-button.components-button {
+	border-color: #2271b1;
+	font-weight: 600;
+}
+
 .accessi-compliance-kit-scan-runner {
 	max-width: 480px;
 	margin-bottom: 20px;
@@ -92,4 +110,128 @@
 	font-size: 11px;
 	text-transform: uppercase;
 	letter-spacing: 0.02em;
+}
+
+/* ---------- User Guide page ---------- */
+
+.accessi-compliance-kit-guide {
+	max-width: 860px;
+}
+
+.accessi-compliance-kit-guide-header {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin: 16px 0 4px;
+}
+
+.accessi-compliance-kit-guide-logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	flex-shrink: 0;
+	border-radius: 10px;
+	background: #2271b1;
+	color: #fff;
+}
+
+.accessi-compliance-kit-guide-header h1 {
+	margin: 0;
+	padding: 0;
+}
+
+.accessi-compliance-kit-guide-tagline {
+	margin: 4px 0 0;
+	color: #646970;
+}
+
+.accessi-compliance-kit-guide-actions {
+	display: flex;
+	gap: 8px;
+	margin-left: auto;
+}
+
+.accessi-compliance-kit-guide-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 16px 0 4px;
+}
+
+.accessi-compliance-kit-guide-nav a {
+	padding: 4px 12px;
+	border: 1px solid #c3c4c7;
+	border-radius: 999px;
+	background: #fff;
+	color: #2271b1;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.accessi-compliance-kit-guide-nav a:hover,
+.accessi-compliance-kit-guide-nav a:focus {
+	border-color: #2271b1;
+	background: #f0f6fc;
+}
+
+.accessi-compliance-kit-guide-section {
+	margin-top: 16px;
+	padding: 8px 20px 16px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.accessi-compliance-kit-guide-section h2 {
+	margin: 10px 0 6px;
+	font-size: 16px;
+}
+
+.accessi-compliance-kit-guide-intro {
+	margin-top: 0;
+	color: #646970;
+}
+
+.accessi-compliance-kit-guide-item {
+	border-top: 1px solid #f0f0f1;
+}
+
+.accessi-compliance-kit-guide-item summary {
+	padding: 10px 0;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.accessi-compliance-kit-guide-item summary:hover,
+.accessi-compliance-kit-guide-item summary:focus-visible {
+	color: #2271b1;
+}
+
+.accessi-compliance-kit-guide-item summary:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
+.accessi-compliance-kit-guide-item-body {
+	padding: 0 0 14px 18px;
+}
+
+.accessi-compliance-kit-guide-item-body > :first-child {
+	margin-top: 0;
+}
+
+.accessi-compliance-kit-guide-item-body ul,
+.accessi-compliance-kit-guide-item-body ol {
+	margin: 8px 0 0 18px;
+}
+
+.accessi-compliance-kit-guide-item-body li {
+	margin-bottom: 6px;
+}
+
+.accessi-compliance-kit-guide-help {
+	padding-bottom: 20px;
 }

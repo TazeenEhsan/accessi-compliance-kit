@@ -39,7 +39,7 @@ class ScanPage {
 	 * @return void
 	 */
 	public function maybe_enqueue( $hook_suffix ) {
-		if ( 'woocommerce_page_' . AdminMenu::MENU_SLUG !== $hook_suffix ) {
+		if ( 'toplevel_page_' . AdminMenu::MENU_SLUG !== $hook_suffix ) {
 			return;
 		}
 
@@ -77,6 +77,7 @@ class ScanPage {
 	private function localized_data() {
 		return array(
 			'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
+			'guideUrl'       => admin_url( 'admin.php?page=' . GuidePage::MENU_SLUG ),
 			'homeUrl'        => home_url( '/' ),
 			'scannerToken'   => wp_create_nonce( 'accessi_compliance_kit_scan_handshake' ),
 			'prefillUrl'     => $this->prefill_url(),

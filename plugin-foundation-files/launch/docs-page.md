@@ -1,6 +1,8 @@
 # Accessi Compliance Kit — Documentation
 
 > Source content for the public docs page (publish on the plugin site / accessiwoo.com before WP.org launch). Also the reference for support-forum answers — see `support-templates.md` for canned responses and `faq.md` for the public FAQ.
+>
+> **This content also ships inside the plugin** as the Accessibility → User Guide page (`src/Admin/GuidePage.php`), since no external docs site exists yet. When you change anything here, update `GuidePage.php` too (and vice versa). Note: the plugin now has a top-level "Accessibility" admin menu; **WooCommerce → Accessibility** remains as a pointer link, so the navigation paths written below still work.
 
 ## 1. Requirements
 
