@@ -27,9 +27,14 @@ class AdminMenu {
 	 * The universal-access figure drawn in a given color: outlined ring,
 	 * head, and body with outstretched arms. Shared by the two icon builders.
 	 *
+	 * The ring is a filled even-odd annulus rather than a stroked circle:
+	 * wp-admin's svg-painter.js recolors base64 menu icons by rewriting every
+	 * fill attribute, so a `fill="none"` ring would become a solid disc.
+	 *
 	 * @var string
 	 */
-	const ICON_SHAPES = '<circle cx="12" cy="12" r="10.6" fill="none" stroke="%1$s" stroke-width="1.6"/>'
+	const ICON_SHAPES = '<path fill="%1$s" fill-rule="evenodd" d="M12 .6A11.4 11.4 0 0 0 12 23.4 11.4'
+		. ' 11.4 0 0 0 12 .6Zm0 1.6a9.8 9.8 0 0 1 0 19.6 9.8 9.8 0 0 1 0-19.6Z"/>'
 		. '<circle cx="12" cy="6.9" r="2" fill="%1$s"/>'
 		. '<path fill="%1$s" d="M17.6 9.4c-1.75.47-3.65.72-5.6.72s-3.85-.25-5.6-.72a.85.85 0 0 0-.44 1.64c1.44.39'
 		. ' 2.94.63 4.44.71v2.06l-1.83 4.98a.85.85 0 0 0 1.6.59l1.72-4.68h.22l1.72 4.68a.85.85 0 0 0'
@@ -107,8 +112,9 @@ class AdminMenu {
 	}
 
 	/**
-	 * The logo as a data URI for `add_menu_page()`'s icon slot, drawn in the
-	 * admin menu's resting icon color (WP does not recolor SVG menu icons).
+	 * The logo as a data URI for `add_menu_page()`'s icon slot. Drawn in the
+	 * default resting icon color; wp-admin's svg-painter.js then repaints it
+	 * to match the active admin color scheme and hover/current states.
 	 *
 	 * @return string
 	 */
