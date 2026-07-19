@@ -154,6 +154,23 @@
 	margin-left: auto;
 }
 
+.accessi-compliance-kit-guide-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 16px;
+}
+
+.accessi-compliance-kit-guide-toolbar .accessi-compliance-kit-guide-search {
+	flex: 1;
+	max-width: 360px;
+}
+
+.accessi-compliance-kit-guide-search-count {
+	margin: 12px 0 4px;
+	color: #646970;
+}
+
 .accessi-compliance-kit-guide-nav {
 	display: flex;
 	flex-wrap: wrap;

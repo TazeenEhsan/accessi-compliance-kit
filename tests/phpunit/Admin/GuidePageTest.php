@@ -27,28 +27,10 @@ class GuidePageTest extends TestCase {
 
 		Functions\stubs(
 			array(
-				'__'          => function ( $text ) {
+				'__'        => function ( $text ) {
 					return $text;
 				},
-				'esc_html__'  => function ( $text ) {
-					return $text;
-				},
-				'esc_attr__'  => function ( $text ) {
-					return $text;
-				},
-				'esc_html'    => function ( $text ) {
-					return $text;
-				},
-				'esc_attr'    => function ( $text ) {
-					return $text;
-				},
-				'esc_url'     => function ( $text ) {
-					return $text;
-				},
-				'wp_kses'     => function ( $text ) {
-					return $text;
-				},
-				'admin_url'   => function ( $path ) {
+				'admin_url' => function ( $path ) {
 					return 'https://example.test/wp-admin/' . $path;
 				},
 			)
@@ -78,6 +60,7 @@ class GuidePageTest extends TestCase {
 	}
 
 	public function test_maybe_enqueue_skips_other_admin_pages() {
+		Functions\expect( 'wp_enqueue_script' )->never();
 		Functions\expect( 'wp_enqueue_style' )->never();
 
 		( new GuidePage() )->maybe_enqueue( 'woocommerce_page_wc-settings' );
@@ -86,10 +69,11 @@ class GuidePageTest extends TestCase {
 		$this->addToAssertionCount( 1 );
 	}
 
-	public function test_maybe_enqueue_loads_styles_on_the_guide_page() {
-		Functions\expect( 'wp_enqueue_style' )
-			->once()
-			->with( GuidePage::HANDLE, \Mockery::type( 'string' ), array(), ACCESSI_COMPLIANCE_KIT_VERSION );
+	public function test_maybe_enqueue_skips_when_the_built_bundle_is_missing() {
+		// The bootstrap points ACCESSI_COMPLIANCE_KIT_PATH at a directory with
+		// no build/, so the guard against a missing compiled bundle is hit.
+		Functions\expect( 'wp_enqueue_script' )->never();
+		Functions\expect( 'wp_enqueue_style' )->never();
 
 		// Hook prefix derives from the (translated) parent menu title.
 		( new GuidePage() )->maybe_enqueue( 'accessibility_page_' . GuidePage::MENU_SLUG );
@@ -97,28 +81,12 @@ class GuidePageTest extends TestCase {
 		$this->addToAssertionCount( 1 );
 	}
 
-	public function test_render_page_outputs_all_sections_and_faq() {
+	public function test_render_page_outputs_the_react_mount_point() {
 		ob_start();
 		( new GuidePage() )->render_page();
 		$output = ob_get_clean();
 
-		foreach ( array( 'Getting Started', 'Running a Scan', 'Understanding Results', 'The Six Fixes', 'Accessibility Statement', 'Notifications', 'Troubleshooting', 'Privacy & Data', 'For Developers', 'FAQ' ) as $section_title ) {
-			$this->assertStringContainsString( $section_title, $output );
-		}
-
-		$this->assertStringContainsString( 'id="faq"', $output );
-		$this->assertStringContainsString( '<details', $output );
-		$this->assertStringContainsString( GuidePage::SUPPORT_URL, $output );
-		$this->assertStringContainsString( 'admin.php?page=accessi-compliance-kit', $output );
-	}
-
-	public function test_render_page_lists_every_fix_from_the_registry() {
-		ob_start();
-		( new GuidePage() )->render_page();
-		$output = ob_get_clean();
-
-		foreach ( \AccessiComplianceKit\Fixes\FixManager::all_fixes() as $fix ) {
-			$this->assertStringContainsString( $fix->label(), $output );
-		}
+		$this->assertStringContainsString( 'id="accessi-compliance-kit-guide-root"', $output );
+		$this->assertStringContainsString( 'accessi-compliance-kit-guide', $output );
 	}
 }
