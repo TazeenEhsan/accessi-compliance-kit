@@ -1,4 +1,4 @@
-# Copyright (C) 2026 AccessiWoo
+# Copyright (C) 2026 Tazeen Ehsan
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-19T16:36:02+00:00\n"
+"POT-Creation-Date: 2026-08-15T16:59:18+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: accessi-compliance-kit\n"
@@ -18,28 +18,28 @@ msgstr ""
 msgid "Accessi Compliance Kit"
 msgstr ""
 
-#. Plugin URI of the plugin
-msgid "https://accessiwoo.com"
-msgstr ""
-
 #. Description of the plugin
 msgid "Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements."
 msgstr ""
 
 #. Author of the plugin
-msgid "AccessiWoo"
+msgid "Tazeen Ehsan"
 msgstr ""
 
-#: src/Admin/AdminMenu.php:55
-#: src/Admin/AdminMenu.php:56
-#: src/Admin/AdminMenu.php:80
-#: src/Admin/AdminMenu.php:81
+#. Author URI of the plugin
+msgid "https://tazeenehsan.github.io/"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:60
+#: src/Admin/AdminMenu.php:61
+#: src/Admin/AdminMenu.php:85
+#: src/Admin/AdminMenu.php:86
 #: assets/js/src/admin/App.jsx:54
 msgid "Accessibility"
 msgstr ""
 
-#: src/Admin/AdminMenu.php:68
-#: src/Admin/AdminMenu.php:69
+#: src/Admin/AdminMenu.php:73
+#: src/Admin/AdminMenu.php:74
 #: src/Admin/PluginLinks.php:44
 #: assets/js/src/admin/App.jsx:18
 msgid "Dashboard"
@@ -107,454 +107,12 @@ msgid ""
 "%s"
 msgstr ""
 
-#: src/Admin/GuidePage.php:70
-#: src/Admin/GuidePage.php:71
-#: src/Admin/GuidePage.php:132
+#: src/Admin/GuidePage.php:53
+#: src/Admin/GuidePage.php:54
 #: src/Admin/PluginLinks.php:49
 #: assets/js/src/admin/App.jsx:62
+#: assets/js/src/guide/App.jsx:82
 msgid "User Guide"
-msgstr ""
-
-#: src/Admin/GuidePage.php:135
-msgid "Everything you need to scan, fix, and document the accessibility of your WooCommerce store."
-msgstr ""
-
-#: src/Admin/GuidePage.php:142
-msgid "Open Dashboard"
-msgstr ""
-
-#: src/Admin/GuidePage.php:147
-msgid "Support Forum"
-msgstr ""
-
-#: src/Admin/GuidePage.php:162
-msgid "Guide sections"
-msgstr ""
-
-#: src/Admin/GuidePage.php:250
-msgid "Still need help?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:253
-msgid "Post in the free support forum and we will take a look. Please include:"
-msgstr ""
-
-#: src/Admin/GuidePage.php:256
-msgid "The fix or feature involved"
-msgstr ""
-
-#: src/Admin/GuidePage.php:257
-msgid "Your theme name and version"
-msgstr ""
-
-#: src/Admin/GuidePage.php:258
-msgid "Your WooCommerce version"
-msgstr ""
-
-#: src/Admin/GuidePage.php:259
-msgid "What you observed vs. what you expected"
-msgstr ""
-
-#: src/Admin/GuidePage.php:264
-msgid "Open the Support Forum"
-msgstr ""
-
-#: src/Admin/GuidePage.php:277
-msgid "Getting Started"
-msgstr ""
-
-#: src/Admin/GuidePage.php:280
-msgid "What you need before you start"
-msgstr ""
-
-#: src/Admin/GuidePage.php:286
-msgid "WordPress 6.5 or newer"
-msgstr ""
-
-#: src/Admin/GuidePage.php:287
-msgid "WooCommerce 8.0 or newer, installed and active — without it the plugin stays idle and shows a notice"
-msgstr ""
-
-#: src/Admin/GuidePage.php:288
-msgid "PHP 7.4 or newer"
-msgstr ""
-
-#: src/Admin/GuidePage.php:289
-msgid "An administrator account to run scans and change settings"
-msgstr ""
-
-#: src/Admin/GuidePage.php:295
-msgid "Installation & activation"
-msgstr ""
-
-#: src/Admin/GuidePage.php:300
-msgid "Go to <strong>Plugins → Add New</strong>, search for “Accessi Compliance Kit”, click <strong>Install Now</strong>, then <strong>Activate</strong>. (Or upload the zip via <strong>Plugins → Add New → Upload Plugin</strong>.)"
-msgstr ""
-
-#: src/Admin/GuidePage.php:301
-msgid "On activation the plugin creates one database table for scan results and seeds its default settings. <strong>All fixes start OFF</strong> — activating changes nothing on your store’s front end."
-msgstr ""
-
-#: src/Admin/GuidePage.php:302
-msgid "Find the plugin under <strong>WooCommerce → Accessibility</strong>."
-msgstr ""
-
-#: src/Admin/GuidePage.php:308
-msgid "Recommended first-run flow"
-msgstr ""
-
-#: src/Admin/GuidePage.php:313
-msgid "Run a scan of your home page from the <strong>Scan</strong> tab."
-msgstr ""
-
-#: src/Admin/GuidePage.php:314
-msgid "Review the detected issues, starting with Critical and Serious."
-msgstr ""
-
-#: src/Admin/GuidePage.php:315
-msgid "Enable one fix at a time in <strong>Settings</strong>, then spot-check your store."
-msgstr ""
-
-#: src/Admin/GuidePage.php:316
-msgid "Generate the accessibility statement draft and edit it before publishing."
-msgstr ""
-
-#: src/Admin/GuidePage.php:317
-msgid "Re-scan regularly — or turn on the weekly email reminder."
-msgstr ""
-
-#: src/Admin/GuidePage.php:325
-msgid "Running a Scan"
-msgstr ""
-
-#: src/Admin/GuidePage.php:328
-msgid "Scan from the admin page"
-msgstr ""
-
-#: src/Admin/GuidePage.php:333
-msgid "Open <strong>WooCommerce → Accessibility</strong> and go to the <strong>Scan</strong> tab."
-msgstr ""
-
-#: src/Admin/GuidePage.php:334
-msgid "The URL field is pre-filled with your home page; paste any URL <strong>on your own site</strong> (other domains are rejected by design)."
-msgstr ""
-
-#: src/Admin/GuidePage.php:335
-msgid "Click <strong>Scan this page</strong>. The page loads in a hidden frame and is checked in your browser by the bundled axe-core engine — nothing is sent anywhere."
-msgstr ""
-
-#: src/Admin/GuidePage.php:336
-msgid "Results appear grouped by severity. Expand a row to see the affected element’s HTML, the CSS selector, why it was flagged, and a link to remediation guidance."
-msgstr ""
-
-#: src/Admin/GuidePage.php:342
-msgid "Scan from the front end"
-msgstr ""
-
-#: src/Admin/GuidePage.php:346
-msgid "While browsing your store logged in as an admin, click <strong>Scan this page</strong> in the admin bar — it opens the Scan tab with the current URL pre-filled."
-msgstr ""
-
-#: src/Admin/GuidePage.php:351
-msgid "Scan history"
-msgstr ""
-
-#: src/Admin/GuidePage.php:355
-msgid "The <strong>History</strong> tab lists past scans (date, URL, status, per-severity counts). Click a row to reopen its full results. Results are stored in your own database and never leave your server."
-msgstr ""
-
-#: src/Admin/GuidePage.php:362
-msgid "Understanding Results"
-msgstr ""
-
-#: src/Admin/GuidePage.php:365
-msgid "The four severity levels"
-msgstr ""
-
-#: src/Admin/GuidePage.php:370
-msgid "<strong>Critical</strong> — blocks some users completely (e.g. an image conveying information with no text alternative)."
-msgstr ""
-
-#: src/Admin/GuidePage.php:371
-msgid "<strong>Serious</strong> — makes a core task very difficult (e.g. form fields without labels)."
-msgstr ""
-
-#: src/Admin/GuidePage.php:372
-msgid "<strong>Moderate</strong> — causes real friction but usually has a workaround."
-msgstr ""
-
-#: src/Admin/GuidePage.php:373
-msgid "<strong>Minor</strong> — polish-level problems still worth cleaning up."
-msgstr ""
-
-#: src/Admin/GuidePage.php:378
-msgid "Work top-down: clear Critical and Serious issues first."
-msgstr ""
-
-#: src/Admin/GuidePage.php:383
-msgid "Why “detected issues” and not “violations”?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:387
-msgid "Automated results always include findings that need human interpretation — for example contrast on decorative elements, or alternative text that exists but is unhelpful. We report what the engine detected and leave the judgment to you."
-msgstr ""
-
-#: src/Admin/GuidePage.php:392
-msgid "What automated scans can and cannot find"
-msgstr ""
-
-#: src/Admin/GuidePage.php:396
-msgid "Automated checkers — including the industry-standard axe-core engine this plugin bundles — reliably detect roughly a third to a half of WCAG issues. The rest (keyboard flows, meaningful alt text, content clarity, sensible focus order) need human judgment. Treat a clean scan as a good baseline, not proof of compliance."
-msgstr ""
-
-#: src/Admin/GuidePage.php:403
-msgid "The Six Fixes"
-msgstr ""
-
-#: src/Admin/GuidePage.php:404
-msgid "Enable each fix under <strong>WooCommerce → Accessibility → Settings</strong>. Each is independent, off by default, and instant to switch off again. Recommended: enable one at a time and re-check your store."
-msgstr ""
-
-#: src/Admin/GuidePage.php:408
-#: src/Statement/StatementGenerator.php:131
-msgid "Accessibility Statement"
-msgstr ""
-
-#: src/Admin/GuidePage.php:411
-msgid "Create the statement page"
-msgstr ""
-
-#: src/Admin/GuidePage.php:416
-msgid "Go to <strong>WooCommerce → Accessibility</strong> and find the <strong>Accessibility Statement</strong> card."
-msgstr ""
-
-#: src/Admin/GuidePage.php:417
-msgid "Click <strong>Create statement page</strong>. A WordPress page titled “Accessibility Statement” is created from an EAA-oriented English template, pre-filled with your site name, contact details, and the current date."
-msgstr ""
-
-#: src/Admin/GuidePage.php:418
-msgid "If a statement page already exists, the plugin warns you instead of creating a duplicate; creating a fresh page is an explicit second action."
-msgstr ""
-
-#: src/Admin/GuidePage.php:424
-msgid "Edit before you publish"
-msgstr ""
-
-#: src/Admin/GuidePage.php:428
-msgid "Treat the generated page as a strong draft, not a finished statement. It contains placeholders — notably the compliance level you claim and the “known limitations” section — that only you can fill in truthfully."
-msgstr ""
-
-#: src/Admin/GuidePage.php:433
-msgid "Where to link it"
-msgstr ""
-
-#: src/Admin/GuidePage.php:437
-msgid "Link the published page from your site footer — most stores put it next to the privacy policy."
-msgstr ""
-
-#: src/Admin/GuidePage.php:444
-msgid "Notifications"
-msgstr ""
-
-#: src/Admin/GuidePage.php:447
-msgid "Dashboard widget & admin-bar notice"
-msgstr ""
-
-#: src/Admin/GuidePage.php:451
-msgid "The WordPress dashboard widget shows your last scan date and detected-issue counts by severity, with a link to the full results. An admin-bar notice appears when your most recent scan detected critical issues."
-msgstr ""
-
-#: src/Admin/GuidePage.php:456
-msgid "Weekly email reminder (opt-in)"
-msgstr ""
-
-#: src/Admin/GuidePage.php:460
-msgid "Enable it in <strong>Settings</strong> to get a weekly email nudging you to re-scan. It uses WP-Cron and your site’s normal mail configuration; no external service is involved."
-msgstr ""
-
-#: src/Admin/GuidePage.php:467
-msgid "Troubleshooting"
-msgstr ""
-
-#: src/Admin/GuidePage.php:470
-msgid "The scan times out or never finishes"
-msgstr ""
-
-#: src/Admin/GuidePage.php:474
-msgid "The scanned page must load in an iframe from your own site. Security plugins or headers that block same-origin framing (<code>X-Frame-Options: DENY</code>, a strict <code>frame-ancestors</code> CSP) will prevent the scan — allow same-origin framing and retry. Scans also require you to be logged in as an admin; a scan fails if the URL redirects (e.g. to a login page)."
-msgstr ""
-
-#: src/Admin/GuidePage.php:479
-msgid "“This URL is not part of this site.”"
-msgstr ""
-
-#: src/Admin/GuidePage.php:483
-msgid "By design the scanner only accepts URLs on your own domain. Check for a different subdomain, protocol, or a trailing typo."
-msgstr ""
-
-#: src/Admin/GuidePage.php:488
-msgid "The menu item is missing"
-msgstr ""
-
-#: src/Admin/GuidePage.php:492
-msgid "The plugin registers nothing until WooCommerce 8.0+ is active — check the Plugins screen for WooCommerce. The menu lives under <strong>WooCommerce → Accessibility</strong> and requires an administrator account."
-msgstr ""
-
-#: src/Admin/GuidePage.php:497
-msgid "A fix doesn’t seem to do anything"
-msgstr ""
-
-#: src/Admin/GuidePage.php:501
-msgid "Most fixes are invisible by design (screen-reader text, <code>alt</code>/<code>aria</code> attributes). Verify with your browser’s element inspector, or re-run a scan of the same page and compare detected-issue counts. Also check for full-page caching — purge the cache after toggling a fix."
-msgstr ""
-
-#: src/Admin/GuidePage.php:506
-msgid "The scan reports issues from my theme or page builder"
-msgstr ""
-
-#: src/Admin/GuidePage.php:510
-msgid "The scanner reports everything on the rendered page regardless of origin. The per-issue guidance describes what needs to change; changes to theme markup need to happen in the theme (or a child theme), not in this plugin."
-msgstr ""
-
-#: src/Admin/GuidePage.php:517
-msgid "Privacy & Data"
-msgstr ""
-
-#: src/Admin/GuidePage.php:520
-msgid "What the plugin stores — and what leaves your site"
-msgstr ""
-
-#: src/Admin/GuidePage.php:524
-msgid "Zero external calls. The axe-core engine ships inside the plugin, scans run in your browser, and results live in your database. No telemetry, no CDN, no accounts, no API keys."
-msgstr ""
-
-#: src/Admin/GuidePage.php:529
-msgid "Scan results (one database table)"
-msgstr ""
-
-#: src/Admin/GuidePage.php:530
-msgid "The plugin’s settings"
-msgstr ""
-
-#: src/Admin/GuidePage.php:531
-msgid "The ID of the generated statement page"
-msgstr ""
-
-#: src/Admin/GuidePage.php:537
-msgid "Deactivating vs. deleting"
-msgstr ""
-
-#: src/Admin/GuidePage.php:541
-msgid "Deactivating keeps your data. <strong>Deleting</strong> the plugin via the Plugins screen removes the scans table and all plugin options. The generated Accessibility Statement page is a normal WordPress page and is never deleted automatically."
-msgstr ""
-
-#: src/Admin/GuidePage.php:548
-msgid "For Developers"
-msgstr ""
-
-#: src/Admin/GuidePage.php:551
-msgid "Prefixes, body classes & data"
-msgstr ""
-
-#: src/Admin/GuidePage.php:556
-msgid "All AJAX actions, options, hooks, CSS classes, and script handles are prefixed <code>accessi_compliance_kit_</code> / <code>.accessi-compliance-kit-</code>."
-msgstr ""
-
-#: src/Admin/GuidePage.php:557
-msgid "When any fix is active, <code>&lt;body&gt;</code> gets the class <code>accessi-compliance-kit-fixes-active</code> plus one class per active fix — use these to scope your own CSS overrides."
-msgstr ""
-
-#: src/Admin/GuidePage.php:558
-msgid "Scan results live in the <code>accessi_compliance_kit_scans</code> table (with your site’s table prefix); treat it as read-only."
-msgstr ""
-
-#: src/Admin/GuidePage.php:559
-msgid "Source JS is included under <code>assets/js/src/</code>; builds use <code>@wordpress/scripts</code>."
-msgstr ""
-
-#: src/Admin/GuidePage.php:567
-msgid "FAQ"
-msgstr ""
-
-#: src/Admin/GuidePage.php:598
-msgid "Will the fixes change my design or slow my store?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:602
-msgid "Only “Visible focus states” has any visual effect — a high-contrast outline shown when an element is focused with the keyboard, which is exactly what WCAG requires. Performance impact is negligible: most fixes are PHP filters, and the rest load one small CSS/JS file only while enabled. No external requests, ever."
-msgstr ""
-
-#: src/Admin/GuidePage.php:608
-msgid "If a fix conflicts with your theme"
-msgstr ""
-
-#. translators: %s: WordPress.org support forum URL.
-#: src/Admin/GuidePage.php:614
-msgid "Switch it off — the change is removed immediately — and report the theme + fix combination in the <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">support forum</a> so we can improve compatibility."
-msgstr ""
-
-#: src/Admin/GuidePage.php:633
-msgid "Does this plugin make my store legally compliant with the EAA or ADA?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:638
-msgid "No automated tool can, and you should distrust any that claims to. This plugin gives you an honest starting point: detected issues to review, opt-in fixes for common WooCommerce problems, and a statement template. It is not legal advice."
-msgstr ""
-
-#: src/Admin/GuidePage.php:643
-msgid "Does the European Accessibility Act apply to my store?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:647
-msgid "The EAA has been enforceable across all 27 EU member states since June 28, 2025. It generally applies to e-commerce sites selling to EU consumers and requires WCAG 2.1 Level AA. Micro-enterprises are exempt: fewer than 10 employees <strong>and</strong> annual turnover under €2M. Whether it applies to you specifically is a legal question — ask a professional."
-msgstr ""
-
-#: src/Admin/GuidePage.php:652
-msgid "Is this an accessibility overlay like UserWay or accessiBe?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:656
-msgid "No. Overlays add a floating toolbar and scripts that mask problems without fixing the page; disability advocates and European regulators consider them inadequate. This plugin reports real issues in your markup and, only when you opt in, fixes the actual markup."
-msgstr ""
-
-#: src/Admin/GuidePage.php:661
-msgid "Does any data leave my site? Do I need an account?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:665
-msgid "No and no. The scan engine is bundled in the plugin, scans run in your own browser against your own pages, and results are stored in your own WordPress database. The free version makes zero external requests."
-msgstr ""
-
-#: src/Admin/GuidePage.php:670
-msgid "Do I need WooCommerce? Which versions are supported?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:674
-msgid "Yes — the plugin targets WooCommerce stores specifically. Requirements: WordPress 6.5+, WooCommerce 8.0+, PHP 7.4+."
-msgstr ""
-
-#: src/Admin/GuidePage.php:679
-msgid "Why are all six fixes off by default?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:683
-msgid "Because every theme is different and we never alter your store without explicit opt-in. Recommended flow: run a scan, enable one fix, spot-check your store, repeat. Each fix switches off just as instantly."
-msgstr ""
-
-#: src/Admin/GuidePage.php:688
-msgid "What happens to my data if I remove the plugin?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:692
-msgid "Deactivating keeps everything. Deleting the plugin from the Plugins screen removes the plugin’s database table and options. The generated Accessibility Statement page is a normal WordPress page and is never deleted automatically."
-msgstr ""
-
-#: src/Admin/GuidePage.php:697
-msgid "Is there a Pro version?"
-msgstr ""
-
-#: src/Admin/GuidePage.php:701
-msgid "Not yet. The free version is complete on its own. A Pro tier (full-site crawling, scheduled scans, PDF audit reports, advanced WooCommerce fixes) is planned post-launch."
 msgstr ""
 
 #: src/Admin/SettingsPage.php:66
@@ -684,6 +242,11 @@ msgstr ""
 
 #: src/Statement/StatementGenerator.php:44
 msgid "You are not allowed to generate the accessibility statement."
+msgstr ""
+
+#: src/Statement/StatementGenerator.php:131
+#: assets/js/src/guide/content.jsx:253
+msgid "Accessibility Statement"
 msgstr ""
 
 #: src/Statement/StatementGenerator.php:152
@@ -876,4 +439,463 @@ msgstr ""
 
 #: assets/js/src/admin/utils/ajax.js:29
 msgid "Request failed."
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:84
+msgid "Everything you need to scan, fix, and document the accessibility of your WooCommerce store."
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:89
+msgid "Open Dashboard"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:92
+msgid "Support Forum"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:100
+msgid "Search the guide"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:101
+msgid "Search the guide…"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:107
+msgid "Expand all"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:110
+msgid "Collapse all"
+msgstr ""
+
+#. translators: %d: number of matching guide topics.
+#: assets/js/src/guide/App.jsx:118
+msgid "%d topic matches your search."
+msgid_plural "%d topics match your search."
+msgstr[0] ""
+msgstr[1] ""
+
+#: assets/js/src/guide/App.jsx:125
+msgid "Guide sections"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:140
+msgid "Still need help?"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:141
+msgid "Post in the free support forum and we will take a look. Please include:"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:143
+msgid "The fix or feature involved"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:144
+msgid "Your theme name and version"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:145
+msgid "Your WooCommerce version"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:146
+msgid "What you observed vs. what you expected"
+msgstr ""
+
+#: assets/js/src/guide/App.jsx:154
+msgid "Open the Support Forum"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:41
+msgid "Will the fixes change my design or slow my store?"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:44
+msgid "Only “Visible focus states” has any visual effect — a high-contrast outline shown when an element is focused with the keyboard, which is exactly what WCAG requires. Performance impact is negligible: most fixes are PHP filters, and the rest load one small CSS/JS file only while enabled. No external requests, ever."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:49
+msgid "If a fix conflicts with your theme"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:53
+msgid "Switch it off — the change is removed immediately — and report the theme + fix combination in the <a>support forum</a> so we can improve compatibility."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:71
+msgid "Does this plugin make my store legally compliant with the EAA or ADA?"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:75
+msgid "No automated tool can, and you should distrust any that claims to. This plugin gives you an honest starting point: detected issues to review, opt-in fixes for common WooCommerce problems, and a statement template. It is not legal advice."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:80
+msgid "Does the European Accessibility Act apply to my store?"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:83
+msgid "The EAA has been enforceable across all 27 EU member states since June 28, 2025. It generally applies to e-commerce sites selling to EU consumers and requires WCAG 2.1 Level AA. Micro-enterprises are exempt: fewer than 10 employees <strong>and</strong> annual turnover under €2M. Whether it applies to you specifically is a legal question — ask a professional."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:88
+msgid "Is this an accessibility overlay like UserWay or accessiBe?"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:91
+msgid "No. Overlays add a floating toolbar and scripts that mask problems without fixing the page; disability advocates and European regulators consider them inadequate. This plugin reports real issues in your markup and, only when you opt in, fixes the actual markup."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:96
+msgid "Does any data leave my site? Do I need an account?"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:99
+msgid "No and no. The scan engine is bundled in the plugin, scans run in your own browser against your own pages, and results are stored in your own WordPress database. The free version makes zero external requests."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:104
+msgid "Do I need WooCommerce? Which versions are supported?"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:107
+msgid "Yes — the plugin targets WooCommerce stores specifically. Requirements: WordPress 6.5+, WooCommerce 8.0+, PHP 7.4+."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:112
+msgid "Why are all six fixes off by default?"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:115
+msgid "Because every theme is different and we never alter your store without explicit opt-in. Recommended flow: run a scan, enable one fix, spot-check your store, repeat. Each fix switches off just as instantly."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:120
+msgid "What happens to my data if I remove the plugin?"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:123
+msgid "Deactivating keeps everything. Deleting the plugin from the Plugins screen removes the plugin’s database table and options. The generated Accessibility Statement page is a normal WordPress page and is never deleted automatically."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:128
+msgid "Is there a Pro version?"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:131
+msgid "Not yet. The free version is complete on its own. A Pro tier (full-site crawling, scheduled scans, PDF audit reports, advanced WooCommerce fixes) is planned post-launch."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:146
+msgid "Getting Started"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:149
+msgid "What you need before you start"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:153
+msgid "WordPress 6.5 or newer"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:154
+msgid "WooCommerce 8.0 or newer, installed and active — without it the plugin stays idle and shows a notice"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:155
+msgid "PHP 7.4 or newer"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:156
+msgid "An administrator account to run scans and change settings"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:161
+msgid "Installation & activation"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:164
+msgid "Go to <strong>Plugins → Add New</strong>, search for “Accessi Compliance Kit”, click <strong>Install Now</strong>, then <strong>Activate</strong>. (Or upload the zip via <strong>Plugins → Add New → Upload Plugin</strong>.)"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:165
+msgid "On activation the plugin creates one database table for scan results and seeds its default settings. <strong>All fixes start OFF</strong> — activating changes nothing on your store’s front end."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:166
+msgid "Find the plugin under <strong>WooCommerce → Accessibility</strong>."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:171
+msgid "Recommended first-run flow"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:174
+msgid "Run a scan of your home page from the <strong>Scan</strong> tab."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:175
+msgid "Review the detected issues, starting with Critical and Serious."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:176
+msgid "Enable one fix at a time in <strong>Settings</strong>, then spot-check your store."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:177
+msgid "Generate the accessibility statement draft and edit it before publishing."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:178
+msgid "Re-scan regularly — or turn on the weekly email reminder."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:186
+msgid "Running a Scan"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:189
+msgid "Scan from the admin page"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:192
+msgid "Open <strong>WooCommerce → Accessibility</strong> and go to the <strong>Scan</strong> tab."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:193
+msgid "The URL field is pre-filled with your home page; paste any URL <strong>on your own site</strong> (other domains are rejected by design)."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:194
+msgid "Click <strong>Scan this page</strong>. The page loads in a hidden frame and is checked in your browser by the bundled axe-core engine — nothing is sent anywhere."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:195
+msgid "Results appear grouped by severity. Expand a row to see the affected element’s HTML, the CSS selector, why it was flagged, and a link to remediation guidance."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:200
+msgid "Scan from the front end"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:202
+msgid "While browsing your store logged in as an admin, click <strong>Scan this page</strong> in the admin bar — it opens the Scan tab with the current URL pre-filled."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:206
+msgid "Scan history"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:208
+msgid "The <strong>History</strong> tab lists past scans (date, URL, status, per-severity counts). Click a row to reopen its full results. Results are stored in your own database and never leave your server."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:215
+msgid "Understanding Results"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:218
+msgid "The four severity levels"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:222
+msgid "<strong>Critical</strong> — blocks some users completely (e.g. an image conveying information with no text alternative)."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:223
+msgid "<strong>Serious</strong> — makes a core task very difficult (e.g. form fields without labels)."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:224
+msgid "<strong>Moderate</strong> — causes real friction but usually has a workaround."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:225
+msgid "<strong>Minor</strong> — polish-level problems still worth cleaning up."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:227
+msgid "Work top-down: clear Critical and Serious issues first."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:232
+msgid "Why “detected issues” and not “violations”?"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:234
+msgid "Automated results always include findings that need human interpretation — for example contrast on decorative elements, or alternative text that exists but is unhelpful. We report what the engine detected and leave the judgment to you."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:238
+msgid "What automated scans can and cannot find"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:240
+msgid "Automated checkers — including the industry-standard axe-core engine this plugin bundles — reliably detect roughly a third to a half of WCAG issues. The rest (keyboard flows, meaningful alt text, content clarity, sensible focus order) need human judgment. Treat a clean scan as a good baseline, not proof of compliance."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:247
+msgid "The Six Fixes"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:248
+msgid "Enable each fix under <strong>WooCommerce → Accessibility → Settings</strong>. Each is independent, off by default, and instant to switch off again. Recommended: enable one at a time and re-check your store."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:256
+msgid "Create the statement page"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:259
+msgid "Go to <strong>WooCommerce → Accessibility</strong> and find the <strong>Accessibility Statement</strong> card."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:260
+msgid "Click <strong>Create statement page</strong>. A WordPress page titled “Accessibility Statement” is created from an EAA-oriented English template, pre-filled with your site name, contact details, and the current date."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:261
+msgid "If a statement page already exists, the plugin warns you instead of creating a duplicate; creating a fresh page is an explicit second action."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:266
+msgid "Edit before you publish"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:268
+msgid "Treat the generated page as a strong draft, not a finished statement. It contains placeholders — notably the compliance level you claim and the “known limitations” section — that only you can fill in truthfully."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:272
+msgid "Where to link it"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:274
+msgid "Link the published page from your site footer — most stores put it next to the privacy policy."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:281
+msgid "Notifications"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:284
+msgid "Dashboard widget & admin-bar notice"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:286
+msgid "The WordPress dashboard widget shows your last scan date and detected-issue counts by severity, with a link to the full results. An admin-bar notice appears when your most recent scan detected critical issues."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:290
+msgid "Weekly email reminder (opt-in)"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:292
+msgid "Enable it in <strong>Settings</strong> to get a weekly email nudging you to re-scan. It uses WP-Cron and your site’s normal mail configuration; no external service is involved."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:299
+msgid "Troubleshooting"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:302
+msgid "The scan times out or never finishes"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:304
+msgid "The scanned page must load in an iframe from your own site. Security plugins or headers that block same-origin framing (<code>X-Frame-Options: DENY</code>, a strict <code>frame-ancestors</code> CSP) will prevent the scan — allow same-origin framing and retry. Scans also require you to be logged in as an admin; a scan fails if the URL redirects (e.g. to a login page)."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:308
+msgid "“This URL is not part of this site.”"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:310
+msgid "By design the scanner only accepts URLs on your own domain. Check for a different subdomain, protocol, or a trailing typo."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:314
+msgid "The menu item is missing"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:316
+msgid "The plugin registers nothing until WooCommerce 8.0+ is active — check the Plugins screen for WooCommerce. The menu lives under <strong>WooCommerce → Accessibility</strong> and requires an administrator account."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:320
+msgid "A fix doesn’t seem to do anything"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:322
+msgid "Most fixes are invisible by design (screen-reader text, <code>alt</code>/<code>aria</code> attributes). Verify with your browser’s element inspector, or re-run a scan of the same page and compare detected-issue counts. Also check for full-page caching — purge the cache after toggling a fix."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:326
+msgid "The scan reports issues from my theme or page builder"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:328
+msgid "The scanner reports everything on the rendered page regardless of origin. The per-issue guidance describes what needs to change; changes to theme markup need to happen in the theme (or a child theme), not in this plugin."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:335
+msgid "Privacy & Data"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:338
+msgid "What the plugin stores — and what leaves your site"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:341
+msgid "Zero external calls. The axe-core engine ships inside the plugin, scans run in your browser, and results live in your database. No telemetry, no CDN, no accounts, no API keys."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:343
+msgid "Scan results (one database table)"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:344
+msgid "The plugin’s settings"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:345
+msgid "The ID of the generated statement page"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:351
+msgid "Deactivating vs. deleting"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:353
+msgid "Deactivating keeps your data. <strong>Deleting</strong> the plugin via the Plugins screen removes the scans table and all plugin options. The generated Accessibility Statement page is a normal WordPress page and is never deleted automatically."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:360
+msgid "For Developers"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:363
+msgid "Prefixes, body classes & data"
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:366
+msgid "All AJAX actions, options, hooks, CSS classes, and script handles are prefixed <code>accessi_compliance_kit_</code> / <code>.accessi-compliance-kit-</code>."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:368
+msgid "When any fix is active, <bodyTag/> gets the class <code>accessi-compliance-kit-fixes-active</code> plus one class per active fix — use these to scope your own CSS overrides."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:371
+msgid "Scan results live in the <code>accessi_compliance_kit_scans</code> table (with your site’s table prefix); treat it as read-only."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:372
+msgid "Source JS is included under <code>assets/js/src/</code>; builds use <code>@wordpress/scripts</code>."
+msgstr ""
+
+#: assets/js/src/guide/content.jsx:380
+msgid "FAQ"
 msgstr ""

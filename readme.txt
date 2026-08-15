@@ -1,5 +1,5 @@
 === Accessi Compliance Kit ===
-Contributors: accessiwoo
+Contributors: tazeenehsan
 Tags: accessibility, wcag, woocommerce, compliance, a11y
 Requires at least: 6.5
 Tested up to: 7.0
@@ -17,7 +17,7 @@ Scan your WooCommerce store for accessibility issues (WCAG 2.1 A/AA), apply opti
 = Scanning =
 
 * One-click accessibility scan of any front-end page of your store
-* Powered by the industry-standard [axe-core](https://github.com/dequelabs/axe-core) engine (MIT-licensed, bundled locally — no CDN, no external calls)
+* Powered by the industry-standard [axe-core](https://github.com/dequelabs/axe-core) engine (MPL-2.0 licensed, bundled locally — no CDN, no external calls)
 * Detected issues grouped by severity: Critical, Serious, Moderate, Minor
 * Every detected issue shows the rule name, the affected element (CSS selector), why it was flagged, and how to fix it
 * Scan by URL, or jump straight from any front-end page via the "Scan this page" admin-bar button

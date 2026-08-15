@@ -1,6 +1,6 @@
 {
 	"name": "accessi-compliance-kit",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements.",
 	"private": true,
 	"license": "GPL-2.0-or-later",
@@ -14,7 +14,8 @@
 		"lint-js": "wp-scripts lint-js"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^30.0.0"
+		"@wordpress/scripts": "^30.0.0",
+		"terser-webpack-plugin": "^5.6.1"
 	},
 	"dependencies": {
 		"axe-core": "^4.9.1"

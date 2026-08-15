@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name:       Accessi Compliance Kit
- * Plugin URI:        https://accessiwoo.com
  * Description:       Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements.
  * Version:           1.0.0
  * Requires at least: 6.5
  * Requires PHP:      7.4
- * Author:            AccessiWoo
+ * Author:      Tazeen Ehsan
+ * Author URI:  https://tazeenehsan.github.io/
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       accessi-compliance-kit
