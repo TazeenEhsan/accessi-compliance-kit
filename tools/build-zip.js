@@ -38,7 +38,8 @@ const INCLUDE = [
 	'composer.lock',
 	'src',
 	'build',
-	'assets',
+	'assets/css',
+	'assets/images',
 	'languages',
 ];
 
