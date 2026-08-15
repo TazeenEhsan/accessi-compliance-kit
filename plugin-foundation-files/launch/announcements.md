@@ -23,7 +23,7 @@ What it does:
 
 What it deliberately doesn't do: overlays, "compliance guaranteed" claims, or AI anything. Automated tools catch maybe half of WCAG issues — it says "detected issues", not "you're compliant", because the latter would be a lie.
 
-It's v0.1.0 and I'd genuinely value beatings from real stores: weird themes, checkout customizations, whatever breaks it. I'll be in the comments.
+It's v1.0.0 and I'd genuinely value beatings from real stores: weird themes, checkout customizations, whatever breaks it. I'll be in the comments.
 
 ---
 
@@ -84,7 +84,7 @@ I built the boring, honest alternative. Free, on WordPress.org 🧵
 ▸ Every fix OFF by default; your theme is yours
 ▸ "Detected issues", never "compliance guaranteed" — automated tools can't promise that, and anyone who says otherwise is selling you risk
 
-**4/** It's free, GPL, v0.1.0, and I want it stress-tested by real stores. Grab it: [WPORG-LINK]
+**4/** It's free, GPL, v1.0.0, and I want it stress-tested by real stores. Grab it: [WPORG-LINK]
 
 Bug reports and grumpy feedback welcome. RTs appreciated 🙏
 

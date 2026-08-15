@@ -4,7 +4,7 @@ Tags: accessibility, wcag, woocommerce, compliance, a11y
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,7 +108,7 @@ The scanner reports everything it detects on the rendered page, whatever the sou
 
 == Changelog ==
 
-= 0.1.0 =
+= 1.0.0 =
 * Initial release.
 * Single-page accessibility scanner (axe-core, bundled) with severity-grouped results and scan history.
 * Six optional fixes: product image alt text, checkout field labels, visible focus states, icon button labels, screen reader price label, empty link names — all individually toggleable, all OFF by default.
@@ -117,5 +117,5 @@ The scanner reports everything it detects on the rendered page, whatever the sou
 
 == Upgrade Notice ==
 
-= 0.1.0 =
+= 1.0.0 =
 Initial release.

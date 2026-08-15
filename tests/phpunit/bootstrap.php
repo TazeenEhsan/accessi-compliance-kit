@@ -34,7 +34,7 @@ if ( ! defined( 'ACCESSI_COMPLIANCE_KIT_URL' ) ) {
 }
 
 if ( ! defined( 'ACCESSI_COMPLIANCE_KIT_VERSION' ) ) {
-	define( 'ACCESSI_COMPLIANCE_KIT_VERSION', '0.1.0-test' );
+	define( 'ACCESSI_COMPLIANCE_KIT_VERSION', '1.0.0-test' );
 }
 
 if ( ! class_exists( 'WC_Product' ) ) {
