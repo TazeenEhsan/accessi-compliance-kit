@@ -31,7 +31,6 @@ const ZIP_PATH = path.join( DIST_DIR, `${ SLUG }-${ VERSION }.zip` );
 // `composer install` is deterministic; it is removed again before archiving.
 const INCLUDE = [
 	'accessi-compliance-kit.php',
-	'uninstall.php',
 	'readme.txt',
 	'LICENSE.txt',
 	'composer.json',
