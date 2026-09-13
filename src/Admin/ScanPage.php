@@ -43,7 +43,7 @@ class ScanPage {
 			return;
 		}
 
-		$asset_file = ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'build/admin.asset.php';
+		$asset_file = ACKFW_PATH . 'build/admin.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -53,7 +53,7 @@ class ScanPage {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'build/admin.js',
+			ACKFW_URL . 'build/admin.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
@@ -61,9 +61,9 @@ class ScanPage {
 
 		wp_enqueue_style(
 			self::HANDLE,
-			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'assets/css/admin.css',
+			ACKFW_URL . 'assets/css/admin.css',
 			array(),
-			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION
+			ACKFW_VERSION
 		);
 
 		wp_localize_script( self::HANDLE, 'accessibilityComplianceKitForWooCommerceAdmin', $this->localized_data() );

@@ -64,9 +64,9 @@ class FocusStatesFix extends AbstractFix {
 	public function enqueue() {
 		wp_enqueue_style(
 			self::HANDLE,
-			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'assets/css/frontend-fixes.css',
+			ACKFW_URL . 'assets/css/frontend-fixes.css',
 			array(),
-			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION
+			ACKFW_VERSION
 		);
 	}
 }

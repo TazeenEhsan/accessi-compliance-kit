@@ -84,7 +84,7 @@ class EmptyLinkAnchorFix extends AbstractFix {
 	 * @return void
 	 */
 	public function enqueue() {
-		$asset_file = ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'build/fixes.asset.php';
+		$asset_file = ACKFW_PATH . 'build/fixes.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -94,7 +94,7 @@ class EmptyLinkAnchorFix extends AbstractFix {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'build/fixes.js',
+			ACKFW_URL . 'build/fixes.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true

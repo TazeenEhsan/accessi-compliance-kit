@@ -62,7 +62,7 @@ class ScannerAssets {
 			return;
 		}
 
-		$asset_file = ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'build/scanner.asset.php';
+		$asset_file = ACKFW_PATH . 'build/scanner.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -72,7 +72,7 @@ class ScannerAssets {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'build/scanner.js',
+			ACKFW_URL . 'build/scanner.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true

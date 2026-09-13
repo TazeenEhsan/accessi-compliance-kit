@@ -74,7 +74,7 @@ class GuidePage {
 			return;
 		}
 
-		$asset_file = ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'build/guide.asset.php';
+		$asset_file = ACKFW_PATH . 'build/guide.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -84,19 +84,19 @@ class GuidePage {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'build/guide.js',
+			ACKFW_URL . 'build/guide.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
 		);
 
-		wp_set_script_translations( self::HANDLE, 'accessibility-compliance-kit-for-woocommerce', ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'languages' );
+		wp_set_script_translations( self::HANDLE, 'accessibility-compliance-kit-for-woocommerce', ACKFW_PATH . 'languages' );
 
 		wp_enqueue_style(
 			self::HANDLE,
-			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'assets/css/admin.css',
+			ACKFW_URL . 'assets/css/admin.css',
 			array(),
-			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION
+			ACKFW_VERSION
 		);
 
 		wp_localize_script( self::HANDLE, 'accessibilityComplianceKitForWooCommerceGuide', $this->localized_data() );

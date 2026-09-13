@@ -95,7 +95,7 @@ After implementation:
 
 ## 4. Naming & Code Conventions
 
-- **Prefix everything** with `accessibility_compliance_kit_for_woocommerce_` / `ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_`: options, transients, AJAX actions, script/style handles, DB tables (`{$wpdb->prefix}accessibility_compliance_kit_for_woocommerce_*`), REST namespace (`accessibility-compliance-kit-for-woocommerce/v1`), CSS classes (`.accessibility-compliance-kit-for-woocommerce-*`), JS globals.
+- **Prefix everything** with `accessibility_compliance_kit_for_woocommerce_` / `ACKFW_`: options, transients, AJAX actions, script/style handles, DB tables (`{$wpdb->prefix}accessibility_compliance_kit_for_woocommerce_*`), REST namespace (`accessibility-compliance-kit-for-woocommerce/v1`), CSS classes (`.accessibility-compliance-kit-for-woocommerce-*`), JS globals.
 - **Text domain:** `accessibility-compliance-kit-for-woocommerce` — every user-facing string wrapped in `__()` / `_e()` / `esc_html__()` etc. with this domain. No variable text domains.
 - **PHP namespace:** `AccessibilityComplianceKitForWooCommerce\` mapping to `src/` via PSR-4 (`AccessibilityComplianceKitForWooCommerce\Admin\AdminMenu` → `src/Admin/AdminMenu.php`). One class per file, filename equals class name.
 - **Coding standard:** WordPress Coding Standards (WPCS) for PHP; `@wordpress/eslint-plugin` defaults for JS. See `docs/coding-guidelines.md`.

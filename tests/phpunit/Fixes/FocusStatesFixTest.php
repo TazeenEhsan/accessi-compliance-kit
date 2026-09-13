@@ -36,9 +36,9 @@ class FocusStatesFixTest extends TestCase {
 			->once()
 			->with(
 				'accessibility-compliance-kit-for-woocommerce-frontend-fixes',
-				ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'assets/css/frontend-fixes.css',
+				ACKFW_URL . 'assets/css/frontend-fixes.css',
 				array(),
-				ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION
+				ACKFW_VERSION
 			);
 
 		( new FocusStatesFix() )->enqueue();

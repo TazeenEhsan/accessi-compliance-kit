@@ -39,7 +39,7 @@
 		<properties>
 			<property name="prefixes" type="array">
 				<element value="accessibility_compliance_kit_for_woocommerce"/>
-				<element value="ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE"/>
+				<element value="ACKFW"/>
 				<element value="AccessibilityComplianceKitForWooCommerce"/>
 			</property>
 		</properties>

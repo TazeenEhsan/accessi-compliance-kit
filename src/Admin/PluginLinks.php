@@ -25,7 +25,7 @@ class PluginLinks {
 	 */
 	public function register() {
 		add_filter(
-			'plugin_action_links_' . plugin_basename( ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_FILE ),
+			'plugin_action_links_' . plugin_basename( ACKFW_FILE ),
 			array( $this, 'add_action_links' )
 		);
 	}

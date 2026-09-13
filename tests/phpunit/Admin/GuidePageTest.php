@@ -70,7 +70,7 @@ class GuidePageTest extends TestCase {
 	}
 
 	public function test_maybe_enqueue_skips_when_the_built_bundle_is_missing() {
-		// The bootstrap points ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH at a directory with
+		// The bootstrap points ACKFW_PATH at a directory with
 		// no build/, so the guard against a missing compiled bundle is hit.
 		Functions\expect( 'wp_enqueue_script' )->never();
 		Functions\expect( 'wp_enqueue_style' )->never();

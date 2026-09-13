@@ -23,7 +23,7 @@ Legend: tasks marked **(Pro)** are Phase 5+ and must not be started before the f
 
 ### 0.2 Plugin Bootstrap
 
-- [x] Write `accessibility-compliance-kit-for-woocommerce.php` main file: plugin headers (name, description, version, requires WP 6.5, requires PHP 7.4, license GPLv2, text domain `accessibility-compliance-kit-for-woocommerce`), `ABSPATH` guard, define constants (`ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION`, `ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_FILE`, `ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH`, `ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL`), require Composer autoloader
+- [x] Write `accessibility-compliance-kit-for-woocommerce.php` main file: plugin headers (name, description, version, requires WP 6.5, requires PHP 7.4, license GPLv2, text domain `accessibility-compliance-kit-for-woocommerce`), `ABSPATH` guard, define constants (`ACKFW_VERSION`, `ACKFW_FILE`, `ACKFW_PATH`, `ACKFW_URL`), require Composer autoloader
 - [x] Write `src/Plugin.php` singleton: `instance()`, `boot()` hooked on `plugins_loaded`, empty service-registration method stubs (admin, scanner, fixes, statement)
 - [x] Add a WooCommerce-active check in `Plugin.php` with an admin notice when WooCommerce is missing (plugin targets WC 8.0+, proposal §11)
 - [x] Write `src/Activator.php` stub + `src/Deactivator.php` stub; register `register_activation_hook` / `register_deactivation_hook` in `accessibility-compliance-kit-for-woocommerce.php`

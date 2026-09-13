@@ -58,7 +58,7 @@ Conventions for all PHP/JS/CSS in this project. Binding rules live in `AI_RULES.
 - Small commits, one TASKS.md task per commit where feasible; message references the task (e.g. `Phase 1.2: ScanStorage create/complete/fail`).
 - Branches: `main` (releasable), `dev` (integration) — both already exist in the repo.
 - Never commit `node_modules/`, `build/`; `vendor/` excluded from git, produced by `composer install --no-dev` in the release build (proposal §5.2 gitignore notes).
-- Version bumps: plugin header + `ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION` + `readme.txt` stable tag + changelog together.
+- Version bumps: plugin header + `ACKFW_VERSION` + `readme.txt` stable tag + changelog together.
 
 ## 6. Definition of Done (per task)
 

@@ -19,16 +19,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION', '1.0.1' );
-define( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_FILE', __FILE__ );
-define( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH', plugin_dir_path( __FILE__ ) );
-define( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL', plugin_dir_url( __FILE__ ) );
+define( 'ACKFW_VERSION', '1.0.1' );
+define( 'ACKFW_FILE', __FILE__ );
+define( 'ACKFW_PATH', plugin_dir_path( __FILE__ ) );
+define( 'ACKFW_URL', plugin_dir_url( __FILE__ ) );
 
-require ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'vendor/autoload.php';
+require ACKFW_PATH . 'vendor/autoload.php';
 
-register_activation_hook( ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_FILE, array( \AccessibilityComplianceKitForWooCommerce\Activator::class, 'activate' ) );
+register_activation_hook( ACKFW_FILE, array( \AccessibilityComplianceKitForWooCommerce\Activator::class, 'activate' ) );
 register_deactivation_hook(
-	ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_FILE,
+	ACKFW_FILE,
 	array( \AccessibilityComplianceKitForWooCommerce\Deactivator::class, 'deactivate' )
 );
 
