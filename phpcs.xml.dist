@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Accessi Compliance Kit">
-	<description>WPCS ruleset for Accessi Compliance Kit (docs/coding-guidelines.md §1).</description>
+<ruleset name="Accessibility Compliance Kit for WooCommerce">
+	<description>WPCS ruleset for Accessibility Compliance Kit for WooCommerce (docs/coding-guidelines.md §1).</description>
 
 	<file>.</file>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
@@ -38,9 +38,9 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="accessi_compliance_kit"/>
-				<element value="ACCESSI_COMPLIANCE_KIT"/>
-				<element value="AccessiComplianceKit"/>
+				<element value="accessibility_compliance_kit_for_woocommerce"/>
+				<element value="ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE"/>
+				<element value="AccessibilityComplianceKitForWooCommerce"/>
 			</property>
 		</properties>
 	</rule>
@@ -48,7 +48,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="accessi-compliance-kit"/>
+				<element value="accessibility-compliance-kit-for-woocommerce"/>
 			</property>
 		</properties>
 	</rule>
@@ -71,6 +71,6 @@
 	<!-- The plugin header Description field is a required single-line WP header
 	     value (parsed verbatim for the plugin list screen); it cannot be wrapped. -->
 	<rule ref="Generic.Files.LineLength.TooLong">
-		<exclude-pattern>*/accessi-compliance-kit.php</exclude-pattern>
+		<exclude-pattern>*/accessibility-compliance-kit-for-woocommerce.php</exclude-pattern>
 	</rule>
 </ruleset>

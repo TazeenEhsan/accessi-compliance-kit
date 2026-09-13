@@ -2,17 +2,17 @@
 /**
  * In-plugin "User Guide" admin page: documentation, troubleshooting, and FAQ.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Fixes\FixManager;
-use AccessiComplianceKit\Utils\Capabilities;
+use AccessibilityComplianceKitForWooCommerce\Fixes\FixManager;
+use AccessibilityComplianceKitForWooCommerce\Utils\Capabilities;
 
 /**
  * Registers the Accessibility → User Guide submenu and renders the React
@@ -26,11 +26,11 @@ use AccessiComplianceKit\Utils\Capabilities;
  */
 class GuidePage {
 
-	const MENU_SLUG = 'accessi-compliance-kit-guide';
+	const MENU_SLUG = 'accessibility-compliance-kit-for-woocommerce-guide';
 
-	const HANDLE = 'accessi-compliance-kit-guide';
+	const HANDLE = 'accessibility-compliance-kit-for-woocommerce-guide';
 
-	const SUPPORT_URL = 'https://wordpress.org/support/plugin/accessi-compliance-kit/';
+	const SUPPORT_URL = 'https://wordpress.org/support/plugin/accessibility-compliance-kit-for-woocommerce/';
 
 	/**
 	 * Hook the submenu registration and the conditional asset enqueue.
@@ -50,8 +50,8 @@ class GuidePage {
 	public function add_menu_page() {
 		add_submenu_page(
 			AdminMenu::MENU_SLUG,
-			__( 'User Guide', 'accessi-compliance-kit' ),
-			__( 'User Guide', 'accessi-compliance-kit' ),
+			__( 'User Guide', 'accessibility-compliance-kit-for-woocommerce' ),
+			__( 'User Guide', 'accessibility-compliance-kit-for-woocommerce' ),
 			Capabilities::SCAN,
 			self::MENU_SLUG,
 			array( $this, 'render_page' )
@@ -74,7 +74,7 @@ class GuidePage {
 			return;
 		}
 
-		$asset_file = ACCESSI_COMPLIANCE_KIT_PATH . 'build/guide.asset.php';
+		$asset_file = ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'build/guide.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -84,22 +84,22 @@ class GuidePage {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACCESSI_COMPLIANCE_KIT_URL . 'build/guide.js',
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'build/guide.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
 		);
 
-		wp_set_script_translations( self::HANDLE, 'accessi-compliance-kit', ACCESSI_COMPLIANCE_KIT_PATH . 'languages' );
+		wp_set_script_translations( self::HANDLE, 'accessibility-compliance-kit-for-woocommerce', ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'languages' );
 
 		wp_enqueue_style(
 			self::HANDLE,
-			ACCESSI_COMPLIANCE_KIT_URL . 'assets/css/admin.css',
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'assets/css/admin.css',
 			array(),
-			ACCESSI_COMPLIANCE_KIT_VERSION
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION
 		);
 
-		wp_localize_script( self::HANDLE, 'accessiComplianceKitGuide', $this->localized_data() );
+		wp_localize_script( self::HANDLE, 'accessibilityComplianceKitForWooCommerceGuide', $this->localized_data() );
 	}
 
 	/**
@@ -108,7 +108,7 @@ class GuidePage {
 	 * @return void
 	 */
 	public function render_page() {
-		echo '<div id="accessi-compliance-kit-guide-root" class="wrap accessi-compliance-kit-guide"></div>';
+		echo '<div id="accessibility-compliance-kit-for-woocommerce-guide-root" class="wrap accessibility-compliance-kit-for-woocommerce-guide"></div>';
 	}
 
 	/**

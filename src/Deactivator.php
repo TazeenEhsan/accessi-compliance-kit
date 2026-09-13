@@ -2,16 +2,16 @@
 /**
  * Runs on plugin deactivation.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit;
+namespace AccessibilityComplianceKitForWooCommerce;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Admin\EmailReminder;
+use AccessibilityComplianceKitForWooCommerce\Admin\EmailReminder;
 
 /**
  * Unschedules cron events. Never deletes data — see `uninstall.php` for cleanup.

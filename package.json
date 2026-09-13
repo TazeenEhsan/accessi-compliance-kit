@@ -1,12 +1,12 @@
 {
-	"name": "accessi-compliance-kit",
-	"version": "1.0.0",
+	"name": "accessibility-compliance-kit-for-woocommerce",
+	"version": "1.0.1",
 	"description": "Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements.",
 	"private": true,
 	"license": "GPL-2.0-or-later",
 	"scripts": {
 		"build": "wp-scripts build && npm run make-pot && npm run zip",
-		"make-pot": "php -d memory_limit=-1 wp-cli.phar i18n make-pot . languages/accessi-compliance-kit.pot --exclude=node_modules,vendor,dist,build,tests,tools,plugin-foundation-files --domain=accessi-compliance-kit",
+		"make-pot": "php -d memory_limit=-1 wp-cli.phar i18n make-pot . languages/accessibility-compliance-kit-for-woocommerce.pot --exclude=node_modules,vendor,dist,build,tests,tools,plugin-foundation-files --domain=accessibility-compliance-kit-for-woocommerce",
 		"zip": "node tools/build-zip.js",
 		"dev": "wp-scripts start",
 		"start": "wp-scripts start",

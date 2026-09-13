@@ -2,22 +2,22 @@
 /**
  * Tests for GuidePage.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Admin\GuidePage;
+use AccessibilityComplianceKitForWooCommerce\Admin\GuidePage;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Admin\GuidePage
+ * @covers \AccessibilityComplianceKitForWooCommerce\Admin\GuidePage
  */
 class GuidePageTest extends TestCase {
 
@@ -46,7 +46,7 @@ class GuidePageTest extends TestCase {
 		Functions\expect( 'add_submenu_page' )
 			->once()
 			->with(
-				\AccessiComplianceKit\Admin\AdminMenu::MENU_SLUG,
+				\AccessibilityComplianceKitForWooCommerce\Admin\AdminMenu::MENU_SLUG,
 				\Mockery::type( 'string' ),
 				'User Guide',
 				'manage_options',
@@ -64,13 +64,13 @@ class GuidePageTest extends TestCase {
 		Functions\expect( 'wp_enqueue_style' )->never();
 
 		( new GuidePage() )->maybe_enqueue( 'woocommerce_page_wc-settings' );
-		( new GuidePage() )->maybe_enqueue( 'toplevel_page_accessi-compliance-kit' );
+		( new GuidePage() )->maybe_enqueue( 'toplevel_page_accessibility-compliance-kit-for-woocommerce' );
 
 		$this->addToAssertionCount( 1 );
 	}
 
 	public function test_maybe_enqueue_skips_when_the_built_bundle_is_missing() {
-		// The bootstrap points ACCESSI_COMPLIANCE_KIT_PATH at a directory with
+		// The bootstrap points ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH at a directory with
 		// no build/, so the guard against a missing compiled bundle is hit.
 		Functions\expect( 'wp_enqueue_script' )->never();
 		Functions\expect( 'wp_enqueue_style' )->never();
@@ -86,7 +86,7 @@ class GuidePageTest extends TestCase {
 		( new GuidePage() )->render_page();
 		$output = ob_get_clean();
 
-		$this->assertStringContainsString( 'id="accessi-compliance-kit-guide-root"', $output );
-		$this->assertStringContainsString( 'accessi-compliance-kit-guide', $output );
+		$this->assertStringContainsString( 'id="accessibility-compliance-kit-for-woocommerce-guide-root"', $output );
+		$this->assertStringContainsString( 'accessibility-compliance-kit-for-woocommerce-guide', $output );
 	}
 }

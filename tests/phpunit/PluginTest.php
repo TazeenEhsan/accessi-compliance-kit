@@ -2,21 +2,21 @@
 /**
  * Smoke test for the plugin bootstrap.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests;
+namespace AccessibilityComplianceKitForWooCommerce\Tests;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Plugin;
+use AccessibilityComplianceKitForWooCommerce\Plugin;
 use Brain\Monkey;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Plugin
+ * @covers \AccessibilityComplianceKitForWooCommerce\Plugin
  */
 class PluginTest extends TestCase {
 

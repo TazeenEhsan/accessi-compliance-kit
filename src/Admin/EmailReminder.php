@@ -2,26 +2,26 @@
 /**
  * Weekly opt-in email reminder to run a scan.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Utils\Options;
+use AccessibilityComplianceKitForWooCommerce\Utils\Options;
 
 /**
- * Schedules/unschedules the `accessi_compliance_kit_weekly_reminder` WP-Cron
+ * Schedules/unschedules the `accessibility_compliance_kit_for_woocommerce_weekly_reminder` WP-Cron
  * event to match the email opt-in setting, and sends the reminder (proposal
  * §4.1 "Notifications"; docs/admin.md §9).
  */
 class EmailReminder {
 
-	const CRON_HOOK = 'accessi_compliance_kit_weekly_reminder';
-	const SCHEDULE  = 'accessi_compliance_kit_weekly';
+	const CRON_HOOK = 'accessibility_compliance_kit_for_woocommerce_weekly_reminder';
+	const SCHEDULE  = 'accessibility_compliance_kit_for_woocommerce_weekly';
 
 	/**
 	 * Hook the cron sender, the custom schedule, and settings-driven (re)scheduling.
@@ -47,7 +47,7 @@ class EmailReminder {
 		if ( ! isset( $schedules[ self::SCHEDULE ] ) ) {
 			$schedules[ self::SCHEDULE ] = array(
 				'interval' => WEEK_IN_SECONDS,
-				'display'  => __( 'Once Weekly (Accessi Compliance Kit)', 'accessi-compliance-kit' ),
+				'display'  => __( 'Once Weekly (Accessibility Compliance Kit for WooCommerce)', 'accessibility-compliance-kit-for-woocommerce' ),
 			);
 		}
 
@@ -113,10 +113,10 @@ class EmailReminder {
 
 		wp_mail(
 			get_option( 'admin_email' ),
-			__( 'Accessi Compliance Kit — weekly scan reminder', 'accessi-compliance-kit' ),
+			__( 'Accessibility Compliance Kit for WooCommerce — weekly scan reminder', 'accessibility-compliance-kit-for-woocommerce' ),
 			sprintf(
 				/* translators: %s: URL to the plugin's scan page. */
-				__( "It's been a week since your last accessibility scan. Run a new scan to check for issues:\n\n%s", 'accessi-compliance-kit' ), // phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
+				__( "It's been a week since your last accessibility scan. Run a new scan to check for issues:\n\n%s", 'accessibility-compliance-kit-for-woocommerce' ), // phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
 				esc_url_raw( $scan_page_url )
 			)
 		);

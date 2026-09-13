@@ -3,10 +3,10 @@
  * Ensures WooCommerce checkout fields keep a screen-reader-visible label
  * (proposal §4.1, §5.4).
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -30,7 +30,7 @@ class CheckoutLabelsFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Checkout field labels', 'accessi-compliance-kit' );
+		return __( 'Checkout field labels', 'accessibility-compliance-kit-for-woocommerce' );
 	}
 
 	/**
@@ -38,7 +38,7 @@ class CheckoutLabelsFix extends AbstractFix {
 	 */
 	public function description() {
 		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
-		return __( 'Adds a screen-reader label to checkout fields that only show a placeholder.', 'accessi-compliance-kit' );
+		return __( 'Adds a screen-reader label to checkout fields that only show a placeholder.', 'accessibility-compliance-kit-for-woocommerce' );
 	}
 
 	/**

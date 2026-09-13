@@ -2,21 +2,21 @@
 /**
  * Creates the "Accessibility Statement" WordPress page from the bundled template.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Statement;
+namespace AccessibilityComplianceKitForWooCommerce\Statement;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Utils\Capabilities;
-use AccessiComplianceKit\Utils\Options;
+use AccessibilityComplianceKitForWooCommerce\Utils\Capabilities;
+use AccessibilityComplianceKitForWooCommerce\Utils\Options;
 
 /**
  * Generates the accessibility statement page and handles the
- * `accessi_compliance_kit_generate_statement` AJAX action (proposal §4.1, §6 Phase 3).
+ * `accessibility_compliance_kit_for_woocommerce_generate_statement` AJAX action (proposal §4.1, §6 Phase 3).
  */
 class StatementGenerator {
 
@@ -26,7 +26,7 @@ class StatementGenerator {
 	 * @return void
 	 */
 	public function register() {
-		add_action( 'wp_ajax_accessi_compliance_kit_generate_statement', array( $this, 'handle_generate_statement' ) );
+		add_action( 'wp_ajax_accessibility_compliance_kit_for_woocommerce_generate_statement', array( $this, 'handle_generate_statement' ) );
 	}
 
 	/**
@@ -35,13 +35,13 @@ class StatementGenerator {
 	 * @return void
 	 */
 	public function handle_generate_statement() {
-		check_ajax_referer( 'accessi_compliance_kit_generate_statement', 'nonce' );
+		check_ajax_referer( 'accessibility_compliance_kit_for_woocommerce_generate_statement', 'nonce' );
 
 		if ( ! Capabilities::can_manage_settings() ) {
 			wp_send_json_error(
 				array(
 					// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
-					'message' => __( 'You are not allowed to generate the accessibility statement.', 'accessi-compliance-kit' ),
+					'message' => __( 'You are not allowed to generate the accessibility statement.', 'accessibility-compliance-kit-for-woocommerce' ),
 				),
 				403
 			);
@@ -128,7 +128,7 @@ class StatementGenerator {
 	private function insert_page() {
 		return wp_insert_post(
 			array(
-				'post_title'   => __( 'Accessibility Statement', 'accessi-compliance-kit' ),
+				'post_title'   => __( 'Accessibility Statement', 'accessibility-compliance-kit-for-woocommerce' ),
 				'post_content' => $this->render_template(),
 				'post_status'  => 'draft',
 				'post_type'    => 'page',
@@ -145,11 +145,11 @@ class StatementGenerator {
 	private function render_template() {
 		require_once __DIR__ . '/templates/en.php';
 
-		return accessi_compliance_kit_statement_template_en(
+		return accessibility_compliance_kit_for_woocommerce_statement_template_en(
 			array(
 				'site_name'        => get_bloginfo( 'name' ),
 				'contact_email'    => get_option( 'admin_email' ),
-				'compliance_level' => __( 'WCAG 2.1 Level AA', 'accessi-compliance-kit' ),
+				'compliance_level' => __( 'WCAG 2.1 Level AA', 'accessibility-compliance-kit-for-woocommerce' ),
 				'review_date'      => date_i18n( get_option( 'date_format' ) ),
 			)
 		);

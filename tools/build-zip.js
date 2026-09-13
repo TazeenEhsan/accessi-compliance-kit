@@ -4,8 +4,8 @@
  * Runs as the second half of `npm run build` (after `wp-scripts build`), or
  * standalone via `npm run zip`. Stages a clean copy of the plugin, installs
  * production-only Composer dependencies, and archives it as
- * dist/accessi-compliance-kit-<version>.zip with a single
- * `accessi-compliance-kit/` root folder.
+ * dist/accessibility-compliance-kit-for-woocommerce-<version>.zip with a single
+ * `accessibility-compliance-kit-for-woocommerce/` root folder.
  *
  * Zip creation uses bsdtar (Windows' built-in tar.exe / macOS tar) or `zip`
  * on Linux — PowerShell 5.1 Compress-Archive and Git Bash's GNU tar both
@@ -19,7 +19,7 @@ const path = require( 'path' );
 const { spawnSync } = require( 'child_process' );
 
 const ROOT = path.resolve( __dirname, '..' );
-const SLUG = 'accessi-compliance-kit';
+const SLUG = 'accessibility-compliance-kit-for-woocommerce';
 const VERSION = require( path.join( ROOT, 'package.json' ) ).version;
 
 const DIST_DIR = path.join( ROOT, 'dist' );
@@ -30,9 +30,8 @@ const ZIP_PATH = path.join( DIST_DIR, `${ SLUG }-${ VERSION }.zip` );
 // Everything that ships in the release zip. composer.lock is staged only so
 // `composer install` is deterministic; it is removed again before archiving.
 const INCLUDE = [
-	'accessi-compliance-kit.php',
+	'accessibility-compliance-kit-for-woocommerce.php',
 	'readme.txt',
-	'LICENSE.txt',
 	'composer.json',
 	'composer.lock',
 	'src',

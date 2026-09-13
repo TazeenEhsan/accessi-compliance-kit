@@ -2,22 +2,22 @@
 /**
  * Tests for AdminMenu.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Admin\AdminMenu;
+use AccessibilityComplianceKitForWooCommerce\Admin\AdminMenu;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Admin\AdminMenu
+ * @covers \AccessibilityComplianceKitForWooCommerce\Admin\AdminMenu
  */
 class AdminMenuTest extends TestCase {
 
@@ -108,6 +108,6 @@ class AdminMenuTest extends TestCase {
 		( new AdminMenu() )->render_page();
 		$output = ob_get_clean();
 
-		$this->assertStringContainsString( 'id="accessi-compliance-kit-admin"', $output );
+		$this->assertStringContainsString( 'id="accessibility-compliance-kit-for-woocommerce-admin"', $output );
 	}
 }

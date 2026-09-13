@@ -2,17 +2,17 @@
 /**
  * WP dashboard summary widget.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Scanner\ScanStorage;
-use AccessiComplianceKit\Utils\Capabilities;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ScanStorage;
+use AccessibilityComplianceKitForWooCommerce\Utils\Capabilities;
 
 /**
  * Adds a WP dashboard widget showing the last scan date and violation counts
@@ -21,7 +21,7 @@ use AccessiComplianceKit\Utils\Capabilities;
  */
 class DashboardWidget {
 
-	const WIDGET_ID = 'accessi_compliance_kit_dashboard_widget';
+	const WIDGET_ID = 'accessibility_compliance_kit_for_woocommerce_dashboard_widget';
 
 	/**
 	 * Scan storage service.
@@ -60,7 +60,7 @@ class DashboardWidget {
 
 		wp_add_dashboard_widget(
 			self::WIDGET_ID,
-			__( 'Accessibility Compliance', 'accessi-compliance-kit' ),
+			__( 'Accessibility Compliance', 'accessibility-compliance-kit-for-woocommerce' ),
 			array( $this, 'render' )
 		);
 	}
@@ -79,11 +79,11 @@ class DashboardWidget {
 				wp_kses_post(
 					sprintf(
 						/* translators: %s: link to run the first scan. */
-						__( 'No scans yet. %s', 'accessi-compliance-kit' ),
+						__( 'No scans yet. %s', 'accessibility-compliance-kit-for-woocommerce' ),
 						sprintf(
 							'<a href="%s">%s</a>',
 							esc_url( $this->admin_page_url() ),
-							esc_html__( 'Run your first scan', 'accessi-compliance-kit' )
+							esc_html__( 'Run your first scan', 'accessibility-compliance-kit-for-woocommerce' )
 						)
 					)
 				)
@@ -97,7 +97,7 @@ class DashboardWidget {
 			esc_html(
 				sprintf(
 					/* translators: %s: last scan date/time in the site's timezone. */
-					__( 'Last scan: %s', 'accessi-compliance-kit' ),
+					__( 'Last scan: %s', 'accessibility-compliance-kit-for-woocommerce' ),
 					get_date_from_gmt( $scan['started_at'], 'Y-m-d H:i' )
 				)
 			)
@@ -105,7 +105,7 @@ class DashboardWidget {
 
 		$summary = $scan['summary'];
 
-		echo '<ul class="accessi-compliance-kit-dashboard-widget-summary">';
+		echo '<ul class="accessibility-compliance-kit-for-woocommerce-dashboard-widget-summary">';
 
 		foreach ( $this->severity_labels() as $key => $label ) {
 			printf(
@@ -120,7 +120,7 @@ class DashboardWidget {
 		printf(
 			'<p><a href="%s">%s</a></p>',
 			esc_url( $this->admin_page_url() ),
-			esc_html__( 'View full results', 'accessi-compliance-kit' )
+			esc_html__( 'View full results', 'accessibility-compliance-kit-for-woocommerce' )
 		);
 	}
 
@@ -131,10 +131,10 @@ class DashboardWidget {
 	 */
 	private function severity_labels() {
 		return array(
-			'critical' => __( 'Critical', 'accessi-compliance-kit' ),
-			'serious'  => __( 'Serious', 'accessi-compliance-kit' ),
-			'moderate' => __( 'Moderate', 'accessi-compliance-kit' ),
-			'minor'    => __( 'Minor', 'accessi-compliance-kit' ),
+			'critical' => __( 'Critical', 'accessibility-compliance-kit-for-woocommerce' ),
+			'serious'  => __( 'Serious', 'accessibility-compliance-kit-for-woocommerce' ),
+			'moderate' => __( 'Moderate', 'accessibility-compliance-kit-for-woocommerce' ),
+			'minor'    => __( 'Minor', 'accessibility-compliance-kit-for-woocommerce' ),
 		);
 	}
 

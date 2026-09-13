@@ -2,10 +2,10 @@
 /**
  * Debug logging wrapper.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Utils;
+namespace AccessibilityComplianceKitForWooCommerce\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -32,6 +32,6 @@ class Logger {
 		}
 
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- WP_DEBUG-gated wrapper is this class's stated purpose.
-		error_log( '[accessi-compliance-kit] ' . $message );
+		error_log( '[accessibility-compliance-kit-for-woocommerce] ' . $message );
 	}
 }

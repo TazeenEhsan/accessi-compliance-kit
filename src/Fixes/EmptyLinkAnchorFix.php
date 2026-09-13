@@ -3,10 +3,10 @@
  * Accessible names for empty link anchors, e.g. product image links
  * (proposal §4.1).
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class EmptyLinkAnchorFix extends AbstractFix {
 
-	const HANDLE = 'accessi-compliance-kit-fixes';
+	const HANDLE = 'accessibility-compliance-kit-for-woocommerce-fixes';
 
 	/**
 	 * {@inheritDoc}
@@ -33,14 +33,14 @@ class EmptyLinkAnchorFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Empty link names', 'accessi-compliance-kit' );
+		return __( 'Empty link names', 'accessibility-compliance-kit-for-woocommerce' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function description() {
-		return __( 'Gives accessible names to empty links, such as product image links.', 'accessi-compliance-kit' );
+		return __( 'Gives accessible names to empty links, such as product image links.', 'accessibility-compliance-kit-for-woocommerce' );
 	}
 
 	/**
@@ -72,7 +72,7 @@ class EmptyLinkAnchorFix extends AbstractFix {
 		}
 
 		printf(
-			'<span class="screen-reader-text accessi-compliance-kit-empty-link-label">%s</span>',
+			'<span class="screen-reader-text accessibility-compliance-kit-for-woocommerce-empty-link-label">%s</span>',
 			esc_html( $product->get_name() )
 		);
 	}
@@ -84,7 +84,7 @@ class EmptyLinkAnchorFix extends AbstractFix {
 	 * @return void
 	 */
 	public function enqueue() {
-		$asset_file = ACCESSI_COMPLIANCE_KIT_PATH . 'build/fixes.asset.php';
+		$asset_file = ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'build/fixes.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -94,7 +94,7 @@ class EmptyLinkAnchorFix extends AbstractFix {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACCESSI_COMPLIANCE_KIT_URL . 'build/fixes.js',
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'build/fixes.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
@@ -102,10 +102,10 @@ class EmptyLinkAnchorFix extends AbstractFix {
 
 		wp_localize_script(
 			self::HANDLE,
-			'accessiComplianceKitEmptyLinkAnchor',
+			'accessibilityComplianceKitForWooCommerceEmptyLinkAnchor',
 			array(
 				'enabled'      => true,
-				'fallbackText' => __( 'Link', 'accessi-compliance-kit' ),
+				'fallbackText' => __( 'Link', 'accessibility-compliance-kit-for-woocommerce' ),
 			)
 		);
 	}

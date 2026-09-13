@@ -2,22 +2,22 @@
 /**
  * Tests for EmailReminder.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Admin\EmailReminder;
+use AccessibilityComplianceKitForWooCommerce\Admin\EmailReminder;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Admin\EmailReminder
+ * @covers \AccessibilityComplianceKitForWooCommerce\Admin\EmailReminder
  */
 class EmailReminderTest extends TestCase {
 
@@ -100,7 +100,7 @@ class EmailReminderTest extends TestCase {
 		Functions\expect( 'wp_schedule_event' )->once();
 
 		( new EmailReminder() )->handle_option_added(
-			'accessi_compliance_kit_settings',
+			'accessibility_compliance_kit_for_woocommerce_settings',
 			array( 'email_reminder_opt_in' => true )
 		);
 
@@ -156,14 +156,14 @@ class EmailReminderTest extends TestCase {
 	public function test_send_reminder_sends_when_opted_in() {
 		Functions\when( 'get_option' )->alias(
 			function ( $key, $default = false ) {
-				if ( 'accessi_compliance_kit_settings' === $key ) {
+				if ( 'accessibility_compliance_kit_for_woocommerce_settings' === $key ) {
 					return array( 'email_reminder_opt_in' => true );
 				}
 
 				return 'admin_email' === $key ? 'owner@example.test' : $default;
 			}
 		);
-		Functions\when( 'add_query_arg' )->justReturn( 'https://example.test/wp-admin/admin.php?page=accessi-compliance-kit' );
+		Functions\when( 'add_query_arg' )->justReturn( 'https://example.test/wp-admin/admin.php?page=accessibility-compliance-kit-for-woocommerce' );
 		Functions\when( 'admin_url' )->justReturn( 'https://example.test/wp-admin/admin.php' );
 		Functions\when( 'esc_url_raw' )->returnArg();
 		Functions\expect( 'wp_mail' )->once()->with( 'owner@example.test', \Mockery::type( 'string' ), \Mockery::type( 'string' ) );

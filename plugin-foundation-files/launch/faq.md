@@ -1,10 +1,10 @@
-# Accessi Compliance Kit — Public FAQ
+# Accessibility Compliance Kit for WooCommerce — Public FAQ
 
 > Extended FAQ for the docs site / support-forum sticky. The short version ships in `readme.txt`, and a condensed version ships in-plugin on the Accessibility → User Guide page (`src/Admin/GuidePage.php`); keep all three in sync when answers change.
 
 ### Does this plugin make my store legally compliant with the EAA or ADA?
 
-No automated tool can, and you should distrust any that claims to. Automated checkers (including the industry-standard axe-core engine this plugin uses) reliably detect roughly a third to a half of WCAG issues; the rest — keyboard flows, meaningful alt text, content clarity, sensible focus order — need human judgment. Accessi Compliance Kit gives you an honest starting point: detected issues to review, opt-in fixes for common WooCommerce problems, and a statement template. It is not legal advice.
+No automated tool can, and you should distrust any that claims to. Automated checkers (including the industry-standard axe-core engine this plugin uses) reliably detect roughly a third to a half of WCAG issues; the rest — keyboard flows, meaningful alt text, content clarity, sensible focus order — need human judgment. Accessibility Compliance Kit for WooCommerce gives you an honest starting point: detected issues to review, opt-in fixes for common WooCommerce problems, and a statement template. It is not legal advice.
 
 ### Does the European Accessibility Act apply to my store?
 

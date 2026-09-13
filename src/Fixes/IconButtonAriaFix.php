@@ -3,10 +3,10 @@
  * Accessible names for icon-only buttons: cart, search, wishlist
  * (proposal §4.1).
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class IconButtonAriaFix extends AbstractFix {
 
-	const HANDLE = 'accessi-compliance-kit-fixes';
+	const HANDLE = 'accessibility-compliance-kit-for-woocommerce-fixes';
 
 	/**
 	 * {@inheritDoc}
@@ -34,7 +34,7 @@ class IconButtonAriaFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Icon button labels', 'accessi-compliance-kit' );
+		return __( 'Icon button labels', 'accessibility-compliance-kit-for-woocommerce' );
 	}
 
 	/**
@@ -42,7 +42,7 @@ class IconButtonAriaFix extends AbstractFix {
 	 */
 	public function description() {
 		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
-		return __( 'Adds accessible names to icon-only cart, search, and wishlist controls.', 'accessi-compliance-kit' );
+		return __( 'Adds accessible names to icon-only cart, search, and wishlist controls.', 'accessibility-compliance-kit-for-woocommerce' );
 	}
 
 	/**
@@ -65,7 +65,7 @@ class IconButtonAriaFix extends AbstractFix {
 	 * @return void
 	 */
 	public function enqueue() {
-		$asset_file = ACCESSI_COMPLIANCE_KIT_PATH . 'build/fixes.asset.php';
+		$asset_file = ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'build/fixes.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -75,7 +75,7 @@ class IconButtonAriaFix extends AbstractFix {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACCESSI_COMPLIANCE_KIT_URL . 'build/fixes.js',
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'build/fixes.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
@@ -83,13 +83,13 @@ class IconButtonAriaFix extends AbstractFix {
 
 		wp_localize_script(
 			self::HANDLE,
-			'accessiComplianceKitIconButtonAria',
+			'accessibilityComplianceKitForWooCommerceIconButtonAria',
 			array(
 				'enabled' => true,
 				'labels'  => array(
-					'cart'     => __( 'Cart', 'accessi-compliance-kit' ),
-					'search'   => __( 'Search', 'accessi-compliance-kit' ),
-					'wishlist' => __( 'Wishlist', 'accessi-compliance-kit' ),
+					'cart'     => __( 'Cart', 'accessibility-compliance-kit-for-woocommerce' ),
+					'search'   => __( 'Search', 'accessibility-compliance-kit-for-woocommerce' ),
+					'wishlist' => __( 'Wishlist', 'accessibility-compliance-kit-for-woocommerce' ),
 				),
 			)
 		);

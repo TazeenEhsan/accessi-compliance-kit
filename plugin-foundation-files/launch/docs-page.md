@@ -1,4 +1,4 @@
-# Accessi Compliance Kit — Documentation
+# Accessibility Compliance Kit for WooCommerce — Documentation
 
 > Source content for the public docs page (publish on the plugin site / accessiwoo.com before WP.org launch). Also the reference for support-forum answers — see `support-templates.md` for canned responses and `faq.md` for the public FAQ.
 >
@@ -13,7 +13,7 @@
 
 ## 2. Installation
 
-1. **Plugins → Add New**, search for "Accessi Compliance Kit", click **Install Now**, then **Activate**. (Or upload the zip via **Plugins → Add New → Upload Plugin**.)
+1. **Plugins → Add New**, search for "Accessibility Compliance Kit for WooCommerce", click **Install Now**, then **Activate**. (Or upload the zip via **Plugins → Add New → Upload Plugin**.)
 2. On activation the plugin creates one database table for scan results and seeds its default settings. **All fixes start OFF** — activating the plugin changes nothing on your store's front end.
 3. Find the plugin under **WooCommerce → Accessibility**.
 
@@ -88,7 +88,7 @@ The scanner reports everything on the rendered page regardless of origin. The pe
 
 ## 9. For developers
 
-- All AJAX actions, options, hooks, CSS classes, and script handles are prefixed `accessi_compliance_kit_` / `.accessi-compliance-kit-`.
-- When any fix is active, `<body>` gets the class `accessi-compliance-kit-fixes-active` plus one class per active fix — use these to scope your own CSS overrides.
-- Scan results live in the `{$wpdb->prefix}accessi_compliance_kit_scans` table; treat it as read-only.
+- All AJAX actions, options, hooks, CSS classes, and script handles are prefixed `accessibility_compliance_kit_for_woocommerce_` / `.accessibility-compliance-kit-for-woocommerce-`.
+- When any fix is active, `<body>` gets the class `accessibility-compliance-kit-for-woocommerce-fixes-active` plus one class per active fix — use these to scope your own CSS overrides.
+- Scan results live in the `{$wpdb->prefix}accessibility_compliance_kit_for_woocommerce_scans` table; treat it as read-only.
 - Source JS is included in the plugin under `assets/js/src/`; builds use `@wordpress/scripts`.

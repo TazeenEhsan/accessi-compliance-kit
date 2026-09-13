@@ -2,16 +2,16 @@
 /**
  * Base class every auto-fix extends.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Utils\Options;
+use AccessibilityComplianceKitForWooCommerce\Utils\Options;
 
 /**
  * Contract for auto-fixes (proposal §5.6). Fixes never interact with each
@@ -55,7 +55,7 @@ abstract class AbstractFix {
 	abstract public function register();
 
 	/**
-	 * Whether this fix is turned on in `accessi_compliance_kit_active_fixes`.
+	 * Whether this fix is turned on in `accessibility_compliance_kit_for_woocommerce_active_fixes`.
 	 * All fixes ship disabled (proposal §9); absence of the key means off.
 	 *
 	 * @return bool

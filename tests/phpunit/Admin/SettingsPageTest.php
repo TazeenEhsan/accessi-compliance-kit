@@ -2,22 +2,22 @@
 /**
  * Tests for SettingsPage.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Admin\SettingsPage;
+use AccessibilityComplianceKitForWooCommerce\Admin\SettingsPage;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Admin\SettingsPage
+ * @covers \AccessibilityComplianceKitForWooCommerce\Admin\SettingsPage
  */
 class SettingsPageTest extends TestCase {
 
@@ -193,8 +193,8 @@ class SettingsPageTest extends TestCase {
 			$this->assertArrayNotHasKey( 'unknown_fix_id', $e->data['active_fixes'] );
 			$this->assertTrue( $e->data['settings']['email_reminder_opt_in'] );
 
-			$this->assertSame( $e->data['active_fixes'], $this->options['accessi_compliance_kit_active_fixes'] );
-			$this->assertSame( $e->data['settings'], $this->options['accessi_compliance_kit_settings'] );
+			$this->assertSame( $e->data['active_fixes'], $this->options['accessibility_compliance_kit_for_woocommerce_active_fixes'] );
+			$this->assertSame( $e->data['settings'], $this->options['accessibility_compliance_kit_for_woocommerce_settings'] );
 		}
 	}
 

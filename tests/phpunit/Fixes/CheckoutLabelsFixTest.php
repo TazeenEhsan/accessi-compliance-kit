@@ -2,21 +2,21 @@
 /**
  * Tests for CheckoutLabelsFix.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Fixes\CheckoutLabelsFix;
+use AccessibilityComplianceKitForWooCommerce\Fixes\CheckoutLabelsFix;
 use Brain\Monkey;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Fixes\CheckoutLabelsFix
+ * @covers \AccessibilityComplianceKitForWooCommerce\Fixes\CheckoutLabelsFix
  */
 class CheckoutLabelsFixTest extends TestCase {
 

@@ -2,10 +2,10 @@
 /**
  * Minimal in-memory `$wpdb` double for ScanStorage round-trip tests.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Scanner;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Scanner;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

@@ -2,10 +2,10 @@
 /**
  * Adds quick links to the plugin's row on the Plugins screen.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -25,7 +25,7 @@ class PluginLinks {
 	 */
 	public function register() {
 		add_filter(
-			'plugin_action_links_' . plugin_basename( ACCESSI_COMPLIANCE_KIT_FILE ),
+			'plugin_action_links_' . plugin_basename( ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_FILE ),
 			array( $this, 'add_action_links' )
 		);
 	}
@@ -41,12 +41,12 @@ class PluginLinks {
 			'dashboard' => sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( admin_url( 'admin.php?page=' . AdminMenu::MENU_SLUG ) ),
-				esc_html__( 'Dashboard', 'accessi-compliance-kit' )
+				esc_html__( 'Dashboard', 'accessibility-compliance-kit-for-woocommerce' )
 			),
 			'guide'     => sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( admin_url( 'admin.php?page=' . GuidePage::MENU_SLUG ) ),
-				esc_html__( 'User Guide', 'accessi-compliance-kit' )
+				esc_html__( 'User Guide', 'accessibility-compliance-kit-for-woocommerce' )
 			),
 		);
 

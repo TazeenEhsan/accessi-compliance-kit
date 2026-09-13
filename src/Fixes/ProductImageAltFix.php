@@ -2,10 +2,10 @@
 /**
  * Fallback alt attributes for product images (proposal §4.1, §10 prompt 1).
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -28,14 +28,14 @@ class ProductImageAltFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Product image alt text', 'accessi-compliance-kit' );
+		return __( 'Product image alt text', 'accessibility-compliance-kit-for-woocommerce' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function description() {
-		return __( 'Fills in missing alt text on product images using the product title.', 'accessi-compliance-kit' );
+		return __( 'Fills in missing alt text on product images using the product title.', 'accessibility-compliance-kit-for-woocommerce' );
 	}
 
 	/**

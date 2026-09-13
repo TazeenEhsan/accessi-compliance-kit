@@ -2,27 +2,27 @@
 /**
  * Registers and saves the plugin's fix toggles and email opt-in.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Fixes\FixManager;
-use AccessiComplianceKit\Utils\Capabilities;
-use AccessiComplianceKit\Utils\Options;
+use AccessibilityComplianceKitForWooCommerce\Fixes\FixManager;
+use AccessibilityComplianceKitForWooCommerce\Utils\Capabilities;
+use AccessibilityComplianceKitForWooCommerce\Utils\Options;
 
 /**
- * Registers the Settings API sanitization for `accessi_compliance_kit_settings`
- * and `accessi_compliance_kit_active_fixes` (docs/admin.md §6), and handles the
- * `accessi_compliance_kit_save_settings` AJAX action used by the Settings tab.
+ * Registers the Settings API sanitization for `accessibility_compliance_kit_for_woocommerce_settings`
+ * and `accessibility_compliance_kit_for_woocommerce_active_fixes` (docs/admin.md §6), and handles the
+ * `accessibility_compliance_kit_for_woocommerce_save_settings` AJAX action used by the Settings tab.
  */
 class SettingsPage {
 
-	const OPTION_GROUP = 'accessi_compliance_kit';
+	const OPTION_GROUP = 'accessibility_compliance_kit_for_woocommerce';
 
 	/**
 	 * Hook settings registration and the save AJAX handler.
@@ -31,7 +31,7 @@ class SettingsPage {
 	 */
 	public function register() {
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
-		add_action( 'wp_ajax_accessi_compliance_kit_save_settings', array( $this, 'handle_save_settings' ) );
+		add_action( 'wp_ajax_accessibility_compliance_kit_for_woocommerce_save_settings', array( $this, 'handle_save_settings' ) );
 	}
 
 	/**
@@ -59,11 +59,11 @@ class SettingsPage {
 	 * @return void
 	 */
 	public function handle_save_settings() {
-		check_ajax_referer( 'accessi_compliance_kit_save_settings', 'nonce' );
+		check_ajax_referer( 'accessibility_compliance_kit_for_woocommerce_save_settings', 'nonce' );
 
 		if ( ! Capabilities::can_manage_settings() ) {
 			wp_send_json_error(
-				array( 'message' => __( 'You are not allowed to change these settings.', 'accessi-compliance-kit' ) ),
+				array( 'message' => __( 'You are not allowed to change these settings.', 'accessibility-compliance-kit-for-woocommerce' ) ),
 				403
 			);
 		}

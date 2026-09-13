@@ -30,17 +30,17 @@ export default function GuideItem( { item, bulk, forceOpen } ) {
 
 	return (
 		<details
-			className="accessi-compliance-kit-guide-item"
+			className="accessibility-compliance-kit-for-woocommerce-guide-item"
 			open={ isOpen }
 			onToggle={ ( event ) => setIsOpen( event.target.open ) }
 		>
 			<summary>{ item.title }</summary>
-			<div className="accessi-compliance-kit-guide-item-body">
+			<div className="accessibility-compliance-kit-for-woocommerce-guide-item-body">
 				{ item.body }
 				{ item.contexts && item.contexts.length > 0 && (
-					<div className="accessi-compliance-kit-fix-contexts">
+					<div className="accessibility-compliance-kit-for-woocommerce-fix-contexts">
 						{ item.contexts.map( ( context ) => (
-							<span key={ context } className="accessi-compliance-kit-context-badge">
+							<span key={ context } className="accessibility-compliance-kit-for-woocommerce-context-badge">
 								{ context }
 							</span>
 						) ) }

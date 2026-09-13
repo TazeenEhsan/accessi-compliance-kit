@@ -80,8 +80,8 @@ function fixEmptyAnchors( fallbackText ) {
 }
 
 function run() {
-	const iconButtonAria = window.accessiComplianceKitIconButtonAria;
-	const emptyLinkAnchor = window.accessiComplianceKitEmptyLinkAnchor;
+	const iconButtonAria = window.accessibilityComplianceKitForWooCommerceIconButtonAria;
+	const emptyLinkAnchor = window.accessibilityComplianceKitForWooCommerceEmptyLinkAnchor;
 
 	if ( iconButtonAria && iconButtonAria.enabled ) {
 		fixIconButtons( iconButtonAria.labels );

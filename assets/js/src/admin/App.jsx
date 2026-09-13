@@ -12,17 +12,17 @@ import Settings from './Settings';
 import Dashboard from './Dashboard';
 import { ajaxRequest } from './utils/ajax';
 
-const settings = window.accessiComplianceKitAdmin || {};
+const settings = window.accessibilityComplianceKitForWooCommerceAdmin || {};
 
 const TABS = [
-	{ name: 'dashboard', title: __( 'Dashboard', 'accessi-compliance-kit' ), className: 'accessi-compliance-kit-tab-dashboard' },
-	{ name: 'scan', title: __( 'Scan', 'accessi-compliance-kit' ), className: 'accessi-compliance-kit-tab-scan' },
-	{ name: 'history', title: __( 'History', 'accessi-compliance-kit' ), className: 'accessi-compliance-kit-tab-history' },
-	{ name: 'settings', title: __( 'Settings', 'accessi-compliance-kit' ), className: 'accessi-compliance-kit-tab-settings' },
+	{ name: 'dashboard', title: __( 'Dashboard', 'accessibility-compliance-kit-for-woocommerce' ), className: 'accessibility-compliance-kit-for-woocommerce-tab-dashboard' },
+	{ name: 'scan', title: __( 'Scan', 'accessibility-compliance-kit-for-woocommerce' ), className: 'accessibility-compliance-kit-for-woocommerce-tab-scan' },
+	{ name: 'history', title: __( 'History', 'accessibility-compliance-kit-for-woocommerce' ), className: 'accessibility-compliance-kit-for-woocommerce-tab-history' },
+	{ name: 'settings', title: __( 'Settings', 'accessibility-compliance-kit-for-woocommerce' ), className: 'accessibility-compliance-kit-for-woocommerce-tab-settings' },
 ];
 
 /**
- * Root admin component mounted into `#accessi-compliance-kit-admin`.
+ * Root admin component mounted into `#accessibility-compliance-kit-for-woocommerce-admin`.
  *
  * @return {JSX.Element}
  */
@@ -36,7 +36,7 @@ export default function App() {
 		setLoadError( '' );
 
 		try {
-			const data = await ajaxRequest( settings.ajaxUrl, 'accessi_compliance_kit_get_scan', settings.nonces.getScan, {
+			const data = await ajaxRequest( settings.ajaxUrl, 'accessibility_compliance_kit_for_woocommerce_get_scan', settings.nonces.getScan, {
 				id: scanId,
 			} );
 
@@ -49,17 +49,17 @@ export default function App() {
 	}, [] );
 
 	return (
-		<div className="accessi-compliance-kit-admin-app">
-			<div className="accessi-compliance-kit-admin-header">
-				<h1>{ __( 'Accessibility', 'accessi-compliance-kit' ) }</h1>
+		<div className="accessibility-compliance-kit-for-woocommerce-admin-app">
+			<div className="accessibility-compliance-kit-for-woocommerce-admin-header">
+				<h1>{ __( 'Accessibility', 'accessibility-compliance-kit-for-woocommerce' ) }</h1>
 				{ settings.guideUrl && (
 					<Button
 						variant="secondary"
 						href={ settings.guideUrl }
 						icon="book-alt"
-						className="accessi-compliance-kit-guide-button"
+						className="accessibility-compliance-kit-for-woocommerce-guide-button"
 					>
-						{ __( 'User Guide', 'accessi-compliance-kit' ) }
+						{ __( 'User Guide', 'accessibility-compliance-kit-for-woocommerce' ) }
 					</Button>
 				) }
 			</div>

@@ -2,20 +2,20 @@
 /**
  * AJAX handlers for running and fetching scans.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Scanner;
+namespace AccessibilityComplianceKitForWooCommerce\Scanner;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Utils\Capabilities;
+use AccessibilityComplianceKitForWooCommerce\Utils\Capabilities;
 
 /**
- * Registers and handles the `accessi_compliance_kit_run_scan` and
- * `accessi_compliance_kit_get_scan` AJAX actions (proposal §5.4, §5.5 steps 5–6).
+ * Registers and handles the `accessibility_compliance_kit_for_woocommerce_run_scan` and
+ * `accessibility_compliance_kit_for_woocommerce_get_scan` AJAX actions (proposal §5.4, §5.5 steps 5–6).
  */
 class ScanController {
 
@@ -44,9 +44,9 @@ class ScanController {
 	 * @return void
 	 */
 	public function register() {
-		add_action( 'wp_ajax_accessi_compliance_kit_run_scan', array( $this, 'handle_run_scan' ) );
-		add_action( 'wp_ajax_accessi_compliance_kit_get_scan', array( $this, 'handle_get_scan' ) );
-		add_action( 'wp_ajax_accessi_compliance_kit_get_scans', array( $this, 'handle_get_scans' ) );
+		add_action( 'wp_ajax_accessibility_compliance_kit_for_woocommerce_run_scan', array( $this, 'handle_run_scan' ) );
+		add_action( 'wp_ajax_accessibility_compliance_kit_for_woocommerce_get_scan', array( $this, 'handle_get_scan' ) );
+		add_action( 'wp_ajax_accessibility_compliance_kit_for_woocommerce_get_scans', array( $this, 'handle_get_scans' ) );
 	}
 
 	/**
@@ -55,11 +55,11 @@ class ScanController {
 	 * @return void
 	 */
 	public function handle_run_scan() {
-		check_ajax_referer( 'accessi_compliance_kit_run_scan', 'nonce' );
+		check_ajax_referer( 'accessibility_compliance_kit_for_woocommerce_run_scan', 'nonce' );
 
 		if ( ! Capabilities::can_scan() ) {
 			wp_send_json_error(
-				array( 'message' => __( 'You are not allowed to run scans.', 'accessi-compliance-kit' ) ),
+				array( 'message' => __( 'You are not allowed to run scans.', 'accessibility-compliance-kit-for-woocommerce' ) ),
 				403
 			);
 		}
@@ -70,7 +70,7 @@ class ScanController {
 
 		if ( null === $url ) {
 			wp_send_json_error(
-				array( 'message' => __( 'The scan URL must be on this site.', 'accessi-compliance-kit' ) ),
+				array( 'message' => __( 'The scan URL must be on this site.', 'accessibility-compliance-kit-for-woocommerce' ) ),
 				400
 			);
 		}
@@ -81,7 +81,7 @@ class ScanController {
 
 		if ( null === $raw_violations ) {
 			wp_send_json_error(
-				array( 'message' => __( 'The scan results were malformed.', 'accessi-compliance-kit' ) ),
+				array( 'message' => __( 'The scan results were malformed.', 'accessibility-compliance-kit-for-woocommerce' ) ),
 				400
 			);
 		}
@@ -89,7 +89,7 @@ class ScanController {
 		$scan_id = $this->scan_storage->create_scan( $url, 'single', get_current_user_id() );
 
 		if ( ! $scan_id ) {
-			wp_send_json_error( array( 'message' => __( 'Could not save the scan.', 'accessi-compliance-kit' ) ), 500 );
+			wp_send_json_error( array( 'message' => __( 'Could not save the scan.', 'accessibility-compliance-kit-for-woocommerce' ) ), 500 );
 		}
 
 		$parsed = ViolationParser::parse( $raw_violations );
@@ -111,11 +111,11 @@ class ScanController {
 	 * @return void
 	 */
 	public function handle_get_scan() {
-		check_ajax_referer( 'accessi_compliance_kit_get_scan', 'nonce' );
+		check_ajax_referer( 'accessibility_compliance_kit_for_woocommerce_get_scan', 'nonce' );
 
 		if ( ! Capabilities::can_scan() ) {
 			wp_send_json_error(
-				array( 'message' => __( 'You are not allowed to view scans.', 'accessi-compliance-kit' ) ),
+				array( 'message' => __( 'You are not allowed to view scans.', 'accessibility-compliance-kit-for-woocommerce' ) ),
 				403
 			);
 		}
@@ -124,13 +124,13 @@ class ScanController {
 		$scan_id = isset( $_POST['id'] ) ? absint( wp_unslash( $_POST['id'] ) ) : 0;
 
 		if ( ! $scan_id ) {
-			wp_send_json_error( array( 'message' => __( 'A scan ID is required.', 'accessi-compliance-kit' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'A scan ID is required.', 'accessibility-compliance-kit-for-woocommerce' ) ), 400 );
 		}
 
 		$scan = $this->scan_storage->get_scan( $scan_id );
 
 		if ( null === $scan ) {
-			wp_send_json_error( array( 'message' => __( 'Scan not found.', 'accessi-compliance-kit' ) ), 404 );
+			wp_send_json_error( array( 'message' => __( 'Scan not found.', 'accessibility-compliance-kit-for-woocommerce' ) ), 404 );
 		}
 
 		wp_send_json_success( $scan );
@@ -142,11 +142,11 @@ class ScanController {
 	 * @return void
 	 */
 	public function handle_get_scans() {
-		check_ajax_referer( 'accessi_compliance_kit_get_scans', 'nonce' );
+		check_ajax_referer( 'accessibility_compliance_kit_for_woocommerce_get_scans', 'nonce' );
 
 		if ( ! Capabilities::can_scan() ) {
 			wp_send_json_error(
-				array( 'message' => __( 'You are not allowed to view scans.', 'accessi-compliance-kit' ) ),
+				array( 'message' => __( 'You are not allowed to view scans.', 'accessibility-compliance-kit-for-woocommerce' ) ),
 				403
 			);
 		}

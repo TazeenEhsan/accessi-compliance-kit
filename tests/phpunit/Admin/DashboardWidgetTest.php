@@ -2,23 +2,23 @@
 /**
  * Tests for DashboardWidget.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Admin\DashboardWidget;
-use AccessiComplianceKit\Scanner\ScanStorage;
+use AccessibilityComplianceKitForWooCommerce\Admin\DashboardWidget;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ScanStorage;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Admin\DashboardWidget
+ * @covers \AccessibilityComplianceKitForWooCommerce\Admin\DashboardWidget
  */
 class DashboardWidgetTest extends TestCase {
 

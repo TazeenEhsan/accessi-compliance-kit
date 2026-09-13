@@ -10,7 +10,7 @@ import ScanResults from './ScanResults';
 
 /**
  * @param {Object} props            Component props.
- * @param {Object} props.settings   Localized `accessiComplianceKitAdmin` data.
+ * @param {Object} props.settings   Localized `accessibilityComplianceKitForWooCommerceAdmin` data.
  * @return {JSX.Element}
  */
 export default function ScanHistory( { settings } ) {
@@ -32,7 +32,7 @@ export default function ScanHistory( { settings } ) {
 			try {
 				const data = await ajaxRequest(
 					settings.ajaxUrl,
-					'accessi_compliance_kit_get_scans',
+					'accessibility_compliance_kit_for_woocommerce_get_scans',
 					settings.nonces.getScans,
 					{ page: targetPage }
 				);
@@ -59,7 +59,7 @@ export default function ScanHistory( { settings } ) {
 		setSelectedScan( null );
 
 		try {
-			const data = await ajaxRequest( settings.ajaxUrl, 'accessi_compliance_kit_get_scan', settings.nonces.getScan, {
+			const data = await ajaxRequest( settings.ajaxUrl, 'accessibility_compliance_kit_for_woocommerce_get_scan', settings.nonces.getScan, {
 				id,
 			} );
 
@@ -72,7 +72,7 @@ export default function ScanHistory( { settings } ) {
 	};
 
 	return (
-		<div className="accessi-compliance-kit-scan-history">
+		<div className="accessibility-compliance-kit-for-woocommerce-scan-history">
 			{ listError && (
 				<Notice status="error" isDismissible={ false }>
 					{ listError }
@@ -81,23 +81,23 @@ export default function ScanHistory( { settings } ) {
 			{ isLoadingList ? (
 				<Spinner />
 			) : (
-				<table className="accessi-compliance-kit-history-table widefat striped">
+				<table className="accessibility-compliance-kit-for-woocommerce-history-table widefat striped">
 					<thead>
 						<tr>
-							<th>{ __( 'Date', 'accessi-compliance-kit' ) }</th>
-							<th>{ __( 'URL', 'accessi-compliance-kit' ) }</th>
-							<th>{ __( 'Status', 'accessi-compliance-kit' ) }</th>
-							<th>{ __( 'Critical', 'accessi-compliance-kit' ) }</th>
-							<th>{ __( 'Serious', 'accessi-compliance-kit' ) }</th>
-							<th>{ __( 'Moderate', 'accessi-compliance-kit' ) }</th>
-							<th>{ __( 'Minor', 'accessi-compliance-kit' ) }</th>
+							<th>{ __( 'Date', 'accessibility-compliance-kit-for-woocommerce' ) }</th>
+							<th>{ __( 'URL', 'accessibility-compliance-kit-for-woocommerce' ) }</th>
+							<th>{ __( 'Status', 'accessibility-compliance-kit-for-woocommerce' ) }</th>
+							<th>{ __( 'Critical', 'accessibility-compliance-kit-for-woocommerce' ) }</th>
+							<th>{ __( 'Serious', 'accessibility-compliance-kit-for-woocommerce' ) }</th>
+							<th>{ __( 'Moderate', 'accessibility-compliance-kit-for-woocommerce' ) }</th>
+							<th>{ __( 'Minor', 'accessibility-compliance-kit-for-woocommerce' ) }</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 						{ 0 === scans.length && (
 							<tr>
-								<td colSpan={ 8 }>{ __( 'No scans yet.', 'accessi-compliance-kit' ) }</td>
+								<td colSpan={ 8 }>{ __( 'No scans yet.', 'accessibility-compliance-kit-for-woocommerce' ) }</td>
 							</tr>
 						) }
 						{ scans.map( ( scan ) => (
@@ -111,7 +111,7 @@ export default function ScanHistory( { settings } ) {
 								<td>{ ( scan.summary && scan.summary.minor ) || 0 }</td>
 								<td>
 									<Button variant="link" onClick={ () => selectScan( scan.id ) }>
-										{ __( 'View results', 'accessi-compliance-kit' ) }
+										{ __( 'View results', 'accessibility-compliance-kit-for-woocommerce' ) }
 									</Button>
 								</td>
 							</tr>
@@ -119,12 +119,12 @@ export default function ScanHistory( { settings } ) {
 					</tbody>
 				</table>
 			) }
-			<div className="accessi-compliance-kit-history-pagination">
+			<div className="accessibility-compliance-kit-for-woocommerce-history-pagination">
 				<Button variant="secondary" disabled={ page <= 1 || isLoadingList } onClick={ () => loadPage( page - 1 ) }>
-					{ __( 'Previous', 'accessi-compliance-kit' ) }
+					{ __( 'Previous', 'accessibility-compliance-kit-for-woocommerce' ) }
 				</Button>
 				<Button variant="secondary" disabled={ ! hasMore || isLoadingList } onClick={ () => loadPage( page + 1 ) }>
-					{ __( 'Next', 'accessi-compliance-kit' ) }
+					{ __( 'Next', 'accessibility-compliance-kit-for-woocommerce' ) }
 				</Button>
 			</div>
 			{ scanError && (

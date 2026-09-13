@@ -2,22 +2,22 @@
 /**
  * Tests for PriceScreenReaderFix.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Fixes\PriceScreenReaderFix;
+use AccessibilityComplianceKitForWooCommerce\Fixes\PriceScreenReaderFix;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Fixes\PriceScreenReaderFix
+ * @covers \AccessibilityComplianceKitForWooCommerce\Fixes\PriceScreenReaderFix
  */
 class PriceScreenReaderFixTest extends TestCase {
 
@@ -57,7 +57,7 @@ class PriceScreenReaderFixTest extends TestCase {
 		$twice  = $fix->prefix_price( $once );
 
 		$this->assertSame( $once, $twice );
-		$this->assertSame( 1, substr_count( $twice, 'accessi-compliance-kit-price-label' ) );
+		$this->assertSame( 1, substr_count( $twice, 'accessibility-compliance-kit-for-woocommerce-price-label' ) );
 	}
 
 	public function test_prefix_price_leaves_empty_string_untouched() {

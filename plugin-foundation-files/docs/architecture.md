@@ -1,4 +1,4 @@
-# Architecture — Accessi Compliance Kit
+# Architecture — Accessibility Compliance Kit for WooCommerce
 
 Implementation-focused view of `PLUGIN_PROPOSAL.md` §5 (Technical Architecture). Nothing here changes the proposal; it organizes it for building.
 
@@ -6,7 +6,7 @@ Implementation-focused view of `PLUGIN_PROPOSAL.md` §5 (Technical Architecture)
 
 ## 1. High-Level Shape
 
-Accessi Compliance Kit is a self-contained WordPress plugin. Everything runs inside the merchant's install:
+Accessibility Compliance Kit for WooCommerce is a self-contained WordPress plugin. Everything runs inside the merchant's install:
 
 - **Scanner** — axe-core (bundled JS, MIT) runs in the browser against the merchant's own pages; results are stored server-side via admin-ajax. No data leaves the server (proposal §5.5).
 - **Auto-fixes** — independent, toggleable PHP classes hooking WordPress/WooCommerce filters to repair markup at render time (proposal §5.6).
@@ -37,7 +37,7 @@ Authoritative layout is proposal §5.2 — reproduce it exactly. Summary of resp
 
 | Path | Responsibility |
 |---|---|
-| `accessi-compliance-kit.php` | Headers, constants, autoloader require, activation/deactivation hook registration, boot `Plugin` |
+| `accessibility-compliance-kit-for-woocommerce.php` | Headers, constants, autoloader require, activation/deactivation hook registration, boot `Plugin` |
 | `uninstall.php` | Full cleanup on deletion (table + options) |
 | `src/Plugin.php` | Singleton bootstrap; wires services on `plugins_loaded`; guarded Pro loader. No feature logic. |
 | `src/Activator.php` / `src/Deactivator.php` | Create table + seed defaults / unschedule cron. Deactivation never deletes data. |
@@ -54,11 +54,11 @@ Authoritative layout is proposal §5.2 — reproduce it exactly. Summary of resp
 | `languages/` | `.pot` for i18n |
 | `tests/phpunit/`, `tests/js/` | Test suites |
 
-Note: the development repo folder is `accessi-compliance-kit/`; the internal structure above is what matters and follows the proposal.
+Note: the development repo folder is `accessibility-compliance-kit-for-woocommerce/`; the internal structure above is what matters and follows the proposal.
 
 ## 4. Boot Sequence
 
-1. WordPress loads `accessi-compliance-kit.php` → constants defined, Composer autoloader required, activation/deactivation hooks registered.
+1. WordPress loads `accessibility-compliance-kit-for-woocommerce.php` → constants defined, Composer autoloader required, activation/deactivation hooks registered.
 2. `plugins_loaded` → `Plugin::instance()->boot()`:
    - Check WooCommerce is active; if not, show admin notice and skip WC-dependent services.
    - Load text domain.
@@ -67,16 +67,16 @@ Note: the development repo folder is `accessi-compliance-kit/`; the internal str
 3. `init` → `FixManager` iterates registered fixes, calls `register()` on each enabled fix (proposal §5.6).
 4. `admin_init` → Settings API registration.
 5. `admin_menu` → WooCommerce → Accessibility submenu.
-6. `admin_enqueue_scripts` / `wp_enqueue_scripts` → admin bundle (plugin page only) / `frontend-fixes.css` (when relevant fixes enabled) / scanner bundle (only with `?accessi_compliance_kit_scan=1` + capability).
+6. `admin_enqueue_scripts` / `wp_enqueue_scripts` → admin bundle (plugin page only) / `frontend-fixes.css` (when relevant fixes enabled) / scanner bundle (only with `?accessibility_compliance_kit_for_woocommerce_scan=1` + capability).
 
 ## 5. Scan Data Flow (proposal §5.5)
 
 1. Admin clicks "Scan this page" (admin bar or plugin page).
-2. Admin app opens a **hidden iframe** pointing at the target URL with `?accessi_compliance_kit_scan=1`.
+2. Admin app opens a **hidden iframe** pointing at the target URL with `?accessibility_compliance_kit_for_woocommerce_scan=1`.
 3. Front-end scanner script loads **only** when that flag is present AND the user has the scan capability; it runs axe-core on the loaded page.
 4. Scanner `postMessage`s formatted results to the parent window (with handshake token; see docs/security.md §5).
-5. Parent posts results to `admin-ajax.php` action `accessi_compliance_kit_run_scan` (nonce + capability enforced).
-6. PHP normalizes via `ViolationParser`, saves via `ScanStorage` to `wp_accessi_compliance_kit_scans`.
+5. Parent posts results to `admin-ajax.php` action `accessibility_compliance_kit_for_woocommerce_run_scan` (nonce + capability enforced).
+6. PHP normalizes via `ViolationParser`, saves via `ScanStorage` to `wp_accessibility_compliance_kit_for_woocommerce_scans`.
 7. Admin UI receives the saved summary and renders results grouped by severity.
 
 Failure paths to handle: iframe never loads / no message within timeout → mark scan `failed`; AJAX save fails → surface error, don't lose the client-side result silently.
@@ -85,7 +85,7 @@ Failure paths to handle: iframe never loads / no message within timeout → mark
 
 Each fix extends `AbstractFix`:
 
-- `is_enabled()` — reads the `accessi_compliance_kit_active_fixes` option (via `Utils/Options`)
+- `is_enabled()` — reads the `accessibility_compliance_kit_for_woocommerce_active_fixes` option (via `Utils/Options`)
 - `applies_to()` — returns contexts: `'product'`, `'checkout'`, `'cart'`, `'global'`
 - `register()` — hooks the appropriate WP/WC filters/actions
 
@@ -93,11 +93,11 @@ Each fix extends `AbstractFix`:
 
 ## 7. Hook Inventory (proposal §5.4)
 
-**Actions:** `plugins_loaded` (bootstrap), `init` (fix registration), `admin_init` (settings), `admin_menu` (pages), `admin_enqueue_scripts`, `wp_enqueue_scripts`, `wp_ajax_accessi_compliance_kit_run_scan`, `wp_ajax_accessi_compliance_kit_save_settings`, `woocommerce_before_checkout_form`, `woocommerce_after_add_to_cart_button`.
+**Actions:** `plugins_loaded` (bootstrap), `init` (fix registration), `admin_init` (settings), `admin_menu` (pages), `admin_enqueue_scripts`, `wp_enqueue_scripts`, `wp_ajax_accessibility_compliance_kit_for_woocommerce_run_scan`, `wp_ajax_accessibility_compliance_kit_for_woocommerce_save_settings`, `woocommerce_before_checkout_form`, `woocommerce_after_add_to_cart_button`.
 
 **Filters:** `wp_get_attachment_image_attributes` (alt fallbacks), `woocommerce_form_field_args` (form labels), `woocommerce_locate_template` (template overrides — use sparingly, last resort), `the_content` (statement content), `body_class` (fixes-active class).
 
-**REST:** `register_rest_route( 'accessi-compliance-kit/v1', '/scans', ... )` — optional/future, spec in docs/rest-api.md.
+**REST:** `register_rest_route( 'accessibility-compliance-kit-for-woocommerce/v1', '/scans', ... )` — optional/future, spec in docs/rest-api.md.
 
 ## 8. Free / Pro Boundary (proposal §5.7)
 
@@ -111,6 +111,6 @@ Each fix extends `AbstractFix`:
 - **Options:** four keys in `wp_options` (see docs/database.md §3); all access via `Utils/Options`.
 - **Capabilities:** default `manage_options`; centralized in `Utils/Capabilities` (Pro later adds an "Accessibility Auditor" read-only role, proposal §4.2.E).
 - **Logging:** `Utils/Logger`, `WP_DEBUG`-gated, prefixed.
-- **i18n:** text domain `accessi-compliance-kit`, `.pot` in `languages/`.
+- **i18n:** text domain `accessibility-compliance-kit-for-woocommerce`, `.pot` in `languages/`.
 - **Cron:** one weekly reminder event (opt-in) in the free tier; Pro adds scan scheduling.
 - **Security:** docs/security.md is the checklist; WordPress.org review compliance is a launch criterion (proposal §11).

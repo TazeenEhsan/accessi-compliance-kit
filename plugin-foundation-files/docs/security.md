@@ -1,4 +1,4 @@
-# Security — Accessi Compliance Kit
+# Security — Accessibility Compliance Kit for WooCommerce
 
 Security is a launch gate: proposal §11 requires passing WordPress.org review ("no external calls, sanitized inputs, escaped outputs, GPL-compatible dependencies") and §9 lists review rejection as a named risk. This document is the enforceable checklist.
 
@@ -26,9 +26,9 @@ Security is a launch gate: proposal §11 requires passing WordPress.org review (
 
 ## 4. AJAX / Forms (every handler, no exceptions)
 
-Each `wp_ajax_accessi_compliance_kit_*` handler must, in order:
+Each `wp_ajax_accessibility_compliance_kit_for_woocommerce_*` handler must, in order:
 
-1. `check_ajax_referer( 'accessi_compliance_kit_<action>', ... )` — per-action nonces localized to the admin app
+1. `check_ajax_referer( 'accessibility_compliance_kit_for_woocommerce_<action>', ... )` — per-action nonces localized to the admin app
 2. Capability check via `Utils/Capabilities` (default `manage_options`)
 3. Sanitize/validate all inputs (§2)
 4. Do the work through service classes
@@ -44,7 +44,7 @@ The iframe → parent `postMessage` path is a spoofing surface:
 - Parent (admin app) accepts a `message` event only if: `event.origin` equals the site origin AND the payload carries the matching token.
 - Scanner posts with an explicit `targetOrigin` (site origin), never `*`.
 - The saved result is still fully validated server-side (§2) — the token gates UI acceptance, not persistence trust.
-- Scanner script itself is enqueued only when `?accessi_compliance_kit_scan=1` AND `Capabilities::can_scan()` (proposal §5.5 step 3) — anonymous requests with the flag get nothing.
+- Scanner script itself is enqueued only when `?accessibility_compliance_kit_for_woocommerce_scan=1` AND `Capabilities::can_scan()` (proposal §5.5 step 3) — anonymous requests with the flag get nothing.
 
 ## 6. Capabilities & Access
 
@@ -54,7 +54,7 @@ The iframe → parent `postMessage` path is a spoofing surface:
 
 ## 7. Database
 
-- 100% of queries through `$wpdb->prepare()` with `%d`/`%s` placeholders; table name interpolated only from `$wpdb->prefix . 'accessi_compliance_kit_scans'`.
+- 100% of queries through `$wpdb->prepare()` with `%d`/`%s` placeholders; table name interpolated only from `$wpdb->prefix . 'accessibility_compliance_kit_for_woocommerce_scans'`.
 - `dbDelta()` for schema; no raw `CREATE`/`ALTER` from request handlers.
 - JSON stored via `wp_json_encode`; decode failures logged and treated as failed scans, never fatal.
 
@@ -76,5 +76,5 @@ The iframe → parent `postMessage` path is a spoofing surface:
 - [ ] Scanner script provably absent for logged-out users and users without capability
 - [ ] postMessage handler rejects wrong-origin and token-less messages
 - [ ] No outbound HTTP anywhere in the free build (grep `wp_remote_`, `curl`, `file_get_contents` with URLs)
-- [ ] Uninstall removes the table and all `accessi_compliance_kit_*` options
+- [ ] Uninstall removes the table and all `accessibility_compliance_kit_for_woocommerce_*` options
 - [ ] WPCS + Plugin Check pass clean

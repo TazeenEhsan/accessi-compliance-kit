@@ -2,22 +2,22 @@
 /**
  * Tests for IconButtonAriaFix.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Fixes\IconButtonAriaFix;
+use AccessibilityComplianceKitForWooCommerce\Fixes\IconButtonAriaFix;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Fixes\IconButtonAriaFix
+ * @covers \AccessibilityComplianceKitForWooCommerce\Fixes\IconButtonAriaFix
  */
 class IconButtonAriaFixTest extends TestCase {
 

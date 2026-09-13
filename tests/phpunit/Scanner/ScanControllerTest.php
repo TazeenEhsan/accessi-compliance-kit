@@ -2,23 +2,23 @@
 /**
  * Tests for ScanController.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Scanner;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Scanner;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Scanner\ScanController;
-use AccessiComplianceKit\Scanner\ScanStorage;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ScanController;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ScanStorage;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Scanner\ScanController
+ * @covers \AccessibilityComplianceKitForWooCommerce\Scanner\ScanController
  */
 class ScanControllerTest extends TestCase {
 

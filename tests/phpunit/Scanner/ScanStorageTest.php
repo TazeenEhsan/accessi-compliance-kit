@@ -2,22 +2,22 @@
 /**
  * Tests for ScanStorage.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Scanner;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Scanner;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Scanner\ScanStorage;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ScanStorage;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Scanner\ScanStorage
+ * @covers \AccessibilityComplianceKitForWooCommerce\Scanner\ScanStorage
  */
 class ScanStorageTest extends TestCase {
 
@@ -128,7 +128,7 @@ class ScanStorageTest extends TestCase {
 		$this->assertSame( 'complete', $scan['status'] );
 		$this->assertSame( $violations, $scan['violations'] );
 		$this->assertSame( $summary, $scan['summary'] );
-		$this->assertSame( $id, $this->options['accessi_compliance_kit_last_scan_id'] );
+		$this->assertSame( $id, $this->options['accessibility_compliance_kit_for_woocommerce_last_scan_id'] );
 
 		$last = $storage->get_last_scan();
 		$this->assertSame( $id, $last['id'] );

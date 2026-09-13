@@ -22,7 +22,7 @@ Prep before shooting: clean admin (no other plugins' notices), Storefront theme,
 1. **screenshot-1** — Scan tab after scanning the shop page: severity groups (Critical/Serious/Moderate/Minor) visible, one violation row expanded showing the HTML snippet, selector, and help link.
 2. **screenshot-2** — Settings tab: all six fix toggles with labels/descriptions/context badges visible, one or two toggled ON to show the interaction, save notice visible if possible.
 3. **screenshot-3** — Accessibility Statement card: "not created" state with the **Create statement page** button (or the created state with the edit link — pick whichever reads better; caption says "one-click page creation").
-4. **screenshot-4** — WP dashboard with the Accessi Compliance Kit widget: last scan date + per-severity counts + link to the full page.
+4. **screenshot-4** — WP dashboard with the Accessibility Compliance Kit for WooCommerce widget: last scan date + per-severity counts + link to the full page.
 
 ## Demo video script (~90 seconds — proposal §6 Phase 4)
 
@@ -33,4 +33,4 @@ Record at 1920×1080, trim dead time, no audio needed if captioned; publish to Y
 3. **(0:30–0:50) Review.** Scroll severity groups, expand one Critical issue: selector, why it fails, how to fix. Caption: "Every detected issue explained: what, where, and how to fix it."
 4. **(0:50–1:10) Fix.** Settings tab → toggle **Checkout field labels** ON → save → split/before-after of checkout field markup in devtools (label now present). Caption: "Six one-toggle fixes for WooCommerce's most common issues. All off until you say so."
 5. **(1:10–1:25) Statement.** Statement card → **Create statement page** → page opens in editor. Caption: "Generate the accessibility statement the EAA expects — then make it yours."
-6. **(1:25–1:30) Close.** Plugin page/logo. Caption: "Accessi Compliance Kit — free on WordPress.org."
+6. **(1:25–1:30) Close.** Plugin page/logo. Caption: "Accessibility Compliance Kit for WooCommerce — free on WordPress.org."

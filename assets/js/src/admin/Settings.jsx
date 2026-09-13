@@ -8,15 +8,15 @@ import { __ } from '@wordpress/i18n';
 import { ajaxRequest } from './utils/ajax';
 
 const CONTEXT_LABELS = {
-	product: __( 'Product', 'accessi-compliance-kit' ),
-	checkout: __( 'Checkout', 'accessi-compliance-kit' ),
-	cart: __( 'Cart', 'accessi-compliance-kit' ),
-	global: __( 'Site-wide', 'accessi-compliance-kit' ),
+	product: __( 'Product', 'accessibility-compliance-kit-for-woocommerce' ),
+	checkout: __( 'Checkout', 'accessibility-compliance-kit-for-woocommerce' ),
+	cart: __( 'Cart', 'accessibility-compliance-kit-for-woocommerce' ),
+	global: __( 'Site-wide', 'accessibility-compliance-kit-for-woocommerce' ),
 };
 
 /**
  * @param {Object} props          Component props.
- * @param {Object} props.settings Localized `accessiComplianceKitAdmin` data.
+ * @param {Object} props.settings Localized `accessibilityComplianceKitForWooCommerceAdmin` data.
  * @return {JSX.Element}
  */
 export default function Settings( { settings } ) {
@@ -38,7 +38,7 @@ export default function Settings( { settings } ) {
 		setMessage( '' );
 
 		try {
-			await ajaxRequest( settings.ajaxUrl, 'accessi_compliance_kit_save_settings', settings.nonces.saveSettings, {
+			await ajaxRequest( settings.ajaxUrl, 'accessibility_compliance_kit_for_woocommerce_save_settings', settings.nonces.saveSettings, {
 				active_fixes: JSON.stringify( activeFixes ),
 				email_reminder_opt_in: emailOptIn ? '1' : '0',
 			} );
@@ -51,9 +51,9 @@ export default function Settings( { settings } ) {
 	};
 
 	return (
-		<div className="accessi-compliance-kit-settings">
+		<div className="accessibility-compliance-kit-for-woocommerce-settings">
 			{ fixes.map( ( fix ) => (
-				<Card key={ fix.id } className="accessi-compliance-kit-fix-card">
+				<Card key={ fix.id } className="accessibility-compliance-kit-for-woocommerce-fix-card">
 					<CardBody>
 						<ToggleControl
 							label={ fix.label }
@@ -61,9 +61,9 @@ export default function Settings( { settings } ) {
 							checked={ !! activeFixes[ fix.id ] }
 							onChange={ ( value ) => toggleFix( fix.id, value ) }
 						/>
-						<div className="accessi-compliance-kit-fix-contexts">
+						<div className="accessibility-compliance-kit-for-woocommerce-fix-contexts">
 							{ ( fix.contexts || [] ).map( ( context ) => (
-								<span key={ context } className="accessi-compliance-kit-context-badge">
+								<span key={ context } className="accessibility-compliance-kit-for-woocommerce-context-badge">
 									{ CONTEXT_LABELS[ context ] || context }
 								</span>
 							) ) }
@@ -72,11 +72,11 @@ export default function Settings( { settings } ) {
 				</Card>
 			) ) }
 
-			<Card className="accessi-compliance-kit-fix-card">
+			<Card className="accessibility-compliance-kit-for-woocommerce-fix-card">
 				<CardBody>
 					<ToggleControl
-						label={ __( 'Weekly scan reminder email', 'accessi-compliance-kit' ) }
-						help={ __( 'Send a weekly email reminding you to run a scan.', 'accessi-compliance-kit' ) }
+						label={ __( 'Weekly scan reminder email', 'accessibility-compliance-kit-for-woocommerce' ) }
+						help={ __( 'Send a weekly email reminding you to run a scan.', 'accessibility-compliance-kit-for-woocommerce' ) }
 						checked={ emailOptIn }
 						onChange={ setEmailOptIn }
 					/>
@@ -84,12 +84,12 @@ export default function Settings( { settings } ) {
 			</Card>
 
 			<Button variant="primary" onClick={ save } isBusy={ 'saving' === status } disabled={ 'saving' === status }>
-				{ __( 'Save settings', 'accessi-compliance-kit' ) }
+				{ __( 'Save settings', 'accessibility-compliance-kit-for-woocommerce' ) }
 			</Button>
 
 			{ 'success' === status && (
 				<Notice status="success" isDismissible={ false }>
-					{ __( 'Settings saved.', 'accessi-compliance-kit' ) }
+					{ __( 'Settings saved.', 'accessibility-compliance-kit-for-woocommerce' ) }
 				</Notice>
 			) }
 			{ 'error' === status && message && (

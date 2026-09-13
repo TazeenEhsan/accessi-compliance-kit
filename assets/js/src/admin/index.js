@@ -6,7 +6,7 @@ import { createElement, createRoot } from '@wordpress/element';
 import App from './App';
 
 document.addEventListener( 'DOMContentLoaded', () => {
-	const container = document.getElementById( 'accessi-compliance-kit-admin' );
+	const container = document.getElementById( 'accessibility-compliance-kit-for-woocommerce-admin' );
 
 	if ( ! container ) {
 		return;

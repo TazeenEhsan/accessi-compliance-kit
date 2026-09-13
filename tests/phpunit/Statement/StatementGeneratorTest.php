@@ -2,22 +2,22 @@
 /**
  * Tests for StatementGenerator.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Statement;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Statement;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Statement\StatementGenerator;
+use AccessibilityComplianceKitForWooCommerce\Statement\StatementGenerator;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Statement\StatementGenerator
+ * @covers \AccessibilityComplianceKitForWooCommerce\Statement\StatementGenerator
  */
 class StatementGeneratorTest extends TestCase {
 
@@ -167,7 +167,7 @@ class StatementGeneratorTest extends TestCase {
 
 		$this->assertSame( 'created', $result['status'] );
 		$this->assertSame( 100, $result['pageId'] );
-		$this->assertSame( 100, $this->options['accessi_compliance_kit_settings']['statement_page_id'] );
+		$this->assertSame( 100, $this->options['accessibility_compliance_kit_for_woocommerce_settings']['statement_page_id'] );
 	}
 
 	public function test_generate_warns_instead_of_duplicating_when_a_page_already_exists() {
@@ -188,11 +188,11 @@ class StatementGeneratorTest extends TestCase {
 
 		$this->assertSame( 'created', $result['status'] );
 		$this->assertSame( 101, $result['pageId'] );
-		$this->assertSame( 101, $this->options['accessi_compliance_kit_settings']['statement_page_id'] );
+		$this->assertSame( 101, $this->options['accessibility_compliance_kit_for_woocommerce_settings']['statement_page_id'] );
 	}
 
 	public function test_generate_treats_a_deleted_statement_page_as_absent() {
-		$this->options['accessi_compliance_kit_settings'] = array( 'statement_page_id' => 999 );
+		$this->options['accessibility_compliance_kit_for_woocommerce_settings'] = array( 'statement_page_id' => 999 );
 
 		$generator = new StatementGenerator();
 		$result    = $generator->generate();

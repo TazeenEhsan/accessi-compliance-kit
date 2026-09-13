@@ -2,10 +2,10 @@
 /**
  * Minimal `WP_Admin_Bar` double that records added nodes.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Scanner;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Scanner;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

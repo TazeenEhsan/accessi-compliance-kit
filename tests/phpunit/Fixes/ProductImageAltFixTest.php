@@ -2,22 +2,22 @@
 /**
  * Tests for ProductImageAltFix.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Fixes\ProductImageAltFix;
+use AccessibilityComplianceKitForWooCommerce\Fixes\ProductImageAltFix;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Fixes\ProductImageAltFix
+ * @covers \AccessibilityComplianceKitForWooCommerce\Fixes\ProductImageAltFix
  */
 class ProductImageAltFixTest extends TestCase {
 

@@ -8,7 +8,7 @@
 	cacheResult="false"
 >
 	<testsuites>
-		<testsuite name="AccessiComplianceKit">
+		<testsuite name="AccessibilityComplianceKitForWooCommerce">
 			<directory suffix="Test.php">tests/phpunit</directory>
 		</testsuite>
 	</testsuites>

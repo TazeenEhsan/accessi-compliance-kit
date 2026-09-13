@@ -12,7 +12,7 @@
 
 The EU Accessibility Act became enforceable last year, and while helping store owners I kept running into the same problem: the generic accessibility plugins are overlay widgets (which regulators explicitly consider inadequate), and the serious tools are $500+/year enterprise services. Nothing targeted WooCommerce's actual weak spots — checkout field labels, icon-only cart buttons, product image alt text, screen-reader price announcements.
 
-So I built **Accessi Compliance Kit** (free, on WordPress.org): [WPORG-LINK]
+So I built **Accessibility Compliance Kit for WooCommerce** (free, on WordPress.org): [WPORG-LINK]
 
 What it does:
 
@@ -35,7 +35,7 @@ It's v1.0.0 and I'd genuinely value beatings from real stores: weird themes, che
 
 After watching the accessibility-overlay backlash (and the EAA becoming enforceable in the EU), I wanted to prove the opposite approach works as a plugin: detect real issues, fix real markup, keep everything on the user's own server.
 
-**Accessi Compliance Kit** — free on WordPress.org: [WPORG-LINK]
+**Accessibility Compliance Kit for WooCommerce** — free on WordPress.org: [WPORG-LINK]
 
 - axe-core bundled locally (no CDN), runs in your browser, results stored in your own DB — zero external requests in the entire plugin
 - Severity-grouped scan results with selectors + remediation guidance, scan history
@@ -60,7 +60,7 @@ The overlay-widget backlash is well covered, but a year into EAA enforcement sma
 - **WooCommerce-specific fixes** (checkout labels, icon-only cart buttons, screen-reader price announcements) that ship OFF by default — every fix is opt-in, per the "don't break my theme" lesson from overlay complaints.
 - **Honest framing:** results are "detected issues", never "you are compliant" — automated tooling can't determine conformance, and the plugin says so in its own FAQ.
 
-Plugin: Accessi Compliance Kit — [WPORG-LINK]. I'm a solo developer; happy to talk about the EAA angle, why overlays persist, or the WP.org review experience.
+Plugin: Accessibility Compliance Kit for WooCommerce — [WPORG-LINK]. I'm a solo developer; happy to talk about the EAA angle, why overlays persist, or the WP.org review experience.
 
 Thanks for considering it,
 [Name] — [site] — [email]
@@ -73,7 +73,7 @@ Thanks for considering it,
 
 I built the boring, honest alternative. Free, on WordPress.org 🧵
 
-**2/** Accessi Compliance Kit:
+**2/** Accessibility Compliance Kit for WooCommerce:
 ▸ Scans any page with axe-core (bundled, no CDN)
 ▸ Issues grouped Critical → Minor, each with selector + how to fix
 ▸ 6 opt-in fixes for WooCommerce's usual suspects (checkout labels, alt text, icon buttons…)
@@ -96,7 +96,7 @@ Bug reports and grumpy feedback welcome. RTs appreciated 🙏
 
 The European Accessibility Act has applied to online shops selling to EU consumers since June 2025 (micro-enterprises exempt). What I kept seeing in practice: merchants installing overlay widgets that regulators and disability advocates consider inadequate, or being quoted enterprise prices for monitoring services.
 
-So I built and just released a free alternative on WordPress.org: **Accessi Compliance Kit**.
+So I built and just released a free alternative on WordPress.org: **Accessibility Compliance Kit for WooCommerce**.
 
 ▸ Scans store pages against WCAG 2.1 A/AA using axe-core — bundled locally, so scan data never leaves the merchant's server
 ▸ Fixes six of the most common WooCommerce accessibility issues (checkout field labels, missing alt text, icon-only buttons, screen-reader price announcements…) — each fix opt-in, off by default

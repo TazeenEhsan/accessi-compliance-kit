@@ -2,22 +2,22 @@
 /**
  * Tests for PluginLinks.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Admin\PluginLinks;
+use AccessibilityComplianceKitForWooCommerce\Admin\PluginLinks;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Admin\PluginLinks
+ * @covers \AccessibilityComplianceKitForWooCommerce\Admin\PluginLinks
  */
 class PluginLinksTest extends TestCase {
 
@@ -51,15 +51,15 @@ class PluginLinksTest extends TestCase {
 		);
 
 		$this->assertSame( array( 'dashboard', 'guide', 'deactivate' ), array_keys( $links ) );
-		$this->assertStringContainsString( 'admin.php?page=accessi-compliance-kit', $links['dashboard'] );
+		$this->assertStringContainsString( 'admin.php?page=accessibility-compliance-kit-for-woocommerce', $links['dashboard'] );
 		$this->assertStringContainsString( '>Dashboard<', $links['dashboard'] );
-		$this->assertStringContainsString( 'admin.php?page=accessi-compliance-kit-guide', $links['guide'] );
+		$this->assertStringContainsString( 'admin.php?page=accessibility-compliance-kit-for-woocommerce-guide', $links['guide'] );
 		$this->assertStringContainsString( '>User Guide<', $links['guide'] );
 	}
 
 	public function test_register_hooks_the_plugin_row_filter() {
-		Functions\when( 'plugin_basename' )->justReturn( 'accessi-compliance-kit/accessi-compliance-kit.php' );
-		Monkey\Filters\expectAdded( 'plugin_action_links_accessi-compliance-kit/accessi-compliance-kit.php' )->once();
+		Functions\when( 'plugin_basename' )->justReturn( 'accessibility-compliance-kit-for-woocommerce/accessibility-compliance-kit-for-woocommerce.php' );
+		Monkey\Filters\expectAdded( 'plugin_action_links_accessibility-compliance-kit-for-woocommerce/accessibility-compliance-kit-for-woocommerce.php' )->once();
 
 		( new PluginLinks() )->register();
 

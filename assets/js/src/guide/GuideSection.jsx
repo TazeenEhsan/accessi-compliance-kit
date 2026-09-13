@@ -12,9 +12,9 @@ import GuideItem from './GuideItem';
  */
 export default function GuideSection( { section, bulk, searching } ) {
 	return (
-		<section id={ section.id } className="accessi-compliance-kit-guide-section">
+		<section id={ section.id } className="accessibility-compliance-kit-for-woocommerce-guide-section">
 			<h2>{ section.title }</h2>
-			{ section.intro && <p className="accessi-compliance-kit-guide-intro">{ section.intro }</p> }
+			{ section.intro && <p className="accessibility-compliance-kit-for-woocommerce-guide-intro">{ section.intro }</p> }
 			{ section.items.map( ( item ) => (
 				<GuideItem key={ item.title } item={ item } bulk={ bulk } forceOpen={ searching } />
 			) ) }

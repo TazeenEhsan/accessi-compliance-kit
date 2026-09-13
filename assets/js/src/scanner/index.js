@@ -6,7 +6,7 @@
  */
 import { runScan } from './runScan';
 
-const settings = window.accessiComplianceKitScanner || {};
+const settings = window.accessibilityComplianceKitForWooCommerceScanner || {};
 
 /**
  * Post a scan outcome to the parent window, scoped to the admin origin.
@@ -22,7 +22,7 @@ function postToParent( payload ) {
 	window.parent.postMessage(
 		Object.assign(
 			{
-				source: 'accessi-compliance-kit-scanner',
+				source: 'accessibility-compliance-kit-for-woocommerce-scanner',
 				token: settings.handshakeToken,
 			},
 			payload

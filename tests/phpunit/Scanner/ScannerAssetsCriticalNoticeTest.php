@@ -2,23 +2,23 @@
 /**
  * Tests for ScannerAssets::add_critical_notice_node().
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Scanner;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Scanner;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Scanner\ScannerAssets;
-use AccessiComplianceKit\Scanner\ScanStorage;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ScannerAssets;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ScanStorage;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Scanner\ScannerAssets
+ * @covers \AccessibilityComplianceKitForWooCommerce\Scanner\ScannerAssets
  */
 class ScannerAssetsCriticalNoticeTest extends TestCase {
 
@@ -66,7 +66,7 @@ class ScannerAssetsCriticalNoticeTest extends TestCase {
 
 		( new ScannerAssets( $storage ) )->add_critical_notice_node( $admin_bar );
 
-		$this->assertArrayNotHasKey( 'accessi-compliance-kit-critical-notice', $admin_bar->nodes );
+		$this->assertArrayNotHasKey( 'accessibility-compliance-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
 	}
 
 	public function test_adds_no_node_when_there_is_no_last_scan() {
@@ -78,7 +78,7 @@ class ScannerAssetsCriticalNoticeTest extends TestCase {
 
 		( new ScannerAssets( $storage ) )->add_critical_notice_node( $admin_bar );
 
-		$this->assertArrayNotHasKey( 'accessi-compliance-kit-critical-notice', $admin_bar->nodes );
+		$this->assertArrayNotHasKey( 'accessibility-compliance-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
 	}
 
 	public function test_adds_no_node_when_the_last_scan_has_no_critical_issues() {
@@ -92,7 +92,7 @@ class ScannerAssetsCriticalNoticeTest extends TestCase {
 
 		( new ScannerAssets( $storage ) )->add_critical_notice_node( $admin_bar );
 
-		$this->assertArrayNotHasKey( 'accessi-compliance-kit-critical-notice', $admin_bar->nodes );
+		$this->assertArrayNotHasKey( 'accessibility-compliance-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
 	}
 
 	public function test_adds_a_node_when_the_last_scan_has_critical_issues() {
@@ -109,7 +109,7 @@ class ScannerAssetsCriticalNoticeTest extends TestCase {
 
 		( new ScannerAssets( $storage ) )->add_critical_notice_node( $admin_bar );
 
-		$this->assertArrayHasKey( 'accessi-compliance-kit-critical-notice', $admin_bar->nodes );
-		$this->assertStringContainsString( '3', $admin_bar->nodes['accessi-compliance-kit-critical-notice']['title'] );
+		$this->assertArrayHasKey( 'accessibility-compliance-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
+		$this->assertStringContainsString( '3', $admin_bar->nodes['accessibility-compliance-kit-for-woocommerce-critical-notice']['title'] );
 	}
 }

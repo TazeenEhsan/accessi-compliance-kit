@@ -2,10 +2,10 @@
 /**
  * Visible focus states on all buttons and links (proposal §4.1).
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class FocusStatesFix extends AbstractFix {
 
-	const HANDLE = 'accessi-compliance-kit-frontend-fixes';
+	const HANDLE = 'accessibility-compliance-kit-for-woocommerce-frontend-fixes';
 
 	/**
 	 * {@inheritDoc}
@@ -31,7 +31,7 @@ class FocusStatesFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Visible focus states', 'accessi-compliance-kit' );
+		return __( 'Visible focus states', 'accessibility-compliance-kit-for-woocommerce' );
 	}
 
 	/**
@@ -39,7 +39,7 @@ class FocusStatesFix extends AbstractFix {
 	 */
 	public function description() {
 		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
-		return __( 'Adds a high-contrast focus outline to links, buttons, and form controls.', 'accessi-compliance-kit' );
+		return __( 'Adds a high-contrast focus outline to links, buttons, and form controls.', 'accessibility-compliance-kit-for-woocommerce' );
 	}
 
 	/**
@@ -64,9 +64,9 @@ class FocusStatesFix extends AbstractFix {
 	public function enqueue() {
 		wp_enqueue_style(
 			self::HANDLE,
-			ACCESSI_COMPLIANCE_KIT_URL . 'assets/css/frontend-fixes.css',
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'assets/css/frontend-fixes.css',
 			array(),
-			ACCESSI_COMPLIANCE_KIT_VERSION
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION
 		);
 	}
 }

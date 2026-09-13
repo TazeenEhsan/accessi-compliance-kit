@@ -2,10 +2,10 @@
 /**
  * Typed access to the plugin's `wp_options` keys.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Utils;
+namespace AccessibilityComplianceKitForWooCommerce\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -17,11 +17,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Options {
 
-	const SETTINGS     = 'accessi_compliance_kit_settings';
-	const ACTIVE_FIXES = 'accessi_compliance_kit_active_fixes';
-	const LICENSE      = 'accessi_compliance_kit_license';
-	const LAST_SCAN_ID = 'accessi_compliance_kit_last_scan_id';
-	const DB_VERSION   = 'accessi_compliance_kit_db_version';
+	const SETTINGS     = 'accessibility_compliance_kit_for_woocommerce_settings';
+	const ACTIVE_FIXES = 'accessibility_compliance_kit_for_woocommerce_active_fixes';
+	const LICENSE      = 'accessibility_compliance_kit_for_woocommerce_license';
+	const LAST_SCAN_ID = 'accessibility_compliance_kit_for_woocommerce_last_scan_id';
+	const DB_VERSION   = 'accessibility_compliance_kit_for_woocommerce_db_version';
 
 	/**
 	 * Get the plugin settings array.
@@ -127,7 +127,7 @@ class Options {
 	 * @return bool
 	 */
 	public static function option_exists( $key ) {
-		$sentinel = "\0accessi_compliance_kit_absent\0";
+		$sentinel = "\0accessibility_compliance_kit_for_woocommerce_absent\0";
 
 		return get_option( $key, $sentinel ) !== $sentinel;
 	}

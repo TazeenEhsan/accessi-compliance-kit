@@ -46,7 +46,7 @@ function withScanFlag( url, queryVar ) {
  * URL input + "Scan this page" button that runs a scan in a hidden iframe.
  *
  * @param {Object}   props              Component props.
- * @param {Object}   props.settings     Localized `accessiComplianceKitAdmin` data.
+ * @param {Object}   props.settings     Localized `accessibilityComplianceKitForWooCommerceAdmin` data.
  * @param {Function} props.onScanSaved  Called with the saved scan ID on success.
  * @return {JSX.Element}
  */
@@ -83,7 +83,7 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 
 		if ( ! url || ! isSameSite( url, settings.homeUrl ) ) {
 			setStatus( 'error' );
-			setMessage( __( 'The scan URL must be on this site.', 'accessi-compliance-kit' ) );
+			setMessage( __( 'The scan URL must be on this site.', 'accessibility-compliance-kit-for-woocommerce' ) );
 			return;
 		}
 
@@ -97,7 +97,7 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 
 			const data = event.data;
 
-			if ( ! data || 'accessi-compliance-kit-scanner' !== data.source || data.token !== settings.scannerToken ) {
+			if ( ! data || 'accessibility-compliance-kit-for-woocommerce-scanner' !== data.source || data.token !== settings.scannerToken ) {
 				return;
 			}
 
@@ -105,12 +105,12 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 
 			if ( 'error' === data.status ) {
 				setStatus( 'error' );
-				setMessage( data.message || __( 'The scan could not be completed.', 'accessi-compliance-kit' ) );
+				setMessage( data.message || __( 'The scan could not be completed.', 'accessibility-compliance-kit-for-woocommerce' ) );
 				return;
 			}
 
 			try {
-				const saved = await ajaxRequest( settings.ajaxUrl, 'accessi_compliance_kit_run_scan', settings.nonces.runScan, {
+				const saved = await ajaxRequest( settings.ajaxUrl, 'accessibility_compliance_kit_for_woocommerce_run_scan', settings.nonces.runScan, {
 					url,
 					violations: JSON.stringify( data.violations || [] ),
 				} );
@@ -137,9 +137,9 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 		iframe.addEventListener( 'error', () => {
 			cleanup();
 			setStatus( 'error' );
-			setMessage( __( 'The page could not be loaded for scanning.', 'accessi-compliance-kit' ) );
+			setMessage( __( 'The page could not be loaded for scanning.', 'accessibility-compliance-kit-for-woocommerce' ) );
 		} );
-		iframe.src = withScanFlag( url, settings.scanQueryVar || 'accessi_compliance_kit_scan' );
+		iframe.src = withScanFlag( url, settings.scanQueryVar || 'accessibility_compliance_kit_for_woocommerce_scan' );
 
 		iframeRef.current = iframe;
 		document.body.appendChild( iframe );
@@ -147,25 +147,25 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 		timeoutRef.current = window.setTimeout( () => {
 			cleanup();
 			setStatus( 'error' );
-			setMessage( __( 'The scan timed out. Please try again.', 'accessi-compliance-kit' ) );
+			setMessage( __( 'The scan timed out. Please try again.', 'accessibility-compliance-kit-for-woocommerce' ) );
 		}, SCAN_TIMEOUT_MS );
 	};
 
 	const isRunning = 'running' === status;
 
 	return (
-		<div className="accessi-compliance-kit-scan-runner">
+		<div className="accessibility-compliance-kit-for-woocommerce-scan-runner">
 			<TextControl
-				label={ __( 'Page URL to scan', 'accessi-compliance-kit' ) }
-				help={ __( 'Must be a URL on this site.', 'accessi-compliance-kit' ) }
+				label={ __( 'Page URL to scan', 'accessibility-compliance-kit-for-woocommerce' ) }
+				help={ __( 'Must be a URL on this site.', 'accessibility-compliance-kit-for-woocommerce' ) }
 				value={ url }
 				onChange={ setUrl }
 				disabled={ isRunning }
 			/>
 			<Button variant="primary" onClick={ startScan } disabled={ isRunning || ! url } isBusy={ isRunning }>
 				{ isRunning
-					? __( 'Scanning…', 'accessi-compliance-kit' )
-					: __( 'Scan this page', 'accessi-compliance-kit' ) }
+					? __( 'Scanning…', 'accessibility-compliance-kit-for-woocommerce' )
+					: __( 'Scan this page', 'accessibility-compliance-kit-for-woocommerce' ) }
 			</Button>
 			{ isRunning && <Spinner /> }
 			{ 'error' === status && message && (
@@ -175,7 +175,7 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 			) }
 			{ 'success' === status && (
 				<Notice status="success" isDismissible={ false }>
-					{ __( 'Scan complete. Detected issues are shown below.', 'accessi-compliance-kit' ) }
+					{ __( 'Scan complete. Detected issues are shown below.', 'accessibility-compliance-kit-for-woocommerce' ) }
 				</Notice>
 			) }
 		</div>

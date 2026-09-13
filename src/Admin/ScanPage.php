@@ -2,18 +2,18 @@
 /**
  * Enqueues the admin bundle and localizes data for the React scan UI.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Fixes\FixManager;
-use AccessiComplianceKit\Scanner\ScannerAssets;
-use AccessiComplianceKit\Utils\Options;
+use AccessibilityComplianceKitForWooCommerce\Fixes\FixManager;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ScannerAssets;
+use AccessibilityComplianceKitForWooCommerce\Utils\Options;
 
 /**
  * Enqueues `build/admin.js` + `assets/css/admin.css` on the plugin's admin page
@@ -21,7 +21,7 @@ use AccessiComplianceKit\Utils\Options;
  */
 class ScanPage {
 
-	const HANDLE = 'accessi-compliance-kit-admin';
+	const HANDLE = 'accessibility-compliance-kit-for-woocommerce-admin';
 
 	/**
 	 * Hook the conditional enqueue.
@@ -43,7 +43,7 @@ class ScanPage {
 			return;
 		}
 
-		$asset_file = ACCESSI_COMPLIANCE_KIT_PATH . 'build/admin.asset.php';
+		$asset_file = ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'build/admin.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -53,7 +53,7 @@ class ScanPage {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACCESSI_COMPLIANCE_KIT_URL . 'build/admin.js',
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'build/admin.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
@@ -61,12 +61,12 @@ class ScanPage {
 
 		wp_enqueue_style(
 			self::HANDLE,
-			ACCESSI_COMPLIANCE_KIT_URL . 'assets/css/admin.css',
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'assets/css/admin.css',
 			array(),
-			ACCESSI_COMPLIANCE_KIT_VERSION
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION
 		);
 
-		wp_localize_script( self::HANDLE, 'accessiComplianceKitAdmin', $this->localized_data() );
+		wp_localize_script( self::HANDLE, 'accessibilityComplianceKitForWooCommerceAdmin', $this->localized_data() );
 	}
 
 	/**
@@ -79,22 +79,22 @@ class ScanPage {
 			'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
 			'guideUrl'       => admin_url( 'admin.php?page=' . GuidePage::MENU_SLUG ),
 			'homeUrl'        => home_url( '/' ),
-			'scannerToken'   => wp_create_nonce( 'accessi_compliance_kit_scan_handshake' ),
+			'scannerToken'   => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_scan_handshake' ),
 			'prefillUrl'     => $this->prefill_url(),
 			'lastScanId'     => Options::get_last_scan_id(),
 			'scanQueryVar'   => ScannerAssets::QUERY_VAR,
 			'nonces'         => array(
-				'runScan'           => wp_create_nonce( 'accessi_compliance_kit_run_scan' ),
-				'getScan'           => wp_create_nonce( 'accessi_compliance_kit_get_scan' ),
-				'getScans'          => wp_create_nonce( 'accessi_compliance_kit_get_scans' ),
-				'saveSettings'      => wp_create_nonce( 'accessi_compliance_kit_save_settings' ),
-				'generateStatement' => wp_create_nonce( 'accessi_compliance_kit_generate_statement' ),
+				'runScan'           => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_run_scan' ),
+				'getScan'           => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_get_scan' ),
+				'getScans'          => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_get_scans' ),
+				'saveSettings'      => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_save_settings' ),
+				'generateStatement' => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_generate_statement' ),
 			),
 			'severityLabels' => array(
-				'critical' => __( 'Critical', 'accessi-compliance-kit' ),
-				'serious'  => __( 'Serious', 'accessi-compliance-kit' ),
-				'moderate' => __( 'Moderate', 'accessi-compliance-kit' ),
-				'minor'    => __( 'Minor', 'accessi-compliance-kit' ),
+				'critical' => __( 'Critical', 'accessibility-compliance-kit-for-woocommerce' ),
+				'serious'  => __( 'Serious', 'accessibility-compliance-kit-for-woocommerce' ),
+				'moderate' => __( 'Moderate', 'accessibility-compliance-kit-for-woocommerce' ),
+				'minor'    => __( 'Minor', 'accessibility-compliance-kit-for-woocommerce' ),
 			),
 			'fixes'          => $this->fixes_data(),
 			'activeFixes'    => Options::get_active_fixes(),

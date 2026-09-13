@@ -2,16 +2,16 @@
 /**
  * Registers the plugin's top-level admin menu and its WooCommerce pointer.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Admin;
+namespace AccessibilityComplianceKitForWooCommerce\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Utils\Capabilities;
+use AccessibilityComplianceKitForWooCommerce\Utils\Capabilities;
 
 /**
  * Adds the top-level "Accessibility" menu (logo icon; submenus: Dashboard,
@@ -21,7 +21,7 @@ use AccessiComplianceKit\Utils\Capabilities;
  */
 class AdminMenu {
 
-	const MENU_SLUG = 'accessi-compliance-kit';
+	const MENU_SLUG = 'accessibility-compliance-kit-for-woocommerce';
 
 	/**
 	 * The universal-access figure drawn in a given color: outlined ring,
@@ -57,8 +57,8 @@ class AdminMenu {
 	 */
 	public function add_menu_page() {
 		add_menu_page(
-			__( 'Accessibility', 'accessi-compliance-kit' ),
-			__( 'Accessibility', 'accessi-compliance-kit' ),
+			__( 'Accessibility', 'accessibility-compliance-kit-for-woocommerce' ),
+			__( 'Accessibility', 'accessibility-compliance-kit-for-woocommerce' ),
 			Capabilities::SCAN,
 			self::MENU_SLUG,
 			array( $this, 'render_page' ),
@@ -70,8 +70,8 @@ class AdminMenu {
 		// (labelled "Dashboard") instead of WP duplicating "Accessibility".
 		add_submenu_page(
 			self::MENU_SLUG,
-			__( 'Dashboard', 'accessi-compliance-kit' ),
-			__( 'Dashboard', 'accessi-compliance-kit' ),
+			__( 'Dashboard', 'accessibility-compliance-kit-for-woocommerce' ),
+			__( 'Dashboard', 'accessibility-compliance-kit-for-woocommerce' ),
 			Capabilities::SCAN,
 			self::MENU_SLUG,
 			array( $this, 'render_page' )
@@ -82,8 +82,8 @@ class AdminMenu {
 		// link to the top-level page rather than registering a second page.
 		add_submenu_page(
 			'woocommerce',
-			__( 'Accessibility', 'accessi-compliance-kit' ),
-			self::menu_icon_svg() . __( 'Accessibility', 'accessi-compliance-kit' ),
+			__( 'Accessibility', 'accessibility-compliance-kit-for-woocommerce' ),
+			self::menu_icon_svg() . __( 'Accessibility', 'accessibility-compliance-kit-for-woocommerce' ),
 			Capabilities::SCAN,
 			'admin.php?page=' . self::MENU_SLUG
 		);
@@ -134,6 +134,6 @@ class AdminMenu {
 	 * @return void
 	 */
 	public function render_page() {
-		echo '<div id="accessi-compliance-kit-admin"></div>';
+		echo '<div id="accessibility-compliance-kit-for-woocommerce-admin"></div>';
 	}
 }

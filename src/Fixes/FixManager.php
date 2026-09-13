@@ -2,10 +2,10 @@
 /**
  * Registers active auto-fixes.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -51,7 +51,7 @@ class FixManager {
 	}
 
 	/**
-	 * Append `accessi-compliance-kit-fixes-active` plus a per-fix class for
+	 * Append `accessibility-compliance-kit-for-woocommerce-fixes-active` plus a per-fix class for
 	 * every enabled fix (proposal §5.4).
 	 *
 	 * @param string[] $classes Existing body classes.
@@ -66,11 +66,11 @@ class FixManager {
 			}
 
 			$any_enabled = true;
-			$classes[]   = 'accessi-compliance-kit-fix-' . $fix->id();
+			$classes[]   = 'accessibility-compliance-kit-for-woocommerce-fix-' . $fix->id();
 		}
 
 		if ( $any_enabled ) {
-			$classes[] = 'accessi-compliance-kit-fixes-active';
+			$classes[] = 'accessibility-compliance-kit-for-woocommerce-fixes-active';
 		}
 
 		return $classes;

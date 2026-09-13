@@ -1,13 +1,13 @@
-.accessi-compliance-kit-admin-app {
+.accessibility-compliance-kit-for-woocommerce-admin-app {
 	margin: 20px 20px 40px 2px;
 	max-width: 960px;
 }
 
-.accessi-compliance-kit-admin-app h1 {
+.accessibility-compliance-kit-for-woocommerce-admin-app h1 {
 	margin-bottom: 16px;
 }
 
-.accessi-compliance-kit-admin-header {
+.accessibility-compliance-kit-for-woocommerce-admin-header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -15,93 +15,93 @@
 	margin-bottom: 16px;
 }
 
-.accessi-compliance-kit-admin-header h1 {
+.accessibility-compliance-kit-for-woocommerce-admin-header h1 {
 	margin: 0;
 	padding: 0;
 }
 
-.accessi-compliance-kit-guide-button.components-button {
+.accessibility-compliance-kit-for-woocommerce-guide-button.components-button {
 	border-color: #2271b1;
 	font-weight: 600;
 }
 
-.accessi-compliance-kit-scan-runner {
+.accessibility-compliance-kit-for-woocommerce-scan-runner {
 	max-width: 480px;
 	margin-bottom: 20px;
 }
 
-.accessi-compliance-kit-scan-runner .components-base-control {
+.accessibility-compliance-kit-for-woocommerce-scan-runner .components-base-control {
 	margin-bottom: 12px;
 }
 
-.accessi-compliance-kit-scan-results {
+.accessibility-compliance-kit-for-woocommerce-scan-results {
 	margin-top: 20px;
 }
 
-.accessi-compliance-kit-severity-group {
+.accessibility-compliance-kit-for-woocommerce-severity-group {
 	margin-bottom: 24px;
 }
 
-.accessi-compliance-kit-severity-group h3 {
+.accessibility-compliance-kit-for-woocommerce-severity-group h3 {
 	padding: 6px 10px;
 	border-left: 4px solid #ccc;
 	margin: 0 0 8px;
 }
 
-.accessi-compliance-kit-severity-critical h3 {
+.accessibility-compliance-kit-for-woocommerce-severity-critical h3 {
 	border-left-color: #d63638;
 }
 
-.accessi-compliance-kit-severity-serious h3 {
+.accessibility-compliance-kit-for-woocommerce-severity-serious h3 {
 	border-left-color: #e65054;
 }
 
-.accessi-compliance-kit-severity-moderate h3 {
+.accessibility-compliance-kit-for-woocommerce-severity-moderate h3 {
 	border-left-color: #dba617;
 }
 
-.accessi-compliance-kit-severity-minor h3 {
+.accessibility-compliance-kit-for-woocommerce-severity-minor h3 {
 	border-left-color: #72aee6;
 }
 
-.accessi-compliance-kit-violation-node {
+.accessibility-compliance-kit-for-woocommerce-violation-node {
 	margin: 8px 0;
 	padding: 8px 10px;
 	background: #f6f7f7;
 	border-radius: 2px;
 }
 
-.accessi-compliance-kit-violation-node pre {
+.accessibility-compliance-kit-for-woocommerce-violation-node pre {
 	white-space: pre-wrap;
 	word-break: break-word;
 	margin: 4px 0 0;
 }
 
-.accessi-compliance-kit-history-table {
+.accessibility-compliance-kit-for-woocommerce-history-table {
 	margin-top: 12px;
 }
 
-.accessi-compliance-kit-history-pagination {
+.accessibility-compliance-kit-for-woocommerce-history-pagination {
 	display: flex;
 	gap: 8px;
 	margin-top: 12px;
 }
 
-.accessi-compliance-kit-settings {
+.accessibility-compliance-kit-for-woocommerce-settings {
 	max-width: 640px;
 }
 
-.accessi-compliance-kit-fix-card {
+.accessibility-compliance-kit-for-woocommerce-fix-card {
 	margin-bottom: 12px;
 }
 
-.accessi-compliance-kit-fix-contexts {
+.accessibility-compliance-kit-for-woocommerce-fix-contexts {
 	display: flex;
 	gap: 6px;
 	margin-top: 8px;
 }
 
-.accessi-compliance-kit-context-badge {
+.accessibility-compliance-kit-for-woocommerce-context-badge {
 	display: inline-block;
 	padding: 2px 8px;
 	border-radius: 10px;
@@ -114,11 +114,11 @@
 
 /* ---------- User Guide page ---------- */
 
-.accessi-compliance-kit-guide {
+.accessibility-compliance-kit-for-woocommerce-guide {
 	max-width: 860px;
 }
 
-.accessi-compliance-kit-guide-header {
+.accessibility-compliance-kit-for-woocommerce-guide-header {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
@@ -126,7 +126,7 @@
 	margin: 16px 0 4px;
 }
 
-.accessi-compliance-kit-guide-logo {
+.accessibility-compliance-kit-for-woocommerce-guide-logo {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -138,47 +138,47 @@
 	color: #fff;
 }
 
-.accessi-compliance-kit-guide-header h1 {
+.accessibility-compliance-kit-for-woocommerce-guide-header h1 {
 	margin: 0;
 	padding: 0;
 }
 
-.accessi-compliance-kit-guide-tagline {
+.accessibility-compliance-kit-for-woocommerce-guide-tagline {
 	margin: 4px 0 0;
 	color: #646970;
 }
 
-.accessi-compliance-kit-guide-actions {
+.accessibility-compliance-kit-for-woocommerce-guide-actions {
 	display: flex;
 	gap: 8px;
 	margin-left: auto;
 }
 
-.accessi-compliance-kit-guide-toolbar {
+.accessibility-compliance-kit-for-woocommerce-guide-toolbar {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 	margin-top: 16px;
 }
 
-.accessi-compliance-kit-guide-toolbar .accessi-compliance-kit-guide-search {
+.accessibility-compliance-kit-for-woocommerce-guide-toolbar .accessibility-compliance-kit-for-woocommerce-guide-search {
 	flex: 1;
 	max-width: 360px;
 }
 
-.accessi-compliance-kit-guide-search-count {
+.accessibility-compliance-kit-for-woocommerce-guide-search-count {
 	margin: 12px 0 4px;
 	color: #646970;
 }
 
-.accessi-compliance-kit-guide-nav {
+.accessibility-compliance-kit-for-woocommerce-guide-nav {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 6px;
 	margin: 16px 0 4px;
 }
 
-.accessi-compliance-kit-guide-nav a {
+.accessibility-compliance-kit-for-woocommerce-guide-nav a {
 	padding: 4px 12px;
 	border: 1px solid #c3c4c7;
 	border-radius: 999px;
@@ -188,13 +188,13 @@
 	text-decoration: none;
 }
 
-.accessi-compliance-kit-guide-nav a:hover,
-.accessi-compliance-kit-guide-nav a:focus {
+.accessibility-compliance-kit-for-woocommerce-guide-nav a:hover,
+.accessibility-compliance-kit-for-woocommerce-guide-nav a:focus {
 	border-color: #2271b1;
 	background: #f0f6fc;
 }
 
-.accessi-compliance-kit-guide-section {
+.accessibility-compliance-kit-for-woocommerce-guide-section {
 	margin-top: 16px;
 	padding: 8px 20px 16px;
 	border: 1px solid #c3c4c7;
@@ -202,53 +202,53 @@
 	background: #fff;
 }
 
-.accessi-compliance-kit-guide-section h2 {
+.accessibility-compliance-kit-for-woocommerce-guide-section h2 {
 	margin: 10px 0 6px;
 	font-size: 16px;
 }
 
-.accessi-compliance-kit-guide-intro {
+.accessibility-compliance-kit-for-woocommerce-guide-intro {
 	margin-top: 0;
 	color: #646970;
 }
 
-.accessi-compliance-kit-guide-item {
+.accessibility-compliance-kit-for-woocommerce-guide-item {
 	border-top: 1px solid #f0f0f1;
 }
 
-.accessi-compliance-kit-guide-item summary {
+.accessibility-compliance-kit-for-woocommerce-guide-item summary {
 	padding: 10px 0;
 	font-weight: 600;
 	cursor: pointer;
 }
 
-.accessi-compliance-kit-guide-item summary:hover,
-.accessi-compliance-kit-guide-item summary:focus-visible {
+.accessibility-compliance-kit-for-woocommerce-guide-item summary:hover,
+.accessibility-compliance-kit-for-woocommerce-guide-item summary:focus-visible {
 	color: #2271b1;
 }
 
-.accessi-compliance-kit-guide-item summary:focus-visible {
+.accessibility-compliance-kit-for-woocommerce-guide-item summary:focus-visible {
 	outline: 2px solid #2271b1;
 	outline-offset: 2px;
 }
 
-.accessi-compliance-kit-guide-item-body {
+.accessibility-compliance-kit-for-woocommerce-guide-item-body {
 	padding: 0 0 14px 18px;
 }
 
-.accessi-compliance-kit-guide-item-body > :first-child {
+.accessibility-compliance-kit-for-woocommerce-guide-item-body > :first-child {
 	margin-top: 0;
 }
 
-.accessi-compliance-kit-guide-item-body ul,
-.accessi-compliance-kit-guide-item-body ol {
+.accessibility-compliance-kit-for-woocommerce-guide-item-body ul,
+.accessibility-compliance-kit-for-woocommerce-guide-item-body ol {
 	margin: 8px 0 0 18px;
 }
 
-.accessi-compliance-kit-guide-item-body li {
+.accessibility-compliance-kit-for-woocommerce-guide-item-body li {
 	margin-bottom: 6px;
 }
 
-.accessi-compliance-kit-guide-help {
+.accessibility-compliance-kit-for-woocommerce-guide-help {
 	padding-bottom: 20px;
 }

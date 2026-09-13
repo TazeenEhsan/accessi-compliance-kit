@@ -2,22 +2,22 @@
 /**
  * Tests for FocusStatesFix.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Fixes\FocusStatesFix;
+use AccessibilityComplianceKitForWooCommerce\Fixes\FocusStatesFix;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Fixes\FocusStatesFix
+ * @covers \AccessibilityComplianceKitForWooCommerce\Fixes\FocusStatesFix
  */
 class FocusStatesFixTest extends TestCase {
 
@@ -35,10 +35,10 @@ class FocusStatesFixTest extends TestCase {
 		Functions\expect( 'wp_enqueue_style' )
 			->once()
 			->with(
-				'accessi-compliance-kit-frontend-fixes',
-				ACCESSI_COMPLIANCE_KIT_URL . 'assets/css/frontend-fixes.css',
+				'accessibility-compliance-kit-for-woocommerce-frontend-fixes',
+				ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'assets/css/frontend-fixes.css',
 				array(),
-				ACCESSI_COMPLIANCE_KIT_VERSION
+				ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION
 			);
 
 		( new FocusStatesFix() )->enqueue();

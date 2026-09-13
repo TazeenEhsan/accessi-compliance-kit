@@ -1,21 +1,21 @@
 <?php
 /**
- * Persists and retrieves scan rows in `{$wpdb->prefix}accessi_compliance_kit_scans`.
+ * Persists and retrieves scan rows in `{$wpdb->prefix}accessibility_compliance_kit_for_woocommerce_scans`.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Scanner;
+namespace AccessibilityComplianceKitForWooCommerce\Scanner;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Utils\Logger;
-use AccessiComplianceKit\Utils\Options;
+use AccessibilityComplianceKitForWooCommerce\Utils\Logger;
+use AccessibilityComplianceKitForWooCommerce\Utils\Options;
 
 /**
- * The only class that reads/writes `wp_accessi_compliance_kit_scans` (AI_RULES §6).
+ * The only class that reads/writes `wp_accessibility_compliance_kit_for_woocommerce_scans` (AI_RULES §6).
  */
 class ScanStorage {
 
@@ -191,7 +191,7 @@ class ScanStorage {
 	private function table() {
 		global $wpdb;
 
-		return $wpdb->prefix . 'accessi_compliance_kit_scans';
+		return $wpdb->prefix . 'accessibility_compliance_kit_for_woocommerce_scans';
 	}
 
 	/**

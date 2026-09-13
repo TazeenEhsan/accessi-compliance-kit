@@ -2,10 +2,10 @@
 /**
  * Centralized capability checks.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Utils;
+namespace AccessibilityComplianceKitForWooCommerce\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

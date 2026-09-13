@@ -3,7 +3,7 @@
  * PHPUnit bootstrap. Uses Brain Monkey to stub WordPress functions rather than
  * booting a full WP install (docs/coding-guidelines.md §4).
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,23 +18,23 @@ if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
 	define( 'WEEK_IN_SECONDS', 7 * 24 * 60 * 60 );
 }
 
-if ( ! defined( 'ACCESSI_COMPLIANCE_KIT_PATH' ) ) {
+if ( ! defined( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH' ) ) {
 	// Deliberately not the real plugin root: this directory has no `build/`
 	// subfolder, so `file_exists()` checks against compiled assets are
 	// deterministically false regardless of whether `npm run build` has run.
-	define( 'ACCESSI_COMPLIANCE_KIT_PATH', __DIR__ . '/' );
+	define( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH', __DIR__ . '/' );
 }
 
-if ( ! defined( 'ACCESSI_COMPLIANCE_KIT_FILE' ) ) {
-	define( 'ACCESSI_COMPLIANCE_KIT_FILE', __DIR__ . '/accessi-compliance-kit.php' );
+if ( ! defined( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_FILE' ) ) {
+	define( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_FILE', __DIR__ . '/accessibility-compliance-kit-for-woocommerce.php' );
 }
 
-if ( ! defined( 'ACCESSI_COMPLIANCE_KIT_URL' ) ) {
-	define( 'ACCESSI_COMPLIANCE_KIT_URL', 'https://example.test/wp-content/plugins/accessi-compliance-kit/' );
+if ( ! defined( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL' ) ) {
+	define( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL', 'https://example.test/wp-content/plugins/accessibility-compliance-kit-for-woocommerce/' );
 }
 
-if ( ! defined( 'ACCESSI_COMPLIANCE_KIT_VERSION' ) ) {
-	define( 'ACCESSI_COMPLIANCE_KIT_VERSION', '1.0.0-test' );
+if ( ! defined( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION' ) ) {
+	define( 'ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_VERSION', '1.0.0-test' );
 }
 
 if ( ! class_exists( 'WC_Product' ) ) {

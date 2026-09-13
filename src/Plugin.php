@@ -2,10 +2,10 @@
 /**
  * Main plugin bootstrap.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit;
+namespace AccessibilityComplianceKitForWooCommerce;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -80,7 +80,7 @@ class Plugin {
 		printf(
 			'<div class="notice notice-error"><p>%s</p></div>',
 			// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
-			esc_html__( 'Accessi Compliance Kit requires WooCommerce 8.0+ to be installed and active.', 'accessi-compliance-kit' )
+			esc_html__( 'Accessibility Compliance Kit for WooCommerce requires WooCommerce 8.0+ to be installed and active.', 'accessibility-compliance-kit-for-woocommerce' )
 		);
 	}
 

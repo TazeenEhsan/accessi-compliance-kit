@@ -2,22 +2,22 @@
 /**
  * Tests for ViolationParser.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Scanner;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Scanner;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Scanner\ViolationParser;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ViolationParser;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Scanner\ViolationParser
+ * @covers \AccessibilityComplianceKitForWooCommerce\Scanner\ViolationParser
  */
 class ViolationParserTest extends TestCase {
 

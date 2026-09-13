@@ -2,13 +2,13 @@
 /**
  * Conditional front-end enqueue of the axe-core scanner bundle.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Scanner;
+namespace AccessibilityComplianceKitForWooCommerce\Scanner;
 
-use AccessiComplianceKit\Admin\AdminMenu;
-use AccessiComplianceKit\Utils\Capabilities;
+use AccessibilityComplianceKitForWooCommerce\Admin\AdminMenu;
+use AccessibilityComplianceKitForWooCommerce\Utils\Capabilities;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -22,8 +22,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class ScannerAssets {
 
-	const HANDLE    = 'accessi-compliance-kit-scanner';
-	const QUERY_VAR = 'accessi_compliance_kit_scan';
+	const HANDLE    = 'accessibility-compliance-kit-for-woocommerce-scanner';
+	const QUERY_VAR = 'accessibility_compliance_kit_for_woocommerce_scan';
 
 	/**
 	 * Scan storage service, used to read the last scan's severity summary.
@@ -62,7 +62,7 @@ class ScannerAssets {
 			return;
 		}
 
-		$asset_file = ACCESSI_COMPLIANCE_KIT_PATH . 'build/scanner.asset.php';
+		$asset_file = ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_PATH . 'build/scanner.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -72,7 +72,7 @@ class ScannerAssets {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACCESSI_COMPLIANCE_KIT_URL . 'build/scanner.js',
+			ACCESSIBILITY_COMPLIANCE_KIT_FOR_WOOCOMMERCE_URL . 'build/scanner.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
@@ -80,9 +80,9 @@ class ScannerAssets {
 
 		wp_localize_script(
 			self::HANDLE,
-			'accessiComplianceKitScanner',
+			'accessibilityComplianceKitForWooCommerceScanner',
 			array(
-				'handshakeToken' => wp_create_nonce( 'accessi_compliance_kit_scan_handshake' ),
+				'handshakeToken' => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_scan_handshake' ),
 				'adminOrigin'    => home_url(),
 			)
 		);
@@ -125,11 +125,11 @@ class ScannerAssets {
 
 		$wp_admin_bar->add_node(
 			array(
-				'id'    => 'accessi-compliance-kit-scan',
-				'title' => esc_html__( 'Scan this page', 'accessi-compliance-kit' ),
+				'id'    => 'accessibility-compliance-kit-for-woocommerce-scan',
+				'title' => esc_html__( 'Scan this page', 'accessibility-compliance-kit-for-woocommerce' ),
 				'href'  => esc_url( $admin_url ),
 				'meta'  => array(
-					'title' => esc_attr__( 'Scan this page for accessibility issues', 'accessi-compliance-kit' ),
+					'title' => esc_attr__( 'Scan this page for accessibility issues', 'accessibility-compliance-kit-for-woocommerce' ),
 				),
 			)
 		);
@@ -156,18 +156,18 @@ class ScannerAssets {
 
 		$title = sprintf(
 			/* translators: %d: number of critical issues detected in the last scan. */
-			__( '%d critical accessibility issues detected', 'accessi-compliance-kit' ),
+			__( '%d critical accessibility issues detected', 'accessibility-compliance-kit-for-woocommerce' ),
 			(int) $scan['summary']['critical']
 		);
 
 		$wp_admin_bar->add_node(
 			array(
-				'id'    => 'accessi-compliance-kit-critical-notice',
+				'id'    => 'accessibility-compliance-kit-for-woocommerce-critical-notice',
 				'title' => esc_html( $title ),
 				'href'  => esc_url( add_query_arg( 'page', AdminMenu::MENU_SLUG, admin_url( 'admin.php' ) ) ),
 				'meta'  => array(
-					'class' => 'accessi-compliance-kit-admin-bar-critical',
-					'title' => esc_attr__( 'View the detected accessibility issues', 'accessi-compliance-kit' ),
+					'class' => 'accessibility-compliance-kit-for-woocommerce-admin-bar-critical',
+					'title' => esc_attr__( 'View the detected accessibility issues', 'accessibility-compliance-kit-for-woocommerce' ),
 				),
 			)
 		);

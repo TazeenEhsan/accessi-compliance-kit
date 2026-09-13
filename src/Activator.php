@@ -2,16 +2,16 @@
 /**
  * Runs on plugin activation.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit;
+namespace AccessibilityComplianceKitForWooCommerce;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Utils\Options;
+use AccessibilityComplianceKitForWooCommerce\Utils\Options;
 
 /**
  * Creates the scans table and seeds default options.
@@ -36,7 +36,7 @@ class Activator {
 	}
 
 	/**
-	 * Create the `{$wpdb->prefix}accessi_compliance_kit_scans` table via dbDelta().
+	 * Create the `{$wpdb->prefix}accessibility_compliance_kit_for_woocommerce_scans` table via dbDelta().
 	 *
 	 * @return void
 	 */
@@ -45,7 +45,7 @@ class Activator {
 
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-		$table_name      = $wpdb->prefix . 'accessi_compliance_kit_scans';
+		$table_name      = $wpdb->prefix . 'accessibility_compliance_kit_for_woocommerce_scans';
 		$charset_collate = $wpdb->get_charset_collate();
 
 		$sql = "CREATE TABLE {$table_name} (

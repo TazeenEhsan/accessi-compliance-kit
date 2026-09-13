@@ -2,10 +2,10 @@
 /**
  * Normalizes axe-core violation payloads into the shape stored in `violations_json`.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Scanner;
+namespace AccessibilityComplianceKitForWooCommerce\Scanner;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

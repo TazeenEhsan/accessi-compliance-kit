@@ -1,7 +1,7 @@
 /**
  * Dashboard tab: accessibility statement status card (docs/admin.md §7,
  * proposal §6 Phase 3). "Create statement page" button + exists/not-created
- * status, wired to the `accessi_compliance_kit_generate_statement` AJAX action.
+ * status, wired to the `accessibility_compliance_kit_for_woocommerce_generate_statement` AJAX action.
  */
 import { useState } from '@wordpress/element';
 import { Button, Card, CardBody, CardHeader, Notice } from '@wordpress/components';
@@ -10,7 +10,7 @@ import { ajaxRequest } from './utils/ajax';
 
 /**
  * @param {Object} props          Component props.
- * @param {Object} props.settings Localized `accessiComplianceKitAdmin` data.
+ * @param {Object} props.settings Localized `accessibilityComplianceKitForWooCommerceAdmin` data.
  * @return {JSX.Element}
  */
 export default function Dashboard( { settings } ) {
@@ -27,7 +27,7 @@ export default function Dashboard( { settings } ) {
 		try {
 			const data = await ajaxRequest(
 				settings.ajaxUrl,
-				'accessi_compliance_kit_generate_statement',
+				'accessibility_compliance_kit_for_woocommerce_generate_statement',
 				settings.nonces.generateStatement,
 				{ force_new: forceNew ? '1' : '0' }
 			);
@@ -41,19 +41,19 @@ export default function Dashboard( { settings } ) {
 	};
 
 	return (
-		<div className="accessi-compliance-kit-dashboard">
-			<Card className="accessi-compliance-kit-statement-card">
+		<div className="accessibility-compliance-kit-for-woocommerce-dashboard">
+			<Card className="accessibility-compliance-kit-for-woocommerce-statement-card">
 				<CardHeader>
-					<h2>{ __( 'Accessibility statement', 'accessi-compliance-kit' ) }</h2>
+					<h2>{ __( 'Accessibility statement', 'accessibility-compliance-kit-for-woocommerce' ) }</h2>
 				</CardHeader>
 				<CardBody>
 					{ statement.pageId ? (
 						<>
 							<p>
-								{ __( 'An accessibility statement page has been created.', 'accessi-compliance-kit' ) }
+								{ __( 'An accessibility statement page has been created.', 'accessibility-compliance-kit-for-woocommerce' ) }
 							</p>
 							<Button variant="secondary" href={ statement.editLink }>
-								{ __( 'Edit statement page', 'accessi-compliance-kit' ) }
+								{ __( 'Edit statement page', 'accessibility-compliance-kit-for-woocommerce' ) }
 							</Button>
 							{ ' ' }
 							<Button
@@ -62,7 +62,7 @@ export default function Dashboard( { settings } ) {
 								isBusy={ 'generating' === status }
 								disabled={ 'generating' === status }
 							>
-								{ __( 'Create new statement page', 'accessi-compliance-kit' ) }
+								{ __( 'Create new statement page', 'accessibility-compliance-kit-for-woocommerce' ) }
 							</Button>
 						</>
 					) : (
@@ -70,7 +70,7 @@ export default function Dashboard( { settings } ) {
 							<p>
 								{ __(
 									'Generate a WordPress page pre-populated with an EAA-compliant accessibility statement template.',
-									'accessi-compliance-kit'
+									'accessibility-compliance-kit-for-woocommerce'
 								) }
 							</p>
 							<Button
@@ -79,7 +79,7 @@ export default function Dashboard( { settings } ) {
 								isBusy={ 'generating' === status }
 								disabled={ 'generating' === status }
 							>
-								{ __( 'Create statement page', 'accessi-compliance-kit' ) }
+								{ __( 'Create statement page', 'accessibility-compliance-kit-for-woocommerce' ) }
 							</Button>
 						</>
 					) }
@@ -88,13 +88,13 @@ export default function Dashboard( { settings } ) {
 						<Notice status="warning" isDismissible={ false }>
 							{ __(
 								'A statement page already exists, so a new one was not created. Use "Create new statement page" to make a separate one anyway.',
-								'accessi-compliance-kit'
+								'accessibility-compliance-kit-for-woocommerce'
 							) }
 						</Notice>
 					) }
 					{ 'created' === status && (
 						<Notice status="success" isDismissible={ false }>
-							{ __( 'Statement page created as a draft. Review it before publishing.', 'accessi-compliance-kit' ) }
+							{ __( 'Statement page created as a draft. Review it before publishing.', 'accessibility-compliance-kit-for-woocommerce' ) }
 						</Notice>
 					) }
 					{ 'error' === status && message && (

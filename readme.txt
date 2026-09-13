@@ -1,10 +1,10 @@
-=== Accessi Compliance Kit ===
+=== Accessibility Compliance Kit for WooCommerce ===
 Contributors: tazeenehsan
 Tags: accessibility, wcag, woocommerce, compliance, a11y
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Scan your WooCommerce store for accessibility issues (WCAG 2.1 A/AA), apply opti
 
 == Description ==
 
-**Accessi Compliance Kit** helps WooCommerce store owners work toward the accessibility level that the European Accessibility Act (EAA) and WCAG 2.1 AA expect from online shops — without overlays, external services, or data ever leaving your site.
+**Accessibility Compliance Kit for WooCommerce** helps WooCommerce store owners work toward the accessibility level that the European Accessibility Act (EAA) and WCAG 2.1 AA expect from online shops — without overlays, external services, or data ever leaving your site.
 
 = Scanning =
 
@@ -47,6 +47,10 @@ Nothing is changed on your store until you explicitly switch a fix on. Every fix
 * Admin-bar notice when the last scan detected critical issues
 * Optional (opt-in) weekly email reminder to run a scan
 
+### Source Code
+
+[Source Code](https://github.com/TazeenEhsan/accessi-compliance-kit/tree/dev)
+
 = Privacy: everything stays on your server =
 
 The free version makes **zero external calls**. The scanning engine is bundled with the plugin, scans run in your own browser against your own site, and results are stored only in your own WordPress database. No telemetry, no phone-home, no accounts.
@@ -58,7 +62,7 @@ The free version makes **zero external calls**. The scanning engine is bundled w
 
 == Installation ==
 
-1. Install via **Plugins → Add New** (search for "Accessi Compliance Kit"), or upload the plugin zip via **Plugins → Add New → Upload Plugin**.
+1. Install via **Plugins → Add New** (search for "Accessibility Compliance Kit for WooCommerce"), or upload the plugin zip via **Plugins → Add New → Upload Plugin**.
 2. Activate the plugin. WooCommerce 8.0+ must be installed and active.
 3. Go to **WooCommerce → Accessibility**.
 4. Run your first scan from the **Scan** tab (your home page is pre-filled — any page on your site works).
@@ -69,7 +73,7 @@ The free version makes **zero external calls**. The scanning engine is bundled w
 
 = Does this plugin make my store legally compliant with the EAA or ADA? =
 
-No automated tool can do that, and you should be wary of any that claims to. Accessi Compliance Kit detects a subset of WCAG 2.1 A/AA issues automatically, fixes several common ones when you opt in, and gives you a statement template — a strong, honest starting point. Full conformance also requires human review (e.g. of keyboard flows, content clarity, and color use in images). Nothing in this plugin is legal advice.
+No automated tool can do that, and you should be wary of any that claims to. Accessibility Compliance Kit for WooCommerce detects a subset of WCAG 2.1 A/AA issues automatically, fixes several common ones when you opt in, and gives you a statement template — a strong, honest starting point. Full conformance also requires human review (e.g. of keyboard flows, content clarity, and color use in images). Nothing in this plugin is legal advice.
 
 = Does the European Accessibility Act apply to my store? =
 
@@ -81,7 +85,7 @@ No. The scanner (axe-core) is bundled inside the plugin and runs in your own bro
 
 = Is this an accessibility overlay? =
 
-No. Overlay widgets layer a toolbar over your site without fixing the underlying markup, and regulators and disability advocates consider them inadequate. Accessi Compliance Kit reports real issues in your pages and — only when you enable a fix — corrects the actual markup.
+No. Overlay widgets layer a toolbar over your site without fixing the underlying markup, and regulators and disability advocates consider them inadequate. Accessibility Compliance Kit for WooCommerce reports real issues in your pages and — only when you enable a fix — corrects the actual markup.
 
 = Do I need WooCommerce? =
 
@@ -95,7 +99,7 @@ Every theme is different, and we never change your store's front end without you
 
 Most fixes are invisible (alt text, screen-reader labels, accessible names). "Visible focus states" is the exception by design: it shows a high-contrast outline around the element currently focused via keyboard — this is exactly what WCAG asks for.
 
-= A scan reports issues that come from my theme or another plugin. Can Accessi Compliance Kit fix those? =
+= A scan reports issues that come from my theme or another plugin. Can Accessibility Compliance Kit for WooCommerce fix those? =
 
 The scanner reports everything it detects on the rendered page, whatever the source. The six included fixes target the most common WooCommerce storefront issues. Issues originating in a theme or another plugin may need to be fixed there — the scan's per-issue guidance tells you what to change.
 
@@ -108,6 +112,9 @@ The scanner reports everything it detects on the rendered page, whatever the sou
 
 == Changelog ==
 
+= 1.0.1 =
+* Renamed from "Accessi Compliance Kit" to "Accessibility Compliance Kit for WooCommerce" prior to first public release.
+
 = 1.0.0 =
 * Initial release.
 * Single-page accessibility scanner (axe-core, bundled) with severity-grouped results and scan history.
@@ -117,5 +124,5 @@ The scanner reports everything it detects on the rendered page, whatever the sou
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-Initial release.
+= 1.0.1 =
+Plugin renamed prior to first public release; no action needed.

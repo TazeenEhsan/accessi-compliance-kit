@@ -2,8 +2,8 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Accessi Compliance Kit 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/accessi-compliance-kit\n"
+"Project-Id-Version: Accessibility Compliance Kit for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/accessibility-compliance-kit-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,10 +12,10 @@ msgstr ""
 "POT-Creation-Date: 2026-08-15T17:18:18+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
-"X-Domain: accessi-compliance-kit\n"
+"X-Domain: accessibility-compliance-kit-for-woocommerce\n"
 
 #. Plugin Name of the plugin
-msgid "Accessi Compliance Kit"
+msgid "Accessibility Compliance Kit for WooCommerce"
 msgstr ""
 
 #. Description of the plugin
@@ -92,11 +92,11 @@ msgid "Minor"
 msgstr ""
 
 #: src/Admin/EmailReminder.php:50
-msgid "Once Weekly (Accessi Compliance Kit)"
+msgid "Once Weekly (Accessibility Compliance Kit for WooCommerce)"
 msgstr ""
 
 #: src/Admin/EmailReminder.php:116
-msgid "Accessi Compliance Kit — weekly scan reminder"
+msgid "Accessibility Compliance Kit for WooCommerce — weekly scan reminder"
 msgstr ""
 
 #. translators: %s: URL to the plugin's scan page.
@@ -189,7 +189,7 @@ msgid "Fills in missing alt text on product images using the product title."
 msgstr ""
 
 #: src/Plugin.php:83
-msgid "Accessi Compliance Kit requires WooCommerce 8.0+ to be installed and active."
+msgid "Accessibility Compliance Kit for WooCommerce requires WooCommerce 8.0+ to be installed and active."
 msgstr ""
 
 #: src/Scanner/ScanController.php:62
@@ -617,7 +617,7 @@ msgid "Installation & activation"
 msgstr ""
 
 #: assets/js/src/guide/content.jsx:164
-msgid "Go to <strong>Plugins → Add New</strong>, search for “Accessi Compliance Kit”, click <strong>Install Now</strong>, then <strong>Activate</strong>. (Or upload the zip via <strong>Plugins → Add New → Upload Plugin</strong>.)"
+msgid "Go to <strong>Plugins → Add New</strong>, search for “Accessibility Compliance Kit for WooCommerce”, click <strong>Install Now</strong>, then <strong>Activate</strong>. (Or upload the zip via <strong>Plugins → Add New → Upload Plugin</strong>.)"
 msgstr ""
 
 #: assets/js/src/guide/content.jsx:165
@@ -881,15 +881,15 @@ msgid "Prefixes, body classes & data"
 msgstr ""
 
 #: assets/js/src/guide/content.jsx:366
-msgid "All AJAX actions, options, hooks, CSS classes, and script handles are prefixed <code>accessi_compliance_kit_</code> / <code>.accessi-compliance-kit-</code>."
+msgid "All AJAX actions, options, hooks, CSS classes, and script handles are prefixed <code>accessibility_compliance_kit_for_woocommerce_</code> / <code>.accessibility-compliance-kit-for-woocommerce-</code>."
 msgstr ""
 
 #: assets/js/src/guide/content.jsx:368
-msgid "When any fix is active, <bodyTag/> gets the class <code>accessi-compliance-kit-fixes-active</code> plus one class per active fix — use these to scope your own CSS overrides."
+msgid "When any fix is active, <bodyTag/> gets the class <code>accessibility-compliance-kit-for-woocommerce-fixes-active</code> plus one class per active fix — use these to scope your own CSS overrides."
 msgstr ""
 
 #: assets/js/src/guide/content.jsx:371
-msgid "Scan results live in the <code>accessi_compliance_kit_scans</code> table (with your site’s table prefix); treat it as read-only."
+msgid "Scan results live in the <code>accessibility_compliance_kit_for_woocommerce_scans</code> table (with your site’s table prefix); treat it as read-only."
 msgstr ""
 
 #: assets/js/src/guide/content.jsx:372

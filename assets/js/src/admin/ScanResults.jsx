@@ -20,17 +20,17 @@ function ViolationPanel( { violation } ) {
 		<PanelBody title={ violation.rule } initialOpen={ false }>
 			<p>{ violation.description }</p>
 			<p>
-				<strong>{ __( 'How to fix:', 'accessi-compliance-kit' ) }</strong> { violation.help }
+				<strong>{ __( 'How to fix:', 'accessibility-compliance-kit-for-woocommerce' ) }</strong> { violation.help }
 			</p>
 			{ violation.help_url && (
 				<p>
 					<ExternalLink href={ violation.help_url }>
-						{ __( 'Learn more', 'accessi-compliance-kit' ) }
+						{ __( 'Learn more', 'accessibility-compliance-kit-for-woocommerce' ) }
 					</ExternalLink>
 				</p>
 			) }
 			{ ( violation.nodes || [] ).map( ( node, index ) => (
-				<div className="accessi-compliance-kit-violation-node" key={ index }>
+				<div className="accessibility-compliance-kit-for-woocommerce-violation-node" key={ index }>
 					<p>
 						<code>{ node.selector }</code>
 					</p>
@@ -57,7 +57,7 @@ function ViolationPanel( { violation } ) {
  */
 function SeverityGroup( { severity, label, items } ) {
 	return (
-		<div className={ `accessi-compliance-kit-severity-group accessi-compliance-kit-severity-${ severity }` }>
+		<div className={ `accessibility-compliance-kit-for-woocommerce-severity-group accessibility-compliance-kit-for-woocommerce-severity-${ severity }` }>
 			<h3>{ `${ label } (${ items.length })` }</h3>
 			{ items.map( ( violation, index ) => (
 				<ViolationPanel key={ `${ violation.rule }-${ index }` } violation={ violation } />
@@ -92,15 +92,15 @@ export default function ScanResults( { scan, severityLabels = {} } ) {
 	);
 
 	return (
-		<Card className="accessi-compliance-kit-scan-results">
+		<Card className="accessibility-compliance-kit-for-woocommerce-scan-results">
 			<CardBody>
 				{ 0 === violations.length ? (
-					<p>{ __( 'No detected issues on this page.', 'accessi-compliance-kit' ) }</p>
+					<p>{ __( 'No detected issues on this page.', 'accessibility-compliance-kit-for-woocommerce' ) }</p>
 				) : (
 					<p>
 						{ sprintf(
 							/* translators: 1: number of detected issues, 2: scanned URL */
-							__( '%1$d detected issues found on %2$s', 'accessi-compliance-kit' ),
+							__( '%1$d detected issues found on %2$s', 'accessibility-compliance-kit-for-woocommerce' ),
 							summary.total || violations.length,
 							scan.url
 						) }
@@ -120,7 +120,7 @@ export default function ScanResults( { scan, severityLabels = {} } ) {
 				{ uncategorized.length > 0 && (
 					<SeverityGroup
 						severity="unknown"
-						label={ __( 'Other', 'accessi-compliance-kit' ) }
+						label={ __( 'Other', 'accessibility-compliance-kit-for-woocommerce' ) }
 						items={ uncategorized }
 					/>
 				) }

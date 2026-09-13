@@ -2,27 +2,27 @@
 /**
  * Tests for FixManager.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Fixes\FixManager;
+use AccessibilityComplianceKitForWooCommerce\Fixes\FixManager;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Fixes\FixManager
+ * @covers \AccessibilityComplianceKitForWooCommerce\Fixes\FixManager
  */
 class FixManagerTest extends TestCase {
 
 	/**
-	 * Stubbed `accessi_compliance_kit_active_fixes` option value for the test.
+	 * Stubbed `accessibility_compliance_kit_for_woocommerce_active_fixes` option value for the test.
 	 *
 	 * @var array
 	 */
@@ -44,7 +44,7 @@ class FixManagerTest extends TestCase {
 
 		Functions\when( 'get_option' )->alias(
 			function ( $key, $default = false ) {
-				return 'accessi_compliance_kit_active_fixes' === $key ? $this->active_fixes : $default;
+				return 'accessibility_compliance_kit_for_woocommerce_active_fixes' === $key ? $this->active_fixes : $default;
 			}
 		);
 
@@ -100,9 +100,9 @@ class FixManagerTest extends TestCase {
 
 		$classes = ( new FixManager() )->filter_body_class( array( 'existing' ) );
 
-		$this->assertContains( 'accessi-compliance-kit-fix-focus_states', $classes );
-		$this->assertContains( 'accessi-compliance-kit-fixes-active', $classes );
-		$this->assertNotContains( 'accessi-compliance-kit-fix-checkout_labels', $classes );
+		$this->assertContains( 'accessibility-compliance-kit-for-woocommerce-fix-focus_states', $classes );
+		$this->assertContains( 'accessibility-compliance-kit-for-woocommerce-fixes-active', $classes );
+		$this->assertNotContains( 'accessibility-compliance-kit-for-woocommerce-fix-checkout_labels', $classes );
 	}
 
 	public function test_filter_body_class_leaves_classes_untouched_when_none_enabled() {

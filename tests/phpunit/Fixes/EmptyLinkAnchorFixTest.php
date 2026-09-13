@@ -2,22 +2,22 @@
 /**
  * Tests for EmptyLinkAnchorFix.
  *
- * @package AccessiComplianceKit
+ * @package AccessibilityComplianceKitForWooCommerce
  */
 
-namespace AccessiComplianceKit\Tests\Fixes;
+namespace AccessibilityComplianceKitForWooCommerce\Tests\Fixes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use AccessiComplianceKit\Fixes\EmptyLinkAnchorFix;
+use AccessibilityComplianceKitForWooCommerce\Fixes\EmptyLinkAnchorFix;
 use Brain\Monkey;
 use Brain\Monkey\Functions;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AccessiComplianceKit\Fixes\EmptyLinkAnchorFix
+ * @covers \AccessibilityComplianceKitForWooCommerce\Fixes\EmptyLinkAnchorFix
  */
 class EmptyLinkAnchorFixTest extends TestCase {
 
