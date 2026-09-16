@@ -23,7 +23,7 @@ Conventions for all PHP/JS/CSS in this project. Binding rules live in `AI_RULES.
 - Prefix everything `accessibility_compliance_kit_for_woocommerce_` (options, hooks, transients, cron events, handles).
 - Fire plugin hooks at meaningful moments (`accessibility_compliance_kit_for_woocommerce_after_scan_saved`, etc.) with documented params.
 - Use WP APIs over raw PHP: `wp_json_encode`, `wp_remote_*` (Pro only), `wp_mail`, `current_time`/`gmdate`, `wp_insert_post`.
-- i18n: every user-facing string in `__()`/`esc_html__()`/etc. with literal text-domain `accessibility-compliance-kit-for-woocommerce`; translator comments for placeholders.
+- i18n: every user-facing string in `__()`/`esc_html__()`/etc. with literal text-domain `tazeen-store-accessibility-kit-for-woocommerce`; translator comments for placeholders.
 
 ### Documentation
 - PHPDoc on every class and public method: one-line summary, `@param`/`@return` with types, `@since` with the plugin version.
@@ -33,7 +33,7 @@ Conventions for all PHP/JS/CSS in this project. Binding rules live in `AI_RULES.
 
 - Build with `@wordpress/scripts`; extend its webpack config, never eject/replace (proposal §5.1).
 - ESLint with `@wordpress/eslint-plugin` recommended preset; Prettier via the WP config.
-- React via `@wordpress/element`; UI from `@wordpress/components`; i18n via `@wordpress/i18n` (`__( 'Text', 'accessibility-compliance-kit-for-woocommerce' )`). These resolve to WP-core externals — never bundle React itself.
+- React via `@wordpress/element`; UI from `@wordpress/components`; i18n via `@wordpress/i18n` (`__( 'Text', 'tazeen-store-accessibility-kit-for-woocommerce' )`). These resolve to WP-core externals — never bundle React itself.
 - Functional components + hooks only; one component per file, PascalCase filenames matching proposal §5.2 (`ScanResults.jsx`, `Settings.jsx`, `Dashboard.jsx`, `App.jsx`).
 - State: local `useState`/`useReducer` is enough for this app's size; no Redux/external state libs.
 - Never `dangerouslySetInnerHTML` with scan data (docs/security.md §3).
@@ -42,8 +42,8 @@ Conventions for all PHP/JS/CSS in this project. Binding rules live in `AI_RULES.
 
 ## 3. CSS
 
-- Files per §5.2: `admin.css`, `frontend-fixes.css`. All selectors prefixed `.accessibility-compliance-kit-for-woocommerce-`.
-- `frontend-fixes.css`: minimal, defensive specificity, scoped under the `body_class` flags (`.accessibility-compliance-kit-for-woocommerce-fixes-active`); must never restyle theme elements beyond the fix's stated purpose.
+- Files per §5.2: `admin.css`, `frontend-fixes.css`. All selectors prefixed `.tazeen-store-accessibility-kit-for-woocommerce-`.
+- `frontend-fixes.css`: minimal, defensive specificity, scoped under the `body_class` flags (`.tazeen-store-accessibility-kit-for-woocommerce-fixes-active`); must never restyle theme elements beyond the fix's stated purpose.
 - Focus styles use `:focus-visible` with `:focus` fallback; respect `prefers-reduced-motion` for anything animated.
 
 ## 4. Testing (proposal §5.1: PHPUnit + Jest)
@@ -58,7 +58,7 @@ Conventions for all PHP/JS/CSS in this project. Binding rules live in `AI_RULES.
 - Small commits, one TASKS.md task per commit where feasible; message references the task (e.g. `Phase 1.2: ScanStorage create/complete/fail`).
 - Branches: `main` (releasable), `dev` (integration) — both already exist in the repo.
 - Never commit `node_modules/`, `build/`; `vendor/` excluded from git, produced by `composer install --no-dev` in the release build (proposal §5.2 gitignore notes).
-- Version bumps: plugin header + `ACKFW_VERSION` + `readme.txt` stable tag + changelog together.
+- Version bumps: plugin header + `TSAKW_VERSION` + `readme.txt` stable tag + changelog together.
 
 ## 6. Definition of Done (per task)
 

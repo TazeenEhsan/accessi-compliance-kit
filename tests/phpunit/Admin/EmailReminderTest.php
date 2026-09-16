@@ -163,7 +163,7 @@ class EmailReminderTest extends TestCase {
 				return 'admin_email' === $key ? 'owner@example.test' : $default;
 			}
 		);
-		Functions\when( 'add_query_arg' )->justReturn( 'https://example.test/wp-admin/admin.php?page=accessibility-compliance-kit-for-woocommerce' );
+		Functions\when( 'add_query_arg' )->justReturn( 'https://example.test/wp-admin/admin.php?page=tazeen-store-accessibility-kit-for-woocommerce' );
 		Functions\when( 'admin_url' )->justReturn( 'https://example.test/wp-admin/admin.php' );
 		Functions\when( 'esc_url_raw' )->returnArg();
 		Functions\expect( 'wp_mail' )->once()->with( 'owner@example.test', \Mockery::type( 'string' ), \Mockery::type( 'string' ) );

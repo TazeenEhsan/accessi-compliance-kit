@@ -1,5 +1,5 @@
 {
-    "name": "tazeenehsan/accessibility-compliance-kit-for-woocommerce",
+    "name": "tazeenehsan/tazeen-store-accessibility-kit-for-woocommerce",
     "description": "Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements.",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",

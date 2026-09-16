@@ -14,7 +14,7 @@ Implements proposal §4.1 (Scanning, Basic auto-fixes), §5.5 (scan data flow), 
 
 ## 2. Frontend Fix CSS (`assets/css/frontend-fixes.css`)
 
-Enqueued via `wp_enqueue_scripts` only when at least one CSS-based fix is enabled. Keep it small and scoped; when fixes are active, `body_class` gets `accessibility-compliance-kit-for-woocommerce-fixes-active` plus per-fix classes so CSS can target precisely (proposal §5.4).
+Enqueued via `wp_enqueue_scripts` only when at least one CSS-based fix is enabled. Keep it small and scoped; when fixes are active, `body_class` gets `tazeen-store-accessibility-kit-for-woocommerce-fixes-active` plus per-fix classes so CSS can target precisely (proposal §5.4).
 
 ## 3. Fix Framework (proposal §5.6)
 

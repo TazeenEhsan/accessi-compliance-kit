@@ -41,19 +41,19 @@ export default function Dashboard( { settings } ) {
 	};
 
 	return (
-		<div className="accessibility-compliance-kit-for-woocommerce-dashboard">
-			<Card className="accessibility-compliance-kit-for-woocommerce-statement-card">
+		<div className="tazeen-store-accessibility-kit-for-woocommerce-dashboard">
+			<Card className="tazeen-store-accessibility-kit-for-woocommerce-statement-card">
 				<CardHeader>
-					<h2>{ __( 'Accessibility statement', 'accessibility-compliance-kit-for-woocommerce' ) }</h2>
+					<h2>{ __( 'Accessibility statement', 'tazeen-store-accessibility-kit-for-woocommerce' ) }</h2>
 				</CardHeader>
 				<CardBody>
 					{ statement.pageId ? (
 						<>
 							<p>
-								{ __( 'An accessibility statement page has been created.', 'accessibility-compliance-kit-for-woocommerce' ) }
+								{ __( 'An accessibility statement page has been created.', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 							</p>
 							<Button variant="secondary" href={ statement.editLink }>
-								{ __( 'Edit statement page', 'accessibility-compliance-kit-for-woocommerce' ) }
+								{ __( 'Edit statement page', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 							</Button>
 							{ ' ' }
 							<Button
@@ -62,7 +62,7 @@ export default function Dashboard( { settings } ) {
 								isBusy={ 'generating' === status }
 								disabled={ 'generating' === status }
 							>
-								{ __( 'Create new statement page', 'accessibility-compliance-kit-for-woocommerce' ) }
+								{ __( 'Create new statement page', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 							</Button>
 						</>
 					) : (
@@ -70,7 +70,7 @@ export default function Dashboard( { settings } ) {
 							<p>
 								{ __(
 									'Generate a WordPress page pre-populated with an EAA-compliant accessibility statement template.',
-									'accessibility-compliance-kit-for-woocommerce'
+									'tazeen-store-accessibility-kit-for-woocommerce'
 								) }
 							</p>
 							<Button
@@ -79,7 +79,7 @@ export default function Dashboard( { settings } ) {
 								isBusy={ 'generating' === status }
 								disabled={ 'generating' === status }
 							>
-								{ __( 'Create statement page', 'accessibility-compliance-kit-for-woocommerce' ) }
+								{ __( 'Create statement page', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 							</Button>
 						</>
 					) }
@@ -88,13 +88,13 @@ export default function Dashboard( { settings } ) {
 						<Notice status="warning" isDismissible={ false }>
 							{ __(
 								'A statement page already exists, so a new one was not created. Use "Create new statement page" to make a separate one anyway.',
-								'accessibility-compliance-kit-for-woocommerce'
+								'tazeen-store-accessibility-kit-for-woocommerce'
 							) }
 						</Notice>
 					) }
 					{ 'created' === status && (
 						<Notice status="success" isDismissible={ false }>
-							{ __( 'Statement page created as a draft. Review it before publishing.', 'accessibility-compliance-kit-for-woocommerce' ) }
+							{ __( 'Statement page created as a draft. Review it before publishing.', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 						</Notice>
 					) }
 					{ 'error' === status && message && (

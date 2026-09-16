@@ -73,7 +73,7 @@ After implementation:
 - **Purpose:** Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, generate EAA compliance statements
 - **License:** GPLv2 or later — every bundled dependency must be GPL-compatible (axe-core MIT ✓, DomPDF LGPL 2.1 ✓)
 - **Distribution:** WordPress.org (free) + Freemius (Pro). Free version must pass WordPress.org plugin review on the first submission.
-- **Repo note:** the development folder is `accessibility-compliance-kit-for-woocommerce/`; the plugin's internal structure follows proposal §5.2 (`accessibility-compliance-kit-for-woocommerce.php`, `src/`, `assets/`, etc.).
+- **Repo note:** the development folder is `tazeen-store-accessibility-kit-for-woocommerce/`; the plugin's internal structure follows proposal §5.2 (`tazeen-store-accessibility-kit-for-woocommerce.php`, `src/`, `assets/`, etc.).
 
 ## 2. Absolute Constraints (never violate)
 
@@ -95,8 +95,8 @@ After implementation:
 
 ## 4. Naming & Code Conventions
 
-- **Prefix everything** with `accessibility_compliance_kit_for_woocommerce_` / `ACKFW_`: options, transients, AJAX actions, script/style handles, DB tables (`{$wpdb->prefix}accessibility_compliance_kit_for_woocommerce_*`), REST namespace (`accessibility-compliance-kit-for-woocommerce/v1`), CSS classes (`.accessibility-compliance-kit-for-woocommerce-*`), JS globals.
-- **Text domain:** `accessibility-compliance-kit-for-woocommerce` — every user-facing string wrapped in `__()` / `_e()` / `esc_html__()` etc. with this domain. No variable text domains.
+- **Prefix everything** with `accessibility_compliance_kit_for_woocommerce_` / `TSAKW_`: options, transients, AJAX actions, script/style handles, DB tables (`{$wpdb->prefix}accessibility_compliance_kit_for_woocommerce_*`), REST namespace (`tazeen-store-accessibility-kit-for-woocommerce/v1`), CSS classes (`.tazeen-store-accessibility-kit-for-woocommerce-*`), JS globals.
+- **Text domain:** `tazeen-store-accessibility-kit-for-woocommerce` — every user-facing string wrapped in `__()` / `_e()` / `esc_html__()` etc. with this domain. No variable text domains.
 - **PHP namespace:** `AccessibilityComplianceKitForWooCommerce\` mapping to `src/` via PSR-4 (`AccessibilityComplianceKitForWooCommerce\Admin\AdminMenu` → `src/Admin/AdminMenu.php`). One class per file, filename equals class name.
 - **Coding standard:** WordPress Coding Standards (WPCS) for PHP; `@wordpress/eslint-plugin` defaults for JS. See `docs/coding-guidelines.md`.
 - **Hooks fired by the plugin** are prefixed `accessibility_compliance_kit_for_woocommerce_` (e.g. `accessibility_compliance_kit_for_woocommerce_after_scan_saved`).

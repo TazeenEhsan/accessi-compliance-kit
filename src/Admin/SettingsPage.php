@@ -63,7 +63,7 @@ class SettingsPage {
 
 		if ( ! Capabilities::can_manage_settings() ) {
 			wp_send_json_error(
-				array( 'message' => __( 'You are not allowed to change these settings.', 'accessibility-compliance-kit-for-woocommerce' ) ),
+				array( 'message' => __( 'You are not allowed to change these settings.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ),
 				403
 			);
 		}

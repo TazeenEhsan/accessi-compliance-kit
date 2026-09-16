@@ -88,7 +88,7 @@ The scanner reports everything on the rendered page regardless of origin. The pe
 
 ## 9. For developers
 
-- All AJAX actions, options, hooks, CSS classes, and script handles are prefixed `accessibility_compliance_kit_for_woocommerce_` / `.accessibility-compliance-kit-for-woocommerce-`.
-- When any fix is active, `<body>` gets the class `accessibility-compliance-kit-for-woocommerce-fixes-active` plus one class per active fix — use these to scope your own CSS overrides.
+- All AJAX actions, options, hooks, CSS classes, and script handles are prefixed `accessibility_compliance_kit_for_woocommerce_` / `.tazeen-store-accessibility-kit-for-woocommerce-`.
+- When any fix is active, `<body>` gets the class `tazeen-store-accessibility-kit-for-woocommerce-fixes-active` plus one class per active fix — use these to scope your own CSS overrides.
 - Scan results live in the `{$wpdb->prefix}accessibility_compliance_kit_for_woocommerce_scans` table; treat it as read-only.
 - Source JS is included in the plugin under `assets/js/src/`; builds use `@wordpress/scripts`.

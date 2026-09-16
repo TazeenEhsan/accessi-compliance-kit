@@ -32,6 +32,6 @@ class Logger {
 		}
 
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- WP_DEBUG-gated wrapper is this class's stated purpose.
-		error_log( '[accessibility-compliance-kit-for-woocommerce] ' . $message );
+		error_log( '[tazeen-store-accessibility-kit-for-woocommerce] ' . $message );
 	}
 }

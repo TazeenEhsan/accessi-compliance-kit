@@ -30,17 +30,17 @@ export default function GuideItem( { item, bulk, forceOpen } ) {
 
 	return (
 		<details
-			className="accessibility-compliance-kit-for-woocommerce-guide-item"
+			className="tazeen-store-accessibility-kit-for-woocommerce-guide-item"
 			open={ isOpen }
 			onToggle={ ( event ) => setIsOpen( event.target.open ) }
 		>
 			<summary>{ item.title }</summary>
-			<div className="accessibility-compliance-kit-for-woocommerce-guide-item-body">
+			<div className="tazeen-store-accessibility-kit-for-woocommerce-guide-item-body">
 				{ item.body }
 				{ item.contexts && item.contexts.length > 0 && (
-					<div className="accessibility-compliance-kit-for-woocommerce-fix-contexts">
+					<div className="tazeen-store-accessibility-kit-for-woocommerce-fix-contexts">
 						{ item.contexts.map( ( context ) => (
-							<span key={ context } className="accessibility-compliance-kit-for-woocommerce-context-badge">
+							<span key={ context } className="tazeen-store-accessibility-kit-for-woocommerce-context-badge">
 								{ context }
 							</span>
 						) ) }

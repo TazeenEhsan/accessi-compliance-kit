@@ -32,32 +32,32 @@ function accessibility_compliance_kit_for_woocommerce_statement_template_en( arr
 		array(
 			'body' => sprintf(
 				/* translators: %s: site name. */
-				esc_html__( '%s is committed to ensuring digital accessibility for people of all abilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.', 'accessibility-compliance-kit-for-woocommerce' ),
+				esc_html__( '%s is committed to ensuring digital accessibility for people of all abilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				esc_html( $site_name )
 			),
 		),
 		array(
-			'heading' => esc_html__( 'Conformance status', 'accessibility-compliance-kit-for-woocommerce' ),
+			'heading' => esc_html__( 'Conformance status', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 			'body'    => sprintf(
 				/* translators: %s: claimed WCAG conformance level, e.g. "WCAG 2.1 Level AA". */
-				esc_html__( 'This website aims to conform to %s. We have not yet completed a full audit, so this statement reflects our ongoing effort rather than a certified result.', 'accessibility-compliance-kit-for-woocommerce' ),
+				esc_html__( 'This website aims to conform to %s. We have not yet completed a full audit, so this statement reflects our ongoing effort rather than a certified result.', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				esc_html( $compliance_level )
 			),
 		),
 		array(
-			'heading' => esc_html__( 'Known limitations', 'accessibility-compliance-kit-for-woocommerce' ),
-			'body'    => esc_html__( 'Despite our best efforts, some content or functionality on this site may not yet be fully accessible. We are actively working to identify and address these issues. If you encounter a barrier, please let us know using the contact details below.', 'accessibility-compliance-kit-for-woocommerce' ),
+			'heading' => esc_html__( 'Known limitations', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+			'body'    => esc_html__( 'Despite our best efforts, some content or functionality on this site may not yet be fully accessible. We are actively working to identify and address these issues. If you encounter a barrier, please let us know using the contact details below.', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 		),
 		array(
-			'heading' => esc_html__( 'Feedback and contact information', 'accessibility-compliance-kit-for-woocommerce' ),
+			'heading' => esc_html__( 'Feedback and contact information', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 			'body'    => sprintf(
 				/* translators: %s: contact email address for accessibility issues. */
-				esc_html__( 'We welcome your feedback on the accessibility of this website. Please contact us at %s if you encounter an accessibility barrier.', 'accessibility-compliance-kit-for-woocommerce' ),
+				esc_html__( 'We welcome your feedback on the accessibility of this website. Please contact us at %s if you encounter an accessibility barrier.', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				esc_html( $contact_email )
 			),
 		),
 		array(
-			'heading' => esc_html__( 'Date of last review', 'accessibility-compliance-kit-for-woocommerce' ),
+			'heading' => esc_html__( 'Date of last review', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 			'body'    => esc_html( $review_date ),
 		),
 	);

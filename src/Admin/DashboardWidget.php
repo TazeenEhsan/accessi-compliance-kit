@@ -60,7 +60,7 @@ class DashboardWidget {
 
 		wp_add_dashboard_widget(
 			self::WIDGET_ID,
-			__( 'Accessibility Compliance', 'accessibility-compliance-kit-for-woocommerce' ),
+			__( 'Accessibility Compliance', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 			array( $this, 'render' )
 		);
 	}
@@ -79,11 +79,11 @@ class DashboardWidget {
 				wp_kses_post(
 					sprintf(
 						/* translators: %s: link to run the first scan. */
-						__( 'No scans yet. %s', 'accessibility-compliance-kit-for-woocommerce' ),
+						__( 'No scans yet. %s', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 						sprintf(
 							'<a href="%s">%s</a>',
 							esc_url( $this->admin_page_url() ),
-							esc_html__( 'Run your first scan', 'accessibility-compliance-kit-for-woocommerce' )
+							esc_html__( 'Run your first scan', 'tazeen-store-accessibility-kit-for-woocommerce' )
 						)
 					)
 				)
@@ -97,7 +97,7 @@ class DashboardWidget {
 			esc_html(
 				sprintf(
 					/* translators: %s: last scan date/time in the site's timezone. */
-					__( 'Last scan: %s', 'accessibility-compliance-kit-for-woocommerce' ),
+					__( 'Last scan: %s', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 					get_date_from_gmt( $scan['started_at'], 'Y-m-d H:i' )
 				)
 			)
@@ -105,7 +105,7 @@ class DashboardWidget {
 
 		$summary = $scan['summary'];
 
-		echo '<ul class="accessibility-compliance-kit-for-woocommerce-dashboard-widget-summary">';
+		echo '<ul class="tazeen-store-accessibility-kit-for-woocommerce-dashboard-widget-summary">';
 
 		foreach ( $this->severity_labels() as $key => $label ) {
 			printf(
@@ -120,7 +120,7 @@ class DashboardWidget {
 		printf(
 			'<p><a href="%s">%s</a></p>',
 			esc_url( $this->admin_page_url() ),
-			esc_html__( 'View full results', 'accessibility-compliance-kit-for-woocommerce' )
+			esc_html__( 'View full results', 'tazeen-store-accessibility-kit-for-woocommerce' )
 		);
 	}
 
@@ -131,10 +131,10 @@ class DashboardWidget {
 	 */
 	private function severity_labels() {
 		return array(
-			'critical' => __( 'Critical', 'accessibility-compliance-kit-for-woocommerce' ),
-			'serious'  => __( 'Serious', 'accessibility-compliance-kit-for-woocommerce' ),
-			'moderate' => __( 'Moderate', 'accessibility-compliance-kit-for-woocommerce' ),
-			'minor'    => __( 'Minor', 'accessibility-compliance-kit-for-woocommerce' ),
+			'critical' => __( 'Critical', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+			'serious'  => __( 'Serious', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+			'moderate' => __( 'Moderate', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+			'minor'    => __( 'Minor', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 		);
 	}
 

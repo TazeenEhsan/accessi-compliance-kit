@@ -15,14 +15,14 @@ import { ajaxRequest } from './utils/ajax';
 const settings = window.accessibilityComplianceKitForWooCommerceAdmin || {};
 
 const TABS = [
-	{ name: 'dashboard', title: __( 'Dashboard', 'accessibility-compliance-kit-for-woocommerce' ), className: 'accessibility-compliance-kit-for-woocommerce-tab-dashboard' },
-	{ name: 'scan', title: __( 'Scan', 'accessibility-compliance-kit-for-woocommerce' ), className: 'accessibility-compliance-kit-for-woocommerce-tab-scan' },
-	{ name: 'history', title: __( 'History', 'accessibility-compliance-kit-for-woocommerce' ), className: 'accessibility-compliance-kit-for-woocommerce-tab-history' },
-	{ name: 'settings', title: __( 'Settings', 'accessibility-compliance-kit-for-woocommerce' ), className: 'accessibility-compliance-kit-for-woocommerce-tab-settings' },
+	{ name: 'dashboard', title: __( 'Dashboard', 'tazeen-store-accessibility-kit-for-woocommerce' ), className: 'tazeen-store-accessibility-kit-for-woocommerce-tab-dashboard' },
+	{ name: 'scan', title: __( 'Scan', 'tazeen-store-accessibility-kit-for-woocommerce' ), className: 'tazeen-store-accessibility-kit-for-woocommerce-tab-scan' },
+	{ name: 'history', title: __( 'History', 'tazeen-store-accessibility-kit-for-woocommerce' ), className: 'tazeen-store-accessibility-kit-for-woocommerce-tab-history' },
+	{ name: 'settings', title: __( 'Settings', 'tazeen-store-accessibility-kit-for-woocommerce' ), className: 'tazeen-store-accessibility-kit-for-woocommerce-tab-settings' },
 ];
 
 /**
- * Root admin component mounted into `#accessibility-compliance-kit-for-woocommerce-admin`.
+ * Root admin component mounted into `#tazeen-store-accessibility-kit-for-woocommerce-admin`.
  *
  * @return {JSX.Element}
  */
@@ -49,17 +49,17 @@ export default function App() {
 	}, [] );
 
 	return (
-		<div className="accessibility-compliance-kit-for-woocommerce-admin-app">
-			<div className="accessibility-compliance-kit-for-woocommerce-admin-header">
-				<h1>{ __( 'Accessibility', 'accessibility-compliance-kit-for-woocommerce' ) }</h1>
+		<div className="tazeen-store-accessibility-kit-for-woocommerce-admin-app">
+			<div className="tazeen-store-accessibility-kit-for-woocommerce-admin-header">
+				<h1>{ __( 'Accessibility', 'tazeen-store-accessibility-kit-for-woocommerce' ) }</h1>
 				{ settings.guideUrl && (
 					<Button
 						variant="secondary"
 						href={ settings.guideUrl }
 						icon="book-alt"
-						className="accessibility-compliance-kit-for-woocommerce-guide-button"
+						className="tazeen-store-accessibility-kit-for-woocommerce-guide-button"
 					>
-						{ __( 'User Guide', 'accessibility-compliance-kit-for-woocommerce' ) }
+						{ __( 'User Guide', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 					</Button>
 				) }
 			</div>

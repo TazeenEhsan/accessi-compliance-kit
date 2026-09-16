@@ -1,13 +1,13 @@
-.accessibility-compliance-kit-for-woocommerce-admin-app {
+.tazeen-store-accessibility-kit-for-woocommerce-admin-app {
 	margin: 20px 20px 40px 2px;
 	max-width: 960px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-admin-app h1 {
+.tazeen-store-accessibility-kit-for-woocommerce-admin-app h1 {
 	margin-bottom: 16px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-admin-header {
+.tazeen-store-accessibility-kit-for-woocommerce-admin-header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -15,93 +15,93 @@
 	margin-bottom: 16px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-admin-header h1 {
+.tazeen-store-accessibility-kit-for-woocommerce-admin-header h1 {
 	margin: 0;
 	padding: 0;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-button.components-button {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-button.components-button {
 	border-color: #2271b1;
 	font-weight: 600;
 }
 
-.accessibility-compliance-kit-for-woocommerce-scan-runner {
+.tazeen-store-accessibility-kit-for-woocommerce-scan-runner {
 	max-width: 480px;
 	margin-bottom: 20px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-scan-runner .components-base-control {
+.tazeen-store-accessibility-kit-for-woocommerce-scan-runner .components-base-control {
 	margin-bottom: 12px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-scan-results {
+.tazeen-store-accessibility-kit-for-woocommerce-scan-results {
 	margin-top: 20px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-severity-group {
+.tazeen-store-accessibility-kit-for-woocommerce-severity-group {
 	margin-bottom: 24px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-severity-group h3 {
+.tazeen-store-accessibility-kit-for-woocommerce-severity-group h3 {
 	padding: 6px 10px;
 	border-left: 4px solid #ccc;
 	margin: 0 0 8px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-severity-critical h3 {
+.tazeen-store-accessibility-kit-for-woocommerce-severity-critical h3 {
 	border-left-color: #d63638;
 }
 
-.accessibility-compliance-kit-for-woocommerce-severity-serious h3 {
+.tazeen-store-accessibility-kit-for-woocommerce-severity-serious h3 {
 	border-left-color: #e65054;
 }
 
-.accessibility-compliance-kit-for-woocommerce-severity-moderate h3 {
+.tazeen-store-accessibility-kit-for-woocommerce-severity-moderate h3 {
 	border-left-color: #dba617;
 }
 
-.accessibility-compliance-kit-for-woocommerce-severity-minor h3 {
+.tazeen-store-accessibility-kit-for-woocommerce-severity-minor h3 {
 	border-left-color: #72aee6;
 }
 
-.accessibility-compliance-kit-for-woocommerce-violation-node {
+.tazeen-store-accessibility-kit-for-woocommerce-violation-node {
 	margin: 8px 0;
 	padding: 8px 10px;
 	background: #f6f7f7;
 	border-radius: 2px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-violation-node pre {
+.tazeen-store-accessibility-kit-for-woocommerce-violation-node pre {
 	white-space: pre-wrap;
 	word-break: break-word;
 	margin: 4px 0 0;
 }
 
-.accessibility-compliance-kit-for-woocommerce-history-table {
+.tazeen-store-accessibility-kit-for-woocommerce-history-table {
 	margin-top: 12px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-history-pagination {
+.tazeen-store-accessibility-kit-for-woocommerce-history-pagination {
 	display: flex;
 	gap: 8px;
 	margin-top: 12px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-settings {
+.tazeen-store-accessibility-kit-for-woocommerce-settings {
 	max-width: 640px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-fix-card {
+.tazeen-store-accessibility-kit-for-woocommerce-fix-card {
 	margin-bottom: 12px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-fix-contexts {
+.tazeen-store-accessibility-kit-for-woocommerce-fix-contexts {
 	display: flex;
 	gap: 6px;
 	margin-top: 8px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-context-badge {
+.tazeen-store-accessibility-kit-for-woocommerce-context-badge {
 	display: inline-block;
 	padding: 2px 8px;
 	border-radius: 10px;
@@ -114,11 +114,11 @@
 
 /* ---------- User Guide page ---------- */
 
-.accessibility-compliance-kit-for-woocommerce-guide {
+.tazeen-store-accessibility-kit-for-woocommerce-guide {
 	max-width: 860px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-header {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-header {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
@@ -126,7 +126,7 @@
 	margin: 16px 0 4px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-logo {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-logo {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -138,47 +138,47 @@
 	color: #fff;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-header h1 {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-header h1 {
 	margin: 0;
 	padding: 0;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-tagline {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-tagline {
 	margin: 4px 0 0;
 	color: #646970;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-actions {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-actions {
 	display: flex;
 	gap: 8px;
 	margin-left: auto;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-toolbar {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-toolbar {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 	margin-top: 16px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-toolbar .accessibility-compliance-kit-for-woocommerce-guide-search {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-toolbar .tazeen-store-accessibility-kit-for-woocommerce-guide-search {
 	flex: 1;
 	max-width: 360px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-search-count {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-search-count {
 	margin: 12px 0 4px;
 	color: #646970;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-nav {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-nav {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 6px;
 	margin: 16px 0 4px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-nav a {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-nav a {
 	padding: 4px 12px;
 	border: 1px solid #c3c4c7;
 	border-radius: 999px;
@@ -188,13 +188,13 @@
 	text-decoration: none;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-nav a:hover,
-.accessibility-compliance-kit-for-woocommerce-guide-nav a:focus {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-nav a:hover,
+.tazeen-store-accessibility-kit-for-woocommerce-guide-nav a:focus {
 	border-color: #2271b1;
 	background: #f0f6fc;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-section {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-section {
 	margin-top: 16px;
 	padding: 8px 20px 16px;
 	border: 1px solid #c3c4c7;
@@ -202,53 +202,53 @@
 	background: #fff;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-section h2 {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-section h2 {
 	margin: 10px 0 6px;
 	font-size: 16px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-intro {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-intro {
 	margin-top: 0;
 	color: #646970;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-item {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-item {
 	border-top: 1px solid #f0f0f1;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-item summary {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-item summary {
 	padding: 10px 0;
 	font-weight: 600;
 	cursor: pointer;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-item summary:hover,
-.accessibility-compliance-kit-for-woocommerce-guide-item summary:focus-visible {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-item summary:hover,
+.tazeen-store-accessibility-kit-for-woocommerce-guide-item summary:focus-visible {
 	color: #2271b1;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-item summary:focus-visible {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-item summary:focus-visible {
 	outline: 2px solid #2271b1;
 	outline-offset: 2px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-item-body {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-item-body {
 	padding: 0 0 14px 18px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-item-body > :first-child {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-item-body > :first-child {
 	margin-top: 0;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-item-body ul,
-.accessibility-compliance-kit-for-woocommerce-guide-item-body ol {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-item-body ul,
+.tazeen-store-accessibility-kit-for-woocommerce-guide-item-body ol {
 	margin: 8px 0 0 18px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-item-body li {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-item-body li {
 	margin-bottom: 6px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-guide-help {
+.tazeen-store-accessibility-kit-for-woocommerce-guide-help {
 	padding-bottom: 20px;
 }

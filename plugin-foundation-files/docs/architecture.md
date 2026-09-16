@@ -37,7 +37,7 @@ Authoritative layout is proposal §5.2 — reproduce it exactly. Summary of resp
 
 | Path | Responsibility |
 |---|---|
-| `accessibility-compliance-kit-for-woocommerce.php` | Headers, constants, autoloader require, activation/deactivation hook registration, boot `Plugin` |
+| `tazeen-store-accessibility-kit-for-woocommerce.php` | Headers, constants, autoloader require, activation/deactivation hook registration, boot `Plugin` |
 | `uninstall.php` | Full cleanup on deletion (table + options) |
 | `src/Plugin.php` | Singleton bootstrap; wires services on `plugins_loaded`; guarded Pro loader. No feature logic. |
 | `src/Activator.php` / `src/Deactivator.php` | Create table + seed defaults / unschedule cron. Deactivation never deletes data. |
@@ -54,11 +54,11 @@ Authoritative layout is proposal §5.2 — reproduce it exactly. Summary of resp
 | `languages/` | `.pot` for i18n |
 | `tests/phpunit/`, `tests/js/` | Test suites |
 
-Note: the development repo folder is `accessibility-compliance-kit-for-woocommerce/`; the internal structure above is what matters and follows the proposal.
+Note: the development repo folder is `tazeen-store-accessibility-kit-for-woocommerce/`; the internal structure above is what matters and follows the proposal.
 
 ## 4. Boot Sequence
 
-1. WordPress loads `accessibility-compliance-kit-for-woocommerce.php` → constants defined, Composer autoloader required, activation/deactivation hooks registered.
+1. WordPress loads `tazeen-store-accessibility-kit-for-woocommerce.php` → constants defined, Composer autoloader required, activation/deactivation hooks registered.
 2. `plugins_loaded` → `Plugin::instance()->boot()`:
    - Check WooCommerce is active; if not, show admin notice and skip WC-dependent services.
    - Load text domain.
@@ -97,7 +97,7 @@ Each fix extends `AbstractFix`:
 
 **Filters:** `wp_get_attachment_image_attributes` (alt fallbacks), `woocommerce_form_field_args` (form labels), `woocommerce_locate_template` (template overrides — use sparingly, last resort), `the_content` (statement content), `body_class` (fixes-active class).
 
-**REST:** `register_rest_route( 'accessibility-compliance-kit-for-woocommerce/v1', '/scans', ... )` — optional/future, spec in docs/rest-api.md.
+**REST:** `register_rest_route( 'tazeen-store-accessibility-kit-for-woocommerce/v1', '/scans', ... )` — optional/future, spec in docs/rest-api.md.
 
 ## 8. Free / Pro Boundary (proposal §5.7)
 
@@ -111,6 +111,6 @@ Each fix extends `AbstractFix`:
 - **Options:** four keys in `wp_options` (see docs/database.md §3); all access via `Utils/Options`.
 - **Capabilities:** default `manage_options`; centralized in `Utils/Capabilities` (Pro later adds an "Accessibility Auditor" read-only role, proposal §4.2.E).
 - **Logging:** `Utils/Logger`, `WP_DEBUG`-gated, prefixed.
-- **i18n:** text domain `accessibility-compliance-kit-for-woocommerce`, `.pot` in `languages/`.
+- **i18n:** text domain `tazeen-store-accessibility-kit-for-woocommerce`, `.pot` in `languages/`.
 - **Cron:** one weekly reminder event (opt-in) in the free tier; Pro adds scan scheduling.
 - **Security:** docs/security.md is the checklist; WordPress.org review compliance is a launch criterion (proposal §11).

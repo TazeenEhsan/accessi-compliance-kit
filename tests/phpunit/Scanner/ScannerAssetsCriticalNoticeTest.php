@@ -66,7 +66,7 @@ class ScannerAssetsCriticalNoticeTest extends TestCase {
 
 		( new ScannerAssets( $storage ) )->add_critical_notice_node( $admin_bar );
 
-		$this->assertArrayNotHasKey( 'accessibility-compliance-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
+		$this->assertArrayNotHasKey( 'tazeen-store-accessibility-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
 	}
 
 	public function test_adds_no_node_when_there_is_no_last_scan() {
@@ -78,7 +78,7 @@ class ScannerAssetsCriticalNoticeTest extends TestCase {
 
 		( new ScannerAssets( $storage ) )->add_critical_notice_node( $admin_bar );
 
-		$this->assertArrayNotHasKey( 'accessibility-compliance-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
+		$this->assertArrayNotHasKey( 'tazeen-store-accessibility-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
 	}
 
 	public function test_adds_no_node_when_the_last_scan_has_no_critical_issues() {
@@ -92,7 +92,7 @@ class ScannerAssetsCriticalNoticeTest extends TestCase {
 
 		( new ScannerAssets( $storage ) )->add_critical_notice_node( $admin_bar );
 
-		$this->assertArrayNotHasKey( 'accessibility-compliance-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
+		$this->assertArrayNotHasKey( 'tazeen-store-accessibility-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
 	}
 
 	public function test_adds_a_node_when_the_last_scan_has_critical_issues() {
@@ -109,7 +109,7 @@ class ScannerAssetsCriticalNoticeTest extends TestCase {
 
 		( new ScannerAssets( $storage ) )->add_critical_notice_node( $admin_bar );
 
-		$this->assertArrayHasKey( 'accessibility-compliance-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
-		$this->assertStringContainsString( '3', $admin_bar->nodes['accessibility-compliance-kit-for-woocommerce-critical-notice']['title'] );
+		$this->assertArrayHasKey( 'tazeen-store-accessibility-kit-for-woocommerce-critical-notice', $admin_bar->nodes );
+		$this->assertStringContainsString( '3', $admin_bar->nodes['tazeen-store-accessibility-kit-for-woocommerce-critical-notice']['title'] );
 	}
 }

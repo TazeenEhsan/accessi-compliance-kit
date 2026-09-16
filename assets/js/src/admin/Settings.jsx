@@ -8,10 +8,10 @@ import { __ } from '@wordpress/i18n';
 import { ajaxRequest } from './utils/ajax';
 
 const CONTEXT_LABELS = {
-	product: __( 'Product', 'accessibility-compliance-kit-for-woocommerce' ),
-	checkout: __( 'Checkout', 'accessibility-compliance-kit-for-woocommerce' ),
-	cart: __( 'Cart', 'accessibility-compliance-kit-for-woocommerce' ),
-	global: __( 'Site-wide', 'accessibility-compliance-kit-for-woocommerce' ),
+	product: __( 'Product', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+	checkout: __( 'Checkout', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+	cart: __( 'Cart', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+	global: __( 'Site-wide', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 };
 
 /**
@@ -51,9 +51,9 @@ export default function Settings( { settings } ) {
 	};
 
 	return (
-		<div className="accessibility-compliance-kit-for-woocommerce-settings">
+		<div className="tazeen-store-accessibility-kit-for-woocommerce-settings">
 			{ fixes.map( ( fix ) => (
-				<Card key={ fix.id } className="accessibility-compliance-kit-for-woocommerce-fix-card">
+				<Card key={ fix.id } className="tazeen-store-accessibility-kit-for-woocommerce-fix-card">
 					<CardBody>
 						<ToggleControl
 							label={ fix.label }
@@ -61,9 +61,9 @@ export default function Settings( { settings } ) {
 							checked={ !! activeFixes[ fix.id ] }
 							onChange={ ( value ) => toggleFix( fix.id, value ) }
 						/>
-						<div className="accessibility-compliance-kit-for-woocommerce-fix-contexts">
+						<div className="tazeen-store-accessibility-kit-for-woocommerce-fix-contexts">
 							{ ( fix.contexts || [] ).map( ( context ) => (
-								<span key={ context } className="accessibility-compliance-kit-for-woocommerce-context-badge">
+								<span key={ context } className="tazeen-store-accessibility-kit-for-woocommerce-context-badge">
 									{ CONTEXT_LABELS[ context ] || context }
 								</span>
 							) ) }
@@ -72,11 +72,11 @@ export default function Settings( { settings } ) {
 				</Card>
 			) ) }
 
-			<Card className="accessibility-compliance-kit-for-woocommerce-fix-card">
+			<Card className="tazeen-store-accessibility-kit-for-woocommerce-fix-card">
 				<CardBody>
 					<ToggleControl
-						label={ __( 'Weekly scan reminder email', 'accessibility-compliance-kit-for-woocommerce' ) }
-						help={ __( 'Send a weekly email reminding you to run a scan.', 'accessibility-compliance-kit-for-woocommerce' ) }
+						label={ __( 'Weekly scan reminder email', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
+						help={ __( 'Send a weekly email reminding you to run a scan.', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 						checked={ emailOptIn }
 						onChange={ setEmailOptIn }
 					/>
@@ -84,12 +84,12 @@ export default function Settings( { settings } ) {
 			</Card>
 
 			<Button variant="primary" onClick={ save } isBusy={ 'saving' === status } disabled={ 'saving' === status }>
-				{ __( 'Save settings', 'accessibility-compliance-kit-for-woocommerce' ) }
+				{ __( 'Save settings', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 			</Button>
 
 			{ 'success' === status && (
 				<Notice status="success" isDismissible={ false }>
-					{ __( 'Settings saved.', 'accessibility-compliance-kit-for-woocommerce' ) }
+					{ __( 'Settings saved.', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 				</Notice>
 			) }
 			{ 'error' === status && message && (

@@ -22,7 +22,7 @@ function postToParent( payload ) {
 	window.parent.postMessage(
 		Object.assign(
 			{
-				source: 'accessibility-compliance-kit-for-woocommerce-scanner',
+				source: 'tazeen-store-accessibility-kit-for-woocommerce-scanner',
 				token: settings.handshakeToken,
 			},
 			payload

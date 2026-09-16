@@ -51,7 +51,7 @@ class FixManager {
 	}
 
 	/**
-	 * Append `accessibility-compliance-kit-for-woocommerce-fixes-active` plus a per-fix class for
+	 * Append `tazeen-store-accessibility-kit-for-woocommerce-fixes-active` plus a per-fix class for
 	 * every enabled fix (proposal §5.4).
 	 *
 	 * @param string[] $classes Existing body classes.
@@ -66,11 +66,11 @@ class FixManager {
 			}
 
 			$any_enabled = true;
-			$classes[]   = 'accessibility-compliance-kit-for-woocommerce-fix-' . $fix->id();
+			$classes[]   = 'tazeen-store-accessibility-kit-for-woocommerce-fix-' . $fix->id();
 		}
 
 		if ( $any_enabled ) {
-			$classes[] = 'accessibility-compliance-kit-for-woocommerce-fixes-active';
+			$classes[] = 'tazeen-store-accessibility-kit-for-woocommerce-fixes-active';
 		}
 
 		return $classes;

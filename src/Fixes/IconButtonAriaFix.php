@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class IconButtonAriaFix extends AbstractFix {
 
-	const HANDLE = 'accessibility-compliance-kit-for-woocommerce-fixes';
+	const HANDLE = 'tazeen-store-accessibility-kit-for-woocommerce-fixes';
 
 	/**
 	 * {@inheritDoc}
@@ -34,7 +34,7 @@ class IconButtonAriaFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Icon button labels', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Icon button labels', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**
@@ -42,7 +42,7 @@ class IconButtonAriaFix extends AbstractFix {
 	 */
 	public function description() {
 		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
-		return __( 'Adds accessible names to icon-only cart, search, and wishlist controls.', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Adds accessible names to icon-only cart, search, and wishlist controls.', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**
@@ -65,7 +65,7 @@ class IconButtonAriaFix extends AbstractFix {
 	 * @return void
 	 */
 	public function enqueue() {
-		$asset_file = ACKFW_PATH . 'build/fixes.asset.php';
+		$asset_file = TSAKW_PATH . 'build/fixes.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -75,7 +75,7 @@ class IconButtonAriaFix extends AbstractFix {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACKFW_URL . 'build/fixes.js',
+			TSAKW_URL . 'build/fixes.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
@@ -87,9 +87,9 @@ class IconButtonAriaFix extends AbstractFix {
 			array(
 				'enabled' => true,
 				'labels'  => array(
-					'cart'     => __( 'Cart', 'accessibility-compliance-kit-for-woocommerce' ),
-					'search'   => __( 'Search', 'accessibility-compliance-kit-for-woocommerce' ),
-					'wishlist' => __( 'Wishlist', 'accessibility-compliance-kit-for-woocommerce' ),
+					'cart'     => __( 'Cart', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+					'search'   => __( 'Search', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+					'wishlist' => __( 'Wishlist', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				),
 			)
 		);

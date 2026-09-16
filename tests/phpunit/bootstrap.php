@@ -18,23 +18,23 @@ if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
 	define( 'WEEK_IN_SECONDS', 7 * 24 * 60 * 60 );
 }
 
-if ( ! defined( 'ACKFW_PATH' ) ) {
+if ( ! defined( 'TSAKW_PATH' ) ) {
 	// Deliberately not the real plugin root: this directory has no `build/`
 	// subfolder, so `file_exists()` checks against compiled assets are
 	// deterministically false regardless of whether `npm run build` has run.
-	define( 'ACKFW_PATH', __DIR__ . '/' );
+	define( 'TSAKW_PATH', __DIR__ . '/' );
 }
 
-if ( ! defined( 'ACKFW_FILE' ) ) {
-	define( 'ACKFW_FILE', __DIR__ . '/accessibility-compliance-kit-for-woocommerce.php' );
+if ( ! defined( 'TSAKW_FILE' ) ) {
+	define( 'TSAKW_FILE', __DIR__ . '/tazeen-store-accessibility-kit-for-woocommerce.php' );
 }
 
-if ( ! defined( 'ACKFW_URL' ) ) {
-	define( 'ACKFW_URL', 'https://example.test/wp-content/plugins/accessibility-compliance-kit-for-woocommerce/' );
+if ( ! defined( 'TSAKW_URL' ) ) {
+	define( 'TSAKW_URL', 'https://example.test/wp-content/plugins/tazeen-store-accessibility-kit-for-woocommerce/' );
 }
 
-if ( ! defined( 'ACKFW_VERSION' ) ) {
-	define( 'ACKFW_VERSION', '1.0.0-test' );
+if ( ! defined( 'TSAKW_VERSION' ) ) {
+	define( 'TSAKW_VERSION', '1.0.0-test' );
 }
 
 if ( ! class_exists( 'WC_Product' ) ) {

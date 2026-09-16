@@ -21,7 +21,7 @@ use AccessibilityComplianceKitForWooCommerce\Utils\Options;
  */
 class ScanPage {
 
-	const HANDLE = 'accessibility-compliance-kit-for-woocommerce-admin';
+	const HANDLE = 'tazeen-store-accessibility-kit-for-woocommerce-admin';
 
 	/**
 	 * Hook the conditional enqueue.
@@ -43,7 +43,7 @@ class ScanPage {
 			return;
 		}
 
-		$asset_file = ACKFW_PATH . 'build/admin.asset.php';
+		$asset_file = TSAKW_PATH . 'build/admin.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -53,7 +53,7 @@ class ScanPage {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACKFW_URL . 'build/admin.js',
+			TSAKW_URL . 'build/admin.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
@@ -61,9 +61,9 @@ class ScanPage {
 
 		wp_enqueue_style(
 			self::HANDLE,
-			ACKFW_URL . 'assets/css/admin.css',
+			TSAKW_URL . 'assets/css/admin.css',
 			array(),
-			ACKFW_VERSION
+			TSAKW_VERSION
 		);
 
 		wp_localize_script( self::HANDLE, 'accessibilityComplianceKitForWooCommerceAdmin', $this->localized_data() );
@@ -91,10 +91,10 @@ class ScanPage {
 				'generateStatement' => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_generate_statement' ),
 			),
 			'severityLabels' => array(
-				'critical' => __( 'Critical', 'accessibility-compliance-kit-for-woocommerce' ),
-				'serious'  => __( 'Serious', 'accessibility-compliance-kit-for-woocommerce' ),
-				'moderate' => __( 'Moderate', 'accessibility-compliance-kit-for-woocommerce' ),
-				'minor'    => __( 'Minor', 'accessibility-compliance-kit-for-woocommerce' ),
+				'critical' => __( 'Critical', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+				'serious'  => __( 'Serious', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+				'moderate' => __( 'Moderate', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+				'minor'    => __( 'Minor', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 			),
 			'fixes'          => $this->fixes_data(),
 			'activeFixes'    => Options::get_active_fixes(),

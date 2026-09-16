@@ -171,7 +171,7 @@ All 6 free fixes, plus:
 - **WooCommerce Subscriptions** — accessibility fixes for the subscription management UI
 - **WooCommerce Bookings** — accessibility fixes for booking forms and calendar widgets
 - **WooCommerce Memberships** — accessibility fixes for member-only content gates
-- **WP-CLI commands** — `wp accessibility-compliance-kit-for-woocommerce scan`, `wp accessibility-compliance-kit-for-woocommerce report` — enables CI/CD integration (staging site scans on every deploy)
+- **WP-CLI commands** — `wp tazeen-store-accessibility-kit-for-woocommerce scan`, `wp tazeen-store-accessibility-kit-for-woocommerce report` — enables CI/CD integration (staging site scans on every deploy)
 - **REST API endpoints** — read scans, trigger scans, fetch reports for external tooling
 - **Multisite network support** *(Business+)* — network admin dashboard showing all sub-sites' compliance scores
 
@@ -256,8 +256,8 @@ Updated within 30 days when any of these ship a major release.
 ### 5.2 File & Folder Structure
 
 ```
-accessibility-compliance-kit-for-woocommerce/
-├── accessibility-compliance-kit-for-woocommerce.php                 # Main plugin file (headers, bootstrap)
+tazeen-store-accessibility-kit-for-woocommerce/
+├── tazeen-store-accessibility-kit-for-woocommerce.php                 # Main plugin file (headers, bootstrap)
 ├── uninstall.php                  # Cleanup on plugin deletion
 ├── composer.json                  # DomPDF and dev dependencies
 ├── package.json                   # JS build config
@@ -386,7 +386,7 @@ accessibility-compliance-kit-for-woocommerce/
 - `body_class` — add class when fixes are active
 
 **REST API (optional, for future SPA admin):**
-- `register_rest_route( 'accessibility-compliance-kit-for-woocommerce/v1', '/scans', ... )`
+- `register_rest_route( 'tazeen-store-accessibility-kit-for-woocommerce/v1', '/scans', ... )`
 
 ### 5.5 How Scanning Works (Data Flow)
 

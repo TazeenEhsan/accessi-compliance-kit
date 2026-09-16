@@ -30,7 +30,7 @@ class CheckoutLabelsFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Checkout field labels', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Checkout field labels', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**
@@ -38,7 +38,7 @@ class CheckoutLabelsFix extends AbstractFix {
 	 */
 	public function description() {
 		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
-		return __( 'Adds a screen-reader label to checkout fields that only show a placeholder.', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Adds a screen-reader label to checkout fields that only show a placeholder.', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**

@@ -35,10 +35,10 @@ class FocusStatesFixTest extends TestCase {
 		Functions\expect( 'wp_enqueue_style' )
 			->once()
 			->with(
-				'accessibility-compliance-kit-for-woocommerce-frontend-fixes',
-				ACKFW_URL . 'assets/css/frontend-fixes.css',
+				'tazeen-store-accessibility-kit-for-woocommerce-frontend-fixes',
+				TSAKW_URL . 'assets/css/frontend-fixes.css',
 				array(),
-				ACKFW_VERSION
+				TSAKW_VERSION
 			);
 
 		( new FocusStatesFix() )->enqueue();

@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class PriceScreenReaderFix extends AbstractFix {
 
-	const MARKER_CLASS = 'accessibility-compliance-kit-for-woocommerce-price-label';
+	const MARKER_CLASS = 'tazeen-store-accessibility-kit-for-woocommerce-price-label';
 
 	/**
 	 * {@inheritDoc}
@@ -32,7 +32,7 @@ class PriceScreenReaderFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Screen reader price label', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Screen reader price label', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**
@@ -40,7 +40,7 @@ class PriceScreenReaderFix extends AbstractFix {
 	 */
 	public function description() {
 		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
-		return __( 'Announces "Price:" before prices so screen readers read them correctly.', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Announces "Price:" before prices so screen readers read them correctly.', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**
@@ -71,7 +71,7 @@ class PriceScreenReaderFix extends AbstractFix {
 		$label = sprintf(
 			'<span class="screen-reader-text %1$s">%2$s</span>',
 			esc_attr( self::MARKER_CLASS ),
-			esc_html__( 'Price:', 'accessibility-compliance-kit-for-woocommerce' )
+			esc_html__( 'Price:', 'tazeen-store-accessibility-kit-for-woocommerce' )
 		);
 
 		return $label . $price_html;

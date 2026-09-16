@@ -64,13 +64,13 @@ class GuidePageTest extends TestCase {
 		Functions\expect( 'wp_enqueue_style' )->never();
 
 		( new GuidePage() )->maybe_enqueue( 'woocommerce_page_wc-settings' );
-		( new GuidePage() )->maybe_enqueue( 'toplevel_page_accessibility-compliance-kit-for-woocommerce' );
+		( new GuidePage() )->maybe_enqueue( 'toplevel_page_tazeen-store-accessibility-kit-for-woocommerce' );
 
 		$this->addToAssertionCount( 1 );
 	}
 
 	public function test_maybe_enqueue_skips_when_the_built_bundle_is_missing() {
-		// The bootstrap points ACKFW_PATH at a directory with
+		// The bootstrap points TSAKW_PATH at a directory with
 		// no build/, so the guard against a missing compiled bundle is hit.
 		Functions\expect( 'wp_enqueue_script' )->never();
 		Functions\expect( 'wp_enqueue_style' )->never();
@@ -86,7 +86,7 @@ class GuidePageTest extends TestCase {
 		( new GuidePage() )->render_page();
 		$output = ob_get_clean();
 
-		$this->assertStringContainsString( 'id="accessibility-compliance-kit-for-woocommerce-guide-root"', $output );
-		$this->assertStringContainsString( 'accessibility-compliance-kit-for-woocommerce-guide', $output );
+		$this->assertStringContainsString( 'id="tazeen-store-accessibility-kit-for-woocommerce-guide-root"', $output );
+		$this->assertStringContainsString( 'tazeen-store-accessibility-kit-for-woocommerce-guide', $output );
 	}
 }

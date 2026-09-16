@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class EmptyLinkAnchorFix extends AbstractFix {
 
-	const HANDLE = 'accessibility-compliance-kit-for-woocommerce-fixes';
+	const HANDLE = 'tazeen-store-accessibility-kit-for-woocommerce-fixes';
 
 	/**
 	 * {@inheritDoc}
@@ -33,14 +33,14 @@ class EmptyLinkAnchorFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Empty link names', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Empty link names', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function description() {
-		return __( 'Gives accessible names to empty links, such as product image links.', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Gives accessible names to empty links, such as product image links.', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**
@@ -72,7 +72,7 @@ class EmptyLinkAnchorFix extends AbstractFix {
 		}
 
 		printf(
-			'<span class="screen-reader-text accessibility-compliance-kit-for-woocommerce-empty-link-label">%s</span>',
+			'<span class="screen-reader-text tazeen-store-accessibility-kit-for-woocommerce-empty-link-label">%s</span>',
 			esc_html( $product->get_name() )
 		);
 	}
@@ -84,7 +84,7 @@ class EmptyLinkAnchorFix extends AbstractFix {
 	 * @return void
 	 */
 	public function enqueue() {
-		$asset_file = ACKFW_PATH . 'build/fixes.asset.php';
+		$asset_file = TSAKW_PATH . 'build/fixes.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -94,7 +94,7 @@ class EmptyLinkAnchorFix extends AbstractFix {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACKFW_URL . 'build/fixes.js',
+			TSAKW_URL . 'build/fixes.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
@@ -105,7 +105,7 @@ class EmptyLinkAnchorFix extends AbstractFix {
 			'accessibilityComplianceKitForWooCommerceEmptyLinkAnchor',
 			array(
 				'enabled'      => true,
-				'fallbackText' => __( 'Link', 'accessibility-compliance-kit-for-woocommerce' ),
+				'fallbackText' => __( 'Link', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 			)
 		);
 	}

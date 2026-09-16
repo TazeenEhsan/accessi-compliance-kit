@@ -7,22 +7,22 @@
 
 /* Focus States (accessibility_compliance_kit_for_woocommerce_active_fixes["focus_states"]) */
 
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states a:focus,
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states button:focus,
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states input:focus,
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states select:focus,
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states textarea:focus,
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states [tabindex]:focus {
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states a:focus,
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states button:focus,
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states input:focus,
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states select:focus,
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states textarea:focus,
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states [tabindex]:focus {
 	outline: 3px solid #005fcc;
 	outline-offset: 2px;
 }
 
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states a:focus-visible,
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states button:focus-visible,
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states input:focus-visible,
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states select:focus-visible,
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states textarea:focus-visible,
-.accessibility-compliance-kit-for-woocommerce-fix-focus_states [tabindex]:focus-visible {
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states a:focus-visible,
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states button:focus-visible,
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states input:focus-visible,
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states select:focus-visible,
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states textarea:focus-visible,
+.tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states [tabindex]:focus-visible {
 	outline: 3px solid #005fcc;
 	outline-offset: 2px;
 }

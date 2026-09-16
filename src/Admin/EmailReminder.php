@@ -47,7 +47,7 @@ class EmailReminder {
 		if ( ! isset( $schedules[ self::SCHEDULE ] ) ) {
 			$schedules[ self::SCHEDULE ] = array(
 				'interval' => WEEK_IN_SECONDS,
-				'display'  => __( 'Once Weekly (Accessibility Compliance Kit for WooCommerce)', 'accessibility-compliance-kit-for-woocommerce' ),
+				'display'  => __( 'Once Weekly (Accessibility Compliance Kit for WooCommerce)', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 			);
 		}
 
@@ -113,10 +113,10 @@ class EmailReminder {
 
 		wp_mail(
 			get_option( 'admin_email' ),
-			__( 'Accessibility Compliance Kit for WooCommerce — weekly scan reminder', 'accessibility-compliance-kit-for-woocommerce' ),
+			__( 'Accessibility Compliance Kit for WooCommerce — weekly scan reminder', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 			sprintf(
 				/* translators: %s: URL to the plugin's scan page. */
-				__( "It's been a week since your last accessibility scan. Run a new scan to check for issues:\n\n%s", 'accessibility-compliance-kit-for-woocommerce' ), // phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
+				__( "It's been a week since your last accessibility scan. Run a new scan to check for issues:\n\n%s", 'tazeen-store-accessibility-kit-for-woocommerce' ), // phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
 				esc_url_raw( $scan_page_url )
 			)
 		);

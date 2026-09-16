@@ -108,6 +108,6 @@ class AdminMenuTest extends TestCase {
 		( new AdminMenu() )->render_page();
 		$output = ob_get_clean();
 
-		$this->assertStringContainsString( 'id="accessibility-compliance-kit-for-woocommerce-admin"', $output );
+		$this->assertStringContainsString( 'id="tazeen-store-accessibility-kit-for-woocommerce-admin"', $output );
 	}
 }

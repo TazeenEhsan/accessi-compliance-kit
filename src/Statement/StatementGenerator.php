@@ -41,7 +41,7 @@ class StatementGenerator {
 			wp_send_json_error(
 				array(
 					// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
-					'message' => __( 'You are not allowed to generate the accessibility statement.', 'accessibility-compliance-kit-for-woocommerce' ),
+					'message' => __( 'You are not allowed to generate the accessibility statement.', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				),
 				403
 			);
@@ -128,7 +128,7 @@ class StatementGenerator {
 	private function insert_page() {
 		return wp_insert_post(
 			array(
-				'post_title'   => __( 'Accessibility Statement', 'accessibility-compliance-kit-for-woocommerce' ),
+				'post_title'   => __( 'Accessibility Statement', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				'post_content' => $this->render_template(),
 				'post_status'  => 'draft',
 				'post_type'    => 'page',
@@ -149,7 +149,7 @@ class StatementGenerator {
 			array(
 				'site_name'        => get_bloginfo( 'name' ),
 				'contact_email'    => get_option( 'admin_email' ),
-				'compliance_level' => __( 'WCAG 2.1 Level AA', 'accessibility-compliance-kit-for-woocommerce' ),
+				'compliance_level' => __( 'WCAG 2.1 Level AA', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				'review_date'      => date_i18n( get_option( 'date_format' ) ),
 			)
 		);

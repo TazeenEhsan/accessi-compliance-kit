@@ -100,9 +100,9 @@ class FixManagerTest extends TestCase {
 
 		$classes = ( new FixManager() )->filter_body_class( array( 'existing' ) );
 
-		$this->assertContains( 'accessibility-compliance-kit-for-woocommerce-fix-focus_states', $classes );
-		$this->assertContains( 'accessibility-compliance-kit-for-woocommerce-fixes-active', $classes );
-		$this->assertNotContains( 'accessibility-compliance-kit-for-woocommerce-fix-checkout_labels', $classes );
+		$this->assertContains( 'tazeen-store-accessibility-kit-for-woocommerce-fix-focus_states', $classes );
+		$this->assertContains( 'tazeen-store-accessibility-kit-for-woocommerce-fixes-active', $classes );
+		$this->assertNotContains( 'tazeen-store-accessibility-kit-for-woocommerce-fix-checkout_labels', $classes );
 	}
 
 	public function test_filter_body_class_leaves_classes_untouched_when_none_enabled() {

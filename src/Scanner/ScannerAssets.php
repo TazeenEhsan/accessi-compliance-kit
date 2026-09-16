@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class ScannerAssets {
 
-	const HANDLE    = 'accessibility-compliance-kit-for-woocommerce-scanner';
+	const HANDLE    = 'tazeen-store-accessibility-kit-for-woocommerce-scanner';
 	const QUERY_VAR = 'accessibility_compliance_kit_for_woocommerce_scan';
 
 	/**
@@ -62,7 +62,7 @@ class ScannerAssets {
 			return;
 		}
 
-		$asset_file = ACKFW_PATH . 'build/scanner.asset.php';
+		$asset_file = TSAKW_PATH . 'build/scanner.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -72,7 +72,7 @@ class ScannerAssets {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACKFW_URL . 'build/scanner.js',
+			TSAKW_URL . 'build/scanner.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
@@ -125,11 +125,11 @@ class ScannerAssets {
 
 		$wp_admin_bar->add_node(
 			array(
-				'id'    => 'accessibility-compliance-kit-for-woocommerce-scan',
-				'title' => esc_html__( 'Scan this page', 'accessibility-compliance-kit-for-woocommerce' ),
+				'id'    => 'tazeen-store-accessibility-kit-for-woocommerce-scan',
+				'title' => esc_html__( 'Scan this page', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				'href'  => esc_url( $admin_url ),
 				'meta'  => array(
-					'title' => esc_attr__( 'Scan this page for accessibility issues', 'accessibility-compliance-kit-for-woocommerce' ),
+					'title' => esc_attr__( 'Scan this page for accessibility issues', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				),
 			)
 		);
@@ -156,18 +156,18 @@ class ScannerAssets {
 
 		$title = sprintf(
 			/* translators: %d: number of critical issues detected in the last scan. */
-			__( '%d critical accessibility issues detected', 'accessibility-compliance-kit-for-woocommerce' ),
+			__( '%d critical accessibility issues detected', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 			(int) $scan['summary']['critical']
 		);
 
 		$wp_admin_bar->add_node(
 			array(
-				'id'    => 'accessibility-compliance-kit-for-woocommerce-critical-notice',
+				'id'    => 'tazeen-store-accessibility-kit-for-woocommerce-critical-notice',
 				'title' => esc_html( $title ),
 				'href'  => esc_url( add_query_arg( 'page', AdminMenu::MENU_SLUG, admin_url( 'admin.php' ) ) ),
 				'meta'  => array(
-					'class' => 'accessibility-compliance-kit-for-woocommerce-admin-bar-critical',
-					'title' => esc_attr__( 'View the detected accessibility issues', 'accessibility-compliance-kit-for-woocommerce' ),
+					'class' => 'tazeen-store-accessibility-kit-for-woocommerce-admin-bar-critical',
+					'title' => esc_attr__( 'View the detected accessibility issues', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				),
 			)
 		);

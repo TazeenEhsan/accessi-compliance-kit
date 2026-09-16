@@ -26,7 +26,7 @@ export async function ajaxRequest( ajaxUrl, action, nonce, data = {} ) {
 	const json = await response.json();
 
 	if ( ! json.success ) {
-		const message = json.data && json.data.message ? json.data.message : __( 'Request failed.', 'accessibility-compliance-kit-for-woocommerce' );
+		const message = json.data && json.data.message ? json.data.message : __( 'Request failed.', 'tazeen-store-accessibility-kit-for-woocommerce' );
 		throw new Error( message );
 	}
 

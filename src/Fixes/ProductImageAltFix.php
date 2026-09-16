@@ -28,14 +28,14 @@ class ProductImageAltFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Product image alt text', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Product image alt text', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function description() {
-		return __( 'Fills in missing alt text on product images using the product title.', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Fills in missing alt text on product images using the product title.', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**

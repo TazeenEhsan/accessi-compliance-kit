@@ -26,11 +26,11 @@ use AccessibilityComplianceKitForWooCommerce\Utils\Capabilities;
  */
 class GuidePage {
 
-	const MENU_SLUG = 'accessibility-compliance-kit-for-woocommerce-guide';
+	const MENU_SLUG = 'tazeen-store-accessibility-kit-for-woocommerce-guide';
 
-	const HANDLE = 'accessibility-compliance-kit-for-woocommerce-guide';
+	const HANDLE = 'tazeen-store-accessibility-kit-for-woocommerce-guide';
 
-	const SUPPORT_URL = 'https://wordpress.org/support/plugin/accessibility-compliance-kit-for-woocommerce/';
+	const SUPPORT_URL = 'https://wordpress.org/support/plugin/tazeen-store-accessibility-kit-for-woocommerce/';
 
 	/**
 	 * Hook the submenu registration and the conditional asset enqueue.
@@ -50,8 +50,8 @@ class GuidePage {
 	public function add_menu_page() {
 		add_submenu_page(
 			AdminMenu::MENU_SLUG,
-			__( 'User Guide', 'accessibility-compliance-kit-for-woocommerce' ),
-			__( 'User Guide', 'accessibility-compliance-kit-for-woocommerce' ),
+			__( 'User Guide', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+			__( 'User Guide', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 			Capabilities::SCAN,
 			self::MENU_SLUG,
 			array( $this, 'render_page' )
@@ -74,7 +74,7 @@ class GuidePage {
 			return;
 		}
 
-		$asset_file = ACKFW_PATH . 'build/guide.asset.php';
+		$asset_file = TSAKW_PATH . 'build/guide.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -84,19 +84,19 @@ class GuidePage {
 
 		wp_enqueue_script(
 			self::HANDLE,
-			ACKFW_URL . 'build/guide.js',
+			TSAKW_URL . 'build/guide.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
 		);
 
-		wp_set_script_translations( self::HANDLE, 'accessibility-compliance-kit-for-woocommerce', ACKFW_PATH . 'languages' );
+		wp_set_script_translations( self::HANDLE, 'tazeen-store-accessibility-kit-for-woocommerce', TSAKW_PATH . 'languages' );
 
 		wp_enqueue_style(
 			self::HANDLE,
-			ACKFW_URL . 'assets/css/admin.css',
+			TSAKW_URL . 'assets/css/admin.css',
 			array(),
-			ACKFW_VERSION
+			TSAKW_VERSION
 		);
 
 		wp_localize_script( self::HANDLE, 'accessibilityComplianceKitForWooCommerceGuide', $this->localized_data() );
@@ -108,7 +108,7 @@ class GuidePage {
 	 * @return void
 	 */
 	public function render_page() {
-		echo '<div id="accessibility-compliance-kit-for-woocommerce-guide-root" class="wrap accessibility-compliance-kit-for-woocommerce-guide"></div>';
+		echo '<div id="tazeen-store-accessibility-kit-for-woocommerce-guide-root" class="wrap tazeen-store-accessibility-kit-for-woocommerce-guide"></div>';
 	}
 
 	/**

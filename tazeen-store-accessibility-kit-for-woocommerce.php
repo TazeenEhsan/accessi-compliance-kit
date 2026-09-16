@@ -9,7 +9,7 @@
  * Author URI:  https://tazeenehsan.github.io/
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       accessibility-compliance-kit-for-woocommerce
+ * Text Domain:       tazeen-store-accessibility-kit-for-woocommerce
  * Domain Path:       /languages
  *
  * @package AccessibilityComplianceKitForWooCommerce
@@ -19,16 +19,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ACKFW_VERSION', '1.0.1' );
-define( 'ACKFW_FILE', __FILE__ );
-define( 'ACKFW_PATH', plugin_dir_path( __FILE__ ) );
-define( 'ACKFW_URL', plugin_dir_url( __FILE__ ) );
+define( 'TSAKW_VERSION', '1.0.1' );
+define( 'TSAKW_FILE', __FILE__ );
+define( 'TSAKW_PATH', plugin_dir_path( __FILE__ ) );
+define( 'TSAKW_URL', plugin_dir_url( __FILE__ ) );
 
-require ACKFW_PATH . 'vendor/autoload.php';
+require TSAKW_PATH . 'vendor/autoload.php';
 
-register_activation_hook( ACKFW_FILE, array( \AccessibilityComplianceKitForWooCommerce\Activator::class, 'activate' ) );
+register_activation_hook( TSAKW_FILE, array( \AccessibilityComplianceKitForWooCommerce\Activator::class, 'activate' ) );
 register_deactivation_hook(
-	ACKFW_FILE,
+	TSAKW_FILE,
 	array( \AccessibilityComplianceKitForWooCommerce\Deactivator::class, 'deactivate' )
 );
 

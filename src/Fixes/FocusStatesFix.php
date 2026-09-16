@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class FocusStatesFix extends AbstractFix {
 
-	const HANDLE = 'accessibility-compliance-kit-for-woocommerce-frontend-fixes';
+	const HANDLE = 'tazeen-store-accessibility-kit-for-woocommerce-frontend-fixes';
 
 	/**
 	 * {@inheritDoc}
@@ -31,7 +31,7 @@ class FocusStatesFix extends AbstractFix {
 	 * {@inheritDoc}
 	 */
 	public function label() {
-		return __( 'Visible focus states', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Visible focus states', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**
@@ -39,7 +39,7 @@ class FocusStatesFix extends AbstractFix {
 	 */
 	public function description() {
 		// phpcs:ignore Generic.Files.LineLength.TooLong -- single translatable string, cannot be wrapped without breaking translation context.
-		return __( 'Adds a high-contrast focus outline to links, buttons, and form controls.', 'accessibility-compliance-kit-for-woocommerce' );
+		return __( 'Adds a high-contrast focus outline to links, buttons, and form controls.', 'tazeen-store-accessibility-kit-for-woocommerce' );
 	}
 
 	/**
@@ -64,9 +64,9 @@ class FocusStatesFix extends AbstractFix {
 	public function enqueue() {
 		wp_enqueue_style(
 			self::HANDLE,
-			ACKFW_URL . 'assets/css/frontend-fixes.css',
+			TSAKW_URL . 'assets/css/frontend-fixes.css',
 			array(),
-			ACKFW_VERSION
+			TSAKW_VERSION
 		);
 	}
 }

@@ -25,7 +25,7 @@ class PluginLinks {
 	 */
 	public function register() {
 		add_filter(
-			'plugin_action_links_' . plugin_basename( ACKFW_FILE ),
+			'plugin_action_links_' . plugin_basename( TSAKW_FILE ),
 			array( $this, 'add_action_links' )
 		);
 	}
@@ -41,12 +41,12 @@ class PluginLinks {
 			'dashboard' => sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( admin_url( 'admin.php?page=' . AdminMenu::MENU_SLUG ) ),
-				esc_html__( 'Dashboard', 'accessibility-compliance-kit-for-woocommerce' )
+				esc_html__( 'Dashboard', 'tazeen-store-accessibility-kit-for-woocommerce' )
 			),
 			'guide'     => sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( admin_url( 'admin.php?page=' . GuidePage::MENU_SLUG ) ),
-				esc_html__( 'User Guide', 'accessibility-compliance-kit-for-woocommerce' )
+				esc_html__( 'User Guide', 'tazeen-store-accessibility-kit-for-woocommerce' )
 			),
 		);
 

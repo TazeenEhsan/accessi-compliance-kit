@@ -39,7 +39,7 @@
 		<properties>
 			<property name="prefixes" type="array">
 				<element value="accessibility_compliance_kit_for_woocommerce"/>
-				<element value="ACKFW"/>
+				<element value="TSAKW"/>
 				<element value="AccessibilityComplianceKitForWooCommerce"/>
 			</property>
 		</properties>
@@ -48,7 +48,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="accessibility-compliance-kit-for-woocommerce"/>
+				<element value="tazeen-store-accessibility-kit-for-woocommerce"/>
 			</property>
 		</properties>
 	</rule>
@@ -71,6 +71,6 @@
 	<!-- The plugin header Description field is a required single-line WP header
 	     value (parsed verbatim for the plugin list screen); it cannot be wrapped. -->
 	<rule ref="Generic.Files.LineLength.TooLong">
-		<exclude-pattern>*/accessibility-compliance-kit-for-woocommerce.php</exclude-pattern>
+		<exclude-pattern>*/tazeen-store-accessibility-kit-for-woocommerce.php</exclude-pattern>
 	</rule>
 </ruleset>

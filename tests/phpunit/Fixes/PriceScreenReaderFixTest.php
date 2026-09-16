@@ -57,7 +57,7 @@ class PriceScreenReaderFixTest extends TestCase {
 		$twice  = $fix->prefix_price( $once );
 
 		$this->assertSame( $once, $twice );
-		$this->assertSame( 1, substr_count( $twice, 'accessibility-compliance-kit-for-woocommerce-price-label' ) );
+		$this->assertSame( 1, substr_count( $twice, 'tazeen-store-accessibility-kit-for-woocommerce-price-label' ) );
 	}
 
 	public function test_prefix_price_leaves_empty_string_untouched() {

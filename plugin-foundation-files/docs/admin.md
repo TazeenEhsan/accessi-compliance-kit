@@ -15,8 +15,8 @@ Implements proposal §4.1 (Admin dashboard, Notifications), §5.2 (Admin/ + asse
 
 ## 2. Admin Page Registration
 
-- `AdminMenu.php` adds a submenu under the WooCommerce parent menu (`woocommerce`), slug `accessibility-compliance-kit-for-woocommerce`, capability from `Utils/Capabilities` (default `manage_options`).
-- Callback renders only `<div id="accessibility-compliance-kit-for-woocommerce-admin"></div>`; everything else is React.
+- `AdminMenu.php` adds a submenu under the WooCommerce parent menu (`woocommerce`), slug `tazeen-store-accessibility-kit-for-woocommerce`, capability from `Utils/Capabilities` (default `manage_options`).
+- Callback renders only `<div id="tazeen-store-accessibility-kit-for-woocommerce-admin"></div>`; everything else is React.
 - `ScanPage.php` enqueues `build/admin.js` + `assets/css/admin.css` **only** on this screen (check `$hook_suffix`), and localizes:
   - `ajaxUrl`, per-action nonces
   - `homeUrl` (for the default scan target + same-origin validation)
@@ -86,6 +86,6 @@ On the **Dashboard tab** of the admin page (`Dashboard.jsx`):
 
 ## 10. Copy Rules
 
-- All strings translatable, text domain `accessibility-compliance-kit-for-woocommerce` (JS via `@wordpress/i18n`).
+- All strings translatable, text domain `tazeen-store-accessibility-kit-for-woocommerce` (JS via `@wordpress/i18n`).
 - Violations are "detected issues," never "confirmed violations" (proposal §9).
 - No dark patterns, no nag screens; the review prompt (proposal §8) appears only after 30 days of usage and is dismissible — build it in Phase 4 launch prep or shortly after.

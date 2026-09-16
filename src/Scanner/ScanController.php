@@ -59,7 +59,7 @@ class ScanController {
 
 		if ( ! Capabilities::can_scan() ) {
 			wp_send_json_error(
-				array( 'message' => __( 'You are not allowed to run scans.', 'accessibility-compliance-kit-for-woocommerce' ) ),
+				array( 'message' => __( 'You are not allowed to run scans.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ),
 				403
 			);
 		}
@@ -70,7 +70,7 @@ class ScanController {
 
 		if ( null === $url ) {
 			wp_send_json_error(
-				array( 'message' => __( 'The scan URL must be on this site.', 'accessibility-compliance-kit-for-woocommerce' ) ),
+				array( 'message' => __( 'The scan URL must be on this site.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ),
 				400
 			);
 		}
@@ -81,7 +81,7 @@ class ScanController {
 
 		if ( null === $raw_violations ) {
 			wp_send_json_error(
-				array( 'message' => __( 'The scan results were malformed.', 'accessibility-compliance-kit-for-woocommerce' ) ),
+				array( 'message' => __( 'The scan results were malformed.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ),
 				400
 			);
 		}
@@ -89,7 +89,7 @@ class ScanController {
 		$scan_id = $this->scan_storage->create_scan( $url, 'single', get_current_user_id() );
 
 		if ( ! $scan_id ) {
-			wp_send_json_error( array( 'message' => __( 'Could not save the scan.', 'accessibility-compliance-kit-for-woocommerce' ) ), 500 );
+			wp_send_json_error( array( 'message' => __( 'Could not save the scan.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ), 500 );
 		}
 
 		$parsed = ViolationParser::parse( $raw_violations );
@@ -115,7 +115,7 @@ class ScanController {
 
 		if ( ! Capabilities::can_scan() ) {
 			wp_send_json_error(
-				array( 'message' => __( 'You are not allowed to view scans.', 'accessibility-compliance-kit-for-woocommerce' ) ),
+				array( 'message' => __( 'You are not allowed to view scans.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ),
 				403
 			);
 		}
@@ -124,13 +124,13 @@ class ScanController {
 		$scan_id = isset( $_POST['id'] ) ? absint( wp_unslash( $_POST['id'] ) ) : 0;
 
 		if ( ! $scan_id ) {
-			wp_send_json_error( array( 'message' => __( 'A scan ID is required.', 'accessibility-compliance-kit-for-woocommerce' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'A scan ID is required.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ), 400 );
 		}
 
 		$scan = $this->scan_storage->get_scan( $scan_id );
 
 		if ( null === $scan ) {
-			wp_send_json_error( array( 'message' => __( 'Scan not found.', 'accessibility-compliance-kit-for-woocommerce' ) ), 404 );
+			wp_send_json_error( array( 'message' => __( 'Scan not found.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ), 404 );
 		}
 
 		wp_send_json_success( $scan );
@@ -146,7 +146,7 @@ class ScanController {
 
 		if ( ! Capabilities::can_scan() ) {
 			wp_send_json_error(
-				array( 'message' => __( 'You are not allowed to view scans.', 'accessibility-compliance-kit-for-woocommerce' ) ),
+				array( 'message' => __( 'You are not allowed to view scans.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ),
 				403
 			);
 		}

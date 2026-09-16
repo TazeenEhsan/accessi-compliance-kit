@@ -83,7 +83,7 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 
 		if ( ! url || ! isSameSite( url, settings.homeUrl ) ) {
 			setStatus( 'error' );
-			setMessage( __( 'The scan URL must be on this site.', 'accessibility-compliance-kit-for-woocommerce' ) );
+			setMessage( __( 'The scan URL must be on this site.', 'tazeen-store-accessibility-kit-for-woocommerce' ) );
 			return;
 		}
 
@@ -97,7 +97,7 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 
 			const data = event.data;
 
-			if ( ! data || 'accessibility-compliance-kit-for-woocommerce-scanner' !== data.source || data.token !== settings.scannerToken ) {
+			if ( ! data || 'tazeen-store-accessibility-kit-for-woocommerce-scanner' !== data.source || data.token !== settings.scannerToken ) {
 				return;
 			}
 
@@ -105,7 +105,7 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 
 			if ( 'error' === data.status ) {
 				setStatus( 'error' );
-				setMessage( data.message || __( 'The scan could not be completed.', 'accessibility-compliance-kit-for-woocommerce' ) );
+				setMessage( data.message || __( 'The scan could not be completed.', 'tazeen-store-accessibility-kit-for-woocommerce' ) );
 				return;
 			}
 
@@ -137,7 +137,7 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 		iframe.addEventListener( 'error', () => {
 			cleanup();
 			setStatus( 'error' );
-			setMessage( __( 'The page could not be loaded for scanning.', 'accessibility-compliance-kit-for-woocommerce' ) );
+			setMessage( __( 'The page could not be loaded for scanning.', 'tazeen-store-accessibility-kit-for-woocommerce' ) );
 		} );
 		iframe.src = withScanFlag( url, settings.scanQueryVar || 'accessibility_compliance_kit_for_woocommerce_scan' );
 
@@ -147,25 +147,25 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 		timeoutRef.current = window.setTimeout( () => {
 			cleanup();
 			setStatus( 'error' );
-			setMessage( __( 'The scan timed out. Please try again.', 'accessibility-compliance-kit-for-woocommerce' ) );
+			setMessage( __( 'The scan timed out. Please try again.', 'tazeen-store-accessibility-kit-for-woocommerce' ) );
 		}, SCAN_TIMEOUT_MS );
 	};
 
 	const isRunning = 'running' === status;
 
 	return (
-		<div className="accessibility-compliance-kit-for-woocommerce-scan-runner">
+		<div className="tazeen-store-accessibility-kit-for-woocommerce-scan-runner">
 			<TextControl
-				label={ __( 'Page URL to scan', 'accessibility-compliance-kit-for-woocommerce' ) }
-				help={ __( 'Must be a URL on this site.', 'accessibility-compliance-kit-for-woocommerce' ) }
+				label={ __( 'Page URL to scan', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
+				help={ __( 'Must be a URL on this site.', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 				value={ url }
 				onChange={ setUrl }
 				disabled={ isRunning }
 			/>
 			<Button variant="primary" onClick={ startScan } disabled={ isRunning || ! url } isBusy={ isRunning }>
 				{ isRunning
-					? __( 'Scanning…', 'accessibility-compliance-kit-for-woocommerce' )
-					: __( 'Scan this page', 'accessibility-compliance-kit-for-woocommerce' ) }
+					? __( 'Scanning…', 'tazeen-store-accessibility-kit-for-woocommerce' )
+					: __( 'Scan this page', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 			</Button>
 			{ isRunning && <Spinner /> }
 			{ 'error' === status && message && (
@@ -175,7 +175,7 @@ export default function ScanRunner( { settings, onScanSaved } ) {
 			) }
 			{ 'success' === status && (
 				<Notice status="success" isDismissible={ false }>
-					{ __( 'Scan complete. Detected issues are shown below.', 'accessibility-compliance-kit-for-woocommerce' ) }
+					{ __( 'Scan complete. Detected issues are shown below.', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 				</Notice>
 			) }
 		</div>
