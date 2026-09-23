@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Accessibility Compliance Kit for WooCommerce
+ * Plugin Name:       Tazeen Store Accessibility Kit for WooCommerce
  * Description:       Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements.
  * Version:           1.0.3
  * Requires at least: 6.5
