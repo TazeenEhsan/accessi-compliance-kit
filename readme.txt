@@ -4,7 +4,7 @@ Tags: accessibility, wcag, woocommerce, compliance, a11y
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -112,6 +112,12 @@ The scanner reports everything it detects on the rendered page, whatever the sou
 
 == Changelog ==
 
+= 1.0.4 =
+* Updated the plugin display name to "Tazeen Store Accessibility Kit for WooCommerce" in the plugin header, readme, and documentation.
+
+= 1.0.3 =
+* Completed the internal rename to "Tazeen Store Accessibility Kit for WooCommerce"; if you activated a prior version, deactivate and reactivate after updating.
+
 = 1.0.2 =
 * Renamed plugin internals to "Tazeen Store Accessibility Kit for WooCommerce": constants, classes, and text domain now use the TSAKW/Tazeen Store naming convention.
 * Plugin main file renamed to tazeen-store-accessibility-kit-for-woocommerce.php; translation file renamed to match.
@@ -128,6 +134,9 @@ The scanner reports everything it detects on the rendered page, whatever the sou
 * Dashboard widget, admin-bar scan shortcut, critical-issue admin-bar notice, opt-in weekly email reminder.
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+Plugin display name updated to Tazeen Store Accessibility Kit for WooCommerce; no action needed.
 
 = 1.0.3 =
 Internal rename to Tazeen Store Accessibility Kit for WooCommerce; if you activated a prior version, deactivate and reactivate after updating.

@@ -1,6 +1,6 @@
 {
 	"name": "tazeen-store-accessibility-kit-for-woocommerce",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Scan WooCommerce stores for WCAG 2.1 AA violations, auto-fix common ones, and generate EAA compliance statements.",
 	"private": true,
 	"license": "GPL-2.0-or-later",
