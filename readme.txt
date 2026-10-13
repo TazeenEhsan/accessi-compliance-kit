@@ -1,18 +1,27 @@
-=== Tazeen Store Accessibility Kit for WooCommerce ===
+=== Store Accessibility Kit for WooCommerce ===
 Contributors: tazeenehsan
-Tags: accessibility, wcag, woocommerce, compliance, a11y
+Tags: accessibility, woocommerce, wcag, ada, eaa
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Scan your WooCommerce store for accessibility issues (WCAG 2.1 A/AA), apply optional fixes, and generate an accessibility statement page.
+WooCommerce accessibility checker and WCAG 2.1 AA scanner — detect issues, apply one-click fixes, and generate an EAA/ADA-ready accessibility statement.
 
 == Description ==
 
-**Tazeen Store Accessibility Kit for WooCommerce** helps WooCommerce store owners work toward the accessibility level that the European Accessibility Act (EAA) and WCAG 2.1 AA expect from online shops — without overlays, external services, or data ever leaving your site.
+**Store Accessibility Kit for WooCommerce** is the WooCommerce accessibility plugin for store owners who need to meet WCAG 2.1 AA — the standard referenced by the European Accessibility Act (EAA) and the ADA — without installing an overlay widget, signing up for an external service, or letting any data leave their site.
+
+Run a free accessibility scan of your shop, product, and checkout pages in one click, see exactly which WCAG rules fail and why, fix the most common WooCommerce issues with a single toggle, and publish an accessibility statement — all from one screen under **WooCommerce → Accessibility**.
+
+= Why store owners choose this plugin =
+
+* **Built for WooCommerce**, not a generic site-wide scanner — checks product pages, cart, and checkout against the rules that actually break WooCommerce storefronts
+* **Real fixes, not a toolbar.** Overlay widgets hide problems behind a floating menu; this plugin edits the underlying markup, and only the fixes you turn on
+* **No account, no external calls, no recurring fee.** The free version runs 100% on your own server
+* **EAA- and ADA-aware**, with a statement generator built around what regulators actually ask for
 
 = Scanning =
 
@@ -62,7 +71,7 @@ The free version makes **zero external calls**. The scanning engine is bundled w
 
 == Installation ==
 
-1. Install via **Plugins → Add New** (search for "Tazeen Store Accessibility Kit for WooCommerce"), or upload the plugin zip via **Plugins → Add New → Upload Plugin**.
+1. Install via **Plugins → Add New** (search for "Store Accessibility Kit for WooCommerce"), or upload the plugin zip via **Plugins → Add New → Upload Plugin**.
 2. Activate the plugin. WooCommerce 8.0+ must be installed and active.
 3. Go to **WooCommerce → Accessibility**.
 4. Run your first scan from the **Scan** tab (your home page is pre-filled — any page on your site works).
@@ -73,7 +82,7 @@ The free version makes **zero external calls**. The scanning engine is bundled w
 
 = Does this plugin make my store legally compliant with the EAA or ADA? =
 
-No automated tool can do that, and you should be wary of any that claims to. Tazeen Store Accessibility Kit for WooCommerce detects a subset of WCAG 2.1 A/AA issues automatically, fixes several common ones when you opt in, and gives you a statement template — a strong, honest starting point. Full conformance also requires human review (e.g. of keyboard flows, content clarity, and color use in images). Nothing in this plugin is legal advice.
+No automated tool can do that, and you should be wary of any that claims to. Store Accessibility Kit for WooCommerce detects a subset of WCAG 2.1 A/AA issues automatically, fixes several common ones when you opt in, and gives you a statement template — a strong, honest starting point. Full conformance also requires human review (e.g. of keyboard flows, content clarity, and color use in images). Nothing in this plugin is legal advice.
 
 = Does the European Accessibility Act apply to my store? =
 
@@ -85,7 +94,7 @@ No. The scanner (axe-core) is bundled inside the plugin and runs in your own bro
 
 = Is this an accessibility overlay? =
 
-No. Overlay widgets layer a toolbar over your site without fixing the underlying markup, and regulators and disability advocates consider them inadequate. Tazeen Store Accessibility Kit for WooCommerce reports real issues in your pages and — only when you enable a fix — corrects the actual markup.
+No. Overlay widgets layer a toolbar over your site without fixing the underlying markup, and regulators and disability advocates consider them inadequate. Store Accessibility Kit for WooCommerce reports real issues in your pages and — only when you enable a fix — corrects the actual markup.
 
 = Do I need WooCommerce? =
 
@@ -99,9 +108,21 @@ Every theme is different, and we never change your store's front end without you
 
 Most fixes are invisible (alt text, screen-reader labels, accessible names). "Visible focus states" is the exception by design: it shows a high-contrast outline around the element currently focused via keyboard — this is exactly what WCAG asks for.
 
-= A scan reports issues that come from my theme or another plugin. Can Tazeen Store Accessibility Kit for WooCommerce fix those? =
+= A scan reports issues that come from my theme or another plugin. Can Store Accessibility Kit for WooCommerce fix those? =
 
 The scanner reports everything it detects on the rendered page, whatever the source. The six included fixes target the most common WooCommerce storefront issues. Issues originating in a theme or another plugin may need to be fixed there — the scan's per-issue guidance tells you what to change.
+
+= Does this work with any WooCommerce theme? =
+
+Yes. The scanner runs against the rendered HTML of whatever theme you use, so it works with Storefront, Astra, or any other WooCommerce-compatible theme. The six optional fixes target markup patterns common across most storefront themes; if a fix doesn't apply cleanly to your theme, simply leave it off.
+
+= What does an accessibility scan actually check? =
+
+Each scan runs the bundled axe-core engine against the page you choose and checks it against WCAG 2.1 A/AA success criteria — things like color contrast, missing alt text, form labels, link names, and ARIA usage. Results are grouped by severity (Critical, Serious, Moderate, Minor) with the specific element, rule, and fix guidance for each one.
+
+= Is this plugin free? =
+
+Yes, the WordPress.org version is completely free, makes no external calls, and has no account or sign-up requirement.
 
 == Screenshots ==
 
@@ -111,6 +132,11 @@ The scanner reports everything it detects on the rendered page, whatever the sou
 4. Dashboard widget with the last scan summary by severity.
 
 == Changelog ==
+
+= 1.0.5 =
+* Simplified the display name to "Store Accessibility Kit for WooCommerce" (dropped "Tazeen" from the plugin header, readme, admin UI, and banners). The plugin slug/text domain (`tazeen-store-accessibility-kit-for-woocommerce`) is unchanged — it's required by WordPress.org and stays as-is; if you activated a prior version, no action is needed.
+* Refreshed the WordPress.org banner and header artwork to match the current plugin name (was still showing the pre-rename "Accessi Compliance Kit" branding).
+* Rewrote the readme for better search visibility: sharper short description, more relevant tags, a "why choose this plugin" summary, and more FAQ coverage.
 
 = 1.0.4 =
 * Updated the plugin display name to "Tazeen Store Accessibility Kit for WooCommerce" in the plugin header, readme, and documentation.
@@ -134,6 +160,9 @@ The scanner reports everything it detects on the rendered page, whatever the sou
 * Dashboard widget, admin-bar scan shortcut, critical-issue admin-bar notice, opt-in weekly email reminder.
 
 == Upgrade Notice ==
+
+= 1.0.5 =
+Display name simplified to "Store Accessibility Kit for WooCommerce"; refreshed listing artwork and readme. No functional changes, no action needed.
 
 = 1.0.4 =
 Plugin display name updated to Tazeen Store Accessibility Kit for WooCommerce; no action needed.
