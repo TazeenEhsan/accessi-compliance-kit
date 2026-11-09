@@ -99,7 +99,7 @@ The European Accessibility Act has applied to online shops selling to EU consume
 So I built and just released a free alternative on WordPress.org: **Accessibility Compliance Kit for WooCommerce**.
 
 ▸ Scans store pages against WCAG 2.1 A/AA using axe-core — bundled locally, so scan data never leaves the merchant's server
-▸ Fixes six of the most common WooCommerce accessibility issues (checkout field labels, missing alt text, icon-only buttons, screen-reader price announcements…) — each fix opt-in, off by default
+▸ Fixes nine of the most common WooCommerce accessibility issues (checkout field labels, missing alt text, icon-only buttons, screen-reader price announcements…) — each fix opt-in, off by default
 ▸ Generates the accessibility statement page the EAA expects, as an editable draft
 ▸ No overlay, no account, no telemetry — and no false "compliance guaranteed" claims, because automated tools detect only a subset of WCAG issues
 

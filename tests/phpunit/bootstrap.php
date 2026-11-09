@@ -14,6 +14,10 @@ if ( ! defined( 'ARRAY_A' ) ) {
 	define( 'ARRAY_A', 'ARRAY_A' );
 }
 
+if ( ! defined( 'DAY_IN_SECONDS' ) ) {
+	define( 'DAY_IN_SECONDS', 24 * 60 * 60 );
+}
+
 if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
 	define( 'WEEK_IN_SECONDS', 7 * 24 * 60 * 60 );
 }

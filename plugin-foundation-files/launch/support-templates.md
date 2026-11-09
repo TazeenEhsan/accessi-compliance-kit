@@ -41,7 +41,7 @@ The EAA (enforceable since June 28, 2025) generally covers online shops selling 
 
 ## T6 — Feature request (Pro-scope: crawler, PDF, scheduling)
 
-Great suggestion — full-site crawling / scheduled scans / PDF reports are on the roadmap for the planned Pro tier. I've noted your +1. The free version will always keep the single-page scanner, the six fixes, and the statement generator.
+Great suggestion — full-site crawling / scheduled scans / PDF reports are on the roadmap for the planned Pro tier. I've noted your +1. The free version will always keep the single-page scanner, the nine fixes, and the statement generator.
 
 ## T7 — Feature request (out of scope: overlay/widget, AI content, legal scoring)
 

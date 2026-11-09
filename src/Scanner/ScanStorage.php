@@ -169,6 +169,55 @@ class ScanStorage {
 	}
 
 	/**
+	 * Count scans that finished successfully.
+	 *
+	 * @return int
+	 */
+	public function count_completed_scans() {
+		global $wpdb;
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- this is the sole gateway to the plugin's custom table (AI_RULES §6); no core API exists for a bespoke table.
+		$count = $wpdb->get_var(
+			$wpdb->prepare(
+				'SELECT COUNT(*) FROM %i WHERE status = %s',
+				$this->table(),
+				self::STATUS_COMPLETE
+			)
+		);
+
+		return (int) $count;
+	}
+
+	/**
+	 * Fetch scan rows for CSV export, newest first. Leaves out the (large)
+	 * violations payload; only the severity summary is hydrated.
+	 *
+	 * @param int $limit  Maximum number of rows to return.
+	 * @param int $offset Row offset.
+	 * @return array[] Rows with a decoded `summary` array.
+	 */
+	public function get_scans_for_export( $limit, $offset = 0 ) {
+		global $wpdb;
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- this is the sole gateway to the plugin's custom table (AI_RULES §6); no core API exists for a bespoke table.
+		$rows = $wpdb->get_results(
+			$wpdb->prepare(
+				'SELECT id, scan_type, url, started_at, completed_at, status, summary_json, triggered_by FROM %i ORDER BY started_at DESC, id DESC LIMIT %d OFFSET %d',
+				$this->table(),
+				$limit,
+				$offset
+			),
+			ARRAY_A
+		);
+
+		if ( ! $rows ) {
+			return array();
+		}
+
+		return array_map( array( $this, 'hydrate_row' ), $rows );
+	}
+
+	/**
 	 * Fetch the most recently completed/attempted scan (used by the dashboard widget).
 	 *
 	 * @return array|null Hydrated scan row, or null when no scan has run yet.

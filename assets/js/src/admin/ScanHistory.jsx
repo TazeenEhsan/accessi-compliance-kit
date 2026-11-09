@@ -120,6 +120,11 @@ export default function ScanHistory( { settings } ) {
 				</table>
 			) }
 			<div className="tazeen-store-accessibility-kit-for-woocommerce-history-pagination">
+				{ settings.exportUrl && (
+					<Button variant="secondary" href={ settings.exportUrl } icon="download">
+						{ __( 'Export CSV', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
+					</Button>
+				) }
 				<Button variant="secondary" disabled={ page <= 1 || isLoadingList } onClick={ () => loadPage( page - 1 ) }>
 					{ __( 'Previous', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 				</Button>

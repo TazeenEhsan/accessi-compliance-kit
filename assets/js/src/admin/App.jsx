@@ -10,6 +10,8 @@ import ScanResults from './ScanResults';
 import ScanHistory from './ScanHistory';
 import Settings from './Settings';
 import Dashboard from './Dashboard';
+import AltTextAudit from './AltTextAudit';
+import ReviewPrompt from './ReviewPrompt';
 import { ajaxRequest } from './utils/ajax';
 
 const settings = window.accessibilityComplianceKitForWooCommerceAdmin || {};
@@ -18,6 +20,7 @@ const TABS = [
 	{ name: 'dashboard', title: __( 'Dashboard', 'tazeen-store-accessibility-kit-for-woocommerce' ), className: 'tazeen-store-accessibility-kit-for-woocommerce-tab-dashboard' },
 	{ name: 'scan', title: __( 'Scan', 'tazeen-store-accessibility-kit-for-woocommerce' ), className: 'tazeen-store-accessibility-kit-for-woocommerce-tab-scan' },
 	{ name: 'history', title: __( 'History', 'tazeen-store-accessibility-kit-for-woocommerce' ), className: 'tazeen-store-accessibility-kit-for-woocommerce-tab-history' },
+	{ name: 'alt', title: __( 'Alt text', 'tazeen-store-accessibility-kit-for-woocommerce' ), className: 'tazeen-store-accessibility-kit-for-woocommerce-tab-alt' },
 	{ name: 'settings', title: __( 'Settings', 'tazeen-store-accessibility-kit-for-woocommerce' ), className: 'tazeen-store-accessibility-kit-for-woocommerce-tab-settings' },
 ];
 
@@ -63,6 +66,7 @@ export default function App() {
 					</Button>
 				) }
 			</div>
+			<ReviewPrompt settings={ settings } />
 			<TabPanel tabs={ TABS }>
 				{ ( tab ) => {
 					if ( 'dashboard' === tab.name ) {
@@ -71,6 +75,10 @@ export default function App() {
 
 					if ( 'history' === tab.name ) {
 						return <ScanHistory settings={ settings } />;
+					}
+
+					if ( 'alt' === tab.name ) {
+						return <AltTextAudit settings={ settings } />;
 					}
 
 					if ( 'settings' === tab.name ) {

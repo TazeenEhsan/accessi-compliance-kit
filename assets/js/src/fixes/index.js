@@ -1,8 +1,8 @@
 /**
- * Shared front-end auto-fix bundle for IconButtonAriaFix and EmptyLinkAnchorFix
- * (docs/frontend.md §4.4, §4.6). Dependency-free, a few KB, enqueued only when
- * one of those two fixes is enabled. Repairs real markup by adding missing
- * accessible names — never hides anything (proposal §4.3).
+ * Shared front-end auto-fix bundle for IconButtonAriaFix, EmptyLinkAnchorFix,
+ * SkipLinkFix and PositiveTabindexFix (docs/frontend.md §4.4, §4.6).
+ * Dependency-free, a few KB, enqueued only when one of those fixes is enabled.
+ * Repairs real markup — never hides anything (proposal §4.3).
  */
 
 const ICON_BUTTON_SELECTORS = [
@@ -79,6 +79,111 @@ function fixEmptyAnchors( fallbackText ) {
 	} );
 }
 
+const MAIN_SELECTORS = '#main, #content, #primary, main, [role="main"]';
+
+/**
+ * Whether the page already exposes a skip link of its own: an in-page
+ * "skip ..." anchor among the first few links of the document.
+ *
+ * @param {Element} ownLink Our own (hidden) skip link, ignored here.
+ * @return {boolean}
+ */
+function themeHasSkipLink( ownLink ) {
+	const links = Array.from( document.querySelectorAll( 'a[href^="#"]' ) )
+		.filter( ( a ) => a !== ownLink )
+		.slice( 0, 5 );
+
+	return links.some( ( a ) => {
+		const target = a.getAttribute( 'href' );
+		const text = ( a.textContent || '' ).toLowerCase();
+
+		return target.length > 1 && /\bskip\b/.test( text );
+	} );
+}
+
+/**
+ * Reveal the server-rendered skip link only when a main landmark exists and
+ * the theme has no skip link of its own; otherwise remove it. The target is
+ * made programmatically focusable so focus actually moves there.
+ *
+ * @param {string} linkId ID of the server-rendered link.
+ */
+function setupSkipLink( linkId ) {
+	const link = document.getElementById( linkId );
+
+	if ( ! link ) {
+		return;
+	}
+
+	const target = document.querySelector( MAIN_SELECTORS );
+
+	if ( ! target || themeHasSkipLink( link ) ) {
+		link.remove();
+		return;
+	}
+
+	if ( ! target.id ) {
+		target.id = linkId + '-target';
+	}
+
+	if ( ! target.hasAttribute( 'tabindex' ) ) {
+		target.setAttribute( 'tabindex', '-1' );
+	}
+
+	link.setAttribute( 'href', '#' + target.id );
+	link.hidden = false;
+}
+
+/**
+ * Reset a single element's positive tabindex to 0, remembering the original.
+ *
+ * @param {Element} el Element to check.
+ */
+function resetTabindex( el ) {
+	const value = parseInt( el.getAttribute( 'tabindex' ), 10 );
+
+	if ( value > 0 ) {
+		el.setAttribute( 'data-tsakw-original-tabindex', String( value ) );
+		el.setAttribute( 'tabindex', '0' );
+	}
+}
+
+/**
+ * Reset positive tabindex values now and on later DOM changes (menus, quick
+ * views and other scripts often add them after load).
+ */
+function fixPositiveTabindex() {
+	const scan = ( root ) => {
+		if ( root.nodeType !== 1 ) {
+			return;
+		}
+
+		resetTabindex( root );
+		root.querySelectorAll( '[tabindex]' ).forEach( resetTabindex );
+	};
+
+	scan( document.documentElement );
+
+	if ( 'function' !== typeof window.MutationObserver ) {
+		return;
+	}
+
+	new window.MutationObserver( ( mutations ) => {
+		mutations.forEach( ( mutation ) => {
+			if ( 'attributes' === mutation.type ) {
+				resetTabindex( mutation.target );
+			} else {
+				mutation.addedNodes.forEach( scan );
+			}
+		} );
+	} ).observe( document.documentElement, {
+		subtree: true,
+		childList: true,
+		attributes: true,
+		attributeFilter: [ 'tabindex' ],
+	} );
+}
+
 function run() {
 	const iconButtonAria = window.accessibilityComplianceKitForWooCommerceIconButtonAria;
 	const emptyLinkAnchor = window.accessibilityComplianceKitForWooCommerceEmptyLinkAnchor;
@@ -89,6 +194,17 @@ function run() {
 
 	if ( emptyLinkAnchor && emptyLinkAnchor.enabled ) {
 		fixEmptyAnchors( emptyLinkAnchor.fallbackText );
+	}
+
+	const skipLink = window.accessibilityComplianceKitForWooCommerceSkipLink;
+	const positiveTabindex = window.accessibilityComplianceKitForWooCommercePositiveTabindex;
+
+	if ( skipLink && skipLink.enabled ) {
+		setupSkipLink( skipLink.linkId );
+	}
+
+	if ( positiveTabindex && positiveTabindex.enabled ) {
+		fixPositiveTabindex();
 	}
 }
 

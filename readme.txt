@@ -1,24 +1,24 @@
 === Store Accessibility Kit for WooCommerce ===
 Contributors: tazeenehsan
-Tags: accessibility, woocommerce, wcag, ada, eaa
+Tags: accessibility, woocommerce, wcag, ada, a11y
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.5
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-WooCommerce accessibility checker and WCAG 2.1 AA scanner — detect issues, apply one-click fixes, and generate an EAA/ADA-ready accessibility statement.
+WooCommerce accessibility scanner and fixes for WCAG 2.1 AA, EAA and ADA. No overlay, no account, no external calls. Runs on your server.
 
 == Description ==
 
 **Store Accessibility Kit for WooCommerce** is the WooCommerce accessibility plugin for store owners who need to meet WCAG 2.1 AA — the standard referenced by the European Accessibility Act (EAA) and the ADA — without installing an overlay widget, signing up for an external service, or letting any data leave their site.
 
-Run a free accessibility scan of your shop, product, and checkout pages in one click, see exactly which WCAG rules fail and why, fix the most common WooCommerce issues with a single toggle, and publish an accessibility statement — all from one screen under **WooCommerce → Accessibility**.
+Run a free accessibility scan of your shop, product, and checkout pages in one click, see exactly which WCAG rules fail and why, fix common issues with a single toggle, find and fill missing product image alt text, export your scan history to CSV, and publish an accessibility statement — all from one screen under **WooCommerce → Accessibility**.
 
 = Why store owners choose this plugin =
 
-* **Built for WooCommerce**, not a generic site-wide scanner — checks product pages, cart, and checkout against the rules that actually break WooCommerce storefronts
+* **Built for WooCommerce**, not a generic site-wide scanner — scan your shop, product, cart, and checkout pages, with WooCommerce-specific fixes (product image alt text, checkout field labels, price announcements, icon-only cart/search/wishlist buttons)
 * **Real fixes, not a toolbar.** Overlay widgets hide problems behind a floating menu; this plugin edits the underlying markup, and only the fixes you turn on
 * **No account, no external calls, no recurring fee.** The free version runs 100% on your own server
 * **EAA- and ADA-aware**, with a statement generator built around what regulators actually ask for
@@ -37,7 +37,7 @@ Store Accessibility Kit for WooCommerce gives you a practical, honest starting p
 
 1. **Scan** — open any front-end page of your store (home, shop, a product page, cart, checkout) and run a scan, either from the Scan tab or the "Scan this page" admin-bar button. The scan runs axe-core in your own browser against that one page; nothing is crawled site-wide and nothing is uploaded anywhere.
 2. **Review** — results are grouped by severity (Critical, Serious, Moderate, Minor). Each violation lists the WCAG rule, the exact element and CSS selector, a plain-English reason it failed, and how to fix it.
-3. **Fix** — turn on the specific toggle(s) under Settings that address what you found (all start OFF), or hand the per-issue guidance to a developer/theme author for anything outside the six built-in fixes.
+3. **Fix** — turn on the specific toggle(s) under Settings that address what you found (all start OFF), or hand the per-issue guidance to a developer/theme author for anything outside the nine built-in fixes.
 4. **Document** — generate the Accessibility Statement page once you've made real progress, so visitors and regulators can see what you support and how to reach you about gaps.
 
 = Scanning =
@@ -48,8 +48,9 @@ Store Accessibility Kit for WooCommerce gives you a practical, honest starting p
 * Every detected issue shows the rule name, the affected element (CSS selector), why it was flagged, and how to fix it
 * Scan by URL, or jump straight from any front-end page via the "Scan this page" admin-bar button
 * Scan history saved locally so you can track progress over time
+* **Export scan history to CSV** — dates, URLs, status, and severity counts, ready for a spreadsheet or a compliance file (administrators only)
 
-= Optional fixes (each one individually toggleable, all OFF by default) =
+= Nine optional fixes (each one individually toggleable, all OFF by default) =
 
 * **Product image alt text** — fills in missing alt text on product images using the product title. (WCAG 1.1.1 Non-text Content: screen readers announce "image" with no alt text, so shoppers using one have no idea what the product photo shows.)
 * **Checkout field labels** — adds a screen-reader label to checkout fields that only show a placeholder. (WCAG 1.3.1 / 4.1.2: a placeholder disappears the moment you type, and most screen readers don't treat it as a label at all.)
@@ -57,8 +58,19 @@ Store Accessibility Kit for WooCommerce gives you a practical, honest starting p
 * **Icon button labels** — adds accessible names to icon-only cart, search, and wishlist controls. (WCAG 4.1.2 Name, Role, Value: a magnifying-glass icon with no text means a screen reader just announces "button," with no clue what it does.)
 * **Screen reader price label** — announces "Price:" before prices so screen readers read them correctly. (Prevents a price like "$49.00" being announced as a bare, out-of-context number.)
 * **Empty link names** — gives accessible names to empty links, such as product image links. (WCAG 2.4.4 Link Purpose: a linked product thumbnail with no text is announced as "link," not as what it links to.)
+* **Skip to main content link** — adds a link that appears when a keyboard user presses Tab, jumping past the header and menu to the main content. It is added only when your theme has a main content area and no skip link of its own. Needs a theme that calls `wp_body_open()`. (WCAG 2.4.1 Bypass Blocks.)
+* **Allow pinch-zoom** — removes `user-scalable=no` and `maximum-scale` values below 2 from the viewport meta tag, so visitors with low vision can zoom on mobile. Only affects a viewport tag printed through `wp_head`. (WCAG 1.4.4 Resize Text.)
+* **Reset positive tabindex** — changes `tabindex` values above 0 to 0 so keyboard focus follows the natural page order instead of a hard-coded one. The original value is kept in a `data-` attribute. (WCAG 2.4.3 Focus Order.)
 
 Nothing is changed on your store until you explicitly switch a fix on. Every fix can be turned off again at any time, and turning a fix off immediately stops it from altering output — no residual markup is left behind.
+
+= Product image alt text audit =
+
+The **Alt text** tab lists published products whose featured image has no alt text (20 per page, efficient single query). One button — **Fill missing alt text from product title** — asks for confirmation, then saves each product's title as the alt text of its empty featured image (up to 200 images per click; click again to continue). It only fills empty alt text and never overwrites text you or a developer already wrote. A product title is a starting point, not always the best description, so review the list first. Unlike the "Product image alt text" fix (which adjusts the page output only while switched on), this saves the alt text on the image itself.
+
+= Export scan history to CSV =
+
+The **History** tab has an **Export CSV** button (administrators only, protected by a nonce). The file contains scan date, URL, status, and counts of Critical/Serious/Moderate/Minor issues for up to your 5,000 most recent scans, and is built on your server. It does not include the element-level details, and spreadsheet formula characters are neutralised.
 
 = Accessibility statement =
 
@@ -74,7 +86,7 @@ A searchable **User Guide** page ships inside the plugin (**WooCommerce → Acce
 = Admin dashboard =
 
 * Dashboard widget summarizing your last scan: date and detected-issue counts by severity
-* Full admin page under **WooCommerce → Accessibility**, with Scan, Settings, and User Guide tabs
+* Full admin page under **WooCommerce → Accessibility**, with Dashboard, Scan, History, Alt text, and Settings tabs, plus a User Guide page
 * Admin-bar notice when the last scan detected critical issues
 * Optional (opt-in) weekly email reminder to run a scan
 * Scan history is kept so you can see whether a page's issue count is trending down over time
@@ -136,6 +148,38 @@ No. The scanner (axe-core) is bundled inside the plugin and runs in your own bro
 
 No. Overlay widgets layer a toolbar over your site without fixing the underlying markup, and regulators and disability advocates consider them inadequate. Store Accessibility Kit for WooCommerce reports real issues in your pages and — only when you enable a fix — corrects the actual markup.
 
+= Does it make my WooCommerce store ADA compliant? =
+
+No plugin can promise that. The ADA does not name a technical standard, but courts and demand letters in practice point to WCAG 2.1 Level AA. This plugin helps you find many WCAG 2.1 A/AA problems, fix several common ones, and document your progress — but automated checks only catch part of what a full audit covers, so manual testing is still needed. Nothing here is legal advice.
+
+= Does it help with the European Accessibility Act (EAA)? =
+
+It helps you work toward it. The EAA, enforceable since June 28, 2025, points to the WCAG 2.1 AA-based standard EN 301 549 for online shops selling to EU consumers. This plugin scans for WCAG 2.1 A/AA issues, applies opt-in fixes, and generates a draft accessibility statement. It cannot certify that your store meets the EAA, and micro-enterprises are exempt in many cases — ask a legal professional about your situation.
+
+= Does it work with block themes, Elementor, and other page builders? =
+
+The scanner checks the final HTML a page produces, so it can scan pages from any theme or builder, including block themes and Elementor. Fixes that print markup rely on standard WordPress hooks: the skip link needs a theme that calls `wp_body_open()` (all block themes do), and the pinch-zoom fix only sees a viewport tag printed through `wp_head`. We have not tested every theme and builder, so turn fixes on one at a time and check your pages.
+
+= Will the skip link duplicate the one in my theme? =
+
+No. The link is added hidden, and is shown only if the page has a main content area and no skip link of its own already exists. If your theme has one, the plugin's link removes itself.
+
+= Does the product image alt text audit overwrite existing alt text? =
+
+Never. It only fills alt text that is empty, after you confirm. It uses the product title, which you can edit afterwards in the Media Library or on the product.
+
+= Do I need to create an account or pay for anything? =
+
+No. There is no account, no license key, and no paid tier. The plugin makes no external requests; the only link that leaves your site is the optional "Leave a review" button, which you click yourself.
+
+= Does it add a widget or toolbar to my site? =
+
+No. There is no floating accessibility button, toolbar, or visitor-facing widget. The only visitor-facing changes are the opt-in fixes, and the only one with a visible element is the skip link, which appears on keyboard focus.
+
+= Can I export my scan results? =
+
+Yes. Open the History tab and use **Export CSV** to download your scan history (date, URL, status, and issue counts per severity).
+
 = Do I need WooCommerce? =
 
 Yes. The plugin is built specifically for WooCommerce stores and requires WooCommerce 8.0 or newer to be active.
@@ -150,11 +194,11 @@ Most fixes are invisible (alt text, screen-reader labels, accessible names). "Vi
 
 = A scan reports issues that come from my theme or another plugin. Can Store Accessibility Kit for WooCommerce fix those? =
 
-The scanner reports everything it detects on the rendered page, whatever the source. The six included fixes target the most common WooCommerce storefront issues. Issues originating in a theme or another plugin may need to be fixed there — the scan's per-issue guidance tells you what to change.
+The scanner reports everything it detects on the rendered page, whatever the source. The nine included fixes target common WooCommerce storefront issues. Issues originating in a theme or another plugin may need to be fixed there — the scan's per-issue guidance tells you what to change.
 
 = Does this work with any WooCommerce theme? =
 
-Yes. The scanner runs against the rendered HTML of whatever theme you use, so it works with Storefront, Astra, or any other WooCommerce-compatible theme. The six optional fixes target markup patterns common across most storefront themes; if a fix doesn't apply cleanly to your theme, simply leave it off.
+Yes. The scanner runs against the rendered HTML of whatever theme you use, so it works with Storefront, Astra, or any other WooCommerce-compatible theme. The nine optional fixes target markup patterns common across most storefront themes; if a fix doesn't apply cleanly to your theme, simply leave it off.
 
 = What does an accessibility scan actually check? =
 
@@ -182,7 +226,7 @@ Yes. Scan history is saved locally, and the dashboard widget shows your last sca
 
 = Is there a premium or Pro version? =
 
-No. Everything described here — scanning, all six fixes, the statement generator, and the dashboard — is included in the free WordPress.org version.
+No. Everything described here — scanning, all nine fixes, the alt text audit, CSV export, the statement generator, and the dashboard — is included in the free WordPress.org version.
 
 = Where can I get help or report a bug? =
 
@@ -196,6 +240,16 @@ Use the [WordPress.org support forum](https://wordpress.org/support/plugin/tazee
 4. Dashboard widget with the last scan summary by severity.
 
 == Changelog ==
+
+= 1.1.0 =
+* New fix: **Skip to main content link** (WCAG 2.4.1) — hidden until keyboard focus, never duplicates a theme's own skip link. Off by default.
+* New fix: **Allow pinch-zoom** (WCAG 1.4.4) — removes `user-scalable=no` and `maximum-scale` below 2 from the viewport meta tag. Off by default.
+* New fix: **Reset positive tabindex** (WCAG 2.4.3) — resets `tabindex` above 0 to 0, keeping the original in a data attribute. Off by default.
+* New: **Alt text** tab lists published products with a featured image that has no alt text, with one confirmed action to fill empty alt text from the product title. Never overwrites existing alt text.
+* New: **Export CSV** button in the History tab (administrators only, nonce-protected, spreadsheet-formula safe).
+* New: a single dismissible "leave a review" prompt on the plugin page, shown after three completed scans. "Maybe later" snoozes it for 30 days, "Already did" hides it permanently.
+* The plugin now has nine fixes; the User Guide, Settings, and readme describe all of them. New fixes are not enabled for existing sites.
+* Rewrote the readme short description, tags, and FAQ.
 
 = 1.0.5 =
 * Simplified the display name to "Store Accessibility Kit for WooCommerce" (dropped "Tazeen" from the plugin header, readme, admin UI, and banners). The plugin slug/text domain (`tazeen-store-accessibility-kit-for-woocommerce`) is unchanged — it's required by WordPress.org and stays as-is; if you activated a prior version, no action is needed.
@@ -224,6 +278,9 @@ Use the [WordPress.org support forum](https://wordpress.org/support/plugin/tazee
 * Dashboard widget, admin-bar scan shortcut, critical-issue admin-bar notice, opt-in weekly email reminder.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Adds three opt-in fixes (skip link, pinch-zoom, positive tabindex), a product image alt text audit, CSV export of scan history, and a one-time review prompt. New fixes are off by default; nothing changes on your store until you enable them.
 
 = 1.0.5 =
 Display name simplified to "Store Accessibility Kit for WooCommerce"; refreshed listing artwork and readme. No functional changes, no action needed.

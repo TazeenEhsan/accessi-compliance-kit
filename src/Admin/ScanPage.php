@@ -12,7 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use AccessibilityComplianceKitForWooCommerce\Fixes\FixManager;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ScanExporter;
 use AccessibilityComplianceKitForWooCommerce\Scanner\ScannerAssets;
+use AccessibilityComplianceKitForWooCommerce\Scanner\ScanStorage;
 use AccessibilityComplianceKitForWooCommerce\Utils\Options;
 
 /**
@@ -80,6 +82,8 @@ class ScanPage {
 			'guideUrl'       => admin_url( 'admin.php?page=' . GuidePage::MENU_SLUG ),
 			'homeUrl'        => home_url( '/' ),
 			'scannerToken'   => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_scan_handshake' ),
+			'exportUrl'      => ScanExporter::download_url(),
+			'reviewPrompt'   => ( new ReviewPrompt( new ScanStorage() ) )->localized_data(),
 			'prefillUrl'     => $this->prefill_url(),
 			'lastScanId'     => Options::get_last_scan_id(),
 			'scanQueryVar'   => ScannerAssets::QUERY_VAR,
@@ -89,6 +93,9 @@ class ScanPage {
 				'getScans'          => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_get_scans' ),
 				'saveSettings'      => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_save_settings' ),
 				'generateStatement' => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_generate_statement' ),
+				'getAltAudit'       => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_get_alt_audit' ),
+				'fillAlt'           => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_fill_alt' ),
+				'reviewPrompt'      => wp_create_nonce( 'accessibility_compliance_kit_for_woocommerce_review_prompt' ),
 			),
 			'severityLabels' => array(
 				'critical' => __( 'Critical', 'tazeen-store-accessibility-kit-for-woocommerce' ),

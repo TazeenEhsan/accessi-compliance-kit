@@ -23,6 +23,9 @@ class Options {
 	const LAST_SCAN_ID = 'accessibility_compliance_kit_for_woocommerce_last_scan_id';
 	const DB_VERSION   = 'accessibility_compliance_kit_for_woocommerce_db_version';
 
+	// Per-user meta key (not a site option): review prompt snooze/dismiss state.
+	const REVIEW_PROMPT_META = 'accessibility_compliance_kit_for_woocommerce_review_prompt';
+
 	/**
 	 * Get the plugin settings array.
 	 *
@@ -116,6 +119,28 @@ class Options {
 	 */
 	public static function update_db_version( $version ) {
 		return update_option( self::DB_VERSION, $version );
+	}
+
+	/**
+	 * Get a user's review-prompt state: `done` (never ask again), a Unix
+	 * timestamp the prompt is snoozed until, or an empty string (not answered).
+	 *
+	 * @param int $user_id User ID.
+	 * @return string
+	 */
+	public static function get_review_prompt_state( $user_id ) {
+		return (string) get_user_meta( absint( $user_id ), self::REVIEW_PROMPT_META, true );
+	}
+
+	/**
+	 * Store a user's review-prompt state.
+	 *
+	 * @param int        $user_id User ID.
+	 * @param string|int $state   `done` or a Unix timestamp to snooze until.
+	 * @return bool
+	 */
+	public static function update_review_prompt_state( $user_id, $state ) {
+		return (bool) update_user_meta( absint( $user_id ), self::REVIEW_PROMPT_META, (string) $state );
 	}
 
 	/**

@@ -26,17 +26,17 @@ No. Overlays add a floating toolbar and scripts that mask problems without fixin
 
 Yes — the plugin targets WooCommerce stores specifically. Requirements: WordPress 6.5+, WooCommerce 8.0+, PHP 7.4+.
 
-### Why are all six fixes off by default?
+### Why are all nine fixes off by default?
 
 Because every theme is different and we never alter your store without explicit opt-in. Recommended flow: run a scan, enable one fix, spot-check your store, repeat. Each fix switches off just as instantly.
 
 ### Will the fixes slow down my store?
 
-No meaningful impact. Five fixes are PHP filters that adjust markup as it's generated; two ship a small CSS/JS file loaded only while the fix is enabled. There are no external requests and no background processing on the front end.
+No meaningful impact. Most fixes are PHP filters that adjust markup as it's generated; the rest ship a small CSS/JS file loaded only while the fix is enabled. There are no external requests and no background processing on the front end.
 
 ### Will the fixes change my store's design?
 
-Only "Visible focus states" has any visual effect, and only when an element is focused with the keyboard — a high-contrast outline, which is precisely what WCAG 2.1 requires. Everything else is invisible assistive markup.
+Only two fixes have a visual effect, and only for keyboard users: "Visible focus states" draws a high-contrast outline on the focused element (what WCAG 2.1 requires), and "Skip to main content link" shows a link when it is focused. Everything else is invisible assistive markup.
 
 ### Can it fix issues caused by my theme or another plugin?
 

@@ -113,7 +113,7 @@ class FixManagerTest extends TestCase {
 		$this->assertSame( array( 'existing' ), $classes );
 	}
 
-	public function test_fix_ids_lists_all_six_free_fixes() {
+	public function test_fix_ids_lists_all_nine_free_fixes() {
 		$this->assertSame(
 			array(
 				'product_image_alt',
@@ -122,6 +122,9 @@ class FixManagerTest extends TestCase {
 				'icon_button_aria',
 				'price_screen_reader',
 				'empty_link_anchor',
+				'skip_link',
+				'zoom_unblock',
+				'positive_tabindex',
 			),
 			FixManager::fix_ids()
 		);

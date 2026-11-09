@@ -85,7 +85,7 @@ class Plugin {
 	}
 
 	/**
-	 * Register admin services (menu, dashboard widget, settings, scan page).
+	 * Register admin services (menu, dashboard widget, settings, scan page, alt-text audit, review prompt).
 	 *
 	 * @return void
 	 */
@@ -95,18 +95,21 @@ class Plugin {
 		( new Admin\PluginLinks() )->register();
 		( new Admin\ScanPage() )->register();
 		( new Admin\SettingsPage() )->register();
+		( new Admin\AltTextAudit() )->register();
+		( new Admin\ReviewPrompt( new Scanner\ScanStorage() ) )->register();
 		( new Admin\DashboardWidget( new Scanner\ScanStorage() ) )->register();
 		( new Admin\EmailReminder() )->register();
 	}
 
 	/**
-	 * Register scanner services (AJAX handlers, front-end asset).
+	 * Register scanner services (AJAX handlers, CSV export, front-end asset).
 	 *
 	 * @return void
 	 */
 	private function register_scanner() {
 		( new Scanner\ScannerAssets( new Scanner\ScanStorage() ) )->register();
 		( new Scanner\ScanController( new Scanner\ScanStorage() ) )->register();
+		( new Scanner\ScanExporter( new Scanner\ScanStorage() ) )->register();
 	}
 
 	/**

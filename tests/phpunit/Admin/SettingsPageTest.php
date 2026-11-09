@@ -120,6 +120,9 @@ class SettingsPageTest extends TestCase {
 				'icon_button_aria'    => false,
 				'price_screen_reader' => false,
 				'empty_link_anchor'   => false,
+				'skip_link'           => false,
+				'zoom_unblock'        => false,
+				'positive_tabindex'   => false,
 			),
 			$result
 		);

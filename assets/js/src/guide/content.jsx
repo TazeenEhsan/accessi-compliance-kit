@@ -38,10 +38,18 @@ const fixItems = ( fixes, supportUrl ) => [
 		body: <p>{ fix.description }</p>,
 	} ) ),
 	{
+		title: __( 'Product image alt-text audit', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+		body: (
+			<p>
+				{ rich( __( 'The <strong>Alt text</strong> tab lists published products whose featured image has no alt text. One button fills the empty ones from the product title (up to 200 images per click, after a confirmation). Existing alt text is never overwritten. Unlike the “Product image alt text” fix, this saves the text to the image itself, so review the list first — a product title is a starting point, not always the best description.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ) }
+			</p>
+		),
+	},
+	{
 		title: __( 'Will the fixes change my design or slow my store?', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 		body: (
 			<p>
-				{ __( 'Only “Visible focus states” has any visual effect — a high-contrast outline shown when an element is focused with the keyboard, which is exactly what WCAG requires. Performance impact is negligible: most fixes are PHP filters, and the rest load one small CSS/JS file only while enabled. No external requests, ever.', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
+				{ __( 'Only two fixes have a visual effect, and only for keyboard users: “Visible focus states” draws a high-contrast outline on the focused element, and “Skip to main content link” shows a link when it is focused. Performance impact is negligible: most fixes are PHP filters, and the rest load one small CSS/JS file only while enabled. No external requests, ever.', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
 			</p>
 		),
 	},
@@ -109,7 +117,7 @@ const faqItems = () => [
 		),
 	},
 	{
-		title: __( 'Why are all six fixes off by default?', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+		title: __( 'Why are all nine fixes off by default?', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 		body: (
 			<p>
 				{ __( 'Because every theme is different and we never alter your store without explicit opt-in. Recommended flow: run a scan, enable one fix, spot-check your store, repeat. Each fix switches off just as instantly.', 'tazeen-store-accessibility-kit-for-woocommerce' ) }
@@ -205,7 +213,7 @@ export const getSections = ( { fixes = [], supportUrl = '' } ) => [
 			{
 				title: __( 'Scan history', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 				body: (
-					<p>{ rich( __( 'The <strong>History</strong> tab lists past scans (date, URL, status, per-severity counts). Click a row to reopen its full results. Results are stored in your own database and never leave your server.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ) }</p>
+					<p>{ rich( __( 'The <strong>History</strong> tab lists past scans (date, URL, status, per-severity counts). Click a row to reopen its full results, or use <strong>Export CSV</strong> to download the history (dates, URLs and severity counts) as a spreadsheet. Results are stored in your own database and never leave your server.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ) }</p>
 				),
 			},
 		],
@@ -244,7 +252,7 @@ export const getSections = ( { fixes = [], supportUrl = '' } ) => [
 	},
 	{
 		id: 'fixes',
-		title: __( 'The Six Fixes', 'tazeen-store-accessibility-kit-for-woocommerce' ),
+		title: __( 'The Nine Fixes', 'tazeen-store-accessibility-kit-for-woocommerce' ),
 		intro: rich( __( 'Enable each fix under <strong>WooCommerce → Accessibility → Settings</strong>. Each is independent, off by default, and instant to switch off again. Recommended: enable one at a time and re-check your store.', 'tazeen-store-accessibility-kit-for-woocommerce' ) ),
 		items: fixItems( fixes, supportUrl ),
 	},

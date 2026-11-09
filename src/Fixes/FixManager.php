@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Hard-coded registry of the six free fix classes (proposal §5.6). The only
+ * Hard-coded registry of the nine free fix classes (proposal §5.6). The only
  * place fixes are instantiated; loops on `init` and calls `register()` only
  * on fixes that are enabled.
  */
@@ -25,6 +25,9 @@ class FixManager {
 		IconButtonAriaFix::class,
 		PriceScreenReaderFix::class,
 		EmptyLinkAnchorFix::class,
+		SkipLinkFix::class,
+		ZoomUnblockFix::class,
+		PositiveTabindexFix::class,
 	);
 
 	/**
@@ -77,7 +80,7 @@ class FixManager {
 	}
 
 	/**
-	 * Instantiate all six free fixes.
+	 * Instantiate all nine free fixes.
 	 *
 	 * @return AbstractFix[]
 	 */

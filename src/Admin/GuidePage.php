@@ -126,7 +126,7 @@ class GuidePage {
 
 	/**
 	 * Build the fix metadata (id, label, description, contexts) the guide's
-	 * "The Six Fixes" section needs, straight from the fix registry.
+	 * "The Nine Fixes" section needs, straight from the fix registry.
 	 *
 	 * @return array
 	 */

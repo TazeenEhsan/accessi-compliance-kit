@@ -34,7 +34,7 @@ While browsing your store logged in as an admin, click **Scan this page** in the
 
 The **History** tab lists past scans (date, URL, status, per-severity counts). Click a row to reopen its full results. Results are stored in your own database and never leave your server.
 
-## 4. The six fixes
+## 4. The nine fixes
 
 Enable each fix under **WooCommerce → Accessibility → Settings**. Each is independent; enable one at a time and re-check your store. All are OFF by default.
 
@@ -46,6 +46,9 @@ Enable each fix under **WooCommerce → Accessibility → Settings**. Each is in
 | Icon button labels | Adds accessible names to icon-only cart, search, and wishlist controls | No |
 | Screen reader price label | Prepends a visually-hidden "Price:" label so screen readers announce prices correctly | No |
 | Empty link names | Gives accessible names to empty links, such as product image links | No |
+| Skip link | Adds a "Skip to main content" link that appears on keyboard focus (only if your theme has none) | Yes (on keyboard focus only) |
+| Pinch-zoom unblock | Removes `user-scalable=no` / low `maximum-scale` from the viewport meta tag so users can zoom | No |
+| Positive tabindex reset | Resets `tabindex` values above 0 so keyboard order follows the page | No |
 
 **If a fix conflicts with your theme:** switch it off (the change is removed immediately) and report the theme + fix combination in the support forum so we can improve compatibility.
 
